@@ -6,7 +6,7 @@ Enlaces con ejemplos:
 
 Arch Linux: yay -S npm nodejs
 
-## Preparación del entorno de desarollo
+## Preparación del entorno de desarrollo
 
 ### Linux y Mac:
 

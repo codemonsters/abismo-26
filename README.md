@@ -3,9 +3,8 @@
 Shooter colaborativo multijugador en línea ambientado en las profundidades del mar.
 
 El repositorio está compuesto por dos proyectos:
-* [Cliente](cliente): Juego hecho con Godot. Usa Rapier para las físicas deterministas y Netfox para la predicción y el rollback.
-* [Servidor](servidor): Hecho con Node.js. Se comunica con los servidores a través de WebSocket y almacena la información en una base de datos SQLite.
-
+* [Cliente](client): Juego hecho con Godot. Usa Rapier para las físicas deterministas y Netfox para la predicción y el rollback.
+* [Servidor](server): Hecho con Node.js. Se comunica con los clientes a través de WebSocket y almacena la información en una base de datos SQLite.
 
 ## Git
 
