@@ -43,9 +43,42 @@ Pero cada nivel está custodiado por criaturas que también luchan por sobrevivi
 
 Tema: supervivencia, dilemas morales, cambio climático.
 
+## Ideas para el héroe
+
+* Pingüino
+* Atún
+* Caballito de mar
+* Tortuga
+
+## Posibles Enemigos
+* Sardinas
+* Medusa
+* Pulpo
+* Pez espada
+* Nécora
+* Pez linterna
+* Pez drácula
+* Pez gota
+* Submarino
+* Delfín
+* Tiburón
+* Ballena
+* Morena
+* Calamar gigante
+
+## Armas
+
+* Arpón
+* Explosivos
+* Rifles
+* Ametralladoras
+* Recortada
+
 ## Ideas para Nombre del Juego
 
 In Deep (In a dangerous, vulnerable, or troublesome situation or position, especially that which could be beyond one's abilities to resolve)
+
+A Black Tail
 
 1. Tono épico y cinematográfico
 
