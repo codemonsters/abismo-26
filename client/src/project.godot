@@ -32,6 +32,10 @@ GameEvents="*res://scripts/game-events.gd"
 
 enabled=PackedStringArray("res://addons/netfox.extras/plugin.cfg", "res://addons/netfox.internals/plugin.cfg", "res://addons/netfox.noray/plugin.cfg", "res://addons/netfox/plugin.cfg")
 
+[physics]
+
+3d/physics_engine="Rapier3D"
+
 [rendering]
 
 renderer/rendering_method="gl_compatibility"
