@@ -1,0 +1,24 @@
+[gd_scene load_steps=2 format=3 uid="uid://byyxfpgnpj8ao"]
+
+[ext_resource type="PackedScene" uid="uid://ddnhy4w13aef5" path="res://screens/shared/menu_header.tscn" id="1_aomy0"]
+
+[node name="Main" type="Node2D"]
+
+[node name="Button" type="Button" parent="."]
+offset_left = 905.0
+offset_top = 539.0
+offset_right = 1117.0
+offset_bottom = 624.0
+text = "Crear partida"
+
+[node name="Main" parent="." instance=ExtResource("1_aomy0")]
+
+[node name="Label" type="Label" parent="."]
+offset_left = 441.0
+offset_top = 201.0
+offset_right = 731.0
+offset_bottom = 316.0
+text = "Partida1
+Partida 2
+etc"
+horizontal_alignment = 1
