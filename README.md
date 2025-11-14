@@ -283,3 +283,49 @@ Mensajes commit de ejemplo:
 * Corrige erratas en la guía de contribución (CONTRIBUTING.md)
 * Elimina el archivo 'user.gd' (ya no se usa)
 * Modifica '.gitignore' para que ignore la carpeta '/dist'
+
+## Diagrama de Flujo de Pantallas
+
+```mermaid
+stateDiagram
+    direction LR
+
+    [*] --> Principal
+    Principal: Menú principal
+    Offline: Jugar sin conexión
+    note left of Offline
+        Selecciona número
+        de jugadores locales
+    end note
+    Online: Jugar online
+    note left of Online
+        Jugar como anónimo,
+        identificado o crear cuenta
+    end note
+    ListaPartidasOnline: Lista de partidas online
+    CrearPartidaOnline: Crear partida online
+    SalaDeEspera: Sala de espera
+    PartidaOffline: Partida offline
+    PartidaOnline: Partida online
+
+    Principal --> Offline
+    Offline --> Principal
+    
+    Principal --> Online
+    Online --> Principal
+
+    Offline --> PartidaOffline
+    PartidaOffline --> Offline
+
+    Online --> ListaPartidasOnline
+    ListaPartidasOnline --> Online
+    ListaPartidasOnline --> SalaDeEspera
+    SalaDeEspera --> ListaPartidasOnline
+
+    ListaPartidasOnline --> CrearPartidaOnline
+    CrearPartidaOnline --> ListaPartidasOnline
+    CrearPartidaOnline --> SalaDeEspera
+
+    SalaDeEspera --> PartidaOnline
+    PartidaOnline --> SalaDeEspera
+```
