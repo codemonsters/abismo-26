@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://ck64tdyf0iw32"]
+[gd_scene load_steps=3 format=3 uid="uid://ck64tdyf0iw32"]
 
 [ext_resource type="PackedScene" uid="uid://ddnhy4w13aef5" path="res://screens/shared/menu_header.tscn" id="1_gq7rc"]
+[ext_resource type="PackedScene" uid="uid://kvqobh4tlooj" path="res://screens/shared/previous_screen.tscn" id="2_5jf7p"]
 
 [node name="Main" type="Node2D"]
 
@@ -19,3 +20,5 @@ offset_top = 100.0
 offset_right = 683.0
 offset_bottom = 160.0
 placeholder_text = "Nombre de partida"
+
+[node name="PreviousScreen" parent="." instance=ExtResource("2_5jf7p")]
