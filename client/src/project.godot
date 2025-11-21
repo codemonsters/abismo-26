@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="proyecto"
-run/main_scene="uid://b64a041ghpm44"
+run/main_scene="uid://bafg18rfmo112"
 config/features=PackedStringArray("4.5", "GL Compatibility")
 config/icon="res://icon.svg"
 
@@ -27,6 +27,7 @@ PacketHandshake="*res://addons/netfox.noray/packet-handshake.gd"
 WindowTiler="*res://addons/netfox.extras/window-tiler.gd"
 Async="*res://scripts/async.gd"
 GameEvents="*res://scripts/game-events.gd"
+Globals="*res://scripts/globals.gd"
 
 [editor_plugins]
 
