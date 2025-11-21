@@ -1,0 +1,28 @@
+[gd_scene load_steps=2 format=3 uid="uid://coqbis2skufjh"]
+
+[ext_resource type="PackedScene" uid="uid://ddnhy4w13aef5" path="res://screens/shared/menu_header.tscn" id="1_1v4wi"]
+
+[node name="Main" type="Node2D"]
+
+[node name="Button" type="Button" parent="."]
+offset_left = 140.0
+offset_top = 390.0
+offset_right = 352.0
+offset_bottom = 475.0
+text = "Jugar anónimo"
+
+[node name="Button2" type="Button" parent="."]
+offset_left = 813.0
+offset_top = 441.0
+offset_right = 1025.0
+offset_bottom = 526.0
+text = "Crear cuenta"
+
+[node name="Button3" type="Button" parent="."]
+offset_left = 475.0
+offset_top = 497.0
+offset_right = 687.0
+offset_bottom = 582.0
+text = "Identificarte"
+
+[node name="Main" parent="." instance=ExtResource("1_1v4wi")]

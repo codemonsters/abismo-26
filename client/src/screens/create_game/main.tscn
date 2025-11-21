@@ -1,0 +1,21 @@
+[gd_scene load_steps=2 format=3 uid="uid://ck64tdyf0iw32"]
+
+[ext_resource type="PackedScene" uid="uid://ddnhy4w13aef5" path="res://screens/shared/menu_header.tscn" id="1_gq7rc"]
+
+[node name="Main" type="Node2D"]
+
+[node name="Main" parent="." instance=ExtResource("1_gq7rc")]
+
+[node name="Button2" type="Button" parent="."]
+offset_left = 468.0
+offset_top = 436.0
+offset_right = 680.0
+offset_bottom = 521.0
+text = "Crear"
+
+[node name="TextEdit" type="TextEdit" parent="."]
+offset_left = 459.0
+offset_top = 100.0
+offset_right = 683.0
+offset_bottom = 160.0
+placeholder_text = "Nombre de partida"

@@ -1,0 +1,23 @@
+[gd_scene load_steps=2 format=3 uid="uid://daqffral6m5rs"]
+
+[ext_resource type="PackedScene" uid="uid://ddnhy4w13aef5" path="res://screens/shared/menu_header.tscn" id="1_43746"]
+
+[node name="Main" type="Node2D"]
+
+[node name="Button2" type="Button" parent="."]
+offset_left = 747.0
+offset_top = 496.0
+offset_right = 1030.0
+offset_bottom = 581.0
+text = "Iniciar partida (solo propietario)"
+
+[node name="Main" parent="." instance=ExtResource("1_43746")]
+
+[node name="Label" type="Label" parent="."]
+offset_left = 469.0
+offset_top = 102.0
+offset_right = 729.0
+offset_bottom = 214.0
+text = "Jugador 1
+Jugador 2
+etc"
