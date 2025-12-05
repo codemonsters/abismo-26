@@ -1,0 +1,26 @@
+[gd_scene load_steps=2 format=3 uid="uid://c0p8xpbdnghop"]
+
+[ext_resource type="Script" uid="uid://bhw4wclhma12t" path="res://screens/intro/main.gd" id="1_nmosc"]
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_nmosc")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 530.0
+offset_top = 556.0
+offset_right = 781.0
+offset_bottom = 608.0
+text = "Click or space to skip, bro"
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+autostart = true
+
+[node name="Label" type="Label" parent="Timer"]
+offset_left = 547.0
+offset_top = 102.0
+offset_right = 648.0
+offset_bottom = 148.0
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
