@@ -18,9 +18,11 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+current_tab = 0
 
 [node name="LAN" type="VBoxContainer" parent="."]
 layout_mode = 2
+metadata/_tab_index = 0
 
 [node name="Address Row" type="HBoxContainer" parent="LAN"]
 layout_mode = 2
@@ -63,6 +65,7 @@ text = "Join"
 [node name="Noray" type="VBoxContainer" parent="."]
 visible = false
 layout_mode = 2
+metadata/_tab_index = 1
 
 [node name="Noray Address Row" type="HBoxContainer" parent="Noray"]
 layout_mode = 2

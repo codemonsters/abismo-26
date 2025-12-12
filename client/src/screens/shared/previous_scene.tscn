@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://kvqobh4tlooj"]
 
-[ext_resource type="Script" uid="uid://62p0l5lt70uv" path="res://screens/shared/previous_screen.gd" id="1_lwebc"]
+[ext_resource type="Script" uid="uid://62p0l5lt70uv" path="res://screens/shared/previous_scene.gd" id="1_lwebc"]
 
 [node name="PreviousScreen" type="Node2D"]
 script = ExtResource("1_lwebc")
