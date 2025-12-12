@@ -6,81 +6,81 @@ El repositorio está compuesto por dos proyectos:
 * [Cliente](client): Juego hecho con Godot. Usa Rapier para las físicas deterministas y Netfox para la predicción y el rollback.
 * [Servidor](server): Hecho con Node.js. Se comunica con los clientes a través de WebSocket y almacena la información en una base de datos SQLite.
 
-## Ideas para el Argumento
+## Argumento Idea Provisional
 
-🧊 1. La Corriente Congelada
+0. Presentacion de la historia: 
 
-Un fenómeno extraño está enfriando el océano desde las profundidades, provocando que los glaciares se agrieten y el hogar de los pingüinos se desmorone.
-Los pingüinos descienden nivel a nivel para encontrar la fuente del frío —un antiguo artefacto polar que ha despertado en el fondo del mar— y detenerlo antes de que congele todo el planeta.
+La madre pingüina de los jugadores se fue a cazar y volvió un tiempo indeterminado después cambiada (mala). Los jugadores la encierran, cogen su pistola y buscan una explicación.
 
-Tema: aventura épica, ecología, misterio polar.
+1. Superficie 
 
-⚡ 2. La Energía del Abismo
+- Escenario: Hielo, Glaciar, Montañas a lo lejos
+- Enemigos: Foca, Conejos
+- Boss: Oso Polar
+- Recompensas: Escafandra para sumergirse
+- Final: entras en el agua por la entrada que el oso polar estaba tapando
 
-Los humanos abandonaron una estación submarina experimental que ahora libera energía tóxica y transforma a las criaturas marinas en monstruos.
-Los pingüinos, guardianes naturales del equilibrio polar, bajan al abismo para sellar los reactores y restaurar la armonía del océano.
+2. Poca Profundidad
 
-Tema: tecnología, contaminación, heroísmo animal.
+- Escenario: Agua poco profunda, cielo -> capa de hielo congelada.
+- Enemigos: Foca, medusas, sardina, delfín
+- Recompensas:
+  - Linterna
+  - Uzi: Dispara muy rapido pero tiene "poco" daño y poco cargador.
+  - Fusil: Dispara "lento" pero hace más daño y poco cargador.
+  - Arma Teledirigida: Poco daño pero siempre acierta.
+- Final: Encuentras una cueva.
 
-🐧 3. La Tribu del Hielo
+3. Cueva
 
-Una antigua profecía pingüina dice que “quien descienda al corazón del océano despertará al Guardián del Mar y traerá el equilibrio entre hielo y agua”.
-Los pingüinos guerreros deben atravesar las hordas marinas y superar pruebas en cada nivel hasta llegar al corazón del océano, donde aguarda el Guardián.
+- Escenario: Oscuro (ves todo oscuro), Cerrado, Tenebroso
+- Boss: Kraken
+- Recompensas:
+  - Arpón: Es dificil de usar porque tienes que regoger el gancho pero hace mucho daño
+  - Jetpack: Te da un dash - objeto especial (solo se puede tener uno equipado)
+  - Escudo: Te protege del 90% del daño si pulsas *insertar aquí una letra* cuando te impacta el proyectil (parri) - objeto especial
+- Final: Escapas del kraken al derrotarlo
 
-Tema: mitología, honor, naturaleza mística.
+4. Barco hundido
 
-🪸 4. Rescate en el Abismo
+- Escenario: Barco hundido (habitaciones con objetos - barriles, mesas, sillas... flotando) 
+- Enemigos: Lamprea, Sargo
+- Boss: Tiburón Martillo, Pez Espada y Tiburón Blanco (3 boses pero + débiles)
+- Recompensas:
+ - Bazooka: proyectil lento pero explota (+ rango de daño)
+ - Arma melé: mucho daño pero tienes que acercarte a los enemigos
+- Final: Vas más profundo
 
-Un grupo de pingüinos exploradores fue capturado por una reina medusa que gobierna los mares profundos.
-Sus compañeros deben descender nivel a nivel, enfrentando a sus esbirros, para liberar a los prisioneros y escapar antes de que la reina libere su enjambre hacia la superficie.
+5. Agua abisal
 
-Tema: acción y rescate, ritmo rápido, motivación emocional.
+- Escenario: Oscuro (no ves las cosas lejos de ti) 
+- Enemigos: Lamprea, pez linterna,
+- Boss: Submarino
+- Recompensas:
+ - Minigun: puedes disparar y haces daño siempre y cuando estés quieto. Tarda en cargarse y se sobrecalienta. 
+- Final: El submarino te da la clave para entrar en el laboratorio
 
-🌍 5. El Último Hielo
+6. Laboratorio
 
-El deshielo global ha hecho que los pingüinos busquen refugio en el fondo del océano, donde creen que existe un “núcleo de hielo eterno”.
-Pero cada nivel está custodiado por criaturas que también luchan por sobrevivir. No se trata solo de vencer, sino de decidir si los pingüinos podrán convivir con ellas o conquistarlas.
+- Escenario: Instalaciones poco espaciosas, todo tecnificado
+- Enemigos: Humanos en trajes de submarinista
+- Boss: Humano en un robot gigante
+- Final: Descubres lo que le pasó a tu madre (unos humanos le han puesto microchips en el cerebero y le controlaban, como el resto de peces en el océano) y tienes que hacer una elección.
 
-Tema: supervivencia, dilemas morales, cambio climático.
+7. Final
 
-## Ideas para el héroe
+Depende de lo que elijas te saldrá una imagen con un texto explicando el final:
 
-* Pingüino
-* Atún
-* Caballito de mar
-* Tortuga
+- Final humilde: decides salvar a tu madre, pero los peces vuelven a su antigua estupidez y siguen matandose los unos a los otros.
 
-## Posibles Enemigos
-* Sardinas
-* Medusa
-* Pulpo
-* Pez espada
-* Nécora
-* Pez linterna
-* Pez drácula
-* Pez gota
-* Submarino
-* Delfín
-* Tiburón
-* Ballena
-* Morena
-* Calamar gigante
+- Final noble: decides controlar todos los peces en el mar y convertirte en líder supremo. Todo el mundo está bajo tu control.
 
-## Armas
-
-* Arpón
-* Explosivos
-* Rifles
-* Ametralladoras
-* Recortada
 
 ## Ideas para Nombre del Juego
 
-In Deep (In a dangerous, vulnerable, or troublesome situation or position, especially that which could be beyond one's abilities to resolve)
+In Deep
 
 A Black Tail
-
-1. Tono épico y cinematográfico
 
 Abyss Core
 
@@ -98,10 +98,6 @@ Tides of the Frozen Core
 
 Project DeepZero
 
-Ideales si el juego tiene una historia profunda o estética tipo metroidvania o aventura narrativa.
-
-🐧 2. Tono de acción y aventura
-
 Deep Dive: Arctic Strike
 
 Penguin Protocol
@@ -118,7 +114,6 @@ Reactor Run
 
 Enfocados en dinamismo, progresión por niveles y combate contra hordas.
 
-💡 3. Tono más divertido o accesible (para público general o infantil)
 
 Pingüinos al Abismo
 
@@ -136,8 +131,6 @@ PenguMission: Deep Rescue
 
 Funcionan bien si el juego tiene estilo cartoon, humor o cooperativo.
 
-🌌 4. Tono misterioso o de ciencia ficción
-
 Below the Ice
 
 Cryo Reactor
@@ -150,15 +143,13 @@ Echo Protocol
 
 Under the Frozen Sea
 
-🇪🇸 Nombres cortos en español
-
 Abismo
 
 Profundo
 
 Inmersión
 
-Helio (juego de palabras entre “hielo” y “helium”)
+Helio
 
 Frialdad
 
@@ -168,17 +159,16 @@ Hielo
 
 Polar
 
-Abyssal (forma híbrida que suena internacional)
+Abyssal
 
 Núcleo
 
 Gélido
 
-Profundis (latinismo que suena misterioso)
+Profundis
 
-Submar (de “submarino”)
+Submar
 
-🇬🇧 Nombres cortos en inglés
 
 Abyss
 
@@ -200,13 +190,12 @@ Frozen
 
 Cryo
 
-Deepend (juego con “deep end”)
+Deepend
 
 Under
 
 Frostline
 
-⚡ 1. Compactos y con sonido moderno
 
 CryoPenguin — directo, simple y reconocible.
 
