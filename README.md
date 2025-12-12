@@ -292,33 +292,35 @@ stateDiagram
 
     [*] --> Principal
     Principal: Menú principal
-    Offline: Jugar sin conexión
-    note left of Offline
-        Selecciona número
-        de jugadores locales
+    note left of Principal
+        Jugar online u offline
     end note
-    Online: Jugar online
-    note left of Online
+    Identificación: Identificación
+    note left of Identificación
         Jugar como anónimo,
         identificado o crear cuenta
     end note
+    MenuIntro: Intro
+    OfflineIntro: Intro
     ListaPartidasOnline: Lista de partidas online
     CrearPartidaOnline: Crear partida online
     SalaDeEspera: Sala de espera
     PartidaOffline: Partida offline
     PartidaOnline: Partida online
 
-    Principal --> Offline
-    Offline --> Principal
+    Principal --> OfflineIntro
     
-    Principal --> Online
-    Online --> Principal
+    Principal --> Identificación
+    Identificación --> Principal
 
-    Offline --> PartidaOffline
-    PartidaOffline --> Offline
+    Principal --> MenuIntro
+    MenuIntro --> Principal
 
-    Online --> ListaPartidasOnline
-    ListaPartidasOnline --> Online
+    OfflineIntro --> PartidaOffline
+    PartidaOffline --> Principal
+
+    Identificación --> ListaPartidasOnline
+    ListaPartidasOnline --> Identificación
     ListaPartidasOnline --> SalaDeEspera
     SalaDeEspera --> ListaPartidasOnline
 
