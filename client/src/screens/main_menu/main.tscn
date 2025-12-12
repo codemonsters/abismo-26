@@ -27,6 +27,6 @@ wait_time = 5.0
 one_shot = true
 autostart = true
 
-[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
-[connection signal="pressed" from="Button2" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="Button" to="." method="_on_play_offline_pressed"]
+[connection signal="pressed" from="Button2" to="." method="_on_play_online_pressed"]
 [connection signal="timeout" from="TimerIntro" to="." method="_on_timer_intro_timeout"]
