@@ -16,10 +16,12 @@ func _ready():
 func _handle_connected(id: int):
 	# Spawn an avatar for us
 	_spawn(id)
+	get_parent().get_parent().camera.target = avatars[id]
 
 func _handle_host():
 	# Spawn own avatar on host machine
 	_spawn(1)
+	get_parent().get_parent().camera.target = avatars[1]
 
 func _handle_new_peer(id: int):
 	# Spawn an avatar for new player
