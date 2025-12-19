@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://dk150iayc2k0b"]
+[gd_scene load_steps=7 format=3 uid="uid://k3y73rql2u6e"]
 
 [ext_resource type="Script" uid="uid://lgmqlkuewowp" path="res://scripts/player.gd" id="1_tksy4"]
 [ext_resource type="Script" uid="uid://d350u8evihs1u" path="res://addons/netfox/rollback/rollback-synchronizer.gd" id="2_qf1b4"]
@@ -10,6 +10,7 @@
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_vogks"]
 
 [node name="Player" type="CharacterBody3D"]
+axis_lock_linear_z = true
 script = ExtResource("1_tksy4")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
