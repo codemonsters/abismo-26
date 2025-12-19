@@ -10,7 +10,7 @@
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_vogks"]
 
 [node name="Player" type="CharacterBody3D"]
-axis_lock_linear_z = true
+axis_lock_linear_x = true
 script = ExtResource("1_tksy4")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
