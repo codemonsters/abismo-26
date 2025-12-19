@@ -60,7 +60,7 @@ La madre pingüina de los jugadores se fue a cazar y volvió un tiempo indetermi
 - Boss: Submarino
 - Recompensas:
  - Minigun: puedes disparar y haces daño siempre y cuando estés quieto. Tarda en cargarse y se sobrecalienta. 
-- Final: El submarino te da la clave para entrar en el laboratorio
+- Final: El submarino te da la llave para entrar en el laboratorio
 
 6. Laboratorio
 
@@ -78,6 +78,25 @@ Depende de lo que elijas te saldrá una imagen con un texto explicando el final:
 - Final noble: decides controlar todos los peces en el mar y convertirte en líder supremo. Todo el mundo está bajo tu control.
 
 
+## Modelos por hacer
+- Foca
+- Conejos
+- Boss: Oso Polar
+  - Linterna
+  - Uzi: Dispara muy rapido pero tiene "poco" daño y poco cargador.
+  - Fusil: Dispara "lento" pero hace más daño y poco cargador.
+  - Arma Teledirigida: Poco daño pero siempre acierta.
+    - Boss: Kraken
+- Escudo
+- barriles, mesas, sillas...
+- Lamprea
+- Boss: Tiburón Martillo, Pez Espada y Tiburón Blanco
+- Bazooka
+- Martillo de goma
+- Minigun
+- Llave laboratorio
+- Humanos en trajes de submarinista
+- Boss: Humano en un robot gigante
 ## Ideas para Nombre del Juego
 
 In Deep
