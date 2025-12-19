@@ -15,7 +15,9 @@ La madre pingüina de los jugadores se fue a cazar y volvió un tiempo indetermi
 1. Superficie 
 
 - Escenario: Hielo, Glaciar, Montañas a lo lejos
-- Enemigos: Foca, Conejos
+- Enemigos:
+  - Foca
+  - Conejos
 - Boss: Oso Polar
 - Recompensas: Escafandra para sumergirse
 - Final: entras en el agua por la entrada que el oso polar estaba tapando
@@ -38,7 +40,7 @@ La madre pingüina de los jugadores se fue a cazar y volvió un tiempo indetermi
 - Recompensas:
   - Arpón: Es dificil de usar porque tienes que regoger el gancho pero hace mucho daño
   - Jetpack: Te da un dash - objeto especial (solo se puede tener uno equipado)
-  - Escudo: Te protege del 90% del daño si pulsas *insertar aquí una letra* cuando te impacta el proyectil (parri) - objeto especial
+  - Escudo: Te protege del 90% del daño si pulsas *insertar aquí una letra* cuando te impacta el proyectil (parry) - objeto especial
 - Final: Escapas del kraken al derrotarlo
 
 4. Barco hundido
@@ -48,7 +50,7 @@ La madre pingüina de los jugadores se fue a cazar y volvió un tiempo indetermi
 - Boss: Tiburón Martillo, Pez Espada y Tiburón Blanco (3 boses pero + débiles)
 - Recompensas:
  - Bazooka: proyectil lento pero explota (+ rango de daño)
- - Arma melé: mucho daño pero tienes que acercarte a los enemigos
+ - Martillo de goma: mucho daño pero tienes que acercarte a los enemigos
 - Final: Vas más profundo
 
 5. Agua abisal
@@ -71,7 +73,7 @@ La madre pingüina de los jugadores se fue a cazar y volvió un tiempo indetermi
 
 Depende de lo que elijas te saldrá una imagen con un texto explicando el final:
 
-- Final humilde: decides salvar a tu madre, pero los peces vuelven a su antigua estupidez y siguen matandose los unos a los otros.
+- Final humilde: decides salvar a tu madre, pero los peces vuelven a la normalidad y siguen matandose los unos a los otros.
 
 - Final noble: decides controlar todos los peces en el mar y convertirte en líder supremo. Todo el mundo está bajo tu control.
 
