@@ -1,4 +1,6 @@
-[gd_scene format=3 uid="uid://c8vp4p8t0yica"]
+[gd_scene load_steps=2 format=3 uid="uid://c8vp4p8t0yica"]
+
+[ext_resource type="Texture2D" uid="uid://b1v4xpvmlxn3k" path="res://icon.svg" id="1_dpqtb"]
 
 [node name="Main" type="Node2D"]
 
@@ -38,3 +40,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 1, -8)
 
 [node name="CSGCorner4" type="CSGCylinder3D" parent="CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 1, 8)
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(-0.020052444, 0, 0.99979895, 0, 1, 0, -0.99979895, 0, -0.020052444, 0, 1.2407241, 0)
+texture = ExtResource("1_dpqtb")
