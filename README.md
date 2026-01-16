@@ -92,7 +92,6 @@ Depende de lo que elijas te saldrá una imagen con un texto explicando el final:
 - Lamprea
 - Boss: Tiburón Martillo, Pez Espada y Tiburón Blanco
 - Bazooka
-- Martillo de goma
 - Minigun
 - Llave laboratorio
 - Humanos en trajes de submarinista
