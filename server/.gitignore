@@ -1,2 +1,4 @@
 database.sqlite
-
+src/node_modules
+src/package-lock.json
+src/package.json
