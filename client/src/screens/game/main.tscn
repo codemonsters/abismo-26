@@ -63,3 +63,5 @@ layout_mode = 0
 offset_right = 40.0
 offset_bottom = 23.0
 script = ExtResource("5_igrc2")
+
+[connection signal="level_passed" from="." to="." method="_on_level_passed"]
