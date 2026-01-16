@@ -77,8 +77,8 @@ Depende de lo que elijas te saldrá una imagen con un texto explicando el final:
 
 - Final noble: decides controlar todos los peces en el mar y convertirte en líder supremo. Todo el mundo está bajo tu control.
 
-
 ## Modelos por hacer
+
 - Foca
 - Conejos
 - Boss: Oso Polar
@@ -97,6 +97,7 @@ Depende de lo que elijas te saldrá una imagen con un texto explicando el final:
 - Llave laboratorio
 - Humanos en trajes de submarinista
 - Boss: Humano en un robot gigante
+
 ## Ideas para Nombre del Juego
 
 In Deep
