@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://byerp5fqi6nq6"
-path.s3tc="res://.godot/imported/pinguino_0.png-70c809831066e6decfaa0883c7c785c1.s3tc.ctex"
+uid="uid://ty7wfa8b2c52"
+path.s3tc="res://.godot/imported/pinguino2_0.png-fa8b72f888546123da37f4c2881bf74f.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -14,8 +14,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://assets/models/characters/penguin/pinguino_0.png"
-dest_files=["res://.godot/imported/pinguino_0.png-70c809831066e6decfaa0883c7c785c1.s3tc.ctex"]
+source_file="res://assets/models/characters/penguin/pinguino2_0.png"
+dest_files=["res://.godot/imported/pinguino2_0.png-fa8b72f888546123da37f4c2881bf74f.s3tc.ctex"]
 
 [params]
 
