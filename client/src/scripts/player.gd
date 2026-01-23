@@ -21,6 +21,7 @@ func _rollback_tick(delta, _tick, _is_fresh):
 	var direction = (transform.basis * Vector3(0, 0, input_dir.z)).normalized()
 	if direction:
 		velocity.z = direction.z * speed
+		$blockbench_export/AnimationPlayer.play("walk")
 	else:
 		velocity.z = move_toward(velocity.z, 0, speed)
 	
@@ -38,3 +39,5 @@ func _rollback_tick(delta, _tick, _is_fresh):
 	move_and_slide()
 	global_position.x = 0
 	velocity /= NetworkTime.physics_factor
+	
+	print($blockbench_export.position.x)
