@@ -23,6 +23,11 @@ func _rollback_tick(delta, _tick, _is_fresh):
 		velocity.z = direction.z * speed
 	else:
 		velocity.z = move_toward(velocity.z, 0, speed)
+	
+	if velocity.z < 0:
+		$blockbench_export.rotation_degrees.y = 0
+	elif velocity.z > 0:
+		$blockbench_export.rotation_degrees.y = -180
 
 	# move_and_slide assumes physics delta
 	# multiplying velocity by NetworkTime.physics_factor compensates for it
