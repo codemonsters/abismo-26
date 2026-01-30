@@ -1,4 +1,4 @@
-extends GameState
+extends "res://screens/game/states/game_state.gd"
 class_name PlayingState
 
 func enter():
