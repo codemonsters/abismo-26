@@ -8,7 +8,7 @@ func exit():
 	print("Exiting Level Loading")
 
 func process(_delta):
-	pass
+	get_parent().set_state("level_intro")
 
 func physics_process(_delta):
 	pass
