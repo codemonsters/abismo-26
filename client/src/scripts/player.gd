@@ -25,6 +25,7 @@ func _rollback_tick(delta, _tick, _is_fresh):
 			$blockbench_export/AnimationPlayer.play("walk")
 	else:
 		velocity.z = move_toward(velocity.z, 0, speed)
+		$blockbench_export/AnimationPlayer.play("stand by")
 	
 	if velocity.z < 0:
 		$blockbench_export.rotation_degrees.y = 0
@@ -33,7 +34,7 @@ func _rollback_tick(delta, _tick, _is_fresh):
 		
 	if is_on_floor():
 		if Input.is_action_just_pressed("up_arrow"):
-			$blockbench_export/AnimationPlayer.play("jump", -1, 2.0)
+			$blockbench_export/AnimationPlayer.play("jump")
 			velocity.y = 3.5
 
 	# move_and_slide assumes physics delta
