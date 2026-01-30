@@ -1,6 +1,5 @@
-extends GameState
-
-class_name GameOverState
+extends "res://screens/game/states/game_state.gd"
+class_name GameOver
 
 func enter():
 	print("Entering Game Over")
