@@ -21,7 +21,6 @@ func set_state(state_name):
 	if current_state_scene != null:
 		current_state_scene.exit()
 	
-	var pepe = gamestate_scenes[state_name]
 	var new_state = gamestate_scenes[state_name].instantiate()
 	current_state_scene = new_state
 	current_state_scene.enter()
