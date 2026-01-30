@@ -8,11 +8,11 @@ var levels = []
 
 var current_state: GameState
 
-func set_state(new_state):
-	if current_state != null:
-		current_state.exit()
-	current_state = new_state
-	current_state.enter()
+#func set_state(new_state):
+	#if current_state != null:
+		#current_state.exit()
+	#current_state = new_state
+	#current_state.enter()
 
 
 func _ready():
@@ -24,13 +24,13 @@ func _ready():
 	var current_scene = current_level.instantiate()
 	$CurrentLevel.add_child(current_scene)
 	host()
-	set_state(preload("res://screens/game/states/level_loading.gd"))
+	#set_state(preload("res://screens/game/states/level_loading.gd"))
 
 
 func _process(delta):
 	if Input.is_action_just_pressed("space"):
 		level_passed.emit()
-	current_state.process(delta)
+	#current_state.process(delta)
 
 
 func physics_process(delta):
