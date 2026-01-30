@@ -6,7 +6,6 @@ signal level_passed
 var level_index = 0
 var levels = []
 
-var current_state_scene: GameState
 var gamestate_scenes = {
 	"game_over": preload("res://screens/game/states/game_over/main.tscn"),
 	"ingame_menu": preload("res://screens/game/states/ingame_menu/main.tscn"),
@@ -18,13 +17,17 @@ var gamestate_scenes = {
 }
 
 func set_state(state_name):
-	if current_state_scene != null:
-		current_state_scene.exit()
+	var state_scene = get_node_or_null("state_scene")
+	if state_scene != null:
+		state_scene.exit()
+		remove_child(state_scene)
+		# TODO: ejecutar state_scene.queue_free()???
 	
-	var new_state = gamestate_scenes[state_name].instantiate()
-	current_state_scene = new_state
-	current_state_scene.enter()
-	
+	state_scene = gamestate_scenes[state_name].instantiate()
+	state_scene.name = "state_scene"
+	add_child(state_scene)
+	state_scene.enter()
+
 
 func _ready():
 	for level_number in range(1, 5):
@@ -41,11 +44,12 @@ func _ready():
 func _process(delta):
 	if Input.is_action_just_pressed("space"):
 		level_passed.emit()
-	current_state_scene.process(delta)
+	$state_scene.process(delta)
 
 
 func physics_process(delta):
-	current_state_scene.physics_process(delta)
+	$"state_scene".physics_process(delta)
+	pass
 	
 	
 func host():
