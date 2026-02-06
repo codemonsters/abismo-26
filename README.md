@@ -91,7 +91,6 @@ Depende de lo que elijas te saldrá una imagen con un texto explicando el final:
 - barriles, mesas, sillas...
 - Lamprea
 - Boss: Tiburón Martillo, Pez Espada y Tiburón Blanco
-- Bazooka
 - Minigun
 - Llave laboratorio
 - Humanos en trajes de submarinista
