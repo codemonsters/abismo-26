@@ -25,7 +25,8 @@ func _rollback_tick(delta, _tick, _is_fresh):
 			$blockbench_export/AnimationPlayer.play("walk")
 	else:
 		velocity.z = move_toward(velocity.z, 0, speed)
-		$blockbench_export/AnimationPlayer.play("stand by")
+		if is_on_floor():
+			$blockbench_export/AnimationPlayer.play("stand by")
 	
 	if velocity.z < 0:
 		$blockbench_export.rotation_degrees.y = 0
