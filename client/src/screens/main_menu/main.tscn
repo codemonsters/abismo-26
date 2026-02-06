@@ -1,28 +1,28 @@
-[gd_scene load_steps=3 format=3 uid="uid://b64a041ghpm44"]
+[gd_scene format=3 uid="uid://b64a041ghpm44"]
 
 [ext_resource type="Script" uid="uid://cwxde24l4o5vm" path="res://screens/main_menu/main.gd" id="1_g6eqv"]
 [ext_resource type="PackedScene" uid="uid://ddnhy4w13aef5" path="res://screens/shared/menu_header.tscn" id="2_11qwi"]
 
-[node name="Main" type="Node2D"]
+[node name="Main" type="Node2D" unique_id=653483712]
 script = ExtResource("1_g6eqv")
 
-[node name="Button" type="Button" parent="."]
+[node name="Button" type="Button" parent="." unique_id=1021913752]
 offset_left = 140.0
 offset_top = 390.0
 offset_right = 352.0
 offset_bottom = 475.0
 text = "Jugar offline"
 
-[node name="Button2" type="Button" parent="."]
+[node name="Button2" type="Button" parent="." unique_id=1233844791]
 offset_left = 813.0
 offset_top = 441.0
 offset_right = 1025.0
 offset_bottom = 526.0
 text = "Jugar online"
 
-[node name="Main" parent="." instance=ExtResource("2_11qwi")]
+[node name="Main" parent="." unique_id=965891124 instance=ExtResource("2_11qwi")]
 
-[node name="TimerIntro" type="Timer" parent="."]
+[node name="TimerIntro" type="Timer" parent="." unique_id=181205987]
 wait_time = 5.0
 one_shot = true
 autostart = true
