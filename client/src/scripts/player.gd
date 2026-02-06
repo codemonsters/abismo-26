@@ -34,7 +34,7 @@ func _rollback_tick(delta, _tick, _is_fresh):
 		$blockbench_export.rotation_degrees.y = -180
 		
 	if is_on_floor():
-		if Input.is_action_just_pressed("up_arrow"):
+		if Input.is_action_pressed("up_arrow"):
 			$blockbench_export/AnimationPlayer.play("jump")
 			velocity.y = 3.5
 
