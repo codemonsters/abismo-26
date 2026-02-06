@@ -1,6 +1,14 @@
-[gd_scene load_steps=2 format=3 uid="uid://c7c0fh06m4bu6"]
+[gd_scene format=3 uid="uid://c7c0fh06m4bu6"]
 
 [ext_resource type="Script" uid="uid://bb4d5w0emcmqb" path="res://screens/game/states/level_loading/main.gd" id="1_6lrg3"]
 
-[node name="Main" type="Node2D"]
+[node name="Main" type="Node2D" unique_id=1496416034]
 script = ExtResource("1_6lrg3")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=1523795991]
+offset_right = 1152.0
+offset_bottom = 648.0
+text = "Level loading..."
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_group_ = true
