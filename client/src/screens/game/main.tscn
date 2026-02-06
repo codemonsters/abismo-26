@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://cqch2bovngu20"]
+[gd_scene format=3 uid="uid://cqch2bovngu20"]
 
 [ext_resource type="Script" uid="uid://h7a01craki2w" path="res://screens/game/main.gd" id="1_230xn"]
 [ext_resource type="Script" uid="uid://dfc6sptiy8y3p" path="res://scripts/player-spawner.gd" id="2_6xclv"]
@@ -16,37 +16,37 @@ sky_material = SubResource("ProceduralSkyMaterial_rrbfu")
 background_mode = 2
 sky = SubResource("Sky_g0uhm")
 
-[node name="Game Scene" type="Node3D"]
+[node name="Game Scene" type="Node3D" unique_id=1147438085]
 script = ExtResource("1_230xn")
 
-[node name="CurrentLevel" type="Node" parent="."]
+[node name="CurrentLevel" type="Node" parent="." unique_id=1713057073]
 
-[node name="Environment" type="Node" parent="."]
+[node name="Environment" type="Node" parent="." unique_id=1790753769]
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Environment"]
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Environment" unique_id=22888586]
 transform = Transform3D(-4.371139e-08, 0.8660254, 0.50000006, 0, -0.50000006, 0.8660254, 1, 3.7855173e-08, 2.1855696e-08, 20, 10, 0)
 shadow_enabled = true
 
-[node name="Camera3D" type="Camera3D" parent="Environment"]
+[node name="Camera3D" type="Camera3D" parent="Environment" unique_id=1386994415]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 20, 0, 0)
 projection = 1
 current = true
 size = 10.0
 script = ExtResource("2_enhf2")
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="Environment"]
+[node name="WorldEnvironment" type="WorldEnvironment" parent="Environment" unique_id=574217941]
 environment = SubResource("Environment_ef1wp")
 
-[node name="Network" type="Node" parent="."]
+[node name="Network" type="Node" parent="." unique_id=1109015411]
 
-[node name="Player Spawner" type="Node" parent="Network" node_paths=PackedStringArray("spawn_root")]
+[node name="Player Spawner" type="Node" parent="Network" unique_id=1282398118 node_paths=PackedStringArray("spawn_root")]
 script = ExtResource("2_6xclv")
 player_scene = ExtResource("3_enhf2")
 spawn_root = NodePath("../../Players")
 
-[node name="Players" type="Node" parent="."]
+[node name="Players" type="Node" parent="." unique_id=1832782407]
 
-[node name="UI" type="Control" parent="."]
+[node name="UI" type="Control" parent="." unique_id=2138490170]
 visible = false
 layout_mode = 3
 anchors_preset = 15
@@ -55,10 +55,10 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Network Popup" parent="UI" instance=ExtResource("4_n7l27")]
+[node name="Network Popup" parent="UI" unique_id=1335157462 instance=ExtResource("4_n7l27")]
 layout_mode = 1
 
-[node name="Time Display" type="Label" parent="UI"]
+[node name="Time Display" type="Label" parent="UI" unique_id=519992316]
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 23.0
