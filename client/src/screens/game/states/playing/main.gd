@@ -7,8 +7,8 @@ func enter():
 func exit():
 	print("Exiting Playing")
 
-func process(_delta):
+func _process(delta):
 	pass
 
-func physics_process(_delta):
+func _physics_process(delta):
 	pass

@@ -1,6 +1,13 @@
-[gd_scene load_steps=2 format=3 uid="uid://b58rf1rl3nlf"]
+[gd_scene format=3 uid="uid://b58rf1rl3nlf"]
 
 [ext_resource type="Script" uid="uid://csishg1garq3w" path="res://screens/game/states/level_intro/main.gd" id="1_rswll"]
 
-[node name="Main" type="Node2D"]
+[node name="Main" type="Node2D" unique_id=1159983965]
 script = ExtResource("1_rswll")
+
+[node name="IntroTip" type="RichTextLabel" parent="." unique_id=1972525799]
+offset_top = -40.0
+offset_right = 1152.0
+text = "mAtA a lA foCa"
+horizontal_alignment = 1
+vertical_alignment = 1
