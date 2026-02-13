@@ -40,6 +40,7 @@ projection = 1
 current = true
 size = 10.0
 script = ExtResource("2_enhf2")
+offset = Vector3(20, 4, 0)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="Environment" unique_id=1064223354]
 environment = SubResource("Environment_ef1wp")
