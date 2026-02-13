@@ -1,33 +1,90 @@
 [gd_scene format=3 uid="uid://cqch2bovngu20"]
 
-[ext_resource type="Script" uid="uid://lgmqlkuewowp" path="res://scripts/player.gd" id="1_6xclv"]
-[ext_resource type="Script" uid="uid://d350u8evihs1u" path="res://addons/netfox/rollback/rollback-synchronizer.gd" id="2_enhf2"]
-[ext_resource type="Script" uid="uid://dour8fehaaugp" path="res://addons/netfox/tick-interpolator.gd" id="3_n7l27"]
-[ext_resource type="Script" uid="uid://dr0wqty80sjn7" path="res://scripts/player-input.gd" id="4_igrc2"]
-[ext_resource type="PackedScene" uid="uid://5vq2bevypudv" path="res://assets/models/characters/penguin/final_penguin_4_now.gltf" id="5_b52nu"]
+[ext_resource type="Script" uid="uid://h7a01craki2w" path="res://screens/game/main.gd" id="1_230xn"]
+[ext_resource type="Script" uid="uid://dfc6sptiy8y3p" path="res://scripts/player-spawner.gd" id="2_6xclv"]
+[ext_resource type="Script" uid="uid://6usgnk8nj2mq" path="res://screens/game/camera_3d.gd" id="2_enhf2"]
+[ext_resource type="PackedScene" uid="uid://k3y73rql2u6e" path="res://screens/game/player/main.tscn" id="3_enhf2"]
+[ext_resource type="PackedScene" uid="uid://badtpsxn5lago" path="res://ui/network-popup.tscn" id="4_n7l27"]
+[ext_resource type="Script" uid="uid://o4db2va4as3i" path="res://scripts/simple-time-display.gd" id="5_igrc2"]
+[ext_resource type="PackedScene" uid="uid://dg6wkongl78p4" path="res://screens/game/states/game_over/main.tscn" id="7_ymfpy"]
+[ext_resource type="PackedScene" uid="uid://bsrcnqi4mv1c4" path="res://screens/game/states/ingame_menu/main.tscn" id="8_v7qcr"]
+[ext_resource type="PackedScene" uid="uid://dcojoub8ron1t" path="res://screens/game/states/level_complete/main.tscn" id="9_mumua"]
+[ext_resource type="PackedScene" uid="uid://b58rf1rl3nlf" path="res://screens/game/states/level_intro/main.tscn" id="10_ssv8o"]
+[ext_resource type="PackedScene" uid="uid://c7c0fh06m4bu6" path="res://screens/game/states/level_loading/main.tscn" id="11_tkfd7"]
+[ext_resource type="PackedScene" uid="uid://cc8eqpcjwyx6" path="res://screens/game/states/level_transition/main.tscn" id="12_6bnge"]
+[ext_resource type="PackedScene" uid="uid://culqvwepwnmsb" path="res://screens/game/states/playing/main.tscn" id="13_dgu41"]
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_t2650"]
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_rrbfu"]
 
-[node name="Player" type="CharacterBody3D" unique_id=875835526]
-axis_lock_linear_x = true
-script = ExtResource("1_6xclv")
+[sub_resource type="Sky" id="Sky_g0uhm"]
+sky_material = SubResource("ProceduralSkyMaterial_rrbfu")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=851466893]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9455197, 0)
-shape = SubResource("CapsuleShape3D_t2650")
+[sub_resource type="Environment" id="Environment_ef1wp"]
+background_mode = 2
+sky = SubResource("Sky_g0uhm")
 
-[node name="RollbackSynchronizer" type="Node" parent="." unique_id=1955909256 node_paths=PackedStringArray("root")]
+[node name="Game Scene" type="Node3D" unique_id=685327004]
+script = ExtResource("1_230xn")
+
+[node name="CurrentLevel" type="Node" parent="." unique_id=1033772568]
+
+[node name="Environment" type="Node" parent="." unique_id=1474164245]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Environment" unique_id=1029205391]
+transform = Transform3D(-4.371139e-08, 0.8660254, 0.50000006, 0, -0.50000006, 0.8660254, 1, 3.7855173e-08, 2.1855696e-08, 20, 10, 0)
+shadow_enabled = true
+
+[node name="Camera3D" type="Camera3D" parent="Environment" unique_id=284721783]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 20, 0, 0)
+projection = 1
+current = true
+size = 10.0
 script = ExtResource("2_enhf2")
-root = NodePath("..")
-state_properties = Array[String]([":position"])
-input_properties = Array[String](["Input:movement"])
 
-[node name="TickInterpolator" type="Node" parent="." unique_id=1611874002 node_paths=PackedStringArray("root")]
-script = ExtResource("3_n7l27")
-root = NodePath("..")
-properties = Array[String]([":position"])
+[node name="WorldEnvironment" type="WorldEnvironment" parent="Environment" unique_id=1064223354]
+environment = SubResource("Environment_ef1wp")
 
-[node name="Input" type="Node" parent="." unique_id=527112274]
-script = ExtResource("4_igrc2")
+[node name="Network" type="Node" parent="." unique_id=1060279045]
 
-[node name="blockbench_export" parent="." unique_id=100649612 instance=ExtResource("5_b52nu")]
+[node name="Player Spawner" type="Node" parent="Network" unique_id=290527048 node_paths=PackedStringArray("spawn_root")]
+script = ExtResource("2_6xclv")
+player_scene = ExtResource("3_enhf2")
+spawn_root = NodePath("../../Players")
+
+[node name="Players" type="Node" parent="." unique_id=889845108]
+
+[node name="UI" type="Control" parent="." unique_id=287417893]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Network Popup" parent="UI" unique_id=1056362474 instance=ExtResource("4_n7l27")]
+layout_mode = 1
+
+[node name="Time Display" type="Label" parent="UI" unique_id=266136852]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+script = ExtResource("5_igrc2")
+
+[node name="States" type="Node" parent="." unique_id=679798733]
+
+[node name="GameOver" parent="States" unique_id=1892003864 instance=ExtResource("7_ymfpy")]
+
+[node name="InGameMenu" parent="States" unique_id=972980775 instance=ExtResource("8_v7qcr")]
+
+[node name="LevelComplete" parent="States" unique_id=913204392 instance=ExtResource("9_mumua")]
+
+[node name="LevelIntro" parent="States" unique_id=2045599326 instance=ExtResource("10_ssv8o")]
+
+[node name="LevelLoading" parent="States" unique_id=818845446 instance=ExtResource("11_tkfd7")]
+
+[node name="LevelTransition" parent="States" unique_id=728218416 instance=ExtResource("12_6bnge")]
+
+[node name="Playing" parent="States" unique_id=1290757888 instance=ExtResource("13_dgu41")]
+
+[connection signal="level_passed" from="." to="." method="_on_level_passed"]
