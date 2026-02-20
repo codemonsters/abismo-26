@@ -5,6 +5,11 @@
 [node name="Main" type="Node2D" unique_id=1496416034]
 script = ExtResource("1_6lrg3")
 
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1417541581]
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(0, 0, 0, 1)
+
 [node name="LoadingText" type="RichTextLabel" parent="." unique_id=1523795991]
 visible = false
 offset_right = 1152.0
@@ -13,11 +18,6 @@ text = "Level loading..."
 horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_group_ = true
-
-[node name="ColorRect" type="ColorRect" parent="." unique_id=1417541581]
-offset_right = 1152.0
-offset_bottom = 648.0
-color = Color(0, 0, 0, 1)
 
 [node name="Timer" type="Timer" parent="." unique_id=781248056]
 wait_time = 0.5
