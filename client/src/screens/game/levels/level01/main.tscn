@@ -1,9 +1,14 @@
 [gd_scene format=3 uid="uid://b0ivkydudgjvn"]
 
 [ext_resource type="PackedScene" uid="uid://b5hx2itqholr2" path="res://screens/game/levels/level01/iglu.gltf" id="1_es8gg"]
+[ext_resource type="PackedScene" uid="uid://bcf6hidhknw30" path="res://screens/game/levels/level01/espantapajaros.gltf" id="2_0hlag"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_es8gg"]
 size = Vector3(0.77124023, 1, 1.1450195)
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_0hlag"]
+radius = 0.6401367
+height = 2.2475586
 
 [node name="Main" type="Node2D" unique_id=2117019778]
 
@@ -71,12 +76,21 @@ visible = false
 transform = Transform3D(1, 0, 0, 0, 7.3613043, 0, 0, 0, 1, -15.032154, 1, 7.9999995)
 visible = false
 
-[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=1860631840]
+[node name="iglu" type="StaticBody3D" parent="." unique_id=1860631840]
 transform = Transform3D(4.576335, 0, -5.85003, 0, 9.8486805, 0, 4.4552684, 0, 6.009, -2.7273235, 0.10950041, 21.479425)
 
-[node name="blockbench_export" parent="StaticBody3D" unique_id=1546124906 instance=ExtResource("1_es8gg")]
+[node name="blockbench_export" parent="iglu" unique_id=1546124906 instance=ExtResource("1_es8gg")]
 transform = Transform3D(1.0000001, 0, 0, 0, 1.0000001, 0, 2.9802322e-08, 0, 1.0000001, 0, 0, 0)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=1758901215]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="iglu" unique_id=1758901215]
 transform = Transform3D(0.6627279, 0, 0.74886996, 0, 1.0000002, 0, -0.748865, 0, 0.6627303, 0.10299754, 0, -0.08141434)
 shape = SubResource("BoxShape3D_es8gg")
+
+[node name="espantapajaros" type="StaticBody3D" parent="." unique_id=1547686793]
+
+[node name="blockbench_export" parent="espantapajaros" unique_id=1021744612 instance=ExtResource("2_0hlag")]
+transform = Transform3D(-1.3005803, 0, -1.5230494, 0, 1.9987501, 0, 1.5187535, 0, -1.304259, -2.2728918, 0, 8.353324)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="espantapajaros" unique_id=302317943]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.185978, 1.2838702, 8.520049)
+shape = SubResource("CapsuleShape3D_0hlag")

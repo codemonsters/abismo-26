@@ -10,6 +10,8 @@ func _physics_process(delta):
 		# Calculamos dónde debería estar la cámara
 		var target_pos = target.global_position + offset
 		target_pos.x = offset.x
+		target_pos.y = 3
+		# hace que la camara no se mueva llegado el final del mundo
 		if target_pos.z <= -map_length/2 + 9.5:
 			target_pos.z = -14.5
 		elif target_pos.z >= map_length/2 - 9:
