@@ -36,7 +36,7 @@ func _rollback_tick(delta, _tick, _is_fresh):
 	if is_on_floor():
 		if Input.is_action_pressed("up_arrow"):
 			$blockbench_export/AnimationPlayer.play("jump")
-			velocity.y = 3.5
+			velocity.y = 3
 
 	# move_and_slide assumes physics delta
 	# multiplying velocity by NetworkTime.physics_factor compensates for it

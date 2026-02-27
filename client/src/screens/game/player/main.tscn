@@ -8,6 +8,8 @@
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_t2650"]
 
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_p0n4n"]
+
 [node name="Player" type="CharacterBody3D" unique_id=875835526]
 axis_lock_linear_x = true
 script = ExtResource("1_tksy4")
@@ -31,3 +33,7 @@ properties = Array[String]([":position"])
 script = ExtResource("3_g8e4n")
 
 [node name="blockbench_export" parent="." unique_id=100649612 instance=ExtResource("5_p0n4n")]
+
+[node name="RigidBody3D" type="RigidBody3D" parent="." unique_id=1006514947]
+mass = 20.0
+physics_material_override = SubResource("PhysicsMaterial_p0n4n")
