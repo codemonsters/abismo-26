@@ -1,7 +1,9 @@
 [gd_scene format=3 uid="uid://b0ivkydudgjvn"]
 
 [ext_resource type="PackedScene" uid="uid://b5hx2itqholr2" path="res://screens/game/levels/level01/iglu.gltf" id="1_es8gg"]
+[ext_resource type="Texture2D" uid="uid://ivt2lbk0ab7t" path="res://screens/game/levels/level01/level one.png" id="1_urmd8"]
 [ext_resource type="PackedScene" uid="uid://bcf6hidhknw30" path="res://screens/game/levels/level01/espantapajaros.gltf" id="2_0hlag"]
+[ext_resource type="Script" uid="uid://dsuw61yfjix6m" path="res://screens/game/levels/level01/fondo.gd" id="2_mmmg7"]
 [ext_resource type="PackedScene" uid="uid://b08ejsgnkrfpr" path="res://screens/game/levels/level01/pinchos hielo.gltf" id="3_akj3i"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_es8gg"]
@@ -79,6 +81,11 @@ visible = false
 [node name="CSGCorner4" type="CSGCylinder3D" parent="CSGCombiner3D" unique_id=547845982]
 transform = Transform3D(1, 0, 0, 0, 7.3613043, 0, 0, 0, 1, -15.032154, 1, 7.9999995)
 visible = false
+
+[node name="Sprite3D" type="Sprite3D" parent="CSGCombiner3D" unique_id=567919318]
+transform = Transform3D(3.330634, 0, 0.11156781, 0, 5.416686, 0, -0.032536082, 0, 1.0052062, -8.853772, 3.1123662, -6.564825)
+texture = ExtResource("1_urmd8")
+script = ExtResource("2_mmmg7")
 
 [node name="iglu" type="StaticBody3D" parent="." unique_id=1860631840]
 transform = Transform3D(4.576335, 0, -5.85003, 0, 9.8486805, 0, 4.4552684, 0, 6.009, -2.7273235, 0.10950041, 21.479425)
