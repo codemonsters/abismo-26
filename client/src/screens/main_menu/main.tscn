@@ -1,32 +1,68 @@
 [gd_scene format=3 uid="uid://b64a041ghpm44"]
 
 [ext_resource type="Script" uid="uid://cwxde24l4o5vm" path="res://screens/main_menu/main.gd" id="1_g6eqv"]
-[ext_resource type="PackedScene" uid="uid://ddnhy4w13aef5" path="res://screens/shared/menu_header.tscn" id="2_11qwi"]
 
-[node name="Main" type="Node2D" unique_id=653483712]
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_8xs6u"]
+sky_top_color = Color(0.45009756, 0.6022627, 0.9434575, 1)
+sky_horizon_color = Color(0.76212233, 0.84652454, 0.96912664, 1)
+
+[sub_resource type="Sky" id="Sky_8xs6u"]
+sky_material = SubResource("ProceduralSkyMaterial_8xs6u")
+
+[sub_resource type="Environment" id="Environment_8xs6u"]
+background_mode = 2
+sky = SubResource("Sky_8xs6u")
+glow_enabled = true
+glow_intensity = 1.2
+glow_bloom = 0.63
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8xs6u"]
+emission_enabled = true
+emission = Color(0.75676185, 0.62431735, 0.17251202, 1)
+emission_energy_multiplier = 1.24
+
+[sub_resource type="SphereMesh" id="SphereMesh_8xs6u"]
+material = SubResource("StandardMaterial3D_8xs6u")
+
+[node name="Main" type="Node3D" unique_id=1698915368]
 script = ExtResource("1_g6eqv")
 
-[node name="Button" type="Button" parent="." unique_id=1021913752]
-offset_left = 140.0
-offset_top = 390.0
-offset_right = 352.0
-offset_bottom = 475.0
-text = "Jugar offline"
-
-[node name="Button2" type="Button" parent="." unique_id=1233844791]
-offset_left = 813.0
-offset_top = 441.0
-offset_right = 1025.0
-offset_bottom = 526.0
-text = "Jugar online"
-
-[node name="Main" parent="." unique_id=965891124 instance=ExtResource("2_11qwi")]
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1819662511]
+environment = SubResource("Environment_8xs6u")
 
 [node name="TimerIntro" type="Timer" parent="." unique_id=181205987]
 wait_time = 5.0
 one_shot = true
 autostart = true
 
-[connection signal="pressed" from="Button" to="." method="_on_play_offline_pressed"]
-[connection signal="pressed" from="Button2" to="." method="_on_play_online_pressed"]
+[node name="Sun" type="DirectionalLight3D" parent="." unique_id=1750000336]
+light_color = Color(0.9620977, 0.7528437, 0.42742568, 1)
+light_energy = 4.0
+light_angular_distance = 1.0
+shadow_enabled = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Sun" unique_id=574264466]
+mesh = SubResource("SphereMesh_8xs6u")
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1472364799]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Camera3D" unique_id=108161632]
+
+[node name="ButtonOfflineGame" type="Button" parent="Camera3D/CanvasLayer" unique_id=1021913752]
+offset_left = 140.0
+offset_top = 390.0
+offset_right = 352.0
+offset_bottom = 475.0
+text = "Jugar offline"
+
+[node name="ButtonOnlineGame" type="Button" parent="Camera3D/CanvasLayer" unique_id=1233844791]
+offset_left = 813.0
+offset_top = 441.0
+offset_right = 1025.0
+offset_bottom = 526.0
+text = "Jugar online"
+
 [connection signal="timeout" from="TimerIntro" to="." method="_on_timer_intro_timeout"]
+[connection signal="pressed" from="Camera3D/CanvasLayer/ButtonOfflineGame" to="." method="_on_play_offline_pressed"]
+[connection signal="pressed" from="Camera3D/CanvasLayer/ButtonOnlineGame" to="." method="_on_play_online_pressed"]

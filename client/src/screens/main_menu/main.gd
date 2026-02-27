@@ -1,4 +1,4 @@
-extends Node2D
+extends Node3D
 
 func _on_play_offline_pressed() -> void:
 	var game = Globals.scn_game.instantiate()
