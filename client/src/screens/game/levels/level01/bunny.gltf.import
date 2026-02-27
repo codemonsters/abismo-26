@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://djkij1vgg64n4"
-path="res://.godot/imported/bunny.gltf-2dd37c5500272e39c70c0c84032d3635.scn"
+path="res://.godot/imported/bunny.gltf-c03ee8881d820ec58cad37b16dc11ff4.scn"
 
 [deps]
 
-source_file="res://screens/game/levels/bunny.gltf"
-dest_files=["res://.godot/imported/bunny.gltf-2dd37c5500272e39c70c0c84032d3635.scn"]
+source_file="res://screens/game/levels/level01/bunny.gltf"
+dest_files=["res://.godot/imported/bunny.gltf-c03ee8881d820ec58cad37b16dc11ff4.scn"]
 
 [params]
 

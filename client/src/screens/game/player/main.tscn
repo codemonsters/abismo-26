@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://d350u8evihs1u" path="res://addons/netfox/rollback/rollback-synchronizer.gd" id="2_qf1b4"]
 [ext_resource type="Script" uid="uid://dour8fehaaugp" path="res://addons/netfox/tick-interpolator.gd" id="3_dkpv5"]
 [ext_resource type="Script" uid="uid://dr0wqty80sjn7" path="res://scripts/player-input.gd" id="3_g8e4n"]
-[ext_resource type="PackedScene" uid="uid://5vq2bevypudv" path="res://assets/models/characters/penguin/final_penguin_4_now.gltf" id="5_p0n4n"]
+[ext_resource type="PackedScene" uid="uid://dhyuin1pi20kp" path="res://screens/game/player/penguin.gltf" id="5_p0n4n"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_t2650"]
 
@@ -32,8 +32,9 @@ properties = Array[String]([":position"])
 [node name="Input" type="Node" parent="." unique_id=527112274]
 script = ExtResource("3_g8e4n")
 
-[node name="blockbench_export" parent="." unique_id=100649612 instance=ExtResource("5_p0n4n")]
-
 [node name="RigidBody3D" type="RigidBody3D" parent="." unique_id=1006514947]
 mass = 20.0
 physics_material_override = SubResource("PhysicsMaterial_p0n4n")
+
+[node name="blockbench_export2" parent="." unique_id=167859076 instance=ExtResource("5_p0n4n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.020392835, 0, -0.11153102)
