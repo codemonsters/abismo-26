@@ -2,20 +2,17 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b1qus4hxglmtr"
-path.s3tc="res://.godot/imported/bunny_0.png-a38f6db3214780c95da1480a7f6dc6d5.s3tc.ctex"
+uid="uid://ivt2lbk0ab7t"
+path.s3tc="res://.godot/imported/level one.png-fd3fe220cfb2d24bfe6fd079a65b6a38.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
-generator_parameters={
-"md5": "1c02c5ab0efa0cfbad9884b6b87b3cf7"
-}
 
 [deps]
 
-source_file="res://screens/game/levels/bunny_0.png"
-dest_files=["res://.godot/imported/bunny_0.png-a38f6db3214780c95da1480a7f6dc6d5.s3tc.ctex"]
+source_file="res://screens/game/levels/level01/level one.png"
+dest_files=["res://.godot/imported/level one.png-fd3fe220cfb2d24bfe6fd079a65b6a38.s3tc.ctex"]
 
 [params]
 
