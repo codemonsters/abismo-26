@@ -3,7 +3,7 @@ extends Camera3D
 @export var target: Node3D  # Asigna aquí tu nodo Jugador desde el inspector
 @export var smooth_speed: float = 5.0
 @export var offset: Vector3 = Vector3(20, 0, 0) # Ajusta la distancia (X, Y, Z)
-var map_length = 48
+var map_length = 480
 
 func _physics_process(delta):
 	if target:
