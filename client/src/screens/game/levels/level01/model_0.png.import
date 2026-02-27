@@ -2,20 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dmr56c8ahnso"
-path.s3tc="res://.godot/imported/penguin_0.png-c7ca7ed57988ef74e0849cc1d93f7768.s3tc.ctex"
+uid="uid://b6qofnr4f5b2y"
+path.s3tc="res://.godot/imported/model_0.png-9088f18fdcdc58c482afe89af78d7bd4.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 generator_parameters={
-"md5": "c07250b2c4636120ab2a5a9965843582"
+"md5": "96a6ae4a0a6fb166b63582f9afb08c90"
 }
 
 [deps]
 
-source_file="res://screens/game/player/penguin_0.png"
-dest_files=["res://.godot/imported/penguin_0.png-c7ca7ed57988ef74e0849cc1d93f7768.s3tc.ctex"]
+source_file="res://screens/game/levels/level01/model_0.png"
+dest_files=["res://.godot/imported/model_0.png-9088f18fdcdc58c482afe89af78d7bd4.s3tc.ctex"]
 
 [params]
 

@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://h7a01craki2w" path="res://screens/game/main.gd" id="1_230xn"]
 [ext_resource type="Script" uid="uid://dfc6sptiy8y3p" path="res://scripts/player-spawner.gd" id="2_6xclv"]
 [ext_resource type="Script" uid="uid://6usgnk8nj2mq" path="res://screens/game/camera_3d.gd" id="2_enhf2"]
-[ext_resource type="PackedScene" uid="uid://k3y73rql2u6e" path="res://screens/game/player/main.tscn" id="3_enhf2"]
+[ext_resource type="PackedScene" path="res://screens/game/player/main.tscn" id="3_enhf2"]
 [ext_resource type="PackedScene" uid="uid://badtpsxn5lago" path="res://ui/network-popup.tscn" id="4_n7l27"]
 [ext_resource type="Script" uid="uid://o4db2va4as3i" path="res://scripts/simple-time-display.gd" id="5_igrc2"]
 [ext_resource type="PackedScene" uid="uid://dg6wkongl78p4" path="res://screens/game/states/game_over/main.tscn" id="7_ymfpy"]
