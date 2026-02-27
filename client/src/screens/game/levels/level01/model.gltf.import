@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://dhyuin1pi20kp"
-path="res://.godot/imported/penguin.gltf-60c353a9e90ce191c5ac99ccb0d68fe8.scn"
+uid="uid://3hq6qfd3csl4"
+path="res://.godot/imported/model.gltf-084208563ad8a69252e2555874b13019.scn"
 
 [deps]
 
-source_file="res://screens/game/player/penguin.gltf"
-dest_files=["res://.godot/imported/penguin.gltf-60c353a9e90ce191c5ac99ccb0d68fe8.scn"]
+source_file="res://screens/game/levels/level01/model.gltf"
+dest_files=["res://.godot/imported/model.gltf-084208563ad8a69252e2555874b13019.scn"]
 
 [params]
 
