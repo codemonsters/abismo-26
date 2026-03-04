@@ -1,5 +1,13 @@
 extends Node3D
 
+'''
+Efecto de agua "Simple Water in Godot - Godot 4 Tutorial" (autor: Omogonix): https://www.youtube.com/watch?v=Ej_RyOG3d0c
+'''
+
+func _ready() -> void:
+	$Water/AnimationPlayer.play("water_flow")
+
+
 func _on_play_offline_pressed() -> void:
 	var game = Globals.scn_game.instantiate()
 	var intro = Globals.scn_intro.instantiate()
