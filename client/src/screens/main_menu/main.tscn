@@ -1,6 +1,38 @@
 [gd_scene format=3 uid="uid://b64a041ghpm44"]
 
 [ext_resource type="Script" uid="uid://cwxde24l4o5vm" path="res://screens/main_menu/main.gd" id="1_g6eqv"]
+[ext_resource type="Script" uid="uid://wts4ncvtpe7i" path="res://screens/main_menu/animation_player.gd" id="2_g6eqv"]
+
+[sub_resource type="Gradient" id="Gradient_8xs6u"]
+offsets = PackedFloat32Array(0, 0.008064516, 0.5483871, 0.5645161, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0.21166034, 0.33165753, 0.61165094, 1, 0.3792, 0.48874658, 0.79, 1, 0.47662196, 0.5163883, 0.59764993, 1, 1, 1, 1, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_lob2v"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_62wpj"]
+noise = SubResource("FastNoiseLite_lob2v")
+color_ramp = SubResource("Gradient_8xs6u")
+seamless = true
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_11qwi"]
+frequency = 0.006
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_lob2v"]
+width = 1024
+height = 1024
+noise = SubResource("FastNoiseLite_11qwi")
+seamless = true
+as_normal_map = true
+seamless_blend_skirt = 1.0
+bump_strength = 7.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_62wpj"]
+albedo_color = Color(0, 0.9664401, 1.1909329, 1)
+albedo_texture = SubResource("NoiseTexture2D_62wpj")
+roughness = 0.0
+normal_enabled = true
+normal_texture = SubResource("NoiseTexture2D_lob2v")
+uv1_scale = Vector3(5, 5, 5)
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_g6eqv"]
 
@@ -34,12 +66,12 @@ uv1_scale = Vector3(5, 5, 5)
 [sub_resource type="QuadMesh" id="QuadMesh_8xs6u"]
 material = SubResource("StandardMaterial3D_11qwi")
 
-[sub_resource type="Animation" id="Animation_62wpj"]
+[sub_resource type="Animation" id="Animation_8xs6u"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("MeshInstance3D:mesh:material:uv1_offset")
+tracks/0/path = NodePath("MeshInstance3D:material_override:uv1_offset")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -49,13 +81,13 @@ tracks/0/keys = {
 "values": [Vector3(0, 0, 0)]
 }
 
-[sub_resource type="Animation" id="Animation_0kswd"]
-resource_name = "water_flow"
+[sub_resource type="Animation" id="Animation_g6eqv"]
+resource_name = "flow"
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("MeshInstance3D:mesh:material:uv1_offset")
+tracks/0/path = NodePath("MeshInstance3D:material_override:uv1_offset")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -65,10 +97,10 @@ tracks/0/keys = {
 "values": [Vector3(0, 0, 0), Vector3(1, 0, 0)]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_r8tyu"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_11qwi"]
 _data = {
-&"RESET": SubResource("Animation_62wpj"),
-&"water_flow": SubResource("Animation_0kswd")
+&"RESET": SubResource("Animation_8xs6u"),
+&"flow": SubResource("Animation_g6eqv")
 }
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_8xs6u"]
@@ -118,12 +150,14 @@ text = "Jugar online"
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Water" unique_id=1965752457]
 transform = Transform3D(199.99998, -0.026780033, -0.04301095, 0.04301576, 0.023485158, 199.99998, -0.026772311, -200, 0.023493962, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_62wpj")
 mesh = SubResource("QuadMesh_8xs6u")
 skeleton = NodePath("")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Water" unique_id=2109235329]
-libraries/ = SubResource("AnimationLibrary_r8tyu")
-speed_scale = 0.01
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Water" unique_id=367769347]
+libraries/ = SubResource("AnimationLibrary_11qwi")
+speed_scale = 0.008
+script = ExtResource("2_g6eqv")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=104715158]
 environment = SubResource("Environment_8xs6u")
