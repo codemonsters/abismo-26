@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://djkij1vgg64n4" path="res://screens/game/levels/level01/bunny.gltf" id="1_akj3i"]
 [ext_resource type="PackedScene" uid="uid://b5hx2itqholr2" path="res://screens/game/levels/level01/iglu.gltf" id="1_es8gg"]
 [ext_resource type="PackedScene" uid="uid://bcf6hidhknw30" path="res://screens/game/levels/level01/espantapajaros.gltf" id="2_0hlag"]
+[ext_resource type="PackedScene" uid="uid://b08ejsgnkrfpr" path="res://screens/game/levels/level01/pinchos hielo.gltf" id="4_urmd8"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_es8gg"]
 size = Vector3(0.77124023, 1, 1.1450195)
@@ -18,8 +19,12 @@ transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0
 use_collision = true
 
 [node name="CSGFloor" type="CSGBox3D" parent="CSGCombiner3D" unique_id=1800455235]
-transform = Transform3D(1.0499372, 0, 0, 0, 1, 0, 0, 0, 1, 126.10915, -1.2774248, -0.50693417)
-size = Vector3(289.88077, 2.75, 1.6717529)
+transform = Transform3D(1.0499372, 0, 0, 0, 1, 0, 0, 0, 1, -14.428084, -1.2774248, -0.5069341)
+size = Vector3(22.174793, 2.75, 1.6717529)
+
+[node name="CSGFloor2" type="CSGBox3D" parent="CSGCombiner3D" unique_id=371069007]
+transform = Transform3D(1.0499372, 0, 0, 0, 1, 0, 0, 0, 1, 102.732025, -1.2774248, -0.50692904)
+size = Vector3(194.63278, 2.75, 1.6717529)
 
 [node name="CSGWall" type="CSGBox3D" parent="CSGCombiner3D" unique_id=107523795]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 8)
@@ -76,3 +81,6 @@ transform = Transform3D(-1.3005803, 0, -1.5230494, 0, 1.9987501, 0, 1.5187535, 0
 [node name="CollisionShape3D" type="CollisionShape3D" parent="espantapajaros" unique_id=302317943]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.362668, 1.2838702, 8.27048)
 shape = SubResource("CapsuleShape3D_0hlag")
+
+[node name="blockbench_export" parent="." unique_id=1585041714 instance=ExtResource("4_urmd8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.21663189, -0.25088072, -7.741552)
