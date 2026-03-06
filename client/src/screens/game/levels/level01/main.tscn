@@ -85,7 +85,16 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.362668, 1.2838702, 8.27048
 shape = SubResource("CapsuleShape3D_0hlag")
 
 [node name="blockbench_export" parent="." unique_id=1585041714 instance=ExtResource("4_urmd8")]
-transform = Transform3D(1, 0, 0, 0, 0.876495, 0, 0, 0, 1.3379939, 0.058187723, 0, -7.822156)
+transform = Transform3D(2.9026008, 0, 0, 0, 0.876495, 0, 0, 0, 2.3601427, -0.10545856, 0, -8.292085)
 
-[node name="blockbench_export2" parent="." unique_id=615507656 instance=ExtResource("4_urmd8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1.3630271, 0.05433154, 0, -8.562872)
+[node name="blockbench_export2" parent="." unique_id=993174302 instance=ExtResource("4_urmd8")]
+transform = Transform3D(2.9026008, 0, 0, 0, 0.876495, 0, 0, 0, 2.3601427, -0.10545856, 0, -10.837908)
+
+[node name="blockbench_export4" parent="." unique_id=80635406 instance=ExtResource("4_urmd8")]
+transform = Transform3D(2.9026008, 0, 0, 0, 0.876495, 0, 0, 0, 2.3601427, -0.10545856, 0, -13.9186)
+
+[node name="blockbench_export5" parent="." unique_id=1376034758 instance=ExtResource("4_urmd8")]
+transform = Transform3D(2.9026008, 0, 0, 0, 0.876495, 0, 0, 0, 2.3601427, -0.10545856, 0, -15.219579)
+
+[node name="blockbench_export3" parent="." unique_id=2025258748 instance=ExtResource("4_urmd8")]
+transform = Transform3D(2.9026008, 0, 0, 0, 0.876495, 0, 0, 0, 2.3601427, -0.10545856, 0, -11.994022)
