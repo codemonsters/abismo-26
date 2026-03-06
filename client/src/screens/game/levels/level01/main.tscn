@@ -3,10 +3,11 @@
 [ext_resource type="PackedScene" uid="uid://djkij1vgg64n4" path="res://screens/game/levels/level01/bunny.gltf" id="1_akj3i"]
 [ext_resource type="PackedScene" uid="uid://b5hx2itqholr2" path="res://screens/game/levels/level01/iglu.gltf" id="1_es8gg"]
 [ext_resource type="PackedScene" uid="uid://bcf6hidhknw30" path="res://screens/game/levels/level01/espantapajaros.gltf" id="2_0hlag"]
+[ext_resource type="Script" uid="uid://bj1fgc23ix6y8" path="res://screens/game/levels/level01/bunny.gd" id="2_mmmg7"]
 [ext_resource type="PackedScene" uid="uid://b08ejsgnkrfpr" path="res://screens/game/levels/level01/pinchos hielo.gltf" id="4_urmd8"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_es8gg"]
-size = Vector3(0.77124023, 1, 1.1450195)
+size = Vector3(0.77124023, 1.8917236, 1.1450195)
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_0hlag"]
 radius = 0.6401367
@@ -62,6 +63,7 @@ size = Vector3(1, 0.01914978, 1)
 
 [node name="blockbench_export" parent="CSGCombiner3D" unique_id=204921031 instance=ExtResource("1_akj3i")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 22.989141, 0, -0.27996725)
+script = ExtResource("2_mmmg7")
 
 [node name="iglu" type="StaticBody3D" parent="." unique_id=1860631840]
 transform = Transform3D(4.576335, 0, -5.85003, 0, 9.8486805, 0, 4.4552684, 0, 6.009, -2.7273235, 0.10950041, 21.479425)
@@ -70,7 +72,7 @@ transform = Transform3D(4.576335, 0, -5.85003, 0, 9.8486805, 0, 4.4552684, 0, 6.
 transform = Transform3D(1.0000002, 0, 5.9604645e-08, 0, 1.0000002, 0, 5.9604645e-08, 0, 1.0000002, -0.19556212, 0, 0.14499593)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="iglu" unique_id=1758901215]
-transform = Transform3D(0.6627279, 0, 0.74886996, 0, 1.0000002, 0, -0.748865, 0, 0.6627303, 0.10299754, 0, -0.08141434)
+transform = Transform3D(0.66272926, 0, 0.7488723, 0, 1.0000002, 0, -0.7488665, 0, 0.66273427, 0.10299802, 0.44586197, -0.08141446)
 shape = SubResource("BoxShape3D_es8gg")
 
 [node name="espantapajaros" type="StaticBody3D" parent="." unique_id=1547686793]
@@ -83,4 +85,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.362668, 1.2838702, 8.27048
 shape = SubResource("CapsuleShape3D_0hlag")
 
 [node name="blockbench_export" parent="." unique_id=1585041714 instance=ExtResource("4_urmd8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.21663189, -0.25088072, -7.741552)
+transform = Transform3D(1, 0, 0, 0, 0.876495, 0, 0, 0, 1.3379939, 0.058187723, 0, -7.822156)
+
+[node name="blockbench_export2" parent="." unique_id=615507656 instance=ExtResource("4_urmd8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1.3630271, 0.05433154, 0, -8.562872)
