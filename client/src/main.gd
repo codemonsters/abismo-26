@@ -1,7 +1,7 @@
 extends Node2D
 
 func _ready() -> void:
-	var main_menu = Globals.scn_main_menu.instantiate()
+	var main_menu = Globals.screen_menu_main.instantiate()
 	change_screen(main_menu)
 
 func change_screen(scene, next_scene = null):
