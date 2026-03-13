@@ -38,7 +38,7 @@ func _rollback_tick(delta, _tick, _is_fresh):
 		if is_on_floor():
 			if weapon == 0:
 				$blockbench_export/AnimationPlayer.play("walk")
-			elif weapon == 1:
+			elif weapon == 1 or weapon == 2:
 				$blockbench_export/AnimationPlayer.play("walk with gun")
 	else:
 		velocity.z = move_toward(velocity.z, 0, speed)
@@ -57,7 +57,7 @@ func _rollback_tick(delta, _tick, _is_fresh):
 		if Input.is_action_pressed("up_arrow"):
 			if weapon == 0:
 				$blockbench_export/AnimationPlayer.play("jump")
-			elif weapon == 1:
+			elif weapon == 1 or weapon == 2:
 				$blockbench_export/AnimationPlayer.play("jump with gun")
 			velocity.y = 3.5
 			
