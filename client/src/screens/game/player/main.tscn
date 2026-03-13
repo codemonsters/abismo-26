@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://d350u8evihs1u" path="res://addons/netfox/rollback/rollback-synchronizer.gd" id="2_qf1b4"]
 [ext_resource type="Script" uid="uid://dour8fehaaugp" path="res://addons/netfox/tick-interpolator.gd" id="3_dkpv5"]
 [ext_resource type="Script" uid="uid://dr0wqty80sjn7" path="res://scripts/player-input.gd" id="3_g8e4n"]
-[ext_resource type="PackedScene" uid="uid://cp6exyn7j2c0t" path="res://screens/game/player/penguin.gltf" id="5_p0n4n"]
+[ext_resource type="PackedScene" uid="uid://bul8wd474laty" path="res://screens/game/player/model_todo_culpa_de_telmo3.gltf" id="5_p0n4n"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_t2650"]
 height = 1.8398438
@@ -37,5 +37,4 @@ script = ExtResource("3_g8e4n")
 mass = 20.0
 physics_material_override = SubResource("PhysicsMaterial_p0n4n")
 
-[node name="blockbench_export" parent="." unique_id=1428811209 instance=ExtResource("5_p0n4n")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.006173253, 0, -0.014477372)
+[node name="blockbench_export" parent="." unique_id=321925131 instance=ExtResource("5_p0n4n")]

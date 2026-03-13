@@ -3,16 +3,30 @@ extends CharacterBody3D
 @export var speed := 5.0
 @export var input: PlayerInput
 
+# vamos a hacer que pueda tener armas
+var weapons = [
+	nothing,
+	pistol,
+	principal_w
+]
+var pistol = ""
+var nothing = ""
+var principal_w = ""
+var weapon = 0
+
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting(&"physics/3d/default_gravity")
+
 
 func _ready():
 	position = Vector3(0, 2, 15)
 	
 	if input == null:
 		input = $Input
+		
 
 func _rollback_tick(delta, _tick, _is_fresh):
+
 	# Add the gravity.
 	if not is_on_floor():
 		velocity.y -= gravity * delta
@@ -22,11 +36,17 @@ func _rollback_tick(delta, _tick, _is_fresh):
 	if direction:
 		velocity.z = direction.z * speed
 		if is_on_floor():
-			$blockbench_export/AnimationPlayer.play("walk")
+			if weapon == 0:
+				$blockbench_export/AnimationPlayer.play("walk")
+			elif weapon == 1:
+				$blockbench_export/AnimationPlayer.play("walk with gun")
 	else:
 		velocity.z = move_toward(velocity.z, 0, speed)
 		if is_on_floor():
-			$blockbench_export/AnimationPlayer.play("stand by")
+			if weapon == 0:
+				$blockbench_export/AnimationPlayer.play("stand by")
+			elif weapon == 1:
+				$blockbench_export/AnimationPlayer.play("stand by with gun")
 	
 	if velocity.z < 0:
 		$blockbench_export.rotation_degrees.y = 0
@@ -35,8 +55,16 @@ func _rollback_tick(delta, _tick, _is_fresh):
 		
 	if is_on_floor():
 		if Input.is_action_pressed("up_arrow"):
-			$blockbench_export/AnimationPlayer.play("jump")
+			if weapon == 0:
+				$blockbench_export/AnimationPlayer.play("jump")
+			elif weapon == 1:
+				$blockbench_export/AnimationPlayer.play("jump with gun")
 			velocity.y = 3.5
+			
+	if Input.is_action_pressed("slot1"):
+		weapon = 0
+	elif Input.is_action_pressed("slot2"):
+		weapon = 1
 
 	# move_and_slide assumes physics delta
 	# multiplying velocity by NetworkTime.physics_factor compensates for it
@@ -47,3 +75,7 @@ func _rollback_tick(delta, _tick, _is_fresh):
 	move_and_slide()
 	global_position.x = 0
 	velocity /= NetworkTime.physics_factor
+	
+	
+	
+	

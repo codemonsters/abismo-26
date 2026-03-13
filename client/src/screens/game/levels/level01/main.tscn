@@ -10,7 +10,7 @@
 size = Vector3(0.77124023, 1.8917236, 1.1450195)
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_0hlag"]
-radius = 0.6401367
+radius = 0.65771484
 height = 2.2475586
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_mmmg7"]
