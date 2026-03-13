@@ -31,6 +31,6 @@ func _on_level_passed() -> void:
 	for child in $CurrentLevel.get_children():
 		child.queue_free()
 	current_level_number += 1
-	var current_level = load(levels[current_level_number])
+ 	var current_level = load(levels[current_level_number])
 	var current_scene = current_level.instantiate()
 	$CurrentLevel.add_child(current_scene)
