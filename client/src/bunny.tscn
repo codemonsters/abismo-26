@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://brv3lal1v5uvu"]
+
+[ext_resource type="PackedScene" uid="uid://djkij1vgg64n4" path="res://screens/game/levels/level01/bunny.gltf" id="1_u834r"]
+
+[node name="blockbench_export" unique_id=482717115 instance=ExtResource("1_u834r")]
+
+[node name="group" parent="." index="0" unique_id=1232079680]
+transform = Transform3D(1, 0, 0, 0, 0.9986295, -0.05233596, 0, 0.05233596, 0.9986295, 0, 0.125, 0)
+
+[node name="patas delanteras" parent="group" index="2" unique_id=810276201]
+transform = Transform3D(1, 0, 0, 0, 0.9848077, 0.1736482, 0, -0.1736482, 0.9848077, 0.0625, 0.1875, -0.234375)

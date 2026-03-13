@@ -12,6 +12,6 @@ func _gather():
 	
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
-	var mx = Input.get_axis("ui_left", "ui_right")
-	var mz = Input.get_axis("ui_up", "ui_down")
-	movement = Vector3(mx, 0, mz)
+	#var mx = Input.get_axis("ui_left", "ui_right")
+	var mz = Input.get_axis("ui_right", "ui_left")
+	movement = Vector3(0, 0, mz)

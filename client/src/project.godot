@@ -8,23 +8,27 @@
 
 config_version=5
 
+[animation]
+
+compatibility/default_parent_skeleton_in_mesh_instance_3d=true
+
 [application]
 
-config/name="proyecto"
+config/name="abismo-26"
 run/main_scene="uid://bafg18rfmo112"
-config/features=PackedStringArray("4.5", "GL Compatibility")
+config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="res://icon.svg"
 
 [autoload]
 
-NetworkTime="*res://addons/netfox/network-time.gd"
-NetworkTimeSynchronizer="*res://addons/netfox/network-time-synchronizer.gd"
-NetworkRollback="*res://addons/netfox/rollback/network-rollback.gd"
-NetworkEvents="*res://addons/netfox/network-events.gd"
-NetworkPerformance="*res://addons/netfox/network-performance.gd"
-Noray="*res://addons/netfox.noray/noray.gd"
-PacketHandshake="*res://addons/netfox.noray/packet-handshake.gd"
-WindowTiler="*res://addons/netfox.extras/window-tiler.gd"
+NetworkTime="*uid://cnqdxyjptkfvp"
+NetworkTimeSynchronizer="*uid://5rmn2ik3kjo8"
+NetworkRollback="*uid://gas743comroj"
+NetworkEvents="*uid://bdmobxxptryj0"
+NetworkPerformance="*uid://cqgf7aqmjfoa3"
+Noray="*uid://gu4bv4tgms3x"
+PacketHandshake="*uid://tt3j25a05n7c"
+WindowTiler="*uid://cmqjajhjgffm1"
 Async="*res://scripts/async.gd"
 GameEvents="*res://scripts/game-events.gd"
 Globals="*res://scripts/globals.gd"
@@ -32,6 +36,19 @@ Globals="*res://scripts/globals.gd"
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/netfox.extras/plugin.cfg", "res://addons/netfox.internals/plugin.cfg", "res://addons/netfox.noray/plugin.cfg", "res://addons/netfox/plugin.cfg")
+
+[input]
+
+space={
+"deadzone": 0.2,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":32,"key_label":0,"unicode":32,"location":0,"echo":false,"script":null)
+]
+}
+up_arrow={
+"deadzone": 0.2,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194320,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
+]
+}
 
 [physics]
 

@@ -4,27 +4,28 @@ Enlaces con ejemplos:
 * https://dev.to/codesphere/getting-started-with-web-sockets-in-nodejs-49n0
 * https://ably.com/blog/web-app-websockets-nodejs
 
-Arch Linux: yay -S npm nodejs
-
 ## Preparación del entorno de desarrollo
 
 ### Linux y Mac:
 
-1. Instalar NodeJS y NPM
-2. Inicializar Node y crear el archivo package.json: ``server$ npm init -y``
-3. Instalar las librerías necesarias (ws es una implementación de websocket, nodemon reinicia automáticamente el servidor Node cuando detecta cambios en el código, better-sqlite3 permite trabajar de manera síncrona con bases de datos SQLite3): ``server $ npm install ws nodemon uuid@latest better-sqlite3``
+Desde server/src:
+
+1. Instalar NodeJS y NPM: ``src$ yay -S npm nodejs``
+2. Inicializar Node y crear el archivo package.json: ``src$ npm init -y``
+3. Instalar las librerías necesarias (ws es una implementación de websocket, nodemon reinicia automáticamente el servidor Node cuando detecta cambios en el código, better-sqlite3 permite trabajar de manera síncrona con bases de datos SQLite3): ``src$ npm install ws nodemon uuid@latest better-sqlite3``
 
 ### Windows:
 
-Desde una terminal PowerShell:
-1. Instalar fnm (Fast Node Manager): ``server$ winget install Schniz.fnm``
+Desde server/src en una terminal PowerShell:
+
+1. Instalar fnm (Fast Node Manager): ``src$ winget install Schniz.fnm``
 2. Instalar Node.js: ``fnm install 23``
-3. Inicializar Node y crear el archivo package.json: ``server$ npm.cmd init -y``
-4. Instalar las librerías necesarias: ``server$ npm.cmd install ws nodemon uuid@latest better-sqlite3``
+3. Inicializar Node y crear el archivo package.json: ``src$ npm.cmd init -y``
+4. Instalar las librerías necesarias: ``src$ npm.cmd install ws nodemon uuid@latest better-sqlite3``
 
 ## Ejecutar el servidor
 
-``server$ node main.js``
+``src$ node main.js``
 
 Se puede acceder a él desde la URL: ``ws://127.0.0.1:9090``
 
