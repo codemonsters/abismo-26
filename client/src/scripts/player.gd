@@ -45,7 +45,7 @@ func _rollback_tick(delta, _tick, _is_fresh):
 		if is_on_floor():
 			if weapon == 0:
 				$blockbench_export/AnimationPlayer.play("stand by")
-			elif weapon == 1:
+			elif weapon == 1 or weapon == 2:
 				$blockbench_export/AnimationPlayer.play("stand by with gun")
 	
 	if velocity.z < 0:
@@ -65,6 +65,8 @@ func _rollback_tick(delta, _tick, _is_fresh):
 		weapon = 0
 	elif Input.is_action_pressed("slot2"):
 		weapon = 1
+	elif Input.is_action_pressed("slot3"):
+		weapon = 2
 
 	# move_and_slide assumes physics delta
 	# multiplying velocity by NetworkTime.physics_factor compensates for it
