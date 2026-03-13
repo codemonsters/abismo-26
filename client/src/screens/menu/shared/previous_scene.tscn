@@ -2,10 +2,10 @@
 
 [ext_resource type="Script" uid="uid://62p0l5lt70uv" path="res://screens/menu/shared/previous_scene.gd" id="1_lwebc"]
 
-[node name="PreviousScreen" type="Node2D"]
+[node name="PreviousScreen" type="Node2D" unique_id=610500866]
 script = ExtResource("1_lwebc")
 
-[node name="Button" type="Button" parent="."]
+[node name="Button" type="Button" parent="." unique_id=256475203]
 offset_left = 17.0
 offset_top = 21.0
 offset_right = 110.0

@@ -1,8 +1,8 @@
 extends Node2D
 
 func _ready() -> void:
-	var main_menu = Globals.screen_menu_main.instantiate()
-	change_screen(main_menu)
+	var screen_menu = Globals.screen_menu.instantiate()
+	change_screen(screen_menu)
 
 func change_screen(scene, next_scene = null):
 	if get_node_or_null("current_screen") != null: remove_child(get_node("current_screen"))
