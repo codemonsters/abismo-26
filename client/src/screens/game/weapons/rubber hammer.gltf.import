@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://dtr7s5dyq6w2x"
-path="res://.godot/imported/Shotgun.gltf-f74a6148a75b38b0b2c2f8ff9754d125.scn"
+uid="uid://b6wawfffclfwf"
+path="res://.godot/imported/rubber hammer.gltf-cc2e73f097abd7a65107e0789a3e8a62.scn"
 
 [deps]
 
-source_file="res://screens/game/weapons/Shotgun.gltf"
-dest_files=["res://.godot/imported/Shotgun.gltf-f74a6148a75b38b0b2c2f8ff9754d125.scn"]
+source_file="res://screens/game/weapons/rubber hammer.gltf"
+dest_files=["res://.godot/imported/rubber hammer.gltf-cc2e73f097abd7a65107e0789a3e8a62.scn"]
 
 [params]
 

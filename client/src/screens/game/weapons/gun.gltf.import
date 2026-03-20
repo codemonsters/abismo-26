@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://bs4bpspk1wyl2"
-path="res://.godot/imported/harpoon.gltf-bb52a3e83a276071c7bc7010c9728a1c.scn"
+uid="uid://ckgxeyswbkmp"
+path="res://.godot/imported/gun.gltf-1b207a6f9c4af7a1e6b32727f154f39c.scn"
 
 [deps]
 
-source_file="res://screens/game/weapons/harpoon.gltf"
-dest_files=["res://.godot/imported/harpoon.gltf-bb52a3e83a276071c7bc7010c9728a1c.scn"]
+source_file="res://screens/game/weapons/gun.gltf"
+dest_files=["res://.godot/imported/gun.gltf-1b207a6f9c4af7a1e6b32727f154f39c.scn"]
 
 [params]
 
