@@ -10,16 +10,16 @@ colors = PackedColorArray(0, 0, 0, 1, 0.21166034, 0.33165753, 0.61165094, 1, 0.3
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_huuvv"]
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_62wpj"]
+width = 256
+height = 256
 noise = SubResource("FastNoiseLite_huuvv")
 color_ramp = SubResource("Gradient_rnjn3")
 seamless = true
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_m6tx3"]
-frequency = 0.006
+frequency = 0.0035
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_lob2v"]
-width = 1024
-height = 1024
 noise = SubResource("FastNoiseLite_m6tx3")
 seamless = true
 as_normal_map = true
@@ -32,7 +32,7 @@ albedo_texture = SubResource("NoiseTexture2D_62wpj")
 roughness = 0.0
 normal_enabled = true
 normal_texture = SubResource("NoiseTexture2D_lob2v")
-uv1_scale = Vector3(5, 5, 5)
+uv1_scale = Vector3(8, 8, 8)
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_g6eqv"]
 
@@ -109,14 +109,14 @@ script = ExtResource("1_rnjn3")
 [node name="Water" type="Node3D" parent="." unique_id=1588902270]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Water" unique_id=168228178]
-transform = Transform3D(199.99998, -0.026780033, -0.04301095, 0.04301576, 0.023485158, 199.99998, -0.026772311, -200, 0.023493962, 0, 0, 0)
+transform = Transform3D(30, -0.0040166047, -1.7557138e-10, 0, -1.3113416e-06, 30, -0.0040166047, -30, -1.3113416e-06, 0, 0, 0)
 material_override = SubResource("StandardMaterial3D_p0c03")
 mesh = SubResource("QuadMesh_siw14")
 skeleton = NodePath("")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Water" unique_id=397076171]
 libraries/ = SubResource("AnimationLibrary_58r7j")
-speed_scale = 0.008
+speed_scale = 0.006
 script = ExtResource("1_a6ule")
 
 [node name="Sun" type="DirectionalLight3D" parent="." unique_id=897834004]
