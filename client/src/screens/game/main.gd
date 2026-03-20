@@ -1,5 +1,6 @@
 extends Node3D
 
+signal change_screen_requested(scene, next_scene)
 signal level_passed
 
 @onready var camera = $Environment/Camera3D

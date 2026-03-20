@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://cr134nrmri84n"]
 
 [ext_resource type="PackedScene" uid="uid://bjo1y0qba0yve" path="res://screens/menu/background.tscn" id="1_3gn6r"]
+[ext_resource type="Script" uid="uid://dbqv5dkiup7y2" path="res://screens/menu/main.gd" id="1_rl3l6"]
 [ext_resource type="PackedScene" uid="uid://b64a041ghpm44" path="res://screens/menu/main_menu/main.tscn" id="2_gcaii"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_3gn6r"]
@@ -20,6 +21,7 @@ fog_enabled = true
 fog_sky_affect = 0.154
 
 [node name="Main" type="Node3D" unique_id=615362724]
+script = ExtResource("1_rl3l6")
 
 [node name="Background" parent="." unique_id=1612385214 instance=ExtResource("1_3gn6r")]
 
