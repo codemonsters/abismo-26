@@ -62,12 +62,12 @@ func _rollback_tick(delta, _tick, _is_fresh):
 			velocity.y = 3.5
 			
 	if Input.is_action_pressed("slot1"):
-		weapon = 0
-	elif Input.is_action_pressed("slot2"):
 		weapon = 1
-	elif Input.is_action_pressed("slot3"):
+	elif Input.is_action_pressed("slot2"):
 		weapon = 2
-
+	else:
+		weapon = 0
+	
 	# move_and_slide assumes physics delta
 	# multiplying velocity by NetworkTime.physics_factor compensates for it
 	velocity *= NetworkTime.physics_factor
