@@ -41,6 +41,6 @@ physics_material_override = SubResource("PhysicsMaterial_p0n4n")
 [node name="blockbench_export" parent="." unique_id=321925131 instance=ExtResource("5_p0n4n")]
 
 [node name="blockbench_export" parent="blockbench_export/group3/cuerpo2/brazo izq" parent_id_path=PackedInt32Array(321925131, 1370637287) index="1" unique_id=1556038213 instance=ExtResource("6_nfp01")]
-transform = Transform3D(-0.998758, -2.613022e-10, -0.049825925, -0.04982131, -0.013595752, 0.9986655, -0.0006774161, 0.99990755, 0.013578795, -0.14769661, -0.40572459, -0.035791457)
+transform = Transform3D(-0.97469157, -0.020566033, 0.22260697, 0.21780074, 0.13711159, 0.96631426, -0.05039526, 0.9903423, -0.12916227, -0.16795576, -0.36871493, -0.035791457)
 
 [editable path="blockbench_export"]
