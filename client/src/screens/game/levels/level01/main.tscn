@@ -43,8 +43,8 @@ transform = Transform3D(1.0499372, 0, 0, 0, 1, 0, 0, 0, 1, -14.428084, -1.277424
 size = Vector3(22.174793, 2.75, 1.6717529)
 
 [node name="CSGFloor2" type="CSGBox3D" parent="CSGCombiner3D" unique_id=371069007]
-transform = Transform3D(1.0499372, 0, 0, 0, 1, 0, 0, 0, 1, 102.76034, -1.2774258, -0.50626147)
-size = Vector3(194.63278, 2.75, 1.6717529)
+transform = Transform3D(1.0499372, 0, 0, 0, 1, 0, 0, 0, 1, 28.488003, -1.2774258, -0.50626147)
+size = Vector3(53.153206, 2.75, 1.6717529)
 
 [node name="CSGWall" type="CSGBox3D" parent="CSGCombiner3D" unique_id=107523795]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 8)
@@ -84,8 +84,24 @@ size = Vector3(1, 0.01914978, 1)
 transform = Transform3D(1, 0, 0, 0, 49.473553, 0, 0, 0, 1, 31.35583, 0.35701865, -0.40421897)
 size = Vector3(1, 0.01914978, 1)
 
+[node name="CSGBox3D10" type="CSGBox3D" parent="CSGCombiner3D" unique_id=1842561830]
+transform = Transform3D(1, 0, 0, 0, 49.473553, 0, 0, 0, 1, 49.074635, 0.35701865, -0.4042182)
+size = Vector3(1, 0.01914978, 1)
+
+[node name="CSGBox3D7" type="CSGBox3D" parent="CSGCombiner3D" unique_id=404219061]
+transform = Transform3D(1, 0, 0, 0, 49.473553, 0, 0, 0, 1, 32.363514, 0.84252334, -0.40421894)
+size = Vector3(1, 0.03750229, 1)
+
+[node name="CSGBox3D8" type="CSGBox3D" parent="CSGCombiner3D" unique_id=1552610693]
+transform = Transform3D(1, 0, 0, 0, 49.473553, 0, 0, 0, 1, 35.145264, 2.179778, -0.40421888)
+size = Vector3(4.590332, 0.01914978, 1)
+
+[node name="CSGBox3D9" type="CSGBox3D" parent="CSGCombiner3D" unique_id=1919059169]
+transform = Transform3D(1, 0, 0, 0, 49.473553, 0, 0, 0, 1, 41.197525, 2.179778, -0.40421864)
+size = Vector3(4.590332, 0.01914978, 1)
+
 [node name="blockbench_export" parent="CSGCombiner3D" unique_id=204921031 instance=ExtResource("1_akj3i")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 22.989141, 0, -0.27996725)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 22.989141, 0.1382904, -0.27996725)
 script = ExtResource("2_mmmg7")
 
 [node name="iglu" type="StaticBody3D" parent="." unique_id=1860631840]
