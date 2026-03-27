@@ -7,9 +7,8 @@ func _ready() -> void:
 func change_screen(scene, next_scene = null):
 	if get_node_or_null("current_screen") != null: remove_child(get_node("current_screen"))
 	scene.name = "current_screen"
-	print(scene.get_script())
 	if scene.has_signal("change_screen_requested"):
-		scene.change_screen_requested.connect(change_screen)
+		scene.change_screen_requested.connect(change_screen) #TODO: probar for child in get_tree()
 	if next_scene:
 		scene.next_scene = next_scene
 	add_child(scene)

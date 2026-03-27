@@ -6,7 +6,6 @@ func _ready() -> void:
 	var main_menu = Globals.screen_menu_main.instantiate()
 	change_window(main_menu)
 
-#TODO nuevo change screen desde aquí que instancie al menú actual
 func change_window(window, next_window = null):
 	if $Camera3D.get_node_or_null("current_window") != null: $Camera3D.remove_child($Camera3D.get_node("current_window"))
 	window.name = "current_window"
