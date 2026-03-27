@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://kvqobh4tlooj"]
 
-[ext_resource type="Script" uid="uid://62p0l5lt70uv" path="res://screens/menu/shared/previous_scene.gd" id="1_lwebc"]
+[ext_resource type="Script" uid="uid://62p0l5lt70uv" path="res://screens/menu/windows/shared/previous_window.gd" id="1_0frq0"]
 
 [node name="PreviousScreen" type="Node2D" unique_id=610500866]
-script = ExtResource("1_lwebc")
+script = ExtResource("1_0frq0")
 
 [node name="Button" type="Button" parent="." unique_id=256475203]
 offset_left = 17.0
