@@ -16,6 +16,22 @@ height = 2.2475586
 [sub_resource type="BoxShape3D" id="BoxShape3D_mmmg7"]
 size = Vector3(0.30004883, 1.1337891, 3.6097221)
 
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_mmmg7"]
+sky_top_color = Color(0.16862746, 0.24705882, 0.6745098, 1)
+sky_curve = 0.38236818
+ground_bottom_color = Color(0.67885685, 0.7465178, 0.9919973, 1)
+
+[sub_resource type="Sky" id="Sky_g6eqv"]
+sky_material = SubResource("ProceduralSkyMaterial_mmmg7")
+
+[sub_resource type="Environment" id="Environment_02iye"]
+background_mode = 2
+sky = SubResource("Sky_g6eqv")
+tonemap_mode = 3
+glow_enabled = true
+fog_enabled = true
+fog_sky_affect = 0.154
+
 [node name="Main" type="Node2D" unique_id=2117019778]
 
 [node name="CSGCombiner3D" type="CSGCombiner3D" parent="." unique_id=1844799061]
@@ -111,3 +127,12 @@ transform = Transform3D(2.9026008, 0, 0, 0, 0.876495, 0, 0, 0, 2.3601427, -0.105
 
 [node name="blockbench_export3" parent="pinchos" unique_id=2025258748 instance=ExtResource("4_urmd8")]
 transform = Transform3D(2.9026008, 0, 0, 0, 0.876495, 0, 0, 0, 2.3601427, -0.10545856, 0, -11.994022)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1770054832]
+environment = SubResource("Environment_02iye")
+
+[node name="Sun" type="DirectionalLight3D" parent="." unique_id=1281632154]
+transform = Transform3D(-1, 1.817622e-08, -8.551238e-08, 0, 0.9781476, 0.2079117, 8.742278e-08, 0.2079117, -0.9781476, 70, 2, 0)
+light_color = Color(1, 0.61960787, 0.27058825, 1)
+light_energy = 1.8
+shadow_enabled = true
