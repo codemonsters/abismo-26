@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://djkij1vgg64n4" path="res://screens/game/levels/level01/bunny.gltf" id="1_akj3i"]
 [ext_resource type="PackedScene" uid="uid://b5hx2itqholr2" path="res://screens/game/levels/level01/iglu.gltf" id="1_es8gg"]
 [ext_resource type="PackedScene" uid="uid://bcf6hidhknw30" path="res://screens/game/levels/level01/espantapajaros.gltf" id="2_0hlag"]
-[ext_resource type="Script" uid="uid://bj1fgc23ix6y8" path="res://screens/game/levels/level01/bunny.gd" id="2_mmmg7"]
+[ext_resource type="Script" path="res://screens/game/levels/level01/bunny.gd" id="2_mmmg7"]
 [ext_resource type="PackedScene" uid="uid://b08ejsgnkrfpr" path="res://screens/game/levels/level01/pinchos hielo.gltf" id="4_urmd8"]
 [ext_resource type="PackedScene" uid="uid://do0jcrh8bk7pw" path="res://screens/game/levels/level01/foca.gltf" id="6_02iye"]
 
@@ -18,9 +18,11 @@ height = 2.2475586
 size = Vector3(0.30004883, 1.1337891, 3.6097221)
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_mmmg7"]
-sky_top_color = Color(0.16862746, 0.24705882, 0.6745098, 1)
+sky_top_color = Color(0.16359812, 0.24022692, 0.6596816, 1)
+sky_horizon_color = Color(0.5540987, 0.66700405, 0.79378915, 1)
 sky_curve = 0.38236818
 ground_bottom_color = Color(0.67885685, 0.7465178, 0.9919973, 1)
+ground_horizon_color = Color(0.62330306, 0.66392964, 0.6694196, 1)
 
 [sub_resource type="Sky" id="Sky_g6eqv"]
 sky_material = SubResource("ProceduralSkyMaterial_mmmg7")
