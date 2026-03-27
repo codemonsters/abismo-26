@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bjo1y0qba0yve"]
 
-[ext_resource type="Script" uid="uid://wts4ncvtpe7i" path="res://screens/menu/main_menu/animation_player.gd" id="1_a6ule"]
+[ext_resource type="Script" uid="uid://wts4ncvtpe7i" path="res://screens/menu/windows/main_menu/animation_player.gd" id="1_a6ule"]
 [ext_resource type="Script" uid="uid://5myc1fkcek0o" path="res://screens/menu/background.gd" id="1_rnjn3"]
 
 [sub_resource type="Gradient" id="Gradient_rnjn3"]
