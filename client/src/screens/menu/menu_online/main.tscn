@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://coqbis2skufjh"]
 
-[ext_resource type="PackedScene" uid="uid://ddnhy4w13aef5" path="res://screens/menu/windows/shared/menu_header.tscn" id="1_1v4wi"]
-[ext_resource type="Script" uid="uid://f31t3juccs1h" path="res://screens/menu/windows/menu_online/main.gd" id="1_vs0vh"]
-[ext_resource type="PackedScene" uid="uid://kvqobh4tlooj" path="res://screens/menu/windows/shared/previous_window.tscn" id="2_27htw"]
+[ext_resource type="PackedScene" uid="uid://ddnhy4w13aef5" path="res://screens/menu/shared/menu_header.tscn" id="1_1v4wi"]
+[ext_resource type="Script" uid="uid://f31t3juccs1h" path="res://screens/menu/menu_online/main.gd" id="1_vs0vh"]
+[ext_resource type="PackedScene" uid="uid://kvqobh4tlooj" path="res://screens/menu/shared/previous_scene.tscn" id="2_27htw"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_vs0vh")
