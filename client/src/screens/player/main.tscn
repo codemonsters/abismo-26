@@ -37,3 +37,5 @@ script = ExtResource("3_g8e4n")
 [node name="RigidBody3D" type="RigidBody3D" parent="." unique_id=1006514947]
 mass = 20.0
 physics_material_override = SubResource("PhysicsMaterial_p0n4n")
+
+[editable path="blockbench_export"]
