@@ -41,19 +41,19 @@ physics_material_override = SubResource("PhysicsMaterial_p0n4n")
 
 [node name="blockbench_export" parent="." unique_id=321925131 instance=ExtResource("5_p0n4n")]
 
-[node name="group3" parent="blockbench_export" index="0" unique_id=1483102948]
+[node name="group3" parent="blockbench_export" index="0" unique_id=607623006]
 transform = Transform3D(-1, 7.619398e-09, -8.709011e-08, 1.224647e-16, 0.9961947, 0.087155744, 8.742278e-08, 0.087155744, -0.9961947, 0, 1.25, 0.1875)
 
-[node name="cabeza2" parent="blockbench_export/group3" index="0" unique_id=628816786]
+[node name="cabeza2" parent="blockbench_export/group3" index="0" unique_id=957405319]
 transform = Transform3D(1, 0, 0, 0, 0.9961947, -0.08715573, 0, 0.08715573, 0.9961947, 0, 0, 0)
 
-[node name="group4" parent="blockbench_export/group3/cabeza2" index="0" unique_id=498835081]
+[node name="group4" parent="blockbench_export/group3/cabeza2" index="0" unique_id=233261395]
 transform = Transform3D(1, 0, 0, 0, 0.99904823, 0.043619383, 0, -0.043619383, 0.99904823, 0, 0.1875, 0.3125)
 
-[node name="cuerpo2" parent="blockbench_export/group3" index="1" unique_id=170570421]
+[node name="cuerpo2" parent="blockbench_export/group3" index="1" unique_id=1486819168]
 transform = Transform3D(1, 0, 0, 0, 0.9961947, -0.08715573, 0, 0.08715573, 0.9961947, 0, -0.6875, 0.125)
 
-[node name="brazo izq" parent="blockbench_export/group3/cuerpo2" index="0" unique_id=1370637287]
+[node name="brazo izq" parent="blockbench_export/group3/cuerpo2" index="0" unique_id=1271546750]
 transform = Transform3D(1, 0, 0, 0, -0.21643972, 0.976296, 0, -0.976296, -0.21643972, -0.24375, 0.35, -0.03125)
 
 [node name="blockbench_export" parent="blockbench_export/group3/cuerpo2/brazo izq" index="1" unique_id=1556038213 instance=ExtResource("6_nfp01")]
@@ -63,10 +63,10 @@ visible = false
 [node name="blockbench_export2" parent="blockbench_export/group3/cuerpo2/brazo izq" index="2" unique_id=480236942 instance=ExtResource("7_egist")]
 transform = Transform3D(-0.96306086, -0.09940293, 0.25026584, 0.24638394, 0.049776092, 0.96789336, -0.10866881, 0.9938015, -0.023446098, -0.16083154, -0.4136848, 0.03147137)
 
-[node name="group" parent="blockbench_export/group3" index="2" unique_id=201733933]
+[node name="group" parent="blockbench_export/group3" index="2" unique_id=1511282623]
 transform = Transform3D(1, 0, 0, 0, 0.54463893, 0.83867055, 0, -0.83867055, 0.54463893, 0.125, -1.175, 0.08125)
 
-[node name="group2" parent="blockbench_export/group3" index="3" unique_id=951221237]
+[node name="group2" parent="blockbench_export/group3" index="3" unique_id=35392788]
 transform = Transform3D(1, 0, 0, 0, 0.6360782, 0.7716245, 0, -0.7716245, 0.6360782, -0.125, -1.125, 0.0625)
 
 [editable path="blockbench_export"]

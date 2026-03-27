@@ -18,9 +18,11 @@ height = 2.2475586
 size = Vector3(0.30004883, 1.1337891, 3.6097221)
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_mmmg7"]
-sky_top_color = Color(0.16862746, 0.24705882, 0.6745098, 1)
+sky_top_color = Color(0.00013389975, 0.2577117, 0.78406, 1)
+sky_horizon_color = Color(0.43384796, 0.67641276, 0.9170116, 1)
 sky_curve = 0.38236818
-ground_bottom_color = Color(0.67885685, 0.7465178, 0.9919973, 1)
+ground_bottom_color = Color(0.47282952, 0.7249907, 0.9837423, 1)
+ground_horizon_color = Color(0.66976917, 0.72393376, 0.85616904, 1)
 
 [sub_resource type="Sky" id="Sky_g6eqv"]
 sky_material = SubResource("ProceduralSkyMaterial_mmmg7")
