@@ -9,7 +9,6 @@ func _ready() -> void:
 func change_window(window, next_window = null):
 	if get_node_or_null("current_window") != null: remove_child(get_node("current_window"))
 	window.name = "current_window"
-	print(window.get_script())
 	window.change_window_requested.connect(change_window)
 	window.change_screen_requested.connect(emit_change_scene)
 	if next_window:
