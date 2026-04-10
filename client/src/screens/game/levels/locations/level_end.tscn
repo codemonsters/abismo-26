@@ -1,5 +1,7 @@
 [gd_scene format=3 uid="uid://bprtf4qrwntbl"]
 
+[ext_resource type="Script" uid="uid://dm6dn2kkgdlw5" path="res://screens/game/levels/locations/level_end.gd" id="1_fm1y8"]
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_rbgds"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xrnet"]
@@ -9,6 +11,7 @@ albedo_color = Color(0, 1, 0, 1)
 material = SubResource("StandardMaterial3D_xrnet")
 
 [node name="LevelEnd" type="Area3D" unique_id=1359960781]
+script = ExtResource("1_fm1y8")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=100468949]
 shape = SubResource("BoxShape3D_rbgds")
@@ -17,3 +20,5 @@ debug_color = Color(0.2565749, 0.630107, 0.26399907, 1)
 [node name="MeshInstance3D" type="MeshInstance3D" parent="CollisionShape3D" unique_id=1335045413]
 mesh = SubResource("BoxMesh_fm1y8")
 skeleton = NodePath("../..")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

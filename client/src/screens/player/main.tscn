@@ -10,7 +10,7 @@
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_p0n4n"]
 
-[node name="Player" type="CharacterBody3D" unique_id=875835526]
+[node name="Player" type="CharacterBody3D" unique_id=875835526 groups=["players"]]
 axis_lock_linear_x = true
 script = ExtResource("1_tksy4")
 
