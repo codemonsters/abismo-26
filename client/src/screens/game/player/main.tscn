@@ -69,7 +69,6 @@ visible = false
 
 [node name="rubber_hammer" parent="blockbench_export/group3/cuerpo2/brazo izq" index="3" unique_id=2111091178 instance=ExtResource("8_nv7y3")]
 transform = Transform3D(-0.5, 4.3711335e-08, 0, -1.1313341e-08, -0.12940939, 0.48296234, 4.222196e-08, 0.48296234, 0.12940939, -0.1475916, -0.35849863, -0.33609974)
-visible = false
 
 [node name="harpoon" parent="blockbench_export/group3/cuerpo2/brazo izq" index="4" unique_id=1626251312 instance=ExtResource("9_hk0ft")]
 transform = Transform3D(-0.9878544, -0.0016731401, 0.15537399, 0.1553745, -0.0210561, 0.9876301, 0.0016190931, 0.999776, 0.021060452, -0.15411748, -0.3420415, -0.07582879)
@@ -77,6 +76,7 @@ visible = false
 
 [node name="bazooka" parent="blockbench_export/group3/cuerpo2/brazo izq" index="5" unique_id=312119958 instance=ExtResource("10_dlfi2")]
 transform = Transform3D(-1.7204129, 2.330135e-08, -0.48244452, -0.38358003, -0.02005753, 2.1634765, -0.004914202, 1.5655898, 0.02771756, -0.06544419, -0.29366368, -0.09198612)
+visible = false
 
 [node name="group" parent="blockbench_export/group3" index="2" unique_id=201733933]
 transform = Transform3D(1, 0, 0, 0, 0.54463893, 0.83867055, 0, -0.83867055, 0.54463893, 0.125, -1.175, 0.08125)
