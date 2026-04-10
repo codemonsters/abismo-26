@@ -1,5 +1,5 @@
 extends CharacterBody3D
-
+signal disparando
 @export var speed := 5.0
 @export var input: PlayerInput
 
@@ -13,6 +13,8 @@ var pistol = ""
 var nothing = ""
 var principal_w = ""
 var weapon = 0
+
+var held_wep_stats: Firearm = null
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting(&"physics/3d/default_gravity")
@@ -67,6 +69,10 @@ func _rollback_tick(delta, _tick, _is_fresh):
 		weapon = 2
 	else:
 		weapon = 0
+	
+	# vamos a hacer que puedas disparar
+	if Input.is_action_pressed("disparar"):
+		disparando.emit()
 	
 	# move_and_slide assumes physics delta
 	# multiplying velocity by NetworkTime.physics_factor compensates for it

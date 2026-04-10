@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="Firearm" format=3 uid="uid://cswu7rc4t8w3x"]
+
+[ext_resource type="Script" uid="uid://do2i7sdi2m3te" path="res://scripts/base_firearm.gd" id="1_0anjl"]
+
+[resource]
+script = ExtResource("1_0anjl")
+metadata/_custom_type_script = "uid://do2i7sdi2m3te"
