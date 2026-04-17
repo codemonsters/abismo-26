@@ -2,20 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b6qofnr4f5b2y"
-path.s3tc="res://.godot/imported/model_0.png-9088f18fdcdc58c482afe89af78d7bd4.s3tc.ctex"
+uid="uid://cjkl13pdm1loo"
+path.s3tc="res://.godot/imported/foca_0.png-ec458479f5a1c9a2f1a28b1838e9ea38.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 generator_parameters={
-"md5": "29d72d44c415054ea626380932713706"
+"md5": "affa9e513a024b9b2eef72b0bf5a7a4f"
 }
 
 [deps]
 
-source_file="res://screens/game/levels/level01/model_0.png"
-dest_files=["res://.godot/imported/model_0.png-9088f18fdcdc58c482afe89af78d7bd4.s3tc.ctex"]
+source_file="res://screens/game/levels/level01/foca_0.png"
+dest_files=["res://.godot/imported/foca_0.png-ec458479f5a1c9a2f1a28b1838e9ea38.s3tc.ctex"]
 
 [params]
 

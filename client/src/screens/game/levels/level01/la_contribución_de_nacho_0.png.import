@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b6qofnr4f5b2y"
-path.s3tc="res://.godot/imported/model_0.png-9088f18fdcdc58c482afe89af78d7bd4.s3tc.ctex"
+uid="uid://djgo57bn5wksq"
+path.s3tc="res://.godot/imported/la_contribución_de_nacho_0.png-b7dcd146e52c196905110b212e73950a.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -14,8 +14,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://screens/game/levels/level01/model_0.png"
-dest_files=["res://.godot/imported/model_0.png-9088f18fdcdc58c482afe89af78d7bd4.s3tc.ctex"]
+source_file="res://screens/game/levels/level01/la_contribución_de_nacho_0.png"
+dest_files=["res://.godot/imported/la_contribución_de_nacho_0.png-b7dcd146e52c196905110b212e73950a.s3tc.ctex"]
 
 [params]
 
