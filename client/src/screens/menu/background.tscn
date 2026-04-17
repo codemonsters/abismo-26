@@ -65,6 +65,7 @@ uv1_scale = Vector3(5, 5, 5)
 
 [sub_resource type="QuadMesh" id="QuadMesh_siw14"]
 material = SubResource("StandardMaterial3D_11qwi")
+size = Vector2(0.25, 0.25)
 
 [sub_resource type="Animation" id="Animation_8xs6u"]
 length = 0.001
