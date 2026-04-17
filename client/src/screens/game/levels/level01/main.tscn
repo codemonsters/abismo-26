@@ -4,11 +4,19 @@
 [ext_resource type="PackedScene" uid="uid://djkij1vgg64n4" path="res://screens/game/levels/level01/bunny.gltf" id="1_akj3i"]
 [ext_resource type="PackedScene" uid="uid://b5hx2itqholr2" path="res://screens/game/levels/level01/iglu.gltf" id="1_es8gg"]
 [ext_resource type="PackedScene" uid="uid://bcf6hidhknw30" path="res://screens/game/levels/level01/espantapajaros.gltf" id="2_0hlag"]
+[ext_resource type="Texture2D" uid="uid://cmcs040ogeoef" path="res://assets/ice_normal_map.jpg" id="2_3l2jm"]
 [ext_resource type="Script" uid="uid://bj1fgc23ix6y8" path="res://screens/game/levels/level01/bunny.gd" id="2_mmmg7"]
 [ext_resource type="PackedScene" uid="uid://b08ejsgnkrfpr" path="res://screens/game/levels/level01/pinchos hielo.gltf" id="4_urmd8"]
 [ext_resource type="PackedScene" uid="uid://cgnmxe26ewkxv" path="res://screens/game/levels/locations/death.tscn" id="7_8dh2n"]
 [ext_resource type="PackedScene" uid="uid://n6xdc3yo8sby" path="res://screens/game/levels/locations/level_start.tscn" id="7_asklh"]
 [ext_resource type="PackedScene" uid="uid://bprtf4qrwntbl" path="res://screens/game/levels/locations/level_end.tscn" id="8_asklh"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bldw7"]
+cull_mode = 1
+roughness = 0.2
+normal_enabled = true
+normal_scale = 0.3
+normal_texture = ExtResource("2_3l2jm")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_es8gg"]
 size = Vector3(0.77124023, 1.8917236, 1.1450195)
@@ -49,8 +57,9 @@ transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0
 use_collision = true
 
 [node name="CSGFloor" type="CSGBox3D" parent="CSGCombiner3D" unique_id=1800455235]
-transform = Transform3D(1.0499372, 0, 0, 0, 1, 0, 0, 0, 1, -14.428084, -1.2774248, -1.3609778)
+transform = Transform3D(1.0499372, 0, 0, 0, 1, 0, 0, 0, 1, -14.524357, -1.3047214, -1.4125477)
 size = Vector3(22.174793, 2.75, 4.3715134)
+material = SubResource("StandardMaterial3D_bldw7")
 
 [node name="CSGFloor2" type="CSGBox3D" parent="CSGCombiner3D" unique_id=371069007]
 transform = Transform3D(1.0499372, 0, 0, 0, 1, 0, 0, 0, 1, 102.76034, -1.2774258, -1.9619424)
