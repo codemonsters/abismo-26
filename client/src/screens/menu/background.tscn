@@ -2,36 +2,16 @@
 
 [ext_resource type="Script" uid="uid://wts4ncvtpe7i" path="res://screens/menu/main_menu/animation_player.gd" id="1_a6ule"]
 [ext_resource type="Script" uid="uid://5myc1fkcek0o" path="res://screens/menu/background.gd" id="1_rnjn3"]
-
-[sub_resource type="Gradient" id="Gradient_rnjn3"]
-offsets = PackedFloat32Array(0, 0.008064516, 0.5483871, 0.5645161, 1)
-colors = PackedColorArray(0, 0, 0, 1, 0.21166034, 0.33165753, 0.61165094, 1, 0.3792, 0.48874658, 0.79, 1, 0.47662196, 0.5163883, 0.59764993, 1, 1, 1, 1, 1)
-
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_huuvv"]
-
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_62wpj"]
-width = 256
-height = 256
-noise = SubResource("FastNoiseLite_huuvv")
-color_ramp = SubResource("Gradient_rnjn3")
-seamless = true
-
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_m6tx3"]
-frequency = 0.0035
-
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_lob2v"]
-noise = SubResource("FastNoiseLite_m6tx3")
-seamless = true
-as_normal_map = true
-seamless_blend_skirt = 1.0
-bump_strength = 7.0
+[ext_resource type="Texture2D" uid="uid://cwco04t4r33j" path="res://screens/menu/water_noise_texture_2d.tres" id="2_huuvv"]
+[ext_resource type="Texture2D" uid="uid://dfnolupeajxs2" path="res://screens/menu/water_normal_map.jpg" id="3_m6tx3"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_p0c03"]
 albedo_color = Color(0, 0.9664401, 1.1909329, 1)
-albedo_texture = SubResource("NoiseTexture2D_62wpj")
+albedo_texture = ExtResource("2_huuvv")
 roughness = 0.0
 normal_enabled = true
-normal_texture = SubResource("NoiseTexture2D_lob2v")
+normal_scale = 0.05
+normal_texture = ExtResource("3_m6tx3")
 uv1_scale = Vector3(8, 8, 8)
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_g6eqv"]
