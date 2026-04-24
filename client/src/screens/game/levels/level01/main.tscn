@@ -187,7 +187,7 @@ transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 1, 1.3435917, 1, 15)
 transform = Transform3D(3, 0, 0, 0, 1, 0, 0, 0, 5, -0.1578703, -2, 1)
 
 [node name="foca" parent="." unique_id=1229092006 instance=ExtResource("11_bldw7")]
-transform = Transform3D(-0.9995186, 0, -0.031027017, 0, 1, 0, 0.031027017, 0, -0.9995186, -0.7162094, -1.2472064, -48.78915)
+transform = Transform3D(-1.3248717, 0, -0.04377973, 0, 1.430313, 0, 0.041126613, 0, -1.4103404, -0.7162094, -1.2472064, -48.78915)
 
 [node name="blockbench_export3" parent="." unique_id=696909706 instance=ExtResource("4_urmd8")]
 transform = Transform3D(2.9026008, 0, 0, 0, 0.87648815, -0.009391812, 0, 0.0034878717, 2.360124, 1.399327, -1.1165648, -53.736027)
@@ -222,6 +222,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.3646793, 0, -8.338106)
 [node name="IceSpikes" parent="iceSpikes" unique_id=2123908971 instance=ExtResource("6_dskf4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.29159927, 0, 0.49782896)
 
+[node name="IceSpikes4" parent="iceSpikes" unique_id=1315635099 instance=ExtResource("6_dskf4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.29159927, 0, -23.870504)
+
+[node name="IceSpikes5" parent="iceSpikes" unique_id=815793848 instance=ExtResource("6_dskf4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.29159927, 0, -26.382189)
+
 [node name="IceSpikes7" parent="iceSpikes" unique_id=1206491043 instance=ExtResource("6_dskf4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.30228424, 0, -2.3472471)
 
@@ -235,6 +241,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.23026657, 0, -5.217391)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.33675766, 0, -3.2125454)
 
 [node name="blockbench_export" parent="iceSpikes" unique_id=1595945472 instance=ExtResource("12_dskf4")]
-transform = Transform3D(-0.99760526, 0, -0.06916448, 0, 1, 0, 0.06916448, 0, -0.99760526, -1.9889, -1.0644877, -100.738525)
+transform = Transform3D(-1.4705426, 0, -0.09880083, 0, 1.6575646, 0, 0.101953454, 0, -1.4250702, -1.9889, -1.0644877, -100.738525)
 
 [connection signal="body_entered" from="Exit" to="." method="_on_exit_body_entered"]
