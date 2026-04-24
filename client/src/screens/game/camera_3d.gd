@@ -10,12 +10,12 @@ func _physics_process(delta):
 		# Calculamos dónde debería estar la cámara
 		var target_pos = target.global_position + offset
 		target_pos.x = offset.x
-		target_pos.y = 15
+		target_pos.y = 8.5
 		# hace que la camara no se mueva llegado el final del mundo
 		if target_pos.z <= -map_length/2 + 9.5:
 			target_pos.z = -14.5
 		elif target_pos.z >= map_length/2 - 9:
 			target_pos.z = 16.75
-		rotation_degrees.x = -30
+		rotation_degrees.x = -15
 		# Movemos la cámara suavemente hacia esa posición usando interpolación lineal (Lerp)
 		global_position = global_position.lerp(target_pos, smooth_speed * delta)
