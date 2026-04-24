@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://b0ivkydudgjvn"]
 
-[ext_resource type="Script" uid="uid://bk8r8mbgkr4v8" path="res://screens/game/levels/level01/main.gd" id="1_02iye"]
+[ext_resource type="Script" path="res://screens/game/levels/level01/main.gd" id="1_02iye"]
 [ext_resource type="PackedScene" uid="uid://djkij1vgg64n4" path="res://screens/game/levels/level01/bunny.gltf" id="1_akj3i"]
 [ext_resource type="PackedScene" uid="uid://b5hx2itqholr2" path="res://screens/game/levels/level01/iglu.gltf" id="1_es8gg"]
 [ext_resource type="PackedScene" uid="uid://bcf6hidhknw30" path="res://screens/game/levels/level01/espantapajaros.gltf" id="2_0hlag"]
@@ -224,6 +224,9 @@ transform = Transform3D(-0.9995186, 0, -0.031027017, 0, 1, 0, 0.031027017, 0, -0
 
 [node name="blockbench_export3" parent="." unique_id=696909706 instance=ExtResource("4_urmd8")]
 transform = Transform3D(2.9026008, 0, 0, 0, 0.876495, 0, 0, 0, 2.3601427, 0.05573529, -1.1165648, -53.736027)
+
+[node name="blockbench_export8" parent="." unique_id=470626047 instance=ExtResource("4_urmd8")]
+transform = Transform3D(2.9026008, 0, 0, 0, 0.876495, 0, 0, 0, 2.3601427, 0.05573529, 0.2767228, -35.17537)
 
 [node name="blockbench_export6" parent="." unique_id=2025212815 instance=ExtResource("4_urmd8")]
 transform = Transform3D(0.24587564, 0, -2.6522899, 0, 0.7370499, 0, 4.747064, 0, 0.13737617, -1.1326568, -1.1165648, -53.187733)
