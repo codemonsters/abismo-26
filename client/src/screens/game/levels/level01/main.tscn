@@ -5,6 +5,8 @@
 [ext_resource type="PackedScene" uid="uid://b5hx2itqholr2" path="res://screens/game/levels/level01/iglu.gltf" id="1_es8gg"]
 [ext_resource type="PackedScene" uid="uid://bcf6hidhknw30" path="res://screens/game/levels/level01/espantapajaros.gltf" id="2_0hlag"]
 [ext_resource type="Script" uid="uid://bj1fgc23ix6y8" path="res://screens/game/levels/level01/bunny.gd" id="2_mmmg7"]
+[ext_resource type="Texture2D" uid="uid://c8aeediabg7bt" path="res://assets/ice texture map.jpg" id="2_pbqld"]
+[ext_resource type="Texture2D" uid="uid://bxdjigpnco1b3" path="res://assets/ice normal map.jpg" id="3_373ca"]
 [ext_resource type="PackedScene" uid="uid://b08ejsgnkrfpr" path="res://screens/game/levels/level01/pinchos hielo.gltf" id="4_urmd8"]
 [ext_resource type="PackedScene" uid="uid://c6nkw5ccdfiqo" path="res://entities/obstacles/ice_spikes/ice_spikes.tscn" id="6_dskf4"]
 [ext_resource type="PackedScene" uid="uid://cgnmxe26ewkxv" path="res://screens/game/levels/locations/death.tscn" id="7_8dh2n"]
@@ -12,6 +14,15 @@
 [ext_resource type="PackedScene" uid="uid://bprtf4qrwntbl" path="res://screens/game/levels/locations/level_end.tscn" id="8_asklh"]
 [ext_resource type="PackedScene" uid="uid://do0jcrh8bk7pw" path="res://screens/game/levels/level01/foca.gltf" id="11_bldw7"]
 [ext_resource type="PackedScene" uid="uid://c8rtkc4tm3ko6" path="res://assets/models/characters/bosses/model.gltf" id="12_dskf4"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_373ca"]
+albedo_texture = ExtResource("2_pbqld")
+metallic_specular = 0.8
+roughness = 0.0
+normal_enabled = true
+normal_texture = ExtResource("3_373ca")
+clearcoat_roughness = 0.48
+uv1_scale = Vector3(3, 3, 3)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_es8gg"]
 size = Vector3(0.77124023, 1.8917236, 1.1450195)
@@ -54,6 +65,7 @@ use_collision = true
 [node name="CSGFloor" type="CSGBox3D" parent="CSGCombiner3D" unique_id=1800455235]
 transform = Transform3D(1.0499372, 0, 0, 0, 1, 0, 0, 0, 1, -14.428084, -1.2774248, -0.994332)
 size = Vector3(22.174793, 2.75, 6.325405)
+material = SubResource("StandardMaterial3D_373ca")
 
 [node name="CSGFloor2" type="CSGBox3D" parent="CSGCombiner3D" unique_id=371069007]
 transform = Transform3D(1.0499372, 0, 0, 0, 1, 0, 0, 0, 1, 18.842455, -1.161758, -1.1080562)
