@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://b0ivkydudgjvn"]
 
-[ext_resource type="Script" uid="uid://bk8r8mbgkr4v8" path="res://screens/game/levels/level01/main.gd" id="1_02iye"]
+[ext_resource type="Script" path="res://screens/game/levels/level01/main.gd" id="1_02iye"]
 [ext_resource type="PackedScene" uid="uid://djkij1vgg64n4" path="res://screens/game/levels/level01/bunny.gltf" id="1_akj3i"]
 [ext_resource type="PackedScene" uid="uid://b5hx2itqholr2" path="res://screens/game/levels/level01/iglu.gltf" id="1_es8gg"]
 [ext_resource type="PackedScene" uid="uid://bcf6hidhknw30" path="res://screens/game/levels/level01/espantapajaros.gltf" id="2_0hlag"]
@@ -223,7 +223,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6287353, -1.0781751, -64.60
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.3646793, 0, -8.338106)
 
 [node name="IceSpikes" parent="iceSpikes" unique_id=2123908971 instance=ExtResource("6_dskf4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.29159927, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.29159927, 0, 0.49782896)
 
 [node name="IceSpikes7" parent="iceSpikes" unique_id=1206491043 instance=ExtResource("6_dskf4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.30228424, 0, -2.3472471)
@@ -232,9 +232,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.30228424, 0, -2.3472471)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0103263855, 0, -6.657835)
 
 [node name="IceSpikes2" parent="iceSpikes" unique_id=286400110 instance=ExtResource("6_dskf4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.23026657, 0, -5.5443554)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.23026657, 0, -5.217391)
 
-[node name="IceSpikes" parent="." unique_id=1779357421 instance=ExtResource("6_dskf4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.701437, 0, -11.550652)
+[node name="IceSpikes3" parent="iceSpikes" unique_id=1779357421 instance=ExtResource("6_dskf4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.33675766, 0, -3.2125454)
 
 [connection signal="body_entered" from="Exit" to="." method="_on_exit_body_entered"]
