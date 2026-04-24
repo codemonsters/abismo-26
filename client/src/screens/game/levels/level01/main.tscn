@@ -10,8 +10,8 @@
 [ext_resource type="PackedScene" uid="uid://cgnmxe26ewkxv" path="res://screens/game/levels/locations/death.tscn" id="7_8dh2n"]
 [ext_resource type="PackedScene" uid="uid://n6xdc3yo8sby" path="res://screens/game/levels/locations/level_start.tscn" id="7_asklh"]
 [ext_resource type="PackedScene" uid="uid://bprtf4qrwntbl" path="res://screens/game/levels/locations/level_end.tscn" id="8_asklh"]
-[ext_resource type="PackedScene" uid="uid://3hq6qfd3csl4" path="res://screens/game/levels/level01/la_contribución_de_nacho.gltf" id="10_3l2jm"]
 [ext_resource type="PackedScene" uid="uid://do0jcrh8bk7pw" path="res://screens/game/levels/level01/foca.gltf" id="11_bldw7"]
+[ext_resource type="PackedScene" uid="uid://c8rtkc4tm3ko6" path="res://assets/models/characters/bosses/model.gltf" id="12_dskf4"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_es8gg"]
 size = Vector3(0.77124023, 1.8917236, 1.1450195)
@@ -174,9 +174,6 @@ transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 1, 1.3435917, 1, 15)
 [node name="DeathArea" parent="Locations" unique_id=702394030 instance=ExtResource("7_8dh2n")]
 transform = Transform3D(3, 0, 0, 0, 1, 0, 0, 0, 5, -0.1578703, -2, 1)
 
-[node name="blockbench_export" parent="." unique_id=1966771039 instance=ExtResource("10_3l2jm")]
-transform = Transform3D(2.4272718, 0, -1.925541, 0, 2.4319253, 0, 1.673838, 0, 2.7922738, -1.8801336, -0.7896588, -109.69828)
-
 [node name="foca" parent="." unique_id=1229092006 instance=ExtResource("11_bldw7")]
 transform = Transform3D(-0.9995186, 0, -0.031027017, 0, 1, 0, 0.031027017, 0, -0.9995186, -0.7162094, -1.2472064, -48.78915)
 
@@ -224,5 +221,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.23026657, 0, -5.217391)
 
 [node name="IceSpikes3" parent="iceSpikes" unique_id=1779357421 instance=ExtResource("6_dskf4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.33675766, 0, -3.2125454)
+
+[node name="blockbench_export" parent="iceSpikes" unique_id=1595945472 instance=ExtResource("12_dskf4")]
+transform = Transform3D(-0.99760526, 0, -0.06916448, 0, 1, 0, 0.06916448, 0, -0.99760526, -1.9889, -1.0644877, -100.738525)
 
 [connection signal="body_entered" from="Exit" to="." method="_on_exit_body_entered"]
