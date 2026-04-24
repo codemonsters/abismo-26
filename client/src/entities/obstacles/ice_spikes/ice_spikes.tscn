@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://c6nkw5ccdfiqo"]
+
+[ext_resource type="PackedScene" uid="uid://c5vrstyjoihcv" path="res://entities/obstacles/ice_spikes.gltf" id="1_obkwf"]
+
+[node name="IceSpikes" type="Node3D" unique_id=2123908971]
+
+[node name="blockbench_export" parent="." unique_id=1417500164 instance=ExtResource("1_obkwf")]
