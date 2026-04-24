@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://b0ivkydudgjvn"]
 
-[ext_resource type="Script" uid="uid://bk8r8mbgkr4v8" path="res://screens/game/levels/level01/main.gd" id="1_02iye"]
+[ext_resource type="Script" path="res://screens/game/levels/level01/main.gd" id="1_02iye"]
 [ext_resource type="PackedScene" uid="uid://djkij1vgg64n4" path="res://screens/game/levels/level01/bunny.gltf" id="1_akj3i"]
 [ext_resource type="PackedScene" uid="uid://b5hx2itqholr2" path="res://screens/game/levels/level01/iglu.gltf" id="1_es8gg"]
 [ext_resource type="PackedScene" uid="uid://bcf6hidhknw30" path="res://screens/game/levels/level01/espantapajaros.gltf" id="2_0hlag"]
@@ -225,10 +225,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.3435917, 2, 10)
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 1, 1.3435917, 1, 15)
 
 [node name="DeathArea" parent="Locations" unique_id=702394030 instance=ExtResource("7_8dh2n")]
-transform = Transform3D(3, 0, 0, 0, 1, 0, 0, 0, 5, 1.3435917, -2, 1)
+transform = Transform3D(3, 0, 0, 0, 1, 0, 0, 0, 5, -0.1578703, -2, 1)
 
 [node name="blockbench_export" parent="." unique_id=1966771039 instance=ExtResource("10_3l2jm")]
-transform = Transform3D(2.4272718, 0, -1.925541, 0, 2.4319253, 0, 1.673838, 0, 2.7922738, -1.8833723, -0.79682255, -109.70059)
+transform = Transform3D(2.4272718, 0, -1.925541, 0, 2.4319253, 0, 1.673838, 0, 2.7922738, -1.8801336, -0.7896588, -109.69828)
 
 [node name="foca" parent="." unique_id=1229092006 instance=ExtResource("11_bldw7")]
 transform = Transform3D(-0.9995186, 0, -0.031027017, 0, 1, 0, 0.031027017, 0, -0.9995186, -0.7162094, -1.2472064, -48.78915)
