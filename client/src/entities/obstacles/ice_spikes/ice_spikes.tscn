@@ -1,7 +1,32 @@
 [gd_scene format=3 uid="uid://c6nkw5ccdfiqo"]
 
-[ext_resource type="PackedScene" uid="uid://c5vrstyjoihcv" path="res://entities/obstacles/ice_spikes.gltf" id="1_obkwf"]
+[ext_resource type="PackedScene" uid="uid://c5vrstyjoihcv" path="res://entities/obstacles/ice_spikes/ice_spikes.gltf" id="1_obkwf"]
 
 [node name="IceSpikes" type="Node3D" unique_id=2123908971]
 
 [node name="blockbench_export" parent="." unique_id=1417500164 instance=ExtResource("1_obkwf")]
+transform = Transform3D(1.5403128, 0.005441138, 0.0099377455, -0.008078779, 1.0090569, -0.042085998, -0.009193569, 0.024919897, 1.7019773, 0, 0, 0)
+
+[node name="blockbench_export2" parent="." unique_id=1479072564 instance=ExtResource("1_obkwf")]
+transform = Transform3D(1.5403128, 0.005441138, 0.0099377455, -0.008078779, 1.0090569, -0.042085998, -0.009193569, 0.024919897, 1.7019773, -0.47198462, 0, -0.12077284)
+
+[node name="blockbench_export3" parent="." unique_id=1056759387 instance=ExtResource("1_obkwf")]
+transform = Transform3D(1.5403128, 0.005441138, 0.0099377455, -0.008078779, 1.0090569, -0.042085998, -0.009193569, 0.024919897, 1.7019773, -1.0712297, 0, 0.17164946)
+
+[node name="blockbench_export4" parent="." unique_id=813018474 instance=ExtResource("1_obkwf")]
+transform = Transform3D(1.5403128, 0.005441138, 0.0099377455, -0.008078779, 1.0090569, -0.042085998, -0.009193569, 0.024919897, 1.7019773, -1.5575557, 0, -0.02306509)
+
+[node name="blockbench_export5" parent="." unique_id=1433329434 instance=ExtResource("1_obkwf")]
+transform = Transform3D(1.5403128, 0.005441138, 0.0099377455, -0.008078779, 1.0090569, -0.042085998, -0.009193569, 0.024919897, 1.7019773, -2.0225492, 0, -0.093878984)
+
+[node name="blockbench_export6" parent="." unique_id=442254273 instance=ExtResource("1_obkwf")]
+transform = Transform3D(1.5403128, 0.005441138, 0.0099377455, -0.008078779, 1.0090569, -0.042085998, -0.009193569, 0.024919897, 1.7019773, -2.5529292, 0, 0.19745135)
+
+[node name="blockbench_export7" parent="." unique_id=1439532671 instance=ExtResource("1_obkwf")]
+transform = Transform3D(1.5403128, 0.005441138, 0.0099377455, -0.008078779, 1.0090569, -0.042085998, -0.009193569, 0.024919897, 1.7019773, -2.972357, 0, 0.10829878)
+
+[node name="blockbench_export8" parent="." unique_id=1756122507 instance=ExtResource("1_obkwf")]
+transform = Transform3D(1.5403128, 0.005441138, 0.0099377455, -0.008078779, 1.0090569, -0.042085998, -0.009193569, 0.024919897, 1.7019773, -3.4302523, 0, -0.13496518)
+
+[node name="blockbench_export9" parent="." unique_id=469355618 instance=ExtResource("1_obkwf")]
+transform = Transform3D(1.5403128, 0.005441138, 0.0099377455, -0.008078779, 1.0090569, -0.042085998, -0.009193569, 0.024919897, 1.7019773, -3.7629743, 0, 0.0075769424)
