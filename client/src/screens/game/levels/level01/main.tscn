@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bcf6hidhknw30" path="res://screens/game/levels/level01/espantapajaros.gltf" id="2_0hlag"]
 [ext_resource type="Script" uid="uid://bj1fgc23ix6y8" path="res://screens/game/levels/level01/bunny.gd" id="2_mmmg7"]
 [ext_resource type="PackedScene" uid="uid://b08ejsgnkrfpr" path="res://screens/game/levels/level01/pinchos hielo.gltf" id="4_urmd8"]
+[ext_resource type="PackedScene" uid="uid://c6nkw5ccdfiqo" path="res://entities/obstacles/ice_spikes/ice_spikes.tscn" id="6_dskf4"]
 [ext_resource type="PackedScene" uid="uid://cgnmxe26ewkxv" path="res://screens/game/levels/locations/death.tscn" id="7_8dh2n"]
 [ext_resource type="PackedScene" uid="uid://n6xdc3yo8sby" path="res://screens/game/levels/locations/level_start.tscn" id="7_asklh"]
 [ext_resource type="PackedScene" uid="uid://bprtf4qrwntbl" path="res://screens/game/levels/locations/level_end.tscn" id="8_asklh"]
@@ -142,63 +143,9 @@ shape = SubResource("CapsuleShape3D_0hlag")
 
 [node name="pinchos" type="StaticBody3D" parent="." unique_id=1593353344]
 
-[node name="blockbench_export" parent="pinchos" unique_id=1585041714 instance=ExtResource("4_urmd8")]
-transform = Transform3D(2.9026008, 0, 0, 0, 0.876495, 0, 0, 0, 2.3601427, 1.2381332, 0, -8.292085)
-
 [node name="CollisionShape3D" type="CollisionShape3D" parent="pinchos" unique_id=269648473]
 transform = Transform3D(2.9019537, 0.0077380696, 0.04525873, -0.024670951, 0.87633455, -0.040506322, -0.056090623, 0.014896785, 2.359361, 0.6651952, 0.058632754, -11.445553)
 shape = SubResource("BoxShape3D_mmmg7")
-
-[node name="blockbench_export2" parent="pinchos" unique_id=993174302 instance=ExtResource("4_urmd8")]
-transform = Transform3D(2.9026008, 0, 0, 0, 0.876495, 0, 0, 0, 2.3601427, 1.2381332, 0, -10.837908)
-
-[node name="blockbench_export2" parent="pinchos/blockbench_export2" unique_id=655092578 instance=ExtResource("4_urmd8")]
-transform = Transform3D(1.2484714, 0, 0, 0, 0.8764953, 0, 0, 0, 1.4745128, -0.9801897, 0, -1.5863981)
-
-[node name="blockbench_export4" parent="pinchos" unique_id=80635406 instance=ExtResource("4_urmd8")]
-transform = Transform3D(2.9026008, 0, 0, 0, 0.876495, 0, 0, 0, 2.3601427, 1.2381332, 0, -13.9186)
-
-[node name="blockbench_export4" parent="pinchos/blockbench_export4" unique_id=560012174 instance=ExtResource("4_urmd8")]
-transform = Transform3D(-1.8051783, 0, 0, 0, 0.8402494, 0, 0, 0, 1.0428718, -0.014623076, 0.66712785, -8.91859)
-
-[node name="blockbench_export4" parent="pinchos/blockbench_export4/blockbench_export4" unique_id=1380077530 instance=ExtResource("4_urmd8")]
-transform = Transform3D(-1.8254231, 0, 0, 0, 0.9336572, 0, 0, 0, 1.0284635, 0.31446362, -0.31451336, -0.11537361)
-
-[node name="blockbench_export5" parent="pinchos/blockbench_export4/blockbench_export4" unique_id=1824661470 instance=ExtResource("4_urmd8")]
-transform = Transform3D(-1.8051784, 0, 0, 0, 0.9336567, 0, 0, 0, 1.1063272, 0.4220269, -0.4873532, 0.9551344)
-
-[node name="blockbench_export4" parent="pinchos/blockbench_export4/blockbench_export4/blockbench_export5" unique_id=809672593 instance=ExtResource("4_urmd8")]
-transform = Transform3D(-0.49057847, 0, 0, 0, 0.9336563, 0, 0, 0, 0.84574014, 0.11976394, 0.010098189, -0.11537361)
-
-[node name="blockbench_export5" parent="pinchos" unique_id=1376034758 instance=ExtResource("4_urmd8")]
-transform = Transform3D(2.9026008, 0, 0, 0, 0.876495, 0, 0, 0, 2.3601427, 1.2381332, 0, -15.219579)
-
-[node name="blockbench_export3" parent="pinchos" unique_id=2025258748 instance=ExtResource("4_urmd8")]
-transform = Transform3D(2.9026008, 0, 0, 0, 0.876495, 0, 0, 0, 2.3601427, 1.2381332, 0, -11.994022)
-
-[node name="blockbench_export6" parent="pinchos" unique_id=117131433 instance=ExtResource("4_urmd8")]
-transform = Transform3D(0.24587561, 0, -2.6522899, 0.09419644, 0.73690486, 0.002725968, 4.7461295, -0.014625349, 0.13734913, -0.12027097, 0, -7.743791)
-
-[node name="blockbench_export6" parent="pinchos/blockbench_export6" unique_id=1667593386 instance=ExtResource("4_urmd8")]
-transform = Transform3D(0.060492124, -1.1641532e-09, -0.6502211, 0.023174893, 0.73017544, 0.0006682947, 1.1676774, -0.01449179, 0.03367175, -0.7285894, 0.38101745, 0.53864527)
-
-[node name="blockbench_export6" parent="pinchos/blockbench_export6/blockbench_export6" unique_id=1856372641 instance=ExtResource("4_urmd8")]
-transform = Transform3D(0.060492173, -9.313226e-10, -0.6502213, 0.023174882, 0.7301756, 0.00066831056, 1.1676782, -0.014491798, 0.033671863, -0.29374254, -0.03551531, 1.17803)
-
-[node name="blockbench_export6" parent="pinchos/blockbench_export6/blockbench_export6/blockbench_export6" unique_id=929321691 instance=ExtResource("4_urmd8")]
-transform = Transform3D(0.060492143, -2.7939677e-09, -0.650221, 0.023174899, 0.7301753, 0.0006683171, 1.1676774, -0.014491788, 0.03367178, -0.19327712, 0.44209146, 0.19616264)
-
-[node name="blockbench_export7" parent="pinchos" unique_id=1606327313 instance=ExtResource("4_urmd8")]
-transform = Transform3D(4.505021, 0, 0, 0, 0.6892548, 0, 0, 0, 2.857088, 0.22283912, 0, -11.241047)
-
-[node name="blockbench_export8" parent="pinchos" unique_id=158145547 instance=ExtResource("4_urmd8")]
-transform = Transform3D(1.6670843, 0, 0, 0, 0.6892548, 0, 0, 0, 1.8463026, -0.7630341, 0.15924788, -10.935542)
-
-[node name="blockbench_export13" parent="pinchos" unique_id=1091919397 instance=ExtResource("4_urmd8")]
-transform = Transform3D(3.570006, 0, 0, 0, 0.38757572, 0, 0, 0, 3.155199, 0.03419447, 0.18765163, -14.4507675)
-
-[node name="blockbench_export9" parent="pinchos" unique_id=2060821426 instance=ExtResource("4_urmd8")]
-transform = Transform3D(0.12204939, 0, 3.0749738, 0, 0.4750722, 0, -3.0749736, 0, 0.14970161, -2.0350761, 0.26901025, -8.3172865)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1770054832]
 environment = SubResource("Environment_02iye")
@@ -259,5 +206,23 @@ transform = Transform3D(0.9366561, 0, -0.02865144, 0, 0.73705006, 0, 0.017330602
 
 [node name="blockbench_export4" parent="." unique_id=1546313768 instance=ExtResource("1_akj3i")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6287353, -1.0781751, -64.6082)
+
+[node name="iceSpikes" type="StaticBody3D" parent="." unique_id=523295852]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.3646793, 0, -8.338106)
+
+[node name="IceSpikes" parent="iceSpikes" unique_id=2123908971 instance=ExtResource("6_dskf4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.29159927, 0, 0.49782896)
+
+[node name="IceSpikes7" parent="iceSpikes" unique_id=1206491043 instance=ExtResource("6_dskf4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.30228424, 0, -2.3472471)
+
+[node name="IceSpikes19" parent="iceSpikes" unique_id=2040884202 instance=ExtResource("6_dskf4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0103263855, 0, -6.657835)
+
+[node name="IceSpikes2" parent="iceSpikes" unique_id=286400110 instance=ExtResource("6_dskf4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.23026657, 0, -5.217391)
+
+[node name="IceSpikes3" parent="iceSpikes" unique_id=1779357421 instance=ExtResource("6_dskf4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.33675766, 0, -3.2125454)
 
 [connection signal="body_entered" from="Exit" to="." method="_on_exit_body_entered"]

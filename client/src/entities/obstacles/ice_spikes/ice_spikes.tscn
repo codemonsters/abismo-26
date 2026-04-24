@@ -1,7 +1,11 @@
 [gd_scene format=3 uid="uid://c6nkw5ccdfiqo"]
 
-[ext_resource type="PackedScene" uid="uid://c5vrstyjoihcv" path="res://entities/obstacles/ice_spikes.gltf" id="1_obkwf"]
+[ext_resource type="PackedScene" uid="uid://c5vrstyjoihcv" path="res://entities/obstacles/ice_spikes/ice_spikes.gltf" id="1_obkwf"]
 
 [node name="IceSpikes" type="Node3D" unique_id=2123908971]
 
 [node name="blockbench_export" parent="." unique_id=1417500164 instance=ExtResource("1_obkwf")]
+transform = Transform3D(-0.32243243, -0.021707313, -2.111627, -0.022707006, 0.86656284, -0.05236072, 4.3174057, 0.0029364615, -0.15797584, -0.79114795, 0, 0.16417933)
+
+[node name="blockbench_export3" parent="." unique_id=1056759387 instance=ExtResource("1_obkwf")]
+transform = Transform3D(0.19452997, 0.021681542, 1.9696921, -0.02772393, 0.8705966, -0.04873837, -5.282403, -0.003770758, 0.072791755, -2.765345, 0, -0.593231)
