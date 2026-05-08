@@ -1,6 +1,7 @@
 # Backend / Servidor del Juego
 
 Enlaces con ejemplos: 
+
 * https://dev.to/codesphere/getting-started-with-web-sockets-in-nodejs-49n0
 * https://ably.com/blog/web-app-websockets-nodejs
 
@@ -54,6 +55,7 @@ Solicitud anónima de ejemplo:
 ```
 
 Solicitud de usuario registrado de ejemplo:
+
 ```json
 {
     "cmd": "login",
