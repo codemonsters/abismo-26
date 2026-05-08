@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c8aeediabg7bt"
-path.s3tc="res://.godot/imported/ice texture map.jpg-dbbbce9feacf9112e4db63b72544e291.s3tc.ctex"
+uid="uid://bxdjigpnco1b3"
+path.s3tc="res://.godot/imported/ice normal map.jpg-2b89c264d1d09b0779d1cf6e44c3e78d.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/ice texture map.jpg"
-dest_files=["res://.godot/imported/ice texture map.jpg-dbbbce9feacf9112e4db63b72544e291.s3tc.ctex"]
+source_file="res://entities/building blocks/block/ice normal map.jpg"
+dest_files=["res://.godot/imported/ice normal map.jpg-2b89c264d1d09b0779d1cf6e44c3e78d.s3tc.ctex"]
 
 [params]
 
@@ -22,7 +22,7 @@ compress/lossy_quality=0.7
 compress/uastc_level=0
 compress/rdo_quality_loss=0.0
 compress/hdr_compression=1
-compress/normal_map=0
+compress/normal_map=1
 compress/channel_pack=0
 mipmaps/generate=true
 mipmaps/limit=-1

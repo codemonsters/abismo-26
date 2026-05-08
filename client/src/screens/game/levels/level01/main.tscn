@@ -1,12 +1,12 @@
 [gd_scene format=3 uid="uid://b0ivkydudgjvn"]
 
-[ext_resource type="Script" path="res://screens/game/levels/level01/main.gd" id="1_02iye"]
+[ext_resource type="Script" uid="uid://bk8r8mbgkr4v8" path="res://screens/game/levels/level01/main.gd" id="1_02iye"]
 [ext_resource type="PackedScene" uid="uid://djkij1vgg64n4" path="res://screens/game/levels/level01/bunny.gltf" id="1_akj3i"]
 [ext_resource type="PackedScene" uid="uid://b5hx2itqholr2" path="res://screens/game/levels/level01/iglu.gltf" id="1_es8gg"]
 [ext_resource type="PackedScene" uid="uid://bcf6hidhknw30" path="res://screens/game/levels/level01/espantapajaros.gltf" id="2_0hlag"]
 [ext_resource type="Script" uid="uid://bj1fgc23ix6y8" path="res://screens/game/levels/level01/bunny.gd" id="2_mmmg7"]
-[ext_resource type="Texture2D" uid="uid://c8aeediabg7bt" path="res://assets/ice texture map.jpg" id="2_pbqld"]
-[ext_resource type="Texture2D" uid="uid://bxdjigpnco1b3" path="res://assets/ice normal map.jpg" id="3_373ca"]
+[ext_resource type="Texture2D" uid="uid://c8aeediabg7bt" path="res://entities/building blocks/block/ice texture map.jpg" id="2_pbqld"]
+[ext_resource type="Texture2D" uid="uid://bxdjigpnco1b3" path="res://entities/building blocks/block/ice normal map.jpg" id="3_373ca"]
 [ext_resource type="PackedScene" uid="uid://b08ejsgnkrfpr" path="res://screens/game/levels/level01/pinchos hielo.gltf" id="4_urmd8"]
 [ext_resource type="PackedScene" uid="uid://c6nkw5ccdfiqo" path="res://entities/obstacles/ice_spikes/ice_spikes.tscn" id="6_dskf4"]
 [ext_resource type="PackedScene" uid="uid://cgnmxe26ewkxv" path="res://screens/game/levels/locations/death.tscn" id="7_8dh2n"]
@@ -30,9 +30,6 @@ size = Vector3(0.77124023, 1.8917236, 1.1450195)
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_0hlag"]
 radius = 0.65771484
 height = 2.2475586
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_mmmg7"]
-size = Vector3(0.30004883, 1.1337891, 3.6097221)
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_mmmg7"]
 sky_top_color = Color(0.00013389975, 0.2577117, 0.78406, 1)
@@ -152,12 +149,6 @@ transform = Transform3D(-1.3005803, 0, -1.5230494, 0, 1.9987501, 0, 1.5187535, 0
 [node name="CollisionShape3D" type="CollisionShape3D" parent="espantapajaros" unique_id=302317943]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.602726, 1.2838702, 8.27048)
 shape = SubResource("CapsuleShape3D_0hlag")
-
-[node name="pinchos" type="StaticBody3D" parent="." unique_id=1593353344]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="pinchos" unique_id=269648473]
-transform = Transform3D(2.9019537, 0.0077380696, 0.04525873, -0.024670951, 0.87633455, -0.040506322, -0.056090623, 0.014896785, 2.359361, 0.6651952, 0.058632754, -11.445553)
-shape = SubResource("BoxShape3D_mmmg7")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1770054832]
 environment = SubResource("Environment_02iye")

@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://cslhsrc26d8ys"]
+
+[ext_resource type="Texture2D" uid="uid://c8aeediabg7bt" path="res://entities/building blocks/block/ice texture map.jpg" id="1_jf2lj"]
+[ext_resource type="Texture2D" uid="uid://bxdjigpnco1b3" path="res://entities/building blocks/block/ice normal map.jpg" id="2_q5jnv"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2h0t3"]
+albedo_texture = ExtResource("1_jf2lj")
+metallic_specular = 0.8
+roughness = 0.0
+normal_enabled = true
+normal_texture = ExtResource("2_q5jnv")
+clearcoat_roughness = 0.48
+uv1_scale = Vector3(3, 3, 3)
+
+[node name="Block" type="Node3D" unique_id=343637343]
+
+[node name="CSGFloor" type="CSGBox3D" parent="." unique_id=1739913038]
+transform = Transform3D(1.0499372, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+size = Vector3(1, 1, 7)
+material = SubResource("StandardMaterial3D_2h0t3")
