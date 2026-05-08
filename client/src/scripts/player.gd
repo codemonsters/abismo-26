@@ -21,7 +21,7 @@ var gravity = ProjectSettings.get_setting(&"physics/3d/default_gravity")
 
 
 func _ready():
-	position = Vector3(0, 2, 15)
+	position = Vector3(0, 2, 0)
 	
 	if input == null:
 		input = $Input
