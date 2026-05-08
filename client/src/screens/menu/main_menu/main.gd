@@ -12,6 +12,7 @@ func _on_play_offline_pressed() -> void:
 
 
 func _on_play_online_pressed() -> void:
+	$"/root/Main/ServerPopup".ls_connect()
 	var online_menu = Globals.screen_menu_online.instantiate()
 	online_menu.prev_window = self
 	emit_signal("change_window_requested", online_menu, null)
