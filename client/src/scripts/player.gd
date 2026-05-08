@@ -1,6 +1,9 @@
 extends CharacterBody3D
 signal disparando
+
+
 @export var speed := 5.0
+@export var jump_power := 3.5
 @export var input: PlayerInput
 
 # vamos a hacer que pueda tener armas
@@ -17,11 +20,11 @@ var weapon = 0
 var held_wep_stats: Firearm = null
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
-var gravity = ProjectSettings.get_setting(&"physics/3d/default_gravity")
+var gravity = ProjectSettings.get_setting(&"physics/3d/default_gravity") * 2.5
 
 
 func _ready():
-	position = Vector3(0, 2, 0)
+	position = Vector3(0, 5, 0)
 	
 	if input == null:
 		input = $Input
@@ -61,7 +64,7 @@ func _rollback_tick(delta, _tick, _is_fresh):
 				$blockbench_export/AnimationPlayer.play("jump")
 			elif weapon == 1 or weapon == 2:
 				$blockbench_export/AnimationPlayer.play("jump with gun")
-			velocity.y = 3.5
+			velocity.y = jump_power
 			
 	if Input.is_action_pressed("slot1"):
 		weapon = 1
