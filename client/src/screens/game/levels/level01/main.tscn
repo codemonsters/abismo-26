@@ -8,9 +8,11 @@
 [ext_resource type="Texture2D" uid="uid://c8aeediabg7bt" path="res://assets/ice texture map.jpg" id="2_pbqld"]
 [ext_resource type="Texture2D" uid="uid://bxdjigpnco1b3" path="res://assets/ice normal map.jpg" id="3_373ca"]
 [ext_resource type="PackedScene" uid="uid://b08ejsgnkrfpr" path="res://screens/game/levels/level01/pinchos hielo.gltf" id="4_urmd8"]
+[ext_resource type="PackedScene" uid="uid://c3eex2at02kvf" path="res://assets/models/characters/penguin/escafandra.gltf" id="6_47x4f"]
 [ext_resource type="PackedScene" uid="uid://c6nkw5ccdfiqo" path="res://entities/obstacles/ice_spikes/ice_spikes.tscn" id="6_dskf4"]
 [ext_resource type="PackedScene" uid="uid://cgnmxe26ewkxv" path="res://screens/game/levels/locations/death.tscn" id="7_8dh2n"]
 [ext_resource type="PackedScene" uid="uid://n6xdc3yo8sby" path="res://screens/game/levels/locations/level_start.tscn" id="7_asklh"]
+[ext_resource type="Script" uid="uid://ca2u1t1lakiyr" path="res://assets/models/characters/penguin/escafandra.gd" id="7_xe0jv"]
 [ext_resource type="PackedScene" uid="uid://bprtf4qrwntbl" path="res://screens/game/levels/locations/level_end.tscn" id="8_asklh"]
 [ext_resource type="PackedScene" uid="uid://do0jcrh8bk7pw" path="res://screens/game/levels/level01/foca.gltf" id="11_bldw7"]
 [ext_resource type="PackedScene" uid="uid://c8rtkc4tm3ko6" path="res://assets/models/characters/bosses/model.gltf" id="12_dskf4"]
@@ -24,6 +26,9 @@ normal_enabled = true
 normal_texture = ExtResource("3_373ca")
 clearcoat_roughness = 0.48
 uv1_scale = Vector3(3, 3, 3)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hpis2"]
+albedo_color = Color(1, 1, 1, 0.2)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_es8gg"]
 size = Vector3(0.77124023, 1.8917236, 1.1450195)
@@ -115,8 +120,33 @@ transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 36.4
 script = ExtResource("2_mmmg7")
 
 [node name="CSGFloor3" type="CSGBox3D" parent="CSGCombiner3D" unique_id=502310340]
-transform = Transform3D(1.1023682, 0, 0, 0, 1, 0, 0, 0, 1, 89.257805, -2.438758, -0.8944866)
-size = Vector3(63.013443, 2.75, 6.0352097)
+transform = Transform3D(1.1023682, 0, 0, 0, 1, 0, 0, 0, 1, 96.79204, -2.438758, -0.8944866)
+size = Vector3(76.682625, 2.75, 6.0352097)
+
+[node name="CSGFloor4" type="CSGBox3D" parent="CSGCombiner3D" unique_id=430568301]
+transform = Transform3D(1.1023682, 0, 0, 0, 1, 0, 0, 0, 1, 121.252716, -1.3331525, -0.89448386)
+size = Vector3(19.027433, 1.2939453, 6.0352097)
+
+[node name="CSGFloor5" type="CSGBox3D" parent="CSGCombiner3D" unique_id=1286674026]
+transform = Transform3D(1.1023682, 0, 0, 0, 1, 0, 0, 0, 1, 122.37528, -0.5475894, -0.8944838)
+size = Vector3(19.066586, 0.33532715, 6.0352097)
+
+[node name="CSGFloor6" type="CSGBox3D" parent="CSGCombiner3D" unique_id=1380839556]
+transform = Transform3D(1.1023682, 0, 0, 0, 1, 0, 0, 0, 1, 123.49029, -0.2632177, -0.8884432)
+size = Vector3(19.02435, 0.33532715, 6.0352097)
+
+[node name="CSGFloor7" type="CSGBox3D" parent="CSGCombiner3D" unique_id=1442087631]
+transform = Transform3D(1.1023682, 0, 0, 0, 1, 0, 0, 0, 1, 124.7312, 0.10160422, -0.83217114)
+size = Vector3(19.240446, 0.33532715, 6.041897)
+
+[node name="CSGFloor8" type="CSGBox3D" parent="CSGCombiner3D" unique_id=1999012464]
+transform = Transform3D(1.1023682, 0, 0, 0, 1, 0, 0, 0, 1, 122.74262, 0.32914472, -0.87686986)
+size = Vector3(9.082607, 0.19863892, 6.041897)
+
+[node name="CSGFloor9" type="CSGBox3D" parent="CSGCombiner3D" unique_id=1237234560]
+transform = Transform3D(1.1023682, 0, 0, 0, 1, 0, 0, 0, 1, 120.720345, 0.33197808, -0.9057403)
+size = Vector3(4.5371814, 1.6416321, 6.041897)
+material = SubResource("StandardMaterial3D_hpis2")
 
 [node name="CSGBox3D7" type="CSGBox3D" parent="CSGCombiner3D" unique_id=1184931839]
 transform = Transform3D(1, 0, 0, 0, 2447.6323, 0, 0, 0, 1, 47.01116, -0.7487506, -1.1692227)
@@ -129,6 +159,10 @@ size = Vector3(1.4985352, 0.0025157928, 7.121826)
 [node name="CSGBox3D9" type="CSGBox3D" parent="CSGCombiner3D" unique_id=1357286688]
 transform = Transform3D(1, 0, 0, 0, 2447.6323, 0, 0, 0, 1, 75.37304, -2.1679912, -0.9555331)
 size = Vector3(1, 0.0013694763, 5.864746)
+
+[node name="blockbench_export2" parent="CSGCombiner3D" unique_id=1892794121 instance=ExtResource("6_47x4f")]
+transform = Transform3D(-5.5845184e-08, 0.24669519, -1.2951418, 0, 1.2856615, 0.24851431, 1.277589, 1.0783389e-08, -5.6612453e-08, 120.77789, 1.3494637, 0.63657767)
+script = ExtResource("7_xe0jv")
 
 [node name="iglu" type="StaticBody3D" parent="." unique_id=1860631840]
 transform = Transform3D(4.576335, 0, -5.85003, 0, 9.8486805, 0, 4.4552684, 0, 6.009, -2.7273235, 0.10950041, 21.479425)
@@ -178,7 +212,7 @@ shape = SubResource("BoxShape3D_02iye")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.3435917, 2, -3.4758816)
 
 [node name="LevelEnd" parent="Locations" unique_id=614686416 instance=ExtResource("8_asklh")]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 1, 1.3435917, 1, 1.5241184)
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 1, 0.9586654, 1, 1.5257359)
 
 [node name="DeathArea" parent="Locations" unique_id=702394030 instance=ExtResource("7_8dh2n")]
 transform = Transform3D(3, 0, 0, 0, 1, 0, 0, 0, 5, -0.1578703, -2, -12.475882)
@@ -238,7 +272,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.23026657, 0, -18.693274)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.33675766, 0, -16.688427)
 
 [node name="blockbench_export" parent="iceSpikes" unique_id=1595945472 instance=ExtResource("12_dskf4")]
-transform = Transform3D(-1.4705426, 0, -0.09880083, 0, 1.6575646, 0, 0.101953454, 0, -1.4250702, -1.9889, -1.0644877, -114.21441)
+transform = Transform3D(-1.4705426, 0, -0.09880083, 0, 1.6575646, 0, 0.101953454, 0, -1.4250702, -1.9889, -1.0644877, -98.50992)
 
 [node name="CSGCombiner3D2" type="CSGCombiner3D" parent="." unique_id=752002242]
 
