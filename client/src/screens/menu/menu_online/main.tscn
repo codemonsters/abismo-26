@@ -4,30 +4,30 @@
 [ext_resource type="Script" uid="uid://f31t3juccs1h" path="res://screens/menu/menu_online/main.gd" id="1_vs0vh"]
 [ext_resource type="PackedScene" uid="uid://kvqobh4tlooj" path="res://screens/menu/shared/previous_scene.tscn" id="2_27htw"]
 
-[node name="Main" type="Node2D"]
+[node name="Main" type="Node2D" unique_id=1074571412]
 script = ExtResource("1_vs0vh")
 
-[node name="Button" type="Button" parent="."]
+[node name="Button" type="Button" parent="." unique_id=692918173]
 offset_left = 140.0
 offset_top = 390.0
 offset_right = 352.0
 offset_bottom = 475.0
 text = "Jugar anónimo"
 
-[node name="Button2" type="Button" parent="."]
+[node name="Button2" type="Button" parent="." unique_id=1974025549]
 offset_left = 813.0
 offset_top = 441.0
 offset_right = 1025.0
 offset_bottom = 526.0
 text = "Crear cuenta"
 
-[node name="Button3" type="Button" parent="."]
+[node name="Button3" type="Button" parent="." unique_id=152771256]
 offset_left = 475.0
 offset_top = 497.0
 offset_right = 687.0
 offset_bottom = 582.0
 text = "Identificarte"
 
-[node name="Main" parent="." instance=ExtResource("1_1v4wi")]
+[node name="Main" parent="." unique_id=1427847793 instance=ExtResource("1_1v4wi")]
 
-[node name="PreviousScreen" parent="." instance=ExtResource("2_27htw")]
+[node name="PreviousScreen" parent="." unique_id=1003179572 instance=ExtResource("2_27htw")]
