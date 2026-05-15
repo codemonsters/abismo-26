@@ -8,15 +8,14 @@
 [ext_resource type="Texture2D" uid="uid://c8aeediabg7bt" path="res://assets/ice texture map.jpg" id="2_pbqld"]
 [ext_resource type="Texture2D" uid="uid://bxdjigpnco1b3" path="res://assets/ice normal map.jpg" id="3_373ca"]
 [ext_resource type="PackedScene" uid="uid://b08ejsgnkrfpr" path="res://screens/game/levels/level01/pinchos hielo.gltf" id="4_urmd8"]
-[ext_resource type="PackedScene" uid="uid://c3eex2at02kvf" path="res://assets/models/characters/penguin/escafandra.gltf" id="6_47x4f"]
 [ext_resource type="PackedScene" uid="uid://c6nkw5ccdfiqo" path="res://entities/obstacles/ice_spikes/ice_spikes.tscn" id="6_dskf4"]
 [ext_resource type="PackedScene" uid="uid://cgnmxe26ewkxv" path="res://screens/game/levels/locations/death.tscn" id="7_8dh2n"]
 [ext_resource type="PackedScene" uid="uid://n6xdc3yo8sby" path="res://screens/game/levels/locations/level_start.tscn" id="7_asklh"]
-[ext_resource type="Script" uid="uid://ca2u1t1lakiyr" path="res://assets/models/characters/penguin/escafandra.gd" id="7_xe0jv"]
 [ext_resource type="PackedScene" uid="uid://bprtf4qrwntbl" path="res://screens/game/levels/locations/level_end.tscn" id="8_asklh"]
 [ext_resource type="PackedScene" uid="uid://do0jcrh8bk7pw" path="res://screens/game/levels/level01/foca.gltf" id="11_bldw7"]
 [ext_resource type="PackedScene" uid="uid://c8rtkc4tm3ko6" path="res://assets/models/characters/bosses/model.gltf" id="12_dskf4"]
 [ext_resource type="PackedScene" uid="uid://f0nc00780tfd" path="res://entities/building_blocks/step/step.tscn" id="15_syhxd"]
+[ext_resource type="PackedScene" uid="uid://njsj7xki7cmh" path="res://entities/escafandra.tscn" id="16_04ucj"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_373ca"]
 albedo_texture = ExtResource("2_pbqld")
@@ -160,10 +159,6 @@ size = Vector3(1.4985352, 0.0025157928, 7.121826)
 transform = Transform3D(1, 0, 0, 0, 2447.6323, 0, 0, 0, 1, 75.37304, -2.1679912, -0.9555331)
 size = Vector3(1, 0.0013694763, 5.864746)
 
-[node name="blockbench_export2" parent="CSGCombiner3D" unique_id=1892794121 instance=ExtResource("6_47x4f")]
-transform = Transform3D(-5.5845184e-08, 0.24669519, -1.2951418, 0, 1.2856615, 0.24851431, 1.277589, 1.0783389e-08, -5.6612453e-08, 120.77789, 1.3494637, 0.63657767)
-script = ExtResource("7_xe0jv")
-
 [node name="iglu" type="StaticBody3D" parent="." unique_id=1860631840]
 transform = Transform3D(4.576335, 0, -5.85003, 0, 9.8486805, 0, 4.4552684, 0, 6.009, -2.7273235, 0.10950041, 21.479425)
 
@@ -278,5 +273,8 @@ transform = Transform3D(-1.4705426, 0, -0.09880083, 0, 1.6575646, 0, 0.101953454
 
 [node name="CSGFloor" parent="." unique_id=1774441915 instance=ExtResource("15_syhxd")]
 transform = Transform3D(1.0499372, 0, 0, 0, 1, 0, 0, 0, 1, -1.458239, 0.35425615, -20.243803)
+
+[node name="Escafandra" parent="." unique_id=780757745 instance=ExtResource("16_04ucj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0332351, 1.3858507, -120.30374)
 
 [connection signal="body_entered" from="Exit" to="." method="_on_exit_body_entered"]
