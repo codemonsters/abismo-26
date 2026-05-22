@@ -1,10 +1,16 @@
 [gd_scene format=3 uid="uid://ddnhy4w13aef5"]
 
-[node name="Main" type="Node2D"]
+[node name="Main" type="Node2D" unique_id=839197147]
 
-[node name="Label" type="Label" parent="."]
+[node name="Titulo" type="Label" parent="." unique_id=1843010077]
 offset_right = 1153.0
-offset_bottom = 74.0
-text = "Pinguinoch achechinoch"
+offset_bottom = 64.0
+theme_override_font_sizes/font_size = 30
+text = "ABISMO 26"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1413041171]
+offset_right = 1152.0
+offset_bottom = 64.0
+color = Color(0.61960787, 1, 1, 0.31764707)

@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://cyna4bh0m545"]
+
+[node name="MenuContainer" type="ColorRect" unique_id=1071125758]
+offset_left = 64.0
+offset_top = 112.0
+offset_right = 1088.0
+offset_bottom = 585.0

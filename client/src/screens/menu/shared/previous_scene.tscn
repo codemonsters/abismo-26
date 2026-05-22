@@ -5,11 +5,14 @@
 [node name="PreviousScreen" type="Node2D" unique_id=610500866]
 script = ExtResource("1_lwebc")
 
-[node name="Button" type="Button" parent="." unique_id=256475203]
-offset_left = 17.0
-offset_top = 21.0
-offset_right = 110.0
-offset_bottom = 63.0
+[node name="Container" type="CenterContainer" parent="." unique_id=1477883683]
+offset_left = 64.0
+offset_right = 157.0
+offset_bottom = 64.0
+
+[node name="Button" type="Button" parent="Container" unique_id=256475203]
+custom_minimum_size = Vector2(93, 42)
+layout_mode = 2
 text = "<-"
 
-[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Container/Button" to="." method="_on_button_pressed"]
