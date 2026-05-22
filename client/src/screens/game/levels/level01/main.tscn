@@ -4,7 +4,6 @@
 [ext_resource type="PackedScene" uid="uid://djkij1vgg64n4" path="res://screens/game/levels/level01/bunny.gltf" id="1_akj3i"]
 [ext_resource type="PackedScene" uid="uid://bcf6hidhknw30" path="res://screens/game/levels/level01/espantapajaros.gltf" id="2_0hlag"]
 [ext_resource type="Script" uid="uid://bj1fgc23ix6y8" path="res://screens/game/levels/level01/bunny.gd" id="2_mmmg7"]
-[ext_resource type="PackedScene" uid="uid://b08ejsgnkrfpr" path="res://screens/game/levels/level01/pinchos hielo.gltf" id="4_urmd8"]
 [ext_resource type="PackedScene" uid="uid://c6nkw5ccdfiqo" path="res://entities/obstacles/ice_spikes/ice_spikes.tscn" id="6_dskf4"]
 [ext_resource type="PackedScene" uid="uid://cgnmxe26ewkxv" path="res://screens/game/levels/locations/death.tscn" id="7_8dh2n"]
 [ext_resource type="PackedScene" uid="uid://n6xdc3yo8sby" path="res://screens/game/levels/locations/level_start.tscn" id="7_asklh"]
@@ -14,9 +13,6 @@
 [ext_resource type="PackedScene" uid="uid://cud3o4yqar2lf" path="res://entities/enemies/bosses/polar_bear.tscn" id="14_syhxd"]
 [ext_resource type="PackedScene" uid="uid://f0nc00780tfd" path="res://entities/building_blocks/block/block.tscn" id="15_syhxd"]
 [ext_resource type="PackedScene" path="res://entities/escafandra.tscn" id="16_04ucj"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hpis2"]
-albedo_color = Color(1, 1, 1, 0.2)
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_0hlag"]
 radius = 0.65771484
@@ -46,6 +42,15 @@ fog_sky_affect = 0.154
 [sub_resource type="BoxShape3D" id="BoxShape3D_02iye"]
 size = Vector3(5, 7, 1)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_syhxd"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_04ucj"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_47x4f"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hpis2"]
+albedo_color = Color(1, 1, 1, 0.2)
+
 [node name="Main" type="Node" unique_id=121409370]
 script = ExtResource("1_02iye")
 
@@ -53,52 +58,9 @@ script = ExtResource("1_02iye")
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0, 0)
 use_collision = true
 
-[node name="CSGWall" type="CSGBox3D" parent="CSGCombiner3D" unique_id=107523795]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 8)
-visible = false
-size = Vector3(16, 2, 1)
-
-[node name="CSGWall4" type="CSGBox3D" parent="CSGCombiner3D" unique_id=1142791263]
-transform = Transform3D(1, 0, 0, 0, 7.3613043, 0, 0, 0, 1, -15.011988, 1, -3.065037e-07)
-visible = false
-size = Vector3(1, 2, 16)
-
-[node name="CSGCorner3" type="CSGCylinder3D" parent="CSGCombiner3D" unique_id=66039199]
-transform = Transform3D(1, 0, 0, 0, 7.3613043, 0, 0, 0, 1, -15.008129, 1, -8.000001)
-visible = false
-
-[node name="CSGCorner4" type="CSGCylinder3D" parent="CSGCombiner3D" unique_id=547845982]
-transform = Transform3D(1, 0, 0, 0, 7.3613043, 0, 0, 0, 1, -15.032154, 1, 7.9999995)
-visible = false
-
 [node name="blockbench_export" parent="CSGCombiner3D" unique_id=204921031 instance=ExtResource("1_akj3i")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 36.465023, 0.29273558, 1.063625)
 script = ExtResource("2_mmmg7")
-
-[node name="CSGFloor4" type="CSGBox3D" parent="CSGCombiner3D" unique_id=430568301]
-transform = Transform3D(1.1023682, 0, 0, 0, 1, 0, 0, 0, 1, 121.25016, -1.3493783, -0.8770738)
-size = Vector3(19.027, 1.294, 6.035)
-
-[node name="CSGFloor5" type="CSGBox3D" parent="CSGCombiner3D" unique_id=1286674026]
-transform = Transform3D(1.1023682, 0, 0, 0, 1, 0, 0, 0, 1, 122.37528, -0.5475894, -0.8944838)
-size = Vector3(19.066586, 0.33532715, 6.0352097)
-
-[node name="CSGFloor6" type="CSGBox3D" parent="CSGCombiner3D" unique_id=1380839556]
-transform = Transform3D(1.1023682, 0, 0, 0, 1, 0, 0, 0, 1, 123.49029, -0.2632177, -0.8884432)
-size = Vector3(19.02435, 0.33532715, 6.0352097)
-
-[node name="CSGFloor7" type="CSGBox3D" parent="CSGCombiner3D" unique_id=1442087631]
-transform = Transform3D(1.1023682, 0, 0, 0, 1, 0, 0, 0, 1, 124.7312, 0.10160422, -0.83217114)
-size = Vector3(19.24, 0.335, 6.035)
-
-[node name="CSGFloor8" type="CSGBox3D" parent="CSGCombiner3D" unique_id=1999012464]
-transform = Transform3D(1.1023682, 0, 0, 0, 1, 0, 0, 0, 1, 122.74262, 0.32914472, -0.8565213)
-size = Vector3(9.082607, 0.19863892, 6.082594)
-
-[node name="CSGFloor9" type="CSGBox3D" parent="CSGCombiner3D" unique_id=1237234560]
-transform = Transform3D(1.1023682, 0, 0, 0, 1, 0, 0, 0, 1, 120.72, 0.332, -0.806)
-size = Vector3(4.537, 1.642, 6.035)
-material = SubResource("StandardMaterial3D_hpis2")
 
 [node name="espantapajaros" type="StaticBody3D" parent="." unique_id=1547686793]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.34681892, 0, 0)
@@ -146,33 +108,6 @@ transform = Transform3D(3, 0, 0, 0, 1, 0, 0, 0, 5, -0.1578703, -2, -12.475882)
 [node name="foca" parent="." unique_id=1229092006 instance=ExtResource("11_bldw7")]
 transform = Transform3D(-1.3248717, 0, -0.04377973, 0, 1.430313, 0, 0.041126613, 0, -1.4103404, -0.7162094, -1.2472064, -62.26503)
 
-[node name="blockbench_export3" parent="." unique_id=696909706 instance=ExtResource("4_urmd8")]
-transform = Transform3D(2.9026008, 0, 0, 0, 0.87648815, -0.009391812, 0, 0.0034878717, 2.360124, 1.399327, -1.1165648, -67.21191)
-
-[node name="blockbench_export6" parent="." unique_id=2025212815 instance=ExtResource("4_urmd8")]
-transform = Transform3D(0.24587564, 0, -2.6522899, 0, 0.7370499, 0, 4.747064, 0, 0.13737617, 0.21093488, -1.1165648, -66.66361)
-
-[node name="blockbench_export2" parent="." unique_id=1566793952 instance=ExtResource("4_urmd8")]
-transform = Transform3D(2.9026008, 0, 0, 0, 0.876495, 0, 0, 0, 2.3601427, -1.2275729, -1.1165648, -67.47027)
-
-[node name="blockbench_export7" parent="." unique_id=361150575 instance=ExtResource("4_urmd8")]
-transform = Transform3D(0.24587564, 0, -2.6522899, 0, 0.7370499, 0, 4.747064, 0, 0.13737617, -2.585977, -1.1165648, -66.921974)
-
-[node name="blockbench_export3" parent="blockbench_export7" unique_id=1947785648 instance=ExtResource("4_urmd8")]
-transform = Transform3D(0.10490967, 0, 0.48305607, 0, 0.87649536, 0, -1.4909291, 0, 0.033990446, -0.7795849, 0.020688653, -1.690382)
-
-[node name="blockbench_export6" parent="blockbench_export7" unique_id=75135160 instance=ExtResource("4_urmd8")]
-transform = Transform3D(0.9366561, 0, -0.02865144, 0, 0.73705006, 0, 0.017330602, 0, 1.5485101, -0.740386, 0.020688653, -1.1196424)
-
-[node name="blockbench_export2" parent="blockbench_export7" unique_id=1094066804 instance=ExtResource("4_urmd8")]
-transform = Transform3D(0.10490967, 0, 0.48305607, 0, 0.87649536, 0, -1.4909291, 0, 0.033990454, -0.8493576, 0.020688653, -0.58572257)
-
-[node name="blockbench_export7" parent="blockbench_export7" unique_id=1266145600 instance=ExtResource("4_urmd8")]
-transform = Transform3D(0.9366561, 0, -0.02865144, 0, 0.73705006, 0, 0.017330602, 0, 1.5485101, -0.80584145, 0.020688653, -0.18563402)
-
-[node name="blockbench_export4" parent="." unique_id=1546313768 instance=ExtResource("1_akj3i")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6287353, -1.0781751, -78.08408)
-
 [node name="iceSpikes" type="StaticBody3D" parent="." unique_id=523295852]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.3646793, 0, -8.338106)
 
@@ -196,6 +131,15 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.23026657, 0, -18.693274)
 
 [node name="IceSpikes3" parent="iceSpikes" unique_id=1779357421 instance=ExtResource("6_dskf4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.33675766, 0, -16.688427)
+
+[node name="IceSpikes9" parent="iceSpikes" unique_id=811811965 instance=ExtResource("6_dskf4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.0226965, -1.2393994, -58.313194)
+
+[node name="IceSpikes6" parent="iceSpikes" unique_id=291273863 instance=ExtResource("6_dskf4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.88477063, -1.0818594, -58.53679)
+
+[node name="IceSpikes8" parent="iceSpikes" unique_id=818048042 instance=ExtResource("6_dskf4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.83066916, -1.16484, -62.307304)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=1772970118]
 transform = Transform3D(1.0499372, 0, 0, 0, 1, 0, 0, 0, 1, -1.458239, 0.35425615, -20.243803)
@@ -254,6 +198,34 @@ transform = Transform3D(0.9524379, 0, 0, 0, 1, 0, 0, 0, 3.5635123, 0.41128498, -
 transform = Transform3D(0.9524379, 0, 0, 0, 3, 0, 0, 0, 39.343136, 0.41286236, -2.8323784, -52.99182)
 skeleton = NodePath("../..")
 
+[node name="Step14" parent="StaticBody3D" unique_id=1750500319 instance=ExtResource("15_syhxd")]
+transform = Transform3D(0.9524379, 0, 0, 0, 1, 0, 0, 0, 29.035105, 0.38, -1.515, -105.16)
+skeleton = NodePath("../..")
+
+[node name="Step15" parent="StaticBody3D" unique_id=2048040615 instance=ExtResource("15_syhxd")]
+transform = Transform3D(0.9524379, 0, 0, 0, 1, 0, 0, 0, 15, 0.386, -1.175, -99.108)
+skeleton = NodePath("../..")
+
+[node name="CSGFloor6" type="CSGBox3D" parent="StaticBody3D" unique_id=1380839556]
+transform = Transform3D(-4.5894215e-08, 0, 0.9524379, 0, 1, 0, -1.1023682, 0, -4.371139e-08, 0.5426899, -0.61747384, -103.24648)
+size = Vector3(19.02435, 0.33532715, 6.0352097)
+material = SubResource("StandardMaterial3D_syhxd")
+
+[node name="CSGFloor7" type="CSGBox3D" parent="StaticBody3D" unique_id=1442087631]
+transform = Transform3D(-4.5894215e-08, 0, 0.9524379, 0, 1, 0, -1.1023682, 0, -4.371139e-08, 0.5962856, -0.25265193, -104.4874)
+size = Vector3(19.24, 0.335, 6.035)
+material = SubResource("StandardMaterial3D_04ucj")
+
+[node name="CSGFloor8" type="CSGBox3D" parent="StaticBody3D" unique_id=1999012464]
+transform = Transform3D(-4.5894215e-08, 0, 0.9524379, 0, 1, 0, -1.1023682, 0, -4.371139e-08, 0.5730936, -0.025111437, -102.49882)
+size = Vector3(9.082607, 0.19863892, 6.082594)
+material = SubResource("StandardMaterial3D_47x4f")
+
+[node name="CSGFloor9" type="CSGBox3D" parent="StaticBody3D" unique_id=1237234560]
+transform = Transform3D(-4.5894215e-08, 0, 0.9524379, 0, 1, 0, -1.1023682, 0, -4.371139e-08, 0.62121207, -0.022256166, -100.4762)
+size = Vector3(4.537, 1.642, 6.035)
+material = SubResource("StandardMaterial3D_hpis2")
+
 [node name="Escafandra" parent="." unique_id=780757745 instance=ExtResource("16_04ucj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.98459935, 1.5844696, -120.497986)
 
@@ -262,5 +234,8 @@ transform = Transform3D(0.71325046, 0, -0.70090926, 0, 1, 0, 0.70090926, 0, 0.71
 
 [node name="PolarBear" parent="." unique_id=628619709 instance=ExtResource("14_syhxd")]
 transform = Transform3D(-1.5178096, 0, -1.3389595e-07, 0, 1.6594132, 0, 1.3269113e-07, 0, -1.5315912, -0.6152327, -1.0644877, -106.861404)
+
+[node name="IceSpikes" parent="." unique_id=532440056 instance=ExtResource("6_dskf4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.41747952, -1.1402476, -70.57846)
 
 [connection signal="body_entered" from="Exit" to="." method="_on_exit_body_entered"]
