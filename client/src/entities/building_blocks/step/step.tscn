@@ -4,6 +4,9 @@
 [ext_resource type="Texture2D" uid="uid://bxdjigpnco1b3" path="res://assets/ice normal map.jpg" id="2_nceux"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pvky7"]
+albedo_texture = ExtResource("1_fjhdg")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qeb4y"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sqwpq"]
 albedo_color = Color(0.54932153, 0.74993265, 0.9811527, 1)
@@ -22,6 +25,7 @@ data = PackedVector3Array(-3.1625, 0.5, 0.5, 3.1625, 0.5, 0.5, -3.1625, -0.5, 0.
 
 [node name="Step" type="MeshInstance3D" unique_id=447314089]
 material_override = SubResource("StandardMaterial3D_pvky7")
+material_overlay = SubResource("StandardMaterial3D_qeb4y")
 mesh = SubResource("BoxMesh_qeb4y")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=1287289028]
