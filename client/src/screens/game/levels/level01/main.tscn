@@ -94,8 +94,8 @@ transform = Transform3D(1.1023682, 0, 0, 0, 1, 0, 0, 0, 1, 96.79204, -2.438758, 
 size = Vector3(76.682625, 2.75, 6.0352097)
 
 [node name="CSGFloor4" type="CSGBox3D" parent="CSGCombiner3D" unique_id=430568301]
-transform = Transform3D(1.1023682, 0, 0, 0, 1, 0, 0, 0, 1, 121.252716, -1.3331525, -0.89448386)
-size = Vector3(19.027433, 1.2939453, 6.0352097)
+transform = Transform3D(1.1023682, 0, 0, 0, 1, 0, 0, 0, 1, 121.25016, -1.3493783, -0.8770738)
+size = Vector3(19.027, 1.294, 6.035)
 
 [node name="CSGFloor5" type="CSGBox3D" parent="CSGCombiner3D" unique_id=1286674026]
 transform = Transform3D(1.1023682, 0, 0, 0, 1, 0, 0, 0, 1, 122.37528, -0.5475894, -0.8944838)
@@ -107,15 +107,15 @@ size = Vector3(19.02435, 0.33532715, 6.0352097)
 
 [node name="CSGFloor7" type="CSGBox3D" parent="CSGCombiner3D" unique_id=1442087631]
 transform = Transform3D(1.1023682, 0, 0, 0, 1, 0, 0, 0, 1, 124.7312, 0.10160422, -0.83217114)
-size = Vector3(19.240446, 0.33532715, 6.041897)
+size = Vector3(19.24, 0.335, 6.035)
 
 [node name="CSGFloor8" type="CSGBox3D" parent="CSGCombiner3D" unique_id=1999012464]
-transform = Transform3D(1.1023682, 0, 0, 0, 1, 0, 0, 0, 1, 122.74262, 0.32914472, -0.87686986)
-size = Vector3(9.082607, 0.19863892, 6.041897)
+transform = Transform3D(1.1023682, 0, 0, 0, 1, 0, 0, 0, 1, 122.74262, 0.32914472, -0.8565213)
+size = Vector3(9.082607, 0.19863892, 6.082594)
 
 [node name="CSGFloor9" type="CSGBox3D" parent="CSGCombiner3D" unique_id=1237234560]
-transform = Transform3D(1.1023682, 0, 0, 0, 1, 0, 0, 0, 1, 120.720345, 0.33197808, -0.9057403)
-size = Vector3(4.5371814, 1.6416321, 6.041897)
+transform = Transform3D(1.1023682, 0, 0, 0, 1, 0, 0, 0, 1, 120.72, 0.332, -0.806)
+size = Vector3(4.537, 1.642, 6.035)
 material = SubResource("StandardMaterial3D_hpis2")
 
 [node name="iglu" type="StaticBody3D" parent="." unique_id=1860631840]
@@ -234,7 +234,7 @@ transform = Transform3D(-1.4705426, 0, -0.09880083, 0, 1.6575646, 0, 0.101953454
 transform = Transform3D(1.0499372, 0, 0, 0, 1, 0, 0, 0, 1, -1.458239, 0.35425615, -20.243803)
 
 [node name="Escafandra" parent="." unique_id=780757745 instance=ExtResource("16_04ucj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0332351, 1.3858507, -120.30374)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.98459935, 1.5844696, -120.497986)
 
 [node name="Step" parent="." unique_id=447314089 instance=ExtResource("15_syhxd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.2691203, 0.5116762, -22.994713)
