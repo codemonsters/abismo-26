@@ -12,10 +12,8 @@
 [ext_resource type="PackedScene" uid="uid://bprtf4qrwntbl" path="res://screens/game/levels/locations/level_end.tscn" id="8_asklh"]
 [ext_resource type="PackedScene" uid="uid://do0jcrh8bk7pw" path="res://screens/game/levels/level01/foca.gltf" id="11_bldw7"]
 [ext_resource type="PackedScene" uid="uid://c8rtkc4tm3ko6" path="res://assets/models/characters/bosses/model.gltf" id="12_dskf4"]
-[ext_resource type="PackedScene" uid="uid://f0nc00780tfd" path="res://entities/building_blocks/step/step.tscn" id="15_syhxd"]
+[ext_resource type="PackedScene" uid="uid://f0nc00780tfd" path="res://entities/building_blocks/block/block.tscn" id="15_syhxd"]
 [ext_resource type="PackedScene" path="res://entities/escafandra.tscn" id="16_04ucj"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_373ca"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hpis2"]
 albedo_color = Color(1, 1, 1, 0.2)
@@ -57,15 +55,6 @@ script = ExtResource("1_02iye")
 [node name="CSGCombiner3D" type="CSGCombiner3D" parent="." unique_id=1844799061]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0, 0)
 use_collision = true
-
-[node name="CSGFloor" type="CSGBox3D" parent="CSGCombiner3D" unique_id=1800455235]
-transform = Transform3D(1.0499372, 0, 0, 0, 1, 0, 0, 0, 1, -0.95220274, -1.2774248, -0.9943314)
-size = Vector3(22.174793, 2.75, 6.325405)
-material = SubResource("StandardMaterial3D_373ca")
-
-[node name="CSGFloor2" type="CSGBox3D" parent="CSGCombiner3D" unique_id=371069007]
-transform = Transform3D(1.0499372, 0, 0, 0, 1, 0, 0, 0, 1, 32.318336, -1.161758, -1.1080556)
-size = Vector3(34.554718, 2.75, 6.0352097)
 
 [node name="CSGWall" type="CSGBox3D" parent="CSGCombiner3D" unique_id=107523795]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 8)
@@ -228,36 +217,53 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.33675766, 0, -16.688427)
 [node name="blockbench_export" parent="iceSpikes" unique_id=1595945472 instance=ExtResource("12_dskf4")]
 transform = Transform3D(-1.4705426, 0, -0.09880083, 0, 1.6575646, 0, 0.101953454, 0, -1.4250702, -1.9889, -1.0644877, -98.50992)
 
-[node name="CSGCombiner3D2" type="CSGCombiner3D" parent="." unique_id=752002242]
-
-[node name="CSGFloor" parent="." unique_id=1774441915 instance=ExtResource("15_syhxd")]
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=1772970118]
 transform = Transform3D(1.0499372, 0, 0, 0, 1, 0, 0, 0, 1, -1.458239, 0.35425615, -20.243803)
+
+[node name="CSGFloor" parent="StaticBody3D" unique_id=1774441915 instance=ExtResource("15_syhxd")]
+skeleton = NodePath("../..")
+
+[node name="Step" parent="StaticBody3D" unique_id=447314089 instance=ExtResource("15_syhxd")]
+transform = Transform3D(0.9524379, 0, 0, 0, 1, 0, 0, 0, 1, 0.1801238, 0.15742004, -2.7509098)
+skeleton = NodePath("../..")
+
+[node name="Step2" parent="StaticBody3D" unique_id=493781308 instance=ExtResource("15_syhxd")]
+transform = Transform3D(0.9524379, 0, 0, 0, 1, 0, 0, 0, 1, 0.17695427, 0.34779525, -5.9479923)
+skeleton = NodePath("../..")
+
+[node name="Step3" parent="StaticBody3D" unique_id=2114057261 instance=ExtResource("15_syhxd")]
+transform = Transform3D(0.9524379, 0, 0, 0, 1, 0, 0, 0, 1, 0.18791878, 0.16413116, -9.732077)
+skeleton = NodePath("../..")
+
+[node name="Step4" parent="StaticBody3D" unique_id=531852670 instance=ExtResource("15_syhxd")]
+transform = Transform3D(0.9524379, 0, 0, 0, 1, 0, 0, 0, 1, 0.18913114, 0.11042857, -24.35666)
+skeleton = NodePath("../..")
+
+[node name="Step5" parent="StaticBody3D" unique_id=1021205713 instance=ExtResource("15_syhxd")]
+transform = Transform3D(0.9521115, 0, 0.024931919, 0, 1, 0, -0.02617695, 0, 0.99965733, 0.16064, 0.3498242, -26.952673)
+skeleton = NodePath("../..")
+
+[node name="Step6" parent="StaticBody3D" unique_id=281576302 instance=ExtResource("15_syhxd")]
+transform = Transform3D(0.9524379, 0, 0, 0, 3, 0, 0, 0, 1, 0.15681148, 0.28138447, -29.712896)
+skeleton = NodePath("../..")
+
+[node name="Step7" parent="StaticBody3D" unique_id=2138371858 instance=ExtResource("15_syhxd")]
+transform = Transform3D(0.9524379, 0, 0, 0, 1, 0, 0, 0, 1, 0.38380325, -1.015511, -55.47882)
+skeleton = NodePath("../..")
+
+[node name="Step8" parent="StaticBody3D" unique_id=1734130519 instance=ExtResource("15_syhxd")]
+transform = Transform3D(0.9524379, 0, 0, 0, 1, 0, 0, 0, 1, 0.37307096, -1.0114474, -63.383934)
+skeleton = NodePath("../..")
+
+[node name="Step9" parent="StaticBody3D" unique_id=531480733 instance=ExtResource("15_syhxd")]
+transform = Transform3D(1, 0, 0, 0, 3, 0, 0, 0, 36.25, -0.19350898, -1.620347, -12.165522)
+skeleton = NodePath("../..")
+
+[node name="Step10" parent="StaticBody3D" unique_id=1533085299 instance=ExtResource("15_syhxd")]
+transform = Transform3D(0.952, 0, 0, 0, 3, 0, 0, 0, 24, -0.131, -1.673, 21.403)
+skeleton = NodePath("../..")
 
 [node name="Escafandra" parent="." unique_id=780757745 instance=ExtResource("16_04ucj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.98459935, 1.5844696, -120.497986)
-
-[node name="Step" parent="." unique_id=447314089 instance=ExtResource("15_syhxd")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.2691203, 0.5116762, -22.994713)
-
-[node name="Step2" parent="." unique_id=493781308 instance=ExtResource("15_syhxd")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.2724481, 0.7020514, -26.191795)
-
-[node name="Step3" parent="." unique_id=2114057261 instance=ExtResource("15_syhxd")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.260936, 0.5183873, -29.97588)
-
-[node name="Step4" parent="." unique_id=531852670 instance=ExtResource("15_syhxd")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.2596631, 0.46468472, -44.600464)
-
-[node name="Step5" parent="." unique_id=1021205713 instance=ExtResource("15_syhxd")]
-transform = Transform3D(0.99965733, 0, 0.02617695, 0, 1, 0, -0.02617695, 0, 0.99965733, -1.289577, 0.70408034, -47.196476)
-
-[node name="Step6" parent="." unique_id=281576302 instance=ExtResource("15_syhxd")]
-transform = Transform3D(1, 0, 0, 0, 3, 0, 0, 0, 1, -1.2935967, 0.6356406, -49.9567)
-
-[node name="Step7" parent="." unique_id=2138371858 instance=ExtResource("15_syhxd")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.0552697, -0.6612549, -75.722626)
-
-[node name="Step8" parent="." unique_id=1734130519 instance=ExtResource("15_syhxd")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.0665379, -0.6571913, -83.62774)
 
 [connection signal="body_entered" from="Exit" to="." method="_on_exit_body_entered"]
