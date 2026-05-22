@@ -42,8 +42,6 @@ fog_sky_affect = 0.154
 [sub_resource type="BoxShape3D" id="BoxShape3D_02iye"]
 size = Vector3(5, 7, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_syhxd"]
-
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_04ucj"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_47x4f"]
@@ -206,10 +204,13 @@ skeleton = NodePath("../..")
 transform = Transform3D(0.9524379, 0, 0, 0, 1, 0, 0, 0, 15, 0.386, -1.175, -99.108)
 skeleton = NodePath("../..")
 
-[node name="CSGFloor6" type="CSGBox3D" parent="StaticBody3D" unique_id=1380839556]
-transform = Transform3D(-4.5894215e-08, 0, 0.9524379, 0, 1, 0, -1.1023682, 0, -4.371139e-08, 0.5426899, -0.61747384, -103.24648)
-size = Vector3(19.02435, 0.33532715, 6.0352097)
-material = SubResource("StandardMaterial3D_syhxd")
+[node name="Step16" parent="StaticBody3D" unique_id=660359561 instance=ExtResource("15_syhxd")]
+transform = Transform3D(0.9524379, 0, 0, 0, 1, 0, 0, 0, 15, 0.38, -0.932, -100.197)
+skeleton = NodePath("../..")
+
+[node name="Step17" parent="StaticBody3D" unique_id=166502656 instance=ExtResource("15_syhxd")]
+transform = Transform3D(0.9524379, 0, 0, 0, 1, 0, 0, 0, 1, 0.3800001, -0.61056507, -96.421)
+skeleton = NodePath("../..")
 
 [node name="CSGFloor7" type="CSGBox3D" parent="StaticBody3D" unique_id=1442087631]
 transform = Transform3D(-4.5894215e-08, 0, 0.9524379, 0, 1, 0, -1.1023682, 0, -4.371139e-08, 0.5962856, -0.25265193, -104.4874)
