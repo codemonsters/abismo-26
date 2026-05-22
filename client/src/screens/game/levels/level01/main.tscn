@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" path="res://screens/game/levels/level01/main.gd" id="1_02iye"]
 [ext_resource type="PackedScene" uid="uid://djkij1vgg64n4" path="res://screens/game/levels/level01/bunny.gltf" id="1_akj3i"]
-[ext_resource type="PackedScene" uid="uid://b5hx2itqholr2" path="res://screens/game/levels/level01/iglu.gltf" id="1_es8gg"]
 [ext_resource type="PackedScene" uid="uid://bcf6hidhknw30" path="res://screens/game/levels/level01/espantapajaros.gltf" id="2_0hlag"]
 [ext_resource type="Script" uid="uid://bj1fgc23ix6y8" path="res://screens/game/levels/level01/bunny.gd" id="2_mmmg7"]
 [ext_resource type="PackedScene" uid="uid://b08ejsgnkrfpr" path="res://screens/game/levels/level01/pinchos hielo.gltf" id="4_urmd8"]
@@ -12,14 +11,12 @@
 [ext_resource type="PackedScene" uid="uid://bprtf4qrwntbl" path="res://screens/game/levels/locations/level_end.tscn" id="8_asklh"]
 [ext_resource type="PackedScene" uid="uid://do0jcrh8bk7pw" path="res://screens/game/levels/level01/foca.gltf" id="11_bldw7"]
 [ext_resource type="PackedScene" uid="uid://c8rtkc4tm3ko6" path="res://assets/models/characters/bosses/model.gltf" id="12_dskf4"]
+[ext_resource type="PackedScene" uid="uid://btvt5awjlmp6k" path="res://entities/obstacles/iglu/iglu.tscn" id="14_373ca"]
 [ext_resource type="PackedScene" uid="uid://f0nc00780tfd" path="res://entities/building_blocks/block/block.tscn" id="15_syhxd"]
 [ext_resource type="PackedScene" uid="uid://njsj7xki7cmh" path="res://entities/escafandra.tscn" id="16_04ucj"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hpis2"]
 albedo_color = Color(1, 1, 1, 0.2)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_es8gg"]
-size = Vector3(0.77124023, 1.8917236, 1.1450195)
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_0hlag"]
 radius = 0.65771484
@@ -106,16 +103,6 @@ size = Vector3(9.082607, 0.19863892, 6.082594)
 transform = Transform3D(1.1023682, 0, 0, 0, 1, 0, 0, 0, 1, 120.72, 0.332, -0.806)
 size = Vector3(4.537, 1.642, 6.035)
 material = SubResource("StandardMaterial3D_hpis2")
-
-[node name="iglu" type="StaticBody3D" parent="." unique_id=1860631840]
-transform = Transform3D(4.576335, 0, -5.85003, 0, 9.8486805, 0, 4.4552684, 0, 6.009, -2.7273235, 0.10950041, 21.479425)
-
-[node name="blockbench_export" parent="iglu" unique_id=1546124906 instance=ExtResource("1_es8gg")]
-transform = Transform3D(1.0811908, 0, 1.1920929e-07, 0, 0.9538313, 0, 2.9802322e-07, 0, 0.81821215, -1.5166446, 0, -1.1181273)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="iglu" unique_id=1758901215]
-transform = Transform3D(0.66272926, 0, 0.7488724, 0, 1.0000002, 0, -0.7488665, 0, 0.6627345, -1.2180843, 0.44586197, -1.3445377)
-shape = SubResource("BoxShape3D_es8gg")
 
 [node name="espantapajaros" type="StaticBody3D" parent="." unique_id=1547686793]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.34681892, 0, 0)
@@ -256,7 +243,7 @@ transform = Transform3D(0.9524379, 0, 0, 0, 1, 0, 0, 0, 1, 0.37307096, -1.011447
 skeleton = NodePath("../..")
 
 [node name="Step9" parent="StaticBody3D" unique_id=531480733 instance=ExtResource("15_syhxd")]
-transform = Transform3D(1, 0, 0, 0, 3, 0, 0, 0, 36.25, -0.19350898, -1.620347, -12.165522)
+transform = Transform3D(1, 0, 0, 0, 3, 0, 0, 0, 36.25, 0.032286406, -1.620347, -11.985228)
 skeleton = NodePath("../..")
 
 [node name="Step10" parent="StaticBody3D" unique_id=1533085299 instance=ExtResource("15_syhxd")]
@@ -272,5 +259,8 @@ transform = Transform3D(0.9524379, 0, 0, 0, 1, 0, 0, 0, 3.5635123, 0.41128498, -
 
 [node name="Escafandra" parent="." unique_id=780757745 instance=ExtResource("16_04ucj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.98459935, 1.5844696, -120.497986)
+
+[node name="Iglu" parent="." unique_id=1326936582 instance=ExtResource("14_373ca")]
+transform = Transform3D(0.71325046, 0, -0.70090926, 0, 1, 0, 0.70090926, 0, 0.71325046, -3.1900835, -4.7683716e-07, 8.742042)
 
 [connection signal="body_entered" from="Exit" to="." method="_on_exit_body_entered"]
