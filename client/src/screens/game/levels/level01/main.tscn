@@ -1,9 +1,7 @@
 [gd_scene format=3 uid="uid://b0ivkydudgjvn"]
 
 [ext_resource type="Script" path="res://screens/game/levels/level01/main.gd" id="1_02iye"]
-[ext_resource type="PackedScene" uid="uid://djkij1vgg64n4" path="res://screens/game/levels/level01/bunny.gltf" id="1_akj3i"]
 [ext_resource type="PackedScene" uid="uid://bcf6hidhknw30" path="res://screens/game/levels/level01/espantapajaros.gltf" id="2_0hlag"]
-[ext_resource type="Script" uid="uid://bj1fgc23ix6y8" path="res://screens/game/levels/level01/bunny.gd" id="2_mmmg7"]
 [ext_resource type="PackedScene" uid="uid://b08ejsgnkrfpr" path="res://screens/game/levels/level01/pinchos hielo.gltf" id="4_urmd8"]
 [ext_resource type="PackedScene" uid="uid://c6nkw5ccdfiqo" path="res://entities/obstacles/ice_spikes/ice_spikes.tscn" id="6_dskf4"]
 [ext_resource type="PackedScene" uid="uid://cgnmxe26ewkxv" path="res://screens/game/levels/locations/death.tscn" id="7_8dh2n"]
@@ -11,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://bprtf4qrwntbl" path="res://screens/game/levels/locations/level_end.tscn" id="8_asklh"]
 [ext_resource type="PackedScene" uid="uid://do0jcrh8bk7pw" path="res://screens/game/levels/level01/foca.gltf" id="11_bldw7"]
 [ext_resource type="PackedScene" uid="uid://c8rtkc4tm3ko6" path="res://assets/models/characters/bosses/model.gltf" id="12_dskf4"]
+[ext_resource type="PackedScene" uid="uid://brv3lal1v5uvu" path="res://entities/bunny/bunny.tscn" id="13_pbqld"]
 [ext_resource type="PackedScene" uid="uid://btvt5awjlmp6k" path="res://entities/obstacles/iglu/iglu.tscn" id="14_373ca"]
 [ext_resource type="PackedScene" uid="uid://f0nc00780tfd" path="res://entities/building_blocks/block/block.tscn" id="15_syhxd"]
 [ext_resource type="PackedScene" uid="uid://njsj7xki7cmh" path="res://entities/escafandra.tscn" id="16_04ucj"]
@@ -70,10 +69,6 @@ visible = false
 [node name="CSGCorner4" type="CSGCylinder3D" parent="CSGCombiner3D" unique_id=547845982]
 transform = Transform3D(1, 0, 0, 0, 7.3613043, 0, 0, 0, 1, -15.032154, 1, 7.9999995)
 visible = false
-
-[node name="blockbench_export" parent="CSGCombiner3D" unique_id=204921031 instance=ExtResource("1_akj3i")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 36.465023, 0.29273558, 1.063625)
-script = ExtResource("2_mmmg7")
 
 [node name="CSGFloor3" type="CSGBox3D" parent="CSGCombiner3D" unique_id=502310340]
 transform = Transform3D(1.1023682, 0, 0, 0, 1, 0, 0, 0, 1, 73.733604, -2.438758, -0.8944866)
@@ -174,9 +169,6 @@ transform = Transform3D(0.10490967, 0, 0.48305607, 0, 0.87649536, 0, -1.4909291,
 [node name="blockbench_export7" parent="blockbench_export7" unique_id=1266145600 instance=ExtResource("4_urmd8")]
 transform = Transform3D(0.9366561, 0, -0.02865144, 0, 0.73705006, 0, 0.017330602, 0, 1.5485101, -0.80584145, 0.020688653, -0.18563402)
 
-[node name="blockbench_export4" parent="." unique_id=1546313768 instance=ExtResource("1_akj3i")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6287353, -1.0781751, -78.08408)
-
 [node name="iceSpikes" type="StaticBody3D" parent="." unique_id=523295852]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.3646793, 0, -8.338106)
 
@@ -262,5 +254,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.98459935, 1.5844696, -120.
 
 [node name="Iglu" parent="." unique_id=1326936582 instance=ExtResource("14_373ca")]
 transform = Transform3D(0.71325046, 0, -0.70090926, 0, 1, 0, 0.70090926, 0, 0.71325046, -3.1900835, -4.7683716e-07, 8.742042)
+
+[node name="blockbench_export" parent="." unique_id=482717115 instance=ExtResource("13_pbqld")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.3691864, -1.0474297, -80.52293)
+
+[node name="blockbench_export4" parent="." unique_id=356050393 instance=ExtResource("13_pbqld")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.65029526, 0.22354603, -34.69895)
 
 [connection signal="body_entered" from="Exit" to="." method="_on_exit_body_entered"]
