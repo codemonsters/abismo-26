@@ -1,8 +1,10 @@
 [gd_scene format=3 uid="uid://brv3lal1v5uvu"]
 
 [ext_resource type="PackedScene" uid="uid://djkij1vgg64n4" path="res://screens/game/levels/level01/bunny.gltf" id="1_u834r"]
+[ext_resource type="Script" uid="uid://dsfcfg2vmehwv" path="res://entities/bunny/bunny.gd" id="2_t8i6x"]
 
 [node name="blockbench_export" unique_id=482717115 instance=ExtResource("1_u834r")]
+script = ExtResource("2_t8i6x")
 
 [node name="group" parent="." index="0" unique_id=1232079680]
 transform = Transform3D(1, 0, 0, 0, 0.9986295, -0.05233596, 0, 0.05233596, 0.9986295, 0, 0.125, 0)
