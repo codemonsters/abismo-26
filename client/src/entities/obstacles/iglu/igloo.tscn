@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://br5r5ef4qtogv"]
+
+[ext_resource type="PackedScene" uid="uid://b5hx2itqholr2" path="res://screens/game/levels/level01/iglu.gltf" id="1_e1yhn"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_jtsqm"]
+size = Vector3(0.77124023, 0.46099854, 1.0375061)
+
+[node name="Igloo" type="Node2D" unique_id=1736682941]
+
+[node name="iglu" type="StaticBody3D" parent="." unique_id=2052246649]
+transform = Transform3D(6.386882, 0, 0, 0, 9.8486805, 0, 0, 0, 8.3863535, 0, 0, 0)
+
+[node name="blockbench_export" parent="iglu" unique_id=1895039962 instance=ExtResource("1_e1yhn")]
+transform = Transform3D(0.99999976, 0, -2.5673424e-07, 0, 0.91435325, 0, 2.7564346e-07, 0, 0.93139976, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="iglu" unique_id=650266577]
+transform = Transform3D(1.0000031, 0, 0, 0, 1.0000002, 0, 0, 0, 1.0000132, 0, -0.019834049, -0.08249546)
+shape = SubResource("BoxShape3D_jtsqm")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="iglu" unique_id=639332309]
+transform = Transform3D(1.0000055, 0, 0, 0, 1.0000004, 0, 0, 0, 1.0000263, 0, 0.22944014, 0.1357142)
+shape = SubResource("BoxShape3D_jtsqm")
