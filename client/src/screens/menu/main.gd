@@ -7,7 +7,7 @@ var main_menu
 func _ready() -> void:
 	main_menu = Globals.screen_menu_main.instantiate()
 	change_window(main_menu)
-	$"/root/Main/ServerPopup".ls_connection_closed.connect(on_ls_connection_closed)
+	$"/root/Main/ModalWindowRoot/ServerPopup".ls_connection_closed.connect(on_ls_connection_closed)
 
 func change_window(window, next_window = null):
 	if get_node_or_null("current_window") != null: remove_child(get_node("current_window"))
