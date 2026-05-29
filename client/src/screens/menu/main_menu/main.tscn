@@ -12,26 +12,24 @@ wait_time = 30.0
 one_shot = true
 autostart = true
 
-[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=108161632]
+[node name="Main" parent="." unique_id=839197147 instance=ExtResource("2_wfhas")]
 
-[node name="ButtonOfflineGame" type="Button" parent="CanvasLayer" unique_id=1021913752]
-offset_left = 140.0
-offset_top = 390.0
-offset_right = 352.0
-offset_bottom = 475.0
-text = "Jugar offline"
+[node name="MenuContainer" parent="." unique_id=1071125758 instance=ExtResource("3_u7pdk")]
 
-[node name="ButtonOnlineGame" type="Button" parent="CanvasLayer" unique_id=1233844791]
+[node name="ButtonOnlineGame" type="Button" parent="." unique_id=1233844791]
 offset_left = 813.0
 offset_top = 441.0
 offset_right = 1025.0
 offset_bottom = 526.0
 text = "Jugar online"
 
-[node name="Main" parent="." unique_id=839197147 instance=ExtResource("2_wfhas")]
-
-[node name="MenuContainer" parent="." unique_id=1071125758 instance=ExtResource("3_u7pdk")]
+[node name="ButtonOfflineGame" type="Button" parent="." unique_id=1021913752]
+offset_left = 140.0
+offset_top = 390.0
+offset_right = 352.0
+offset_bottom = 475.0
+text = "Jugar offline"
 
 [connection signal="timeout" from="TimerIntro" to="." method="_on_timer_intro_timeout"]
-[connection signal="pressed" from="CanvasLayer/ButtonOfflineGame" to="." method="_on_play_offline_pressed"]
-[connection signal="pressed" from="CanvasLayer/ButtonOnlineGame" to="." method="_on_play_online_pressed"]
+[connection signal="pressed" from="ButtonOnlineGame" to="." method="_on_play_online_pressed"]
+[connection signal="pressed" from="ButtonOfflineGame" to="." method="_on_play_offline_pressed"]
