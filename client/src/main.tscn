@@ -6,5 +6,9 @@
 [node name="Main" type="Node2D" unique_id=1899147832]
 script = ExtResource("1_j5age")
 
-[node name="ServerPopup" parent="." unique_id=1847271693 instance=ExtResource("2_0xm2m")]
+[node name="ScreenRoot" type="Node" parent="." unique_id=336222117]
+
+[node name="ModalWindowRoot" type="Node" parent="." unique_id=1564448692]
+
+[node name="ServerPopup" parent="ModalWindowRoot" unique_id=1847271693 instance=ExtResource("2_0xm2m")]
 visible = false

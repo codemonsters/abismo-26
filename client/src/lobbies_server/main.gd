@@ -22,7 +22,8 @@ func _show_modal_window(text, button_text, button_pressed_callback):
 	_button_pressed_callback = button_pressed_callback
 	$ColorRect/ColorRect2/RichTextLabel.text = text
 	$ColorRect/ColorRect2/Button.text = button_text
-	get_node("/root/Main/ServerPopup").visible = true
+	$ColorRect/ColorRect2/Button.disabled = false
+	get_node("/root/Main/ModalWindowRoot/ServerPopup").visible = true
 
 func ls_connect():
 	_show_modal_window("Conectando al servidor...", "Cancelar", on_cancel_pressed)
@@ -44,6 +45,7 @@ func on_ls_connection_closed():
 	ls_connection_closed.emit()
 	
 func _on_button_pressed() -> void:
+	print("funciona")
 	_button_pressed_callback.call()
 	
 func on_cancel_pressed():

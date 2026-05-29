@@ -31,7 +31,6 @@ text = "Jugar online"
 [node name="Main" parent="." unique_id=839197147 instance=ExtResource("2_wfhas")]
 
 [node name="MenuContainer" parent="." unique_id=1071125758 instance=ExtResource("3_u7pdk")]
-color = Color(0.61960787, 1, 1, 0.31764707)
 
 [connection signal="timeout" from="TimerIntro" to="." method="_on_timer_intro_timeout"]
 [connection signal="pressed" from="CanvasLayer/ButtonOfflineGame" to="." method="_on_play_offline_pressed"]

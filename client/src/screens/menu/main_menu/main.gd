@@ -6,13 +6,13 @@ signal change_screen_requested(scene, next_scene)
 func _on_play_offline_pressed() -> void:
 	var game = Globals.screen_game.instantiate()
 	var intro = Globals.screen_intro.instantiate()
-	game.next_scene = get_parent()
+	game.next_scene = get_parent().get_parent()
 	intro.next_scene = game
 	emit_signal("change_screen_requested", intro, null)
 
 
 func _on_play_online_pressed() -> void:
-	$"/root/Main/ServerPopup".ls_connect()
+	$"/root/Main/ModalWindowRoot/ServerPopup".ls_connect()
 	var online_menu = Globals.screen_menu_online.instantiate()
 	online_menu.prev_window = self
 	emit_signal("change_window_requested", online_menu, null)
@@ -20,5 +20,5 @@ func _on_play_online_pressed() -> void:
 
 func _on_timer_intro_timeout() -> void:
 	var intro = Globals.screen_intro.instantiate()
-	intro.next_scene = get_parent()
+	intro.next_scene = get_parent().get_parent()
 	emit_signal("change_screen_requested", intro, null)
