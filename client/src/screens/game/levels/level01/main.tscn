@@ -42,13 +42,6 @@ fog_sky_affect = 0.154
 [sub_resource type="BoxShape3D" id="BoxShape3D_02iye"]
 size = Vector3(5, 7, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_04ucj"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_47x4f"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hpis2"]
-albedo_color = Color(1, 1, 1, 0.2)
-
 [node name="Main" type="Node" unique_id=121409370]
 script = ExtResource("1_02iye")
 
@@ -212,20 +205,17 @@ skeleton = NodePath("../..")
 transform = Transform3D(0.9524379, 0, 0, 0, 1, 0, 0, 0, 1, 0.3800001, -0.61056507, -96.421)
 skeleton = NodePath("../..")
 
-[node name="CSGFloor7" type="CSGBox3D" parent="StaticBody3D" unique_id=1442087631]
-transform = Transform3D(-4.5894215e-08, 0, 0.9524379, 0, 1, 0, -1.1023682, 0, -4.371139e-08, 0.5962856, -0.25265193, -104.4874)
-size = Vector3(19.24, 0.335, 6.035)
-material = SubResource("StandardMaterial3D_04ucj")
+[node name="Step20" parent="StaticBody3D" unique_id=1592364383 instance=ExtResource("15_syhxd")]
+transform = Transform3D(0.9524379, 0, 0, 0, 1, 0, 0, 0, 20, 0.54036635, -0.43272114, -105.05183)
+skeleton = NodePath("../..")
 
-[node name="CSGFloor8" type="CSGBox3D" parent="StaticBody3D" unique_id=1999012464]
-transform = Transform3D(-4.5894215e-08, 0, 0.9524379, 0, 1, 0, -1.1023682, 0, -4.371139e-08, 0.5730936, -0.025111437, -102.49882)
-size = Vector3(9.082607, 0.19863892, 6.082594)
-material = SubResource("StandardMaterial3D_47x4f")
+[node name="Step18" parent="StaticBody3D" unique_id=1804445636 instance=ExtResource("15_syhxd")]
+transform = Transform3D(0.9524379, 0, -2.7069913e-14, 0, 1, 0, 0, 0, 10, 0.4381845, -0.680534, -98.92835)
+skeleton = NodePath("../..")
 
-[node name="CSGFloor9" type="CSGBox3D" parent="StaticBody3D" unique_id=1237234560]
-transform = Transform3D(-4.5894215e-08, 0, 0.9524379, 0, 1, 0, -1.1023682, 0, -4.371139e-08, 0.62121207, -0.022256166, -100.4762)
-size = Vector3(4.537, 1.642, 6.035)
-material = SubResource("StandardMaterial3D_hpis2")
+[node name="Step19" parent="StaticBody3D" unique_id=331881518 instance=ExtResource("15_syhxd")]
+transform = Transform3D(0.9524379, 0, 0, 0, 1, 0, 0, 0, 5, 0.45416337, 0.3014865, -100.5408)
+skeleton = NodePath("../..")
 
 [node name="Escafandra" parent="." unique_id=780757745 instance=ExtResource("16_04ucj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.98459935, 1.5844696, -120.497986)

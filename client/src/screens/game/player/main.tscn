@@ -45,6 +45,7 @@ mass = 1000.0
 physics_material_override = SubResource("PhysicsMaterial_p0n4n")
 
 [node name="blockbench_export" parent="." unique_id=321925131 instance=ExtResource("5_p0n4n")]
+unique_name_in_owner = true
 
 [node name="group3" parent="blockbench_export" index="0" unique_id=1758516588]
 transform = Transform3D(-1, 7.619398e-09, -8.709011e-08, 1.224647e-16, 0.9961947, 0.087155744, 8.742278e-08, 0.087155744, -0.9961947, 0, 1.25, 0.1875)
