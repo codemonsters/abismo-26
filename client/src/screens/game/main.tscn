@@ -38,6 +38,14 @@ size = 10.0
 script = ExtResource("2_enhf2")
 offset = Vector3(20, 4, 0)
 
+[node name="hud_caca" type="CanvasLayer" parent="Environment/Camera3D" unique_id=168931314]
+
+[node name="ProgressBar" type="ProgressBar" parent="Environment/Camera3D/hud_caca" unique_id=1650624225]
+offset_left = 26.0
+offset_top = 23.0
+offset_right = 565.0
+offset_bottom = 50.0
+
 [node name="WorldEnvironment" type="WorldEnvironment" parent="Environment" unique_id=1064223354]
 environment = SubResource("Environment_ef1wp")
 
