@@ -3,6 +3,9 @@
 [ext_resource type="PackedScene" uid="uid://ddnhy4w13aef5" path="res://screens/menu/shared/menu_header.tscn" id="1_1v4wi"]
 [ext_resource type="Script" uid="uid://f31t3juccs1h" path="res://screens/menu/menu_online/main.gd" id="1_vs0vh"]
 [ext_resource type="PackedScene" uid="uid://kvqobh4tlooj" path="res://screens/menu/shared/previous_scene.tscn" id="2_27htw"]
+[ext_resource type="PackedScene" uid="uid://cyna4bh0m545" path="res://screens/menu/widgets/MenuContainer.tscn" id="4_sx60e"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sx60e"]
 
 [node name="Main" type="Node2D" unique_id=1074571412]
 script = ExtResource("1_vs0vh")
@@ -16,9 +19,10 @@ offset_left = 64.0
 offset_top = 80.0
 offset_right = 1088.0
 offset_bottom = 584.0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_sx60e")
 current_tab = 0
 
-[node name="Jugar como invitado" type="Control" parent="TabContainer" unique_id=386826853]
+[node name="Jugar como invitado" parent="TabContainer" unique_id=1071125758 instance=ExtResource("4_sx60e")]
 layout_mode = 2
 metadata/_tab_index = 0
 
@@ -46,80 +50,80 @@ offset_right = 527.0
 offset_bottom = 264.0
 text = "Label nombre de usuario guest"
 
-[node name="Accede con tu cuenta" type="Control" parent="TabContainer" unique_id=277759063]
+[node name="Accede con tu cuenta" parent="TabContainer" unique_id=1997601463 instance=ExtResource("4_sx60e")]
 visible = false
 layout_mode = 2
 metadata/_tab_index = 1
 
 [node name="SignIn" type="Button" parent="TabContainer/Accede con tu cuenta" unique_id=152771256]
 layout_mode = 0
-offset_left = 568.0
-offset_top = 185.0
-offset_right = 780.0
-offset_bottom = 270.0
+offset_left = 504.0
+offset_top = 73.0
+offset_right = 716.0
+offset_bottom = 158.0
 disabled = true
 text = "Identificarte"
 
 [node name="SignInPassword" type="TextEdit" parent="TabContainer/Accede con tu cuenta" unique_id=1384580232]
 layout_mode = 0
-offset_left = 261.0
-offset_top = 233.0
-offset_right = 524.0
-offset_bottom = 274.0
+offset_left = 197.0
+offset_top = 121.0
+offset_right = 460.0
+offset_bottom = 162.0
 placeholder_text = "Introduce tu nombre de usuario"
 
 [node name="SignInUsername" type="TextEdit" parent="TabContainer/Accede con tu cuenta" unique_id=1842229534]
 layout_mode = 0
-offset_left = 261.0
-offset_top = 183.0
-offset_right = 524.0
-offset_bottom = 224.0
+offset_left = 197.0
+offset_top = 71.0
+offset_right = 460.0
+offset_bottom = 112.0
 placeholder_text = "Introduce tu nombre de usuario"
 
 [node name="SignInLabel" type="RichTextLabel" parent="TabContainer/Accede con tu cuenta" unique_id=41363624]
 layout_mode = 0
-offset_left = 261.0
-offset_top = 285.0
-offset_right = 527.0
-offset_bottom = 315.0
+offset_left = 197.0
+offset_top = 173.0
+offset_right = 463.0
+offset_bottom = 203.0
 text = "Label nombre de usuario guest"
 
-[node name="Crear cuenta" type="Control" parent="TabContainer" unique_id=1426460328]
+[node name="Crear cuenta" parent="TabContainer" unique_id=538601666 instance=ExtResource("4_sx60e")]
 visible = false
 layout_mode = 2
 metadata/_tab_index = 2
 
 [node name="SignUp" type="Button" parent="TabContainer/Crear cuenta" unique_id=1974025549]
 layout_mode = 0
-offset_left = 568.0
-offset_top = 185.0
-offset_right = 780.0
-offset_bottom = 270.0
+offset_left = 504.0
+offset_top = 104.0
+offset_right = 716.0
+offset_bottom = 189.0
 disabled = true
 text = "Crear cuenta"
 
 [node name="SignUpUsername" type="TextEdit" parent="TabContainer/Crear cuenta" unique_id=788967470]
 layout_mode = 0
-offset_left = 261.0
-offset_top = 183.0
-offset_right = 524.0
-offset_bottom = 224.0
+offset_left = 197.0
+offset_top = 102.0
+offset_right = 460.0
+offset_bottom = 143.0
 placeholder_text = "Introduce tu nombre de usuario"
 
 [node name="SignUpLabel" type="RichTextLabel" parent="TabContainer/Crear cuenta" unique_id=481161643]
 layout_mode = 0
-offset_left = 261.0
-offset_top = 285.0
-offset_right = 527.0
-offset_bottom = 315.0
+offset_left = 197.0
+offset_top = 204.0
+offset_right = 463.0
+offset_bottom = 234.0
 text = "Label nombre de usuario guest"
 
 [node name="SignUpPassword" type="TextEdit" parent="TabContainer/Crear cuenta" unique_id=1453416786]
 layout_mode = 0
-offset_left = 261.0
-offset_top = 233.0
-offset_right = 524.0
-offset_bottom = 274.0
+offset_left = 197.0
+offset_top = 152.0
+offset_right = 460.0
+offset_bottom = 193.0
 placeholder_text = "Introduce tu nombre de usuario"
 
 [connection signal="pressed" from="TabContainer/Jugar como invitado/PlayAsGuest" to="." method="_on_button_join_as_guest_pressed"]
