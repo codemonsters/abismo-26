@@ -37,7 +37,7 @@ func on_ls_message_received():
 	
 func on_ls_connected():
 	print("lobby server: conectado")
-	get_node("/root/Main/ServerPopup").visible = false
+	get_node("/root/Main/ModalWindowRoot/ServerPopup").visible = false
 	ls_connected.emit()
 	
 func on_ls_connection_closed():
