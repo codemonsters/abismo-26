@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://c0y8x88trwj7e"]
+
+[ext_resource type="PackedScene" uid="uid://bcf6hidhknw30" path="res://screens/game/levels/level01/espantapajaros.gltf" id="1_l5uqq"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_g7l4a"]
+radius = 0.65771484
+height = 2.2475586
+
+[node name="Main" type="StaticBody3D" unique_id=2014020768]
+
+[node name="blockbench_export" parent="." unique_id=1021744612 instance=ExtResource("1_l5uqq")]
+transform = Transform3D(-1.3005803, 0, -1.5230494, 0, 1.9987501, 0, 1.5187535, 0, -1.304259, 0, 0.125, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=715660364]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_g7l4a")

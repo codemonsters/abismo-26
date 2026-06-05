@@ -1,35 +1,20 @@
-[gd_scene format=3 uid="uid://bbqtjsvuf7lvg"]
+[gd_scene format=3 uid="uid://f0nc00780tfd"]
 
-[ext_resource type="Texture2D" uid="uid://c8aeediabg7bt" path="res://assets/ice texture map.jpg" id="1_d28jw"]
-[ext_resource type="Texture2D" uid="uid://bxdjigpnco1b3" path="res://assets/ice normal map.jpg" id="2_vrwy0"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pvky7"]
-albedo_texture = ExtResource("1_d28jw")
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qeb4y"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sqwpq"]
-albedo_color = Color(0.54932153, 0.74993265, 0.9811527, 1)
-albedo_texture = ExtResource("1_d28jw")
-normal_enabled = true
-normal_scale = -6.54
-normal_texture = ExtResource("2_vrwy0")
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6yvki"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_qeb4y"]
 lightmap_size_hint = Vector2i(14, 21)
-material = SubResource("StandardMaterial3D_sqwpq")
-size = Vector3(6.325, 1, 1)
+material = SubResource("StandardMaterial3D_6yvki")
+size = Vector3(6, 1, 1)
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_pvky7"]
 data = PackedVector3Array(-3.1625, 0.5, 0.5, 3.1625, 0.5, 0.5, -3.1625, -0.5, 0.5, 3.1625, 0.5, 0.5, 3.1625, -0.5, 0.5, -3.1625, -0.5, 0.5, 3.1625, 0.5, -0.5, -3.1625, 0.5, -0.5, 3.1625, -0.5, -0.5, -3.1625, 0.5, -0.5, -3.1625, -0.5, -0.5, 3.1625, -0.5, -0.5, 3.1625, 0.5, 0.5, 3.1625, 0.5, -0.5, 3.1625, -0.5, 0.5, 3.1625, 0.5, -0.5, 3.1625, -0.5, -0.5, 3.1625, -0.5, 0.5, -3.1625, 0.5, -0.5, -3.1625, 0.5, 0.5, -3.1625, -0.5, -0.5, -3.1625, 0.5, 0.5, -3.1625, -0.5, 0.5, -3.1625, -0.5, -0.5, 3.1625, 0.5, 0.5, -3.1625, 0.5, 0.5, 3.1625, 0.5, -0.5, -3.1625, 0.5, 0.5, -3.1625, 0.5, -0.5, 3.1625, 0.5, -0.5, -3.1625, -0.5, 0.5, 3.1625, -0.5, 0.5, -3.1625, -0.5, -0.5, 3.1625, -0.5, 0.5, 3.1625, -0.5, -0.5, -3.1625, -0.5, -0.5)
 
-[node name="Step" type="MeshInstance3D" unique_id=447314089]
-material_override = SubResource("StandardMaterial3D_pvky7")
-material_overlay = SubResource("StandardMaterial3D_qeb4y")
+[node name="ice_block" type="MeshInstance3D" unique_id=447314089]
 mesh = SubResource("BoxMesh_qeb4y")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=1287289028]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=234652638]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.009044766, 0)
+transform = Transform3D(0.94499993, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.009044766, 0)
 shape = SubResource("ConcavePolygonShape3D_pvky7")

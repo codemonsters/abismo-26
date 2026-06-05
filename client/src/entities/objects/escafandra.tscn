@@ -10,4 +10,5 @@ transform = Transform3D(-5.5845184e-08, 0.24669519, -1.2951418, 0, 1.2856615, 0.
 script = ExtResource("2_bq5ye")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="blockbench_export2" unique_id=42277326]
+visible = false
 light_energy = 2.0

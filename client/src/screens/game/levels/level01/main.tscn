@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" uid="uid://bk8r8mbgkr4v8" path="res://screens/game/levels/level01/main.gd" id="1_02iye"]
 [ext_resource type="PackedScene" uid="uid://djkij1vgg64n4" path="res://screens/game/levels/level01/bunny.gltf" id="1_akj3i"]
-[ext_resource type="PackedScene" uid="uid://bcf6hidhknw30" path="res://screens/game/levels/level01/espantapajaros.gltf" id="2_0hlag"]
 [ext_resource type="Script" uid="uid://bj1fgc23ix6y8" path="res://screens/game/levels/level01/bunny.gd" id="2_mmmg7"]
+[ext_resource type="PackedScene" uid="uid://c0y8x88trwj7e" path="res://entities/misc/strawman/main.tscn" id="4_pbqld"]
 [ext_resource type="PackedScene" uid="uid://c6nkw5ccdfiqo" path="res://entities/obstacles/ice_spikes/ice_spikes.tscn" id="6_dskf4"]
 [ext_resource type="PackedScene" uid="uid://cgnmxe26ewkxv" path="res://screens/game/levels/locations/death.tscn" id="7_8dh2n"]
 [ext_resource type="PackedScene" uid="uid://n6xdc3yo8sby" path="res://screens/game/levels/locations/level_start.tscn" id="7_asklh"]
@@ -11,12 +11,8 @@
 [ext_resource type="PackedScene" uid="uid://do0jcrh8bk7pw" path="res://screens/game/levels/level01/foca.gltf" id="11_bldw7"]
 [ext_resource type="PackedScene" uid="uid://btvt5awjlmp6k" path="res://entities/obstacles/iglu/iglu.tscn" id="14_373ca"]
 [ext_resource type="PackedScene" uid="uid://cud3o4yqar2lf" path="res://entities/enemies/bosses/polar_bear.tscn" id="14_syhxd"]
-[ext_resource type="PackedScene" uid="uid://f0nc00780tfd" path="res://entities/building_blocks/block/block.tscn" id="15_syhxd"]
-[ext_resource type="PackedScene" path="res://entities/escafandra.tscn" id="16_04ucj"]
-
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_0hlag"]
-radius = 0.65771484
-height = 2.2475586
+[ext_resource type="PackedScene" uid="uid://f0nc00780tfd" path="res://entities/building_blocks/ice_block/main.tscn" id="15_syhxd"]
+[ext_resource type="PackedScene" uid="uid://njsj7xki7cmh" path="res://entities/objects/escafandra.tscn" id="16_04ucj"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_mmmg7"]
 size = Vector3(0.30004883, 1.1337891, 3.6097221)
@@ -53,20 +49,13 @@ use_collision = true
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 36.465023, 0.29273558, 1.063625)
 script = ExtResource("2_mmmg7")
 
-[node name="espantapajaros" type="StaticBody3D" parent="." unique_id=1547686793]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.34681892, 0, 0)
-
-[node name="blockbench_export" parent="espantapajaros" unique_id=1021744612 instance=ExtResource("2_0hlag")]
-transform = Transform3D(-1.3005803, 0, -1.5230494, 0, 1.9987501, 0, 1.5187535, 0, -1.304259, -1.5668199, 0, -5.1225576)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="espantapajaros" unique_id=302317943]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.602726, 1.2838702, -5.2054014)
-shape = SubResource("CapsuleShape3D_0hlag")
+[node name="strawman" parent="." unique_id=2014020768 instance=ExtResource("4_pbqld")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -5)
 
 [node name="pinchos" type="StaticBody3D" parent="." unique_id=1593353344]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="pinchos" unique_id=269648473]
-transform = Transform3D(2.9019537, 0.0077380696, 0.04525873, -0.024670951, 0.87633455, -0.040506322, -0.056090623, 0.014896785, 2.359361, 0.6651952, 0.058632754, -24.921434)
+transform = Transform3D(2.9019537, 0.0077380696, 0.04525873, -0.024670951, 0.87633455, -0.040506322, -0.056090623, 0.014896785, 2.359361, 0, 0.059, -24.921)
 shape = SubResource("BoxShape3D_mmmg7")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1770054832]
@@ -88,67 +77,24 @@ shape = SubResource("BoxShape3D_02iye")
 [node name="Locations" type="Node" parent="." unique_id=2117597928]
 
 [node name="LevelStart" parent="Locations" unique_id=1359960781 instance=ExtResource("7_asklh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.3435917, 2, -3.4758816)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, -3.476)
 
 [node name="LevelEnd" parent="Locations" unique_id=614686416 instance=ExtResource("8_asklh")]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 1, 0.9586654, 1, 1.5257359)
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 1, 0, 0.9, 1.526)
 
 [node name="DeathArea" parent="Locations" unique_id=702394030 instance=ExtResource("7_8dh2n")]
-transform = Transform3D(3, 0, 0, 0, 1, 0, 0, 0, 5, -0.1578703, -2, -12.475882)
+transform = Transform3D(6, 0, 0, 0, 1, 0, 0, 0, 3, 0, -2, -11.976)
 
 [node name="foca" parent="." unique_id=1229092006 instance=ExtResource("11_bldw7")]
 transform = Transform3D(-1.3248717, 0, -0.04377973, 0, 1.430313, 0, 0.041126613, 0, -1.4103404, -0.7162094, -1.2472064, -62.26503)
 
-[node name="iceSpikes" type="StaticBody3D" parent="." unique_id=523295852]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.3646793, 0, -8.338106)
+[node name="iceSpikes" type="Node3D" parent="." unique_id=515978653]
 
 [node name="IceSpikes" parent="iceSpikes" unique_id=2123908971 instance=ExtResource("6_dskf4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.29159927, 0, -12.978052)
-
-[node name="IceSpikes4" parent="iceSpikes" unique_id=1315635099 instance=ExtResource("6_dskf4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.29159927, 0, -37.34639)
-
-[node name="IceSpikes5" parent="iceSpikes" unique_id=815793848 instance=ExtResource("6_dskf4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.29159927, 0, -39.85807)
-
-[node name="IceSpikes7" parent="iceSpikes" unique_id=1206491043 instance=ExtResource("6_dskf4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.30228424, 0, -15.82313)
-
-[node name="IceSpikes19" parent="iceSpikes" unique_id=2040884202 instance=ExtResource("6_dskf4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0103263855, 0, -20.133717)
-
-[node name="IceSpikes2" parent="iceSpikes" unique_id=286400110 instance=ExtResource("6_dskf4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.23026657, 0, -18.693274)
-
-[node name="IceSpikes3" parent="iceSpikes" unique_id=1779357421 instance=ExtResource("6_dskf4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.33675766, 0, -16.688427)
-
-[node name="IceSpikes9" parent="iceSpikes" unique_id=811811965 instance=ExtResource("6_dskf4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.0226965, -1.2393994, -58.313194)
-
-[node name="IceSpikes6" parent="iceSpikes" unique_id=291273863 instance=ExtResource("6_dskf4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.88477063, -1.0818594, -58.53679)
-
-[node name="IceSpikes8" parent="iceSpikes" unique_id=818048042 instance=ExtResource("6_dskf4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.83066916, -1.16484, -62.307304)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -21.3)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=1772970118]
 transform = Transform3D(1.0499372, 0, 0, 0, 1, 0, 0, 0, 1, -1.458239, 0.35425615, -20.243803)
-
-[node name="CSGFloor" parent="StaticBody3D" unique_id=1774441915 instance=ExtResource("15_syhxd")]
-skeleton = NodePath("../..")
-
-[node name="Step" parent="StaticBody3D" unique_id=447314089 instance=ExtResource("15_syhxd")]
-transform = Transform3D(0.9524379, 0, 0, 0, 1, 0, 0, 0, 1, 0.1801238, 0.15742004, -2.7509098)
-skeleton = NodePath("../..")
-
-[node name="Step2" parent="StaticBody3D" unique_id=493781308 instance=ExtResource("15_syhxd")]
-transform = Transform3D(0.9524379, 0, 0, 0, 1, 0, 0, 0, 1, 0.17695427, 0.34779525, -5.9479923)
-skeleton = NodePath("../..")
-
-[node name="Step3" parent="StaticBody3D" unique_id=2114057261 instance=ExtResource("15_syhxd")]
-transform = Transform3D(0.9524379, 0, 0, 0, 1, 0, 0, 0, 1, 0.18791878, 0.16413116, -9.732077)
-skeleton = NodePath("../..")
 
 [node name="Step4" parent="StaticBody3D" unique_id=531852670 instance=ExtResource("15_syhxd")]
 transform = Transform3D(0.9524379, 0, 0, 0, 1, 0, 0, 0, 1, 0.18913114, 0.11042857, -24.35666)
@@ -170,14 +116,6 @@ skeleton = NodePath("../..")
 transform = Transform3D(0.9524379, 0, 0, 0, 1, 0, 0, 0, 1, 0.37307096, -1.0114474, -63.383934)
 skeleton = NodePath("../..")
 
-[node name="Step9" parent="StaticBody3D" unique_id=531480733 instance=ExtResource("15_syhxd")]
-transform = Transform3D(1, 0, 0, 0, 3, 0, 0, 0, 36.25, 0.032286406, -1.620347, -12.073099)
-skeleton = NodePath("../..")
-
-[node name="Step10" parent="StaticBody3D" unique_id=1533085299 instance=ExtResource("15_syhxd")]
-transform = Transform3D(0.952, 0, 0, 0, 3, 0, 0, 0, 24, -0.131, -1.673, 21.403)
-skeleton = NodePath("../..")
-
 [node name="Step11" parent="StaticBody3D" unique_id=1678221872 instance=ExtResource("15_syhxd")]
 transform = Transform3D(0.9524379, 0, 0, 0, 2.8869085, 0, 0, 0, 47.771004, 0.38170826, -2.8279655, -99.86319)
 skeleton = NodePath("../..")
@@ -189,44 +127,42 @@ transform = Transform3D(0.9524379, 0, 0, 0, 1, 0, 0, 0, 3.5635123, 0.41128498, -
 transform = Transform3D(0.9524379, 0, 0, 0, 3, 0, 0, 0, 39.343136, 0.41286236, -2.8323784, -52.99182)
 skeleton = NodePath("../..")
 
-[node name="Step14" parent="StaticBody3D" unique_id=1750500319 instance=ExtResource("15_syhxd")]
-transform = Transform3D(0.9524379, 0, 0, 0, 1, 0, 0, 0, 29.035105, 0.38, -1.515, -105.16)
-skeleton = NodePath("../..")
-
-[node name="Step15" parent="StaticBody3D" unique_id=2048040615 instance=ExtResource("15_syhxd")]
-transform = Transform3D(0.9524379, 0, 0, 0, 1, 0, 0, 0, 15, 0.386, -1.175, -99.108)
-skeleton = NodePath("../..")
-
-[node name="Step16" parent="StaticBody3D" unique_id=660359561 instance=ExtResource("15_syhxd")]
-transform = Transform3D(0.9524379, 0, 0, 0, 1, 0, 0, 0, 15, 0.38, -0.932, -100.197)
-skeleton = NodePath("../..")
-
-[node name="Step17" parent="StaticBody3D" unique_id=166502656 instance=ExtResource("15_syhxd")]
-transform = Transform3D(0.9524379, 0, 0, 0, 1, 0, 0, 0, 1, 0.3800001, -0.61056507, -96.421)
-skeleton = NodePath("../..")
-
-[node name="Step20" parent="StaticBody3D" unique_id=1592364383 instance=ExtResource("15_syhxd")]
-transform = Transform3D(0.9524379, 0, 0, 0, 1, 0, 0, 0, 20, 0.54036635, -0.43272114, -105.05183)
-skeleton = NodePath("../..")
-
-[node name="Step18" parent="StaticBody3D" unique_id=1804445636 instance=ExtResource("15_syhxd")]
-transform = Transform3D(0.9524379, 0, -2.7069913e-14, 0, 1, 0, 0, 0, 10, 0.4381845, -0.680534, -98.92835)
-skeleton = NodePath("../..")
-
-[node name="Step19" parent="StaticBody3D" unique_id=331881518 instance=ExtResource("15_syhxd")]
-transform = Transform3D(0.9524379, 0, 0, 0, 1, 0, 0, 0, 5, 0.45416337, 0.3014865, -100.5408)
-skeleton = NodePath("../..")
-
-[node name="Escafandra" parent="." unique_id=780757745 instance=ExtResource("16_04ucj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.98459935, 1.5844696, -120.497986)
-
 [node name="Iglu" parent="." unique_id=1326936582 instance=ExtResource("14_373ca")]
-transform = Transform3D(0.71325046, 0, -0.70090926, 0, 1, 0, 0.70090926, 0, 0.71325046, -3.1900835, -4.7683716e-07, 8.742042)
+transform = Transform3D(0.71325046, 0, -0.70090926, 0, 1, 0, 0.70090926, 0, 0.71325046, -3.19, -0.20000002, 8.742)
 
 [node name="PolarBear" parent="." unique_id=628619709 instance=ExtResource("14_syhxd")]
 transform = Transform3D(-1.5178096, 0, -1.3389595e-07, 0, 1.6594132, 0, 1.3269113e-07, 0, -1.5315912, -0.6152327, -1.0644877, -106.861404)
 
 [node name="IceSpikes" parent="." unique_id=532440056 instance=ExtResource("6_dskf4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.41747952, -1.1402476, -70.57846)
+
+[node name="Escafandra2" parent="." unique_id=2014979133 instance=ExtResource("16_04ucj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.4513378, 2.489305, -122.81855)
+
+[node name="Blocks" type="Node3D" parent="." unique_id=1868914465]
+
+[node name="ice_block" parent="Blocks" unique_id=1562911487 instance=ExtResource("15_syhxd")]
+transform = Transform3D(1, 0, 0, 0, 3, 0, 0, 0, 21, 0, -1.5, 0)
+skeleton = NodePath("../..")
+
+[node name="ice_block2" parent="Blocks" unique_id=895165894 instance=ExtResource("15_syhxd")]
+transform = Transform3D(1, 0, 0, 0, 3, 0, 0, 0, 35, 0, -1.5, -31)
+skeleton = NodePath("../..")
+
+[node name="ice_block3" parent="Blocks" unique_id=447314089 instance=ExtResource("15_syhxd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, -20)
+skeleton = NodePath("../..")
+
+[node name="ice_block4" parent="Blocks" unique_id=1306947142 instance=ExtResource("15_syhxd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, -29)
+skeleton = NodePath("../..")
+
+[node name="ice_block5" parent="Blocks" unique_id=1734992412 instance=ExtResource("15_syhxd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, -26)
+skeleton = NodePath("../..")
+
+[node name="ice_block6" parent="Blocks" unique_id=421000475 instance=ExtResource("15_syhxd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, -23)
+skeleton = NodePath("../..")
 
 [connection signal="body_entered" from="Exit" to="." method="_on_exit_body_entered"]
