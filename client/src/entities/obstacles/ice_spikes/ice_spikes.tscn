@@ -1,18 +1,24 @@
 [gd_scene format=3 uid="uid://c6nkw5ccdfiqo"]
 
 [ext_resource type="PackedScene" uid="uid://c5vrstyjoihcv" path="res://entities/obstacles/ice_spikes/ice_spikes.gltf" id="1_obkwf"]
+[ext_resource type="Script" uid="uid://reicli68tbj1" path="res://entities/obstacles/ice_spikes/ice_spikes.gd" id="1_yhctp"]
+[ext_resource type="Script" uid="uid://v2lewqxkr5cn" path="res://entities/obstacles/ice_spikes/area_3d.gd" id="2_i43vn"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ncoh6"]
 size = Vector3(2.8309326, 1.269043, 1)
 
 [node name="IceSpikes" type="Node3D" unique_id=2123908971]
+script = ExtResource("1_yhctp")
 
-[node name="blockbench_export" parent="." unique_id=1417500164 instance=ExtResource("1_obkwf")]
+[node name="Area3D" type="Area3D" parent="." unique_id=971670160]
+script = ExtResource("2_i43vn")
+
+[node name="blockbench_export" parent="Area3D" unique_id=1417500164 instance=ExtResource("1_obkwf")]
 transform = Transform3D(-0.32243243, -0.021707313, -2.111627, -0.022707006, 0.86656284, -0.05236072, 4.3174057, 0.0029364615, -0.15797584, -0.79114795, 0, 0.16417933)
 
-[node name="blockbench_export3" parent="." unique_id=1056759387 instance=ExtResource("1_obkwf")]
+[node name="blockbench_export3" parent="Area3D" unique_id=1056759387 instance=ExtResource("1_obkwf")]
 transform = Transform3D(0.19452997, 0.021681542, 1.9696921, -0.02772393, 0.8705966, -0.04873837, -5.282403, -0.003770758, 0.072791755, -2.765345, 0, -0.593231)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=468839243]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=468839243]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.8810425, 0.13452148, 0)
 shape = SubResource("BoxShape3D_ncoh6")
