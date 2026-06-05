@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://cig8mgudcvnb3"]
+
+[ext_resource type="PackedScene" uid="uid://ddnm46k2e3t78" path="res://entities/enemies/bosses/polar_bear/ice_wall/muro_hielo_oso.gltf" id="1_6wcpu"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_3ch7w"]
+size = Vector3(2.3687744, 1.257843, 0.23608398)
+
+[node name="IceWall" type="Node3D" unique_id=68012931]
+
+[node name="blockbench_export" parent="." unique_id=522059943 instance=ExtResource("1_6wcpu")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1056204742]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.02508545, 0.52937317, 0.05272889)
+shape = SubResource("BoxShape3D_3ch7w")

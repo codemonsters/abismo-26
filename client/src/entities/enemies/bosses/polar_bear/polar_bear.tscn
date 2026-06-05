@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cud3o4yqar2lf"]
 
-[ext_resource type="PackedScene" uid="uid://cift6w3odxine" path="res://entities/enemies/bosses/BEARl.gltf" id="1_wgxh8"]
+[ext_resource type="PackedScene" uid="uid://cift6w3odxine" path="res://entities/enemies/bosses/polar_bear/BEARl.gltf" id="1_wgxh8"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_fp0in"]
 size = Vector3(1.2578125, 2.4500732, 0.70214844)

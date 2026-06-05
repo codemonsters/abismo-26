@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://cift6w3odxine"
-path="res://.godot/imported/BEARl.gltf-e2e7abe2465adda3b3f26aae98d439a2.scn"
+path="res://.godot/imported/BEARl.gltf-31e4bb1e8d275f86559606d51064fe94.scn"
 
 [deps]
 
-source_file="res://entities/enemies/bosses/BEARl.gltf"
-dest_files=["res://.godot/imported/BEARl.gltf-e2e7abe2465adda3b3f26aae98d439a2.scn"]
+source_file="res://entities/enemies/bosses/polar_bear/BEARl.gltf"
+dest_files=["res://.godot/imported/BEARl.gltf-31e4bb1e8d275f86559606d51064fe94.scn"]
 
 [params]
 
