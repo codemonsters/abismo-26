@@ -2,20 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dv7hhs5m1qas0"
-path.s3tc="res://.godot/imported/BEAR_0.png-c9cf210d14a7568453bdb39b2e2f17a5.s3tc.ctex"
+uid="uid://diojqq567dqk1"
+path.s3tc="res://.godot/imported/muro_hielo_oso_0.png-f0edb95b6f01a0c26d36907219a29351.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 generator_parameters={
-"md5": "c3e16eb1494e83b3c4f7d7174f56cd75"
+"md5": "0d12bee767e69313ab39e72b02cb16d2"
 }
 
 [deps]
 
-source_file="res://entities/enemies/bosses/polar_bear/ice_wall/BEAR_0.png"
-dest_files=["res://.godot/imported/BEAR_0.png-c9cf210d14a7568453bdb39b2e2f17a5.s3tc.ctex"]
+source_file="res://entities/enemies/bosses/polar_bear/ice_wall_attack/muro_hielo_oso_0.png"
+dest_files=["res://.godot/imported/muro_hielo_oso_0.png-f0edb95b6f01a0c26d36907219a29351.s3tc.ctex"]
 
 [params]
 

@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://b0ivkydudgjvn"]
 
-[ext_resource type="Script" uid="uid://bk8r8mbgkr4v8" path="res://screens/game/levels/level01/main.gd" id="1_02iye"]
+[ext_resource type="Script" path="res://screens/game/levels/level01/main.gd" id="1_02iye"]
 [ext_resource type="PackedScene" uid="uid://djkij1vgg64n4" path="res://screens/game/levels/level01/bunny.gltf" id="1_akj3i"]
 [ext_resource type="Script" uid="uid://bj1fgc23ix6y8" path="res://screens/game/levels/level01/bunny.gd" id="2_mmmg7"]
 [ext_resource type="PackedScene" uid="uid://c0y8x88trwj7e" path="res://entities/misc/strawman/main.tscn" id="4_pbqld"]
@@ -10,7 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://bprtf4qrwntbl" path="res://screens/game/levels/locations/level_end.tscn" id="8_asklh"]
 [ext_resource type="PackedScene" uid="uid://do0jcrh8bk7pw" path="res://screens/game/levels/level01/foca.gltf" id="11_bldw7"]
 [ext_resource type="PackedScene" uid="uid://btvt5awjlmp6k" path="res://entities/obstacles/iglu/iglu.tscn" id="14_373ca"]
-[ext_resource type="PackedScene" uid="uid://cud3o4yqar2lf" path="res://entities/enemies/bosses/polar_bear/polar_bear.tscn" id="14_syhxd"]
+[ext_resource type="PackedScene" uid="uid://cud3o4yqar2lf" path="res://entities/enemies/bosses/polar_bear/main.tscn" id="14_syhxd"]
 [ext_resource type="PackedScene" uid="uid://f0nc00780tfd" path="res://entities/building_blocks/ice_block/main.tscn" id="15_syhxd"]
 [ext_resource type="PackedScene" uid="uid://njsj7xki7cmh" path="res://entities/objects/escafandra.tscn" id="16_04ucj"]
 
