@@ -10,7 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://bprtf4qrwntbl" path="res://screens/game/levels/locations/level_end.tscn" id="8_asklh"]
 [ext_resource type="PackedScene" uid="uid://do0jcrh8bk7pw" path="res://screens/game/levels/level01/foca.gltf" id="11_bldw7"]
 [ext_resource type="PackedScene" uid="uid://btvt5awjlmp6k" path="res://entities/obstacles/iglu/iglu.tscn" id="14_373ca"]
-[ext_resource type="PackedScene" uid="uid://cud3o4yqar2lf" path="res://entities/enemies/bosses/polar_bear/polar_bear.tscn" id="14_syhxd"]
+[ext_resource type="PackedScene" uid="uid://cud3o4yqar2lf" path="res://entities/enemies/bosses/polar_bear/main.tscn" id="14_syhxd"]
 [ext_resource type="PackedScene" uid="uid://f0nc00780tfd" path="res://entities/building_blocks/ice_block/main.tscn" id="15_syhxd"]
 [ext_resource type="PackedScene" uid="uid://njsj7xki7cmh" path="res://entities/objects/escafandra.tscn" id="16_04ucj"]
 
@@ -97,7 +97,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -27.5)
 transform = Transform3D(0.71325046, 0, -0.70090926, 0, 1, 0, 0.70090926, 0, 0.71325046, -3.19, -0.20000002, 8.742)
 
 [node name="PolarBear" parent="." unique_id=628619709 instance=ExtResource("14_syhxd")]
-transform = Transform3D(-1.5178096, 0, -1.3389595e-07, 0, 1.6594132, 0, 1.3269113e-07, 0, -1.5315912, 1.3847673, 1.9355123, -96.788574)
+transform = Transform3D(-1.5178096, 0, -1.3389595e-07, 0, 1.6594132, 0, 1.3269113e-07, 0, -1.5315912, 1, 1.5, -95)
 
 [node name="Escafandra2" parent="." unique_id=2014979133 instance=ExtResource("16_04ucj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5486622, 5.489305, -129.7395)
@@ -129,15 +129,15 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, -23)
 skeleton = NodePath("../..")
 
 [node name="ice_block7" parent="Blocks" unique_id=900769459 instance=ExtResource("15_syhxd")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 12.49831, 1.1873837, 2.5558844, -130.9176)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 12, 0, 2, -108.5)
 skeleton = NodePath("../..")
 
 [node name="ice_block8" parent="Blocks" unique_id=1938752338 instance=ExtResource("15_syhxd")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 10.2838335, 1.096211, 3.6553621, -131.93536)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 10, 0, 3, -109.5)
 skeleton = NodePath("../..")
 
 [node name="ice_block9" parent="Blocks" unique_id=1431522293 instance=ExtResource("15_syhxd")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 8.313887, 1.2298551, 4.6727967, -132.99509)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 8, 0, 4, -110.5)
 skeleton = NodePath("../..")
 
 [node name="Step4" parent="Blocks" unique_id=531852670 instance=ExtResource("15_syhxd")]
@@ -161,7 +161,7 @@ transform = Transform3D(1, 0, 0, 0, 2.5, 0, 0, 0, 1, 0, 2.75, -74)
 skeleton = NodePath("../..")
 
 [node name="Step11" parent="Blocks" unique_id=1678221872 instance=ExtResource("15_syhxd")]
-transform = Transform3D(1, 0, 0, 0, 3, 0, 0, 0, 48, 0, 0, -114.5)
+transform = Transform3D(1, 0, 0, 0, 3, 0, 0, 0, 24, 0, 0, -102.5)
 skeleton = NodePath("../..")
 
 [node name="Step12" parent="Blocks" unique_id=2105038245 instance=ExtResource("15_syhxd")]
