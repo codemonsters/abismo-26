@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://c5vrstyjoihcv" path="res://entities/obstacles/ice_spikes/ice_spikes.gltf" id="1_obkwf"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ncoh6"]
-size = Vector3(7, 1.269043, 1.8000001)
+size = Vector3(5.5322876, 0.6451111, 1.8000001)
 
 [node name="IceSpikes" type="Node3D" unique_id=2123908971]
 
@@ -17,5 +17,5 @@ transform = Transform3D(0.14720237, 0.016406652, 1.9980248, -0.020978913, 0.6587
 transform = Transform3D(0.14720237, 0.01640665, 1.9980248, -0.020978913, 0.6587895, -0.04943947, -3.9972353, -0.0028533696, 0.07383883, 2, 0, -0.593)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=468839243]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.08453369, 0.135, -0.20000002)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, -0.2)
 shape = SubResource("BoxShape3D_ncoh6")
