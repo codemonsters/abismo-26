@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://njsj7xki7cmh"]
 
 [ext_resource type="PackedScene" uid="uid://c3eex2at02kvf" path="res://assets/models/characters/penguin/escafandra.gltf" id="1_mc8a4"]
-[ext_resource type="Script" uid="uid://ca2u1t1lakiyr" path="res://assets/models/characters/penguin/escafandra.gd" id="2_bq5ye"]
+[ext_resource type="Script" uid="uid://ca2u1t1lakiyr" path="res://entities/objects/escafandra.gd" id="2_bq5ye"]
 
 [node name="Escafandra" type="Node3D" unique_id=780757745]
 

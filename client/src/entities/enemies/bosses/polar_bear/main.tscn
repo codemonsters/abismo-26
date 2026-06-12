@@ -6,6 +6,7 @@
 size = Vector3(1.4161377, 2.5224, 0.70214844)
 
 [node name="PolarBear" type="Node3D" unique_id=628619709]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1119715844]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.049743652, 0.9107133, -0.061090708)
