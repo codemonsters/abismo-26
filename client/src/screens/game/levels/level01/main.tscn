@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://b0ivkydudgjvn"]
 
-[ext_resource type="Script" path="res://screens/game/levels/level01/main.gd" id="1_02iye"]
+[ext_resource type="Script" uid="uid://bk8r8mbgkr4v8" path="res://screens/game/levels/level01/main.gd" id="1_02iye"]
 [ext_resource type="PackedScene" uid="uid://djkij1vgg64n4" path="res://screens/game/levels/level01/bunny.gltf" id="1_akj3i"]
 [ext_resource type="Script" uid="uid://bj1fgc23ix6y8" path="res://screens/game/levels/level01/bunny.gd" id="2_mmmg7"]
 [ext_resource type="PackedScene" uid="uid://c0y8x88trwj7e" path="res://entities/misc/strawman/main.tscn" id="4_pbqld"]
@@ -46,7 +46,7 @@ transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0
 use_collision = true
 
 [node name="blockbench_export" parent="CSGCombiner3D" unique_id=204921031 instance=ExtResource("1_akj3i")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 36.465023, 0.29273558, 1.063625)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 36.465, 0, 1.064)
 script = ExtResource("2_mmmg7")
 
 [node name="strawman" parent="." unique_id=2014020768 instance=ExtResource("4_pbqld")]
@@ -62,10 +62,11 @@ shape = SubResource("BoxShape3D_mmmg7")
 environment = SubResource("Environment_02iye")
 
 [node name="Sun" type="DirectionalLight3D" parent="." unique_id=1281632154]
-transform = Transform3D(-1, 1.817622e-08, -8.551238e-08, 0, 0.9781476, 0.2079117, 8.742278e-08, 0.2079117, -0.9781476, 70, 2, 0)
+transform = Transform3D(-0.36974674, 0.905319, 0.20900947, 0, -0.22495118, 0.97437006, 0.9291326, 0.36027017, 0.08317497, 70, 2, 0)
 light_color = Color(1, 0.61960787, 0.27058825, 1)
-light_energy = 1.8
+light_energy = 0.365
 shadow_enabled = true
+shadow_blur = 10.0
 
 [node name="Exit" type="Area3D" parent="." unique_id=744495879]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 10)
