@@ -14,9 +14,6 @@
 [ext_resource type="PackedScene" uid="uid://f0nc00780tfd" path="res://entities/building_blocks/ice_block/main.tscn" id="15_syhxd"]
 [ext_resource type="PackedScene" uid="uid://njsj7xki7cmh" path="res://entities/objects/escafandra.tscn" id="16_04ucj"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_mmmg7"]
-size = Vector3(0.30004883, 1.1337891, 3.6097221)
-
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_mmmg7"]
 sky_top_color = Color(0.00013389975, 0.2577117, 0.78406, 1)
 sky_horizon_color = Color(0.43384796, 0.67641276, 0.9170116, 1)
@@ -54,10 +51,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -5)
 
 [node name="pinchos" type="StaticBody3D" parent="." unique_id=1593353344]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="pinchos" unique_id=269648473]
-transform = Transform3D(2.9019537, 0.0077380696, 0.04525873, -0.024670951, 0.87633455, -0.040506322, -0.056090623, 0.014896785, 2.359361, 0, 0.059, -24.921)
-shape = SubResource("BoxShape3D_mmmg7")
-
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1770054832]
 environment = SubResource("Environment_02iye")
 
@@ -84,7 +77,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, -3.476)
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 1, 0, 0.9, 1.526)
 
 [node name="DeathArea" parent="Locations" unique_id=702394030 instance=ExtResource("7_8dh2n")]
-transform = Transform3D(6, 0, 0, 0, 1, 0, 0, 0, 3, 0, -2, -11.976)
+transform = Transform3D(6, 0, 0, 0, 1, 0, 0, 0, 3, 0, -4.1398044, -11.976)
 
 [node name="foca" parent="." unique_id=1229092006 instance=ExtResource("11_bldw7")]
 transform = Transform3D(-1.3248717, 0, -0.04377973, 0, 1.430313, 0, 0.041126613, 0, -1.4103404, -0.7162094, -1.2472064, -62.26503)
@@ -102,7 +95,7 @@ transform = Transform3D(0.9524379, 0, 0, 0, 1, 0, 0, 0, 1, 0.18913114, 0.1104285
 skeleton = NodePath("../..")
 
 [node name="Step5" parent="StaticBody3D" unique_id=1021205713 instance=ExtResource("15_syhxd")]
-transform = Transform3D(0.95247126, 0, 0, 0, 1.1439114, 0, 0, 0, 0.9999682, 0.16064, 0.3498242, -26.952673)
+transform = Transform3D(0.95247126, 0, 0, 0, 1.1439114, 0, 0, 0, 0.9999682, 0.16064, 0.24982417, -26.952673)
 skeleton = NodePath("../..")
 
 [node name="Step6" parent="StaticBody3D" unique_id=281576302 instance=ExtResource("15_syhxd")]
@@ -125,7 +118,7 @@ skeleton = NodePath("../..")
 transform = Transform3D(0.9524379, 0, 0, 0, 1, 0, 0, 0, 3.5635123, 0.41128498, -3.2860277, -74.47647)
 
 [node name="Step13" parent="StaticBody3D" unique_id=1905174457 instance=ExtResource("15_syhxd")]
-transform = Transform3D(0.9524379, 0, 0, 0, 3, 0, 0, 0, 39.343136, 0.41286236, -2.8323784, -52.99182)
+transform = Transform3D(1, 0, 0, 0, 3.137, 0, 0, 0, 41.132, 0, -2.832, -52.992)
 skeleton = NodePath("../..")
 
 [node name="Iglu" parent="." unique_id=1326936582 instance=ExtResource("14_373ca")]
@@ -135,7 +128,7 @@ transform = Transform3D(0.71325046, 0, -0.70090926, 0, 1, 0, 0.70090926, 0, 0.71
 transform = Transform3D(-1.5178096, 0, -1.3389595e-07, 0, 1.6594132, 0, 1.3269113e-07, 0, -1.5315912, -0.6152327, -1.0644877, -101.788574)
 
 [node name="IceSpikes" parent="." unique_id=532440056 instance=ExtResource("6_dskf4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.41747952, -1.1402476, -70.57846)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.4174795, -0.7402476, -70.57846)
 
 [node name="Escafandra2" parent="." unique_id=2014979133 instance=ExtResource("16_04ucj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.4513378, 2.489305, -119.739494)
@@ -147,7 +140,7 @@ transform = Transform3D(1, 0, 0, 0, 3, 0, 0, 0, 21, 0, -1.5, 0)
 skeleton = NodePath("../..")
 
 [node name="ice_block2" parent="Blocks" unique_id=895165894 instance=ExtResource("15_syhxd")]
-transform = Transform3D(1, 0, 0, 0, 3, 0, 0, 0, 35, 0, -1.5, -31)
+transform = Transform3D(1, 0, 0, 0, 3, 0, 0, 0, 38.549606, 0, -1.5, -31.59261)
 skeleton = NodePath("../..")
 
 [node name="ice_block3" parent="Blocks" unique_id=447314089 instance=ExtResource("15_syhxd")]
