@@ -14,9 +14,6 @@
 [ext_resource type="PackedScene" uid="uid://f0nc00780tfd" path="res://entities/building_blocks/ice_block/main.tscn" id="15_syhxd"]
 [ext_resource type="PackedScene" uid="uid://njsj7xki7cmh" path="res://entities/objects/escafandra.tscn" id="16_04ucj"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_mmmg7"]
-size = Vector3(0.30004883, 1.1337891, 3.6097221)
-
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_mmmg7"]
 sky_top_color = Color(0.00013389975, 0.2577117, 0.78406, 1)
 sky_horizon_color = Color(0.43384796, 0.67641276, 0.9170116, 1)
@@ -53,10 +50,6 @@ script = ExtResource("2_mmmg7")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -5)
 
 [node name="pinchos" type="StaticBody3D" parent="." unique_id=1593353344]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="pinchos" unique_id=269648473]
-transform = Transform3D(2.9019537, 0.0077380696, 0.04525873, -0.024670951, 0.87633455, -0.040506322, -0.056090623, 0.014896785, 2.359361, 0, 0.059, -24.921)
-shape = SubResource("BoxShape3D_mmmg7")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1770054832]
 environment = SubResource("Environment_02iye")
@@ -146,7 +139,7 @@ transform = Transform3D(1, 0, 0, 0, 3, 0, 0, 0, 21, 0, -1.5, 0)
 skeleton = NodePath("../..")
 
 [node name="ice_block2" parent="Blocks" unique_id=895165894 instance=ExtResource("15_syhxd")]
-transform = Transform3D(1, 0, 0, 0, 3, 0, 0, 0, 35, 0, -1.5, -31)
+transform = Transform3D(1, 0, 0, 0, 3, 0, 0, 0, 38.549606, 0, -1.5, -31.59261)
 skeleton = NodePath("../..")
 
 [node name="ice_block3" parent="Blocks" unique_id=447314089 instance=ExtResource("15_syhxd")]
