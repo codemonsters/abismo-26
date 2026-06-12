@@ -170,6 +170,6 @@ transform = Transform3D(1, 0, 0, 0, 3, 0, 0, 0, 30, 0, 0, -71)
 skeleton = NodePath("../..")
 
 [node name="Escafandra" parent="." unique_id=780757745 instance=ExtResource("13_pbqld")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 6, -132)
+transform = Transform3D(1, 0, 0, 0, 0.9396926, -0.34202012, 0, 0.34202012, 0.9396926, 0, 5, -111)
 
 [connection signal="body_entered" from="Exit" to="." method="_on_exit_body_entered"]

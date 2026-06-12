@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://ca2u1t1lakiyr" path="res://entities/objects/diving_helmet/diving_helmet.gd" id="2_bq5ye"]
 
 [node name="Escafandra" type="Node3D" unique_id=780757745]
+transform = Transform3D(1, 0, 0, 0, 0.9396926, -0.34202012, 0, 0.34202012, 0.9396926, 0, 0, 0)
 script = ExtResource("2_bq5ye")
 
 [node name="blockbench_export" parent="." unique_id=259594273 instance=ExtResource("2_3ogu7")]
