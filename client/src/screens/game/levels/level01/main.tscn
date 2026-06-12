@@ -124,9 +124,6 @@ skeleton = NodePath("../..")
 [node name="Iglu" parent="." unique_id=1326936582 instance=ExtResource("14_373ca")]
 transform = Transform3D(0.71325046, 0, -0.70090926, 0, 1, 0, 0.70090926, 0, 0.71325046, -3.19, -0.20000002, 8.742)
 
-[node name="PolarBear" parent="." unique_id=628619709 instance=ExtResource("14_syhxd")]
-transform = Transform3D(-1.5178096, 0, -1.3389595e-07, 0, 1.6594132, 0, 1.3269113e-07, 0, -1.5315912, -0.6152327, -1.0644877, -101.788574)
-
 [node name="IceSpikes" parent="." unique_id=532440056 instance=ExtResource("6_dskf4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.4174795, -0.7402476, -70.57846)
 
@@ -167,5 +164,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 10.2838335, -0.90378904, 0.65536
 
 [node name="ice_block3" parent="." unique_id=1431522293 instance=ExtResource("15_syhxd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 8.313887, -0.77014494, 1.6727967, -120.99509)
+
+[node name="PolarBear" parent="." unique_id=628619709 instance=ExtResource("14_syhxd")]
+transform = Transform3D(-1.5, 0, -1.3113416e-07, 0, 1.5, 0, 1.3113416e-07, 0, -1.5, 1, 0, -101)
 
 [connection signal="body_entered" from="Exit" to="." method="_on_exit_body_entered"]
