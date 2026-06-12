@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://njsj7xki7cmh"]
+
+[ext_resource type="PackedScene" uid="uid://c3k3oh33ei5o5" path="res://entities/objects/diving_helmet/diving_helmet.gltf" id="2_3ogu7"]
+[ext_resource type="Script" uid="uid://ca2u1t1lakiyr" path="res://entities/objects/diving_helmet/diving_helmet.gd" id="2_bq5ye"]
+
+[node name="Escafandra" type="Node3D" unique_id=780757745]
+script = ExtResource("2_bq5ye")
+
+[node name="blockbench_export" parent="." unique_id=259594273 instance=ExtResource("2_3ogu7")]
+
+[node name="OmniLight3D" type="OmniLight3D" parent="blockbench_export" unique_id=42277326]
+visible = false
+light_energy = 2.0

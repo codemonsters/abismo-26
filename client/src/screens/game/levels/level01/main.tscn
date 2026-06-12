@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://b0ivkydudgjvn"]
 
-[ext_resource type="Script" uid="uid://bk8r8mbgkr4v8" path="res://screens/game/levels/level01/main.gd" id="1_02iye"]
+[ext_resource type="Script" path="res://screens/game/levels/level01/main.gd" id="1_02iye"]
 [ext_resource type="PackedScene" uid="uid://djkij1vgg64n4" path="res://screens/game/levels/level01/bunny.gltf" id="1_akj3i"]
 [ext_resource type="Script" uid="uid://bj1fgc23ix6y8" path="res://screens/game/levels/level01/bunny.gd" id="2_mmmg7"]
 [ext_resource type="PackedScene" uid="uid://c0y8x88trwj7e" path="res://entities/misc/strawman/main.tscn" id="4_pbqld"]
@@ -9,10 +9,10 @@
 [ext_resource type="PackedScene" uid="uid://n6xdc3yo8sby" path="res://screens/game/levels/locations/level_start.tscn" id="7_asklh"]
 [ext_resource type="PackedScene" uid="uid://bprtf4qrwntbl" path="res://screens/game/levels/locations/level_end.tscn" id="8_asklh"]
 [ext_resource type="PackedScene" uid="uid://do0jcrh8bk7pw" path="res://screens/game/levels/level01/foca.gltf" id="11_bldw7"]
+[ext_resource type="PackedScene" uid="uid://njsj7xki7cmh" path="res://entities/objects/diving_helmet/main.tscn" id="13_pbqld"]
 [ext_resource type="PackedScene" uid="uid://btvt5awjlmp6k" path="res://entities/obstacles/iglu/iglu.tscn" id="14_373ca"]
 [ext_resource type="PackedScene" uid="uid://cud3o4yqar2lf" path="res://entities/enemies/bosses/polar_bear/main.tscn" id="14_syhxd"]
 [ext_resource type="PackedScene" uid="uid://f0nc00780tfd" path="res://entities/building_blocks/ice_block/main.tscn" id="15_syhxd"]
-[ext_resource type="PackedScene" uid="uid://njsj7xki7cmh" path="res://entities/objects/escafandra.tscn" id="16_04ucj"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_mmmg7"]
 sky_top_color = Color(0.00013389975, 0.2577117, 0.78406, 1)
@@ -99,9 +99,6 @@ transform = Transform3D(0.71325046, 0, -0.70090926, 0, 1, 0, 0.70090926, 0, 0.71
 [node name="PolarBear" parent="." unique_id=628619709 instance=ExtResource("14_syhxd")]
 transform = Transform3D(-1.5178096, 0, -1.3389595e-07, 0, 1.6594132, 0, 1.3269113e-07, 0, -1.5315912, 1, 1.5, -95)
 
-[node name="Escafandra2" parent="." unique_id=2014979133 instance=ExtResource("16_04ucj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5486622, 5.489305, -129.7395)
-
 [node name="Blocks" type="Node3D" parent="." unique_id=1868914465]
 
 [node name="ice_block" parent="Blocks" unique_id=1562911487 instance=ExtResource("15_syhxd")]
@@ -171,5 +168,8 @@ skeleton = NodePath("")
 [node name="Step13" parent="Blocks" unique_id=1905174457 instance=ExtResource("15_syhxd")]
 transform = Transform3D(1, 0, 0, 0, 3, 0, 0, 0, 30, 0, 0, -71)
 skeleton = NodePath("../..")
+
+[node name="Escafandra" parent="." unique_id=780757745 instance=ExtResource("13_pbqld")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 6, -132)
 
 [connection signal="body_entered" from="Exit" to="." method="_on_exit_body_entered"]
