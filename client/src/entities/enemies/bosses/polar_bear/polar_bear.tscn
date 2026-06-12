@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://cud3o4yqar2lf"]
+
+[ext_resource type="PackedScene" uid="uid://clv57sfvrwn5u" path="res://entities/enemies/bosses/polar_bear/BEAR.gltf" id="1_1ajai"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_fp0in"]
+size = Vector3(1.4161377, 2.5224, 0.70214844)
+
+[node name="PolarBear" type="Node3D" unique_id=628619709]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1119715844]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.049743652, 0.9107133, -0.061090708)
+shape = SubResource("BoxShape3D_fp0in")
+
+[node name="blockbench_export" parent="." unique_id=1218659862 instance=ExtResource("1_1ajai")]
