@@ -6,6 +6,7 @@ class_name LobbiesServer
 
 signal ls_connection_closed
 signal ls_connected
+signal logged_in(success: bool, details: String)
 
 var _wsc = WebSocketClient.new()
 var _button_pressed_callback
@@ -32,8 +33,8 @@ func ls_connect():
 func ls_disconnect():
 	_wsc.close()
 
-func on_ls_message_received():
-	pass
+func ls_send_message(message):
+	_wsc.send(message)
 	
 func on_ls_connected():
 	print("lobby server: conectado")
@@ -50,3 +51,27 @@ func _on_button_pressed() -> void:
 	
 func on_cancel_pressed():
 	self.visible = false
+	
+func on_ls_message_received(message: String):
+	var message_dict = JSON.parse_string(message)
+	if message_dict.has("cmd"):
+		var cmd = message_dict["cmd"]
+		if cmd == "logged_in":
+			parse_logged_in_message(message_dict)
+		else:
+			print("WARNING: mensaje con comando desconocido ignorado: ", message)
+
+func parse_logged_in_message(message_dict: Dictionary):
+	var success = false
+	if message_dict.has("success"):
+		success = message_dict["success"]
+		if success != true: success = false
+
+	var details = null
+	if message_dict.has("data"):
+		var data = message_dict["data"]
+		if data.has("details"):
+			details = data["details"]
+	
+	if details != null:
+		logged_in.emit(success, details)

@@ -34,7 +34,7 @@ offset_right = 780.0
 offset_bottom = 270.0
 text = "Jugar anónimo"
 
-[node name="GuestUsername" type="TextEdit" parent="TabContainer/Jugar como invitado" unique_id=516997676]
+[node name="GuestUsername" type="LineEdit" parent="TabContainer/Jugar como invitado" unique_id=177087750]
 layout_mode = 0
 offset_left = 261.0
 offset_top = 183.0
@@ -64,7 +64,7 @@ offset_bottom = 158.0
 disabled = true
 text = "Identificarte"
 
-[node name="SignInPassword" type="TextEdit" parent="TabContainer/Accede con tu cuenta" unique_id=1384580232]
+[node name="SignInPassword" type="LineEdit" parent="TabContainer/Accede con tu cuenta" unique_id=1803500275]
 layout_mode = 0
 offset_left = 197.0
 offset_top = 121.0
@@ -72,7 +72,7 @@ offset_right = 460.0
 offset_bottom = 162.0
 placeholder_text = "Introduce tu nombre de usuario"
 
-[node name="SignInUsername" type="TextEdit" parent="TabContainer/Accede con tu cuenta" unique_id=1842229534]
+[node name="SignInUsername" type="LineEdit" parent="TabContainer/Accede con tu cuenta" unique_id=441963367]
 layout_mode = 0
 offset_left = 197.0
 offset_top = 71.0
@@ -102,7 +102,7 @@ offset_bottom = 189.0
 disabled = true
 text = "Crear cuenta"
 
-[node name="SignUpUsername" type="TextEdit" parent="TabContainer/Crear cuenta" unique_id=788967470]
+[node name="SignUpUsername" type="LineEdit" parent="TabContainer/Crear cuenta" unique_id=1513090617]
 layout_mode = 0
 offset_left = 197.0
 offset_top = 102.0
@@ -118,7 +118,7 @@ offset_right = 463.0
 offset_bottom = 234.0
 text = "Label nombre de usuario guest"
 
-[node name="SignUpPassword" type="TextEdit" parent="TabContainer/Crear cuenta" unique_id=1453416786]
+[node name="SignUpPassword" type="LineEdit" parent="TabContainer/Crear cuenta" unique_id=1331137584]
 layout_mode = 0
 offset_left = 197.0
 offset_top = 152.0
@@ -127,3 +127,5 @@ offset_bottom = 193.0
 placeholder_text = "Introduce tu nombre de usuario"
 
 [connection signal="pressed" from="TabContainer/Jugar como invitado/PlayAsGuest" to="." method="_on_button_join_as_guest_pressed"]
+[connection signal="text_changed" from="TabContainer/Jugar como invitado/GuestUsername" to="." method="_on_guest_username_text_changed"]
+[connection signal="text_submitted" from="TabContainer/Jugar como invitado/GuestUsername" to="." method="_on_guest_username_text_submitted"]
