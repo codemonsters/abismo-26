@@ -91,7 +91,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -27.5)
 transform = Transform3D(0.71325046, 0, -0.70090926, 0, 1, 0, 0.70090926, 0, 0.71325046, -3.19, -0.20000002, 8.742)
 
 [node name="PolarBear" parent="." unique_id=628619709 instance=ExtResource("14_syhxd")]
-transform = Transform3D(-1.5178096, 0, -1.3389595e-07, 0, 1.6594132, 0, 1.3269113e-07, 0, -1.5315912, 1, 1.5, -95)
+transform = Transform3D(1.5, 0, 0, 0, 1.659, 0, 0, 0, 1.502, 1, 1.5, -95)
 
 [node name="Blocks" type="Node3D" parent="." unique_id=1868914465]
 

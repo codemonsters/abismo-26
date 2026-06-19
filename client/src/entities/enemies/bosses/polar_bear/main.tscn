@@ -1,15 +1,29 @@
 [gd_scene format=3 uid="uid://cud3o4yqar2lf"]
 
 [ext_resource type="PackedScene" uid="uid://clv57sfvrwn5u" path="res://entities/enemies/bosses/polar_bear/BEAR.gltf" id="1_1ajai"]
+[ext_resource type="Script" uid="uid://bjhe8r67fnxd2" path="res://entities/enemies/bosses/polar_bear/main.gd" id="1_i1sb7"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_biorp"]
+radius = 4.0
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_fp0in"]
 size = Vector3(1.4161377, 2.5224, 0.70214844)
 
 [node name="PolarBear" type="Node3D" unique_id=628619709]
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+script = ExtResource("1_i1sb7")
+
+[node name="Area3D" type="Area3D" parent="." unique_id=1605301045]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=93949436]
+shape = SubResource("SphereShape3D_biorp")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1119715844]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.049743652, 0.9107133, -0.061090708)
 shape = SubResource("BoxShape3D_fp0in")
 
 [node name="blockbench_export" parent="." unique_id=1218659862 instance=ExtResource("1_1ajai")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
+
+[connection signal="area_entered" from="Area3D" to="." method="_on_area_3d_area_entered"]
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
