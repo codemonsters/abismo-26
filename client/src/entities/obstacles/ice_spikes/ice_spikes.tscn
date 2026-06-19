@@ -5,7 +5,7 @@
 [sub_resource type="BoxShape3D" id="BoxShape3D_ncoh6"]
 size = Vector3(5.5322876, 0.6451111, 1.8000001)
 
-[node name="IceSpikes" type="Node3D" unique_id=2123908971]
+[node name="IceSpikes" type="StaticBody3D" unique_id=75918173]
 
 [node name="blockbench_export" parent="." unique_id=1417500164 instance=ExtResource("1_obkwf")]
 transform = Transform3D(-0.29789442, -0.020058563, -1.993817, -0.020978926, 0.8007442, -0.04943946, 3.9888368, 0.0027134274, -0.14916232, -2, 0, 0.164)
