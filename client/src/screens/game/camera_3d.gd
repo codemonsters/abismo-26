@@ -12,10 +12,6 @@ func _physics_process(delta):
 		target_pos.x = offset.x
 		target_pos.y = 6
 		# hace que la camara no se mueva llegado el final del mundo
-		"""if target_pos.z <= -map_length:
-			target_pos.z = -114.9
-		elif target_pos.z >= 0:
-			target_pos.z = 0"""
 		target_pos.z = clamp(target_pos.z, -map_length, 0)
 		rotation_degrees.x = -10
 		# Movemos la cámara suavemente hacia esa posición usando interpolación lineal (Lerp)

@@ -7,7 +7,6 @@
 [ext_resource type="PackedScene" uid="uid://c6nkw5ccdfiqo" path="res://entities/obstacles/ice_spikes/ice_spikes.tscn" id="6_dskf4"]
 [ext_resource type="PackedScene" uid="uid://cgnmxe26ewkxv" path="res://screens/game/levels/locations/death.tscn" id="7_8dh2n"]
 [ext_resource type="PackedScene" uid="uid://n6xdc3yo8sby" path="res://screens/game/levels/locations/level_start.tscn" id="7_asklh"]
-[ext_resource type="PackedScene" uid="uid://bprtf4qrwntbl" path="res://screens/game/levels/locations/level_end.tscn" id="8_asklh"]
 [ext_resource type="PackedScene" uid="uid://do0jcrh8bk7pw" path="res://screens/game/levels/level01/foca.gltf" id="11_bldw7"]
 [ext_resource type="PackedScene" uid="uid://njsj7xki7cmh" path="res://entities/objects/diving_helmet/main.tscn" id="13_pbqld"]
 [ext_resource type="PackedScene" uid="uid://btvt5awjlmp6k" path="res://entities/obstacles/iglu/iglu.tscn" id="14_373ca"]
@@ -73,9 +72,6 @@ shape = SubResource("BoxShape3D_02iye")
 [node name="LevelStart" parent="Locations" unique_id=1359960781 instance=ExtResource("7_asklh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, -3.476)
 
-[node name="LevelEnd" parent="Locations" unique_id=614686416 instance=ExtResource("8_asklh")]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 1, 0, 0.9, 1.526)
-
 [node name="DeathArea" parent="Locations" unique_id=702394030 instance=ExtResource("7_8dh2n")]
 transform = Transform3D(6, 0, 0, 0, 1, 0, 0, 0, 3, 0, -4.1398044, -11.976)
 
@@ -110,7 +106,7 @@ transform = Transform3D(1, 0, 0, 0, 3, 0, 0, 0, 38.549606, 0, -1.5, -33)
 skeleton = NodePath("../..")
 
 [node name="ice_block3" parent="Blocks" unique_id=447314089 instance=ExtResource("15_syhxd")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, -20)
+transform = Transform3D(1, 0, 0, 0, 9.240001, 0, 0, 0, 1, 0, 0.5, -20)
 skeleton = NodePath("../..")
 
 [node name="ice_block4" parent="Blocks" unique_id=1306947142 instance=ExtResource("15_syhxd")]
