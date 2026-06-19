@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://cgnmxe26ewkxv" path="res://screens/game/levels/locations/death.tscn" id="7_8dh2n"]
 [ext_resource type="PackedScene" uid="uid://n6xdc3yo8sby" path="res://screens/game/levels/locations/level_start.tscn" id="7_asklh"]
 [ext_resource type="PackedScene" uid="uid://do0jcrh8bk7pw" path="res://screens/game/levels/level01/foca.gltf" id="11_bldw7"]
-[ext_resource type="PackedScene" uid="uid://caswlaogp4w41" path="res://entities/trampolin/trampolin.tscn" id="13_373ca"]
+[ext_resource type="PackedScene" uid="uid://df2odkegdqyyk" path="res://entities/trampolin/trampolin.gltf" id="13_373ca"]
 [ext_resource type="PackedScene" uid="uid://njsj7xki7cmh" path="res://entities/objects/diving_helmet/main.tscn" id="13_pbqld"]
 [ext_resource type="PackedScene" uid="uid://btvt5awjlmp6k" path="res://entities/obstacles/iglu/iglu.tscn" id="14_373ca"]
 [ext_resource type="PackedScene" uid="uid://cud3o4yqar2lf" path="res://entities/enemies/bosses/polar_bear/main.tscn" id="14_syhxd"]
@@ -171,6 +171,9 @@ skeleton = NodePath("")
 transform = Transform3D(1, 0, 0, 0, 5, 0, 0, 0, 30, 0, -1, -71)
 skeleton = NodePath("../..")
 
+[node name="blockbench_export" parent="Blocks" unique_id=2100430319 instance=ExtResource("13_373ca")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 4.5, -107)
+
 [node name="Escafandra" parent="." unique_id=780757745 instance=ExtResource("13_pbqld")]
 transform = Transform3D(1, 0, 0, 0, 0.9396926, -0.34202012, 0, 0.34202012, 0.9396926, 0, 5, -105)
 
@@ -179,8 +182,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, -75.5)
 
 [node name="IceSpikes2" parent="." unique_id=102650816 instance=ExtResource("6_dskf4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, -72.54)
-
-[node name="Trampolin" parent="." unique_id=1350504839 instance=ExtResource("13_373ca")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -11)
 
 [connection signal="body_entered" from="Exit" to="." method="_on_exit_body_entered"]
