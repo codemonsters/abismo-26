@@ -1,0 +1,60 @@
+[gd_scene format=3 uid="uid://caswlaogp4w41"]
+
+[ext_resource type="PackedScene" uid="uid://df2odkegdqyyk" path="res://entities/trampolin/trampolin.gltf" id="1_7ivdj"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7ivdj"]
+size = Vector3(1.807373, 0.16015625, 0.1303711)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_migoh"]
+size = Vector3(1.807373, 0.16015625, 0.12646484)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4vphs"]
+size = Vector3(1.807373, 0.16015625, 0.15576172)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_fl6t2"]
+size = Vector3(1.807373, 0.16015625, 0.15966797)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_120d5"]
+size = Vector3(1.807373, 0.16015625, 0.140625)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_tfnyn"]
+size = Vector3(1.807373, 0.16015625, 0.15234375)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_vqgql"]
+size = Vector3(1.807373, 0.23242188, 4.0441895)
+
+[node name="Trampolin" type="Node3D" unique_id=1350504839]
+
+[node name="blockbench_export" parent="." unique_id=2100430319 instance=ExtResource("1_7ivdj")]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 0, 0)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="blockbench_export" unique_id=217382737]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="blockbench_export/StaticBody3D" unique_id=782438014]
+transform = Transform3D(1, 0, 0, 0, 0.9997832, 0.02082026, 0, -0.02082026, 0.9997832, -0.07409668, 0.3693369, 1.6162953)
+shape = SubResource("BoxShape3D_7ivdj")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="blockbench_export/StaticBody3D" unique_id=1489220958]
+transform = Transform3D(1, 0, 0, 0, 0.9997832, 0.02082026, 0, -0.02082026, 0.9997832, -0.07409668, 0.80772364, 1.2433038)
+shape = SubResource("BoxShape3D_migoh")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="blockbench_export/StaticBody3D" unique_id=393750486]
+transform = Transform3D(1, 0, 0, 0, 0.9997832, 0.02082026, 0, -0.02082026, 0.9997832, -0.07409668, 1.2830671, 0.85664344)
+shape = SubResource("BoxShape3D_4vphs")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="blockbench_export/StaticBody3D" unique_id=2072534383]
+transform = Transform3D(1, 0, 0, 0, 0.9997832, 0.02082026, 0, -0.02082026, 0.9997832, -0.07409668, 1.6707019, 0.4910717)
+shape = SubResource("BoxShape3D_fl6t2")
+
+[node name="CollisionShape3D5" type="CollisionShape3D" parent="blockbench_export/StaticBody3D" unique_id=437425760]
+transform = Transform3D(1, 0, 0, 0, 0.9997832, 0.02082026, 0, -0.02082026, 0.9997832, -0.07409668, 2.0997126, 0.14611852)
+shape = SubResource("BoxShape3D_120d5")
+
+[node name="CollisionShape3D6" type="CollisionShape3D" parent="blockbench_export/StaticBody3D" unique_id=1588518446]
+transform = Transform3D(1, 0, 0, 0, 0.9997832, 0.02082026, 0, -0.02082026, 0.9997832, -0.07409668, 2.5303938, -0.24141014)
+shape = SubResource("BoxShape3D_tfnyn")
+
+[node name="CollisionShape3D7" type="CollisionShape3D" parent="blockbench_export/StaticBody3D" unique_id=2108881297]
+transform = Transform3D(1, 0, 0, 0, 0.9997832, 0.02082026, 0, -0.02082026, 0.9997832, -0.07409668, 2.7658708, -2.337147)
+shape = SubResource("BoxShape3D_vqgql")
