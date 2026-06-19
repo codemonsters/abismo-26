@@ -3,12 +3,12 @@
 [ext_resource type="PackedScene" uid="uid://b5hx2itqholr2" path="res://screens/game/levels/level01/iglu.gltf" id="1_eaw1m"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ovq03"]
-size = Vector3(1, 0.46099854, 1.0375061)
+size = Vector3(1, 0.46388245, 1.0375061)
 
 [node name="Iglu" type="StaticBody3D" unique_id=1677074868]
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="." unique_id=585137631]
-transform = Transform3D(6.386902, 0, 0, 0, 9.848684, 0, 0, 0, 8.386575, 0, 2.297361, -0.8637942)
+transform = Transform3D(4.992753, 0, 5.878526, 0, 9.849, 0, -4.906365, 0, 5.982032, 0, 2.2831595, -0.8637942)
 shape = SubResource("BoxShape3D_ovq03")
 
 [node name="blockbench_export" parent="." unique_id=1895039962 instance=ExtResource("1_eaw1m")]
