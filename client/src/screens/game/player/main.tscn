@@ -11,8 +11,8 @@
 [ext_resource type="PackedScene" uid="uid://bs4bpspk1wyl2" path="res://screens/game/weapons/harpoon.gltf" id="9_hk0ft"]
 [ext_resource type="PackedScene" uid="uid://dbugi7rphu2xo" path="res://screens/game/weapons/bazooka.gltf" id="10_dlfi2"]
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_t2650"]
-height = 1.8398438
+[sub_resource type="BoxShape3D" id="BoxShape3D_dlfi2"]
+size = Vector3(1, 1.710968, 1)
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_p0n4n"]
 
@@ -22,8 +22,8 @@ script = ExtResource("1_tksy4")
 jump_power = 8.5
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=851466893]
-transform = Transform3D(0.9975068, 0, -0.015306876, 0, 1, 0, 0.017603112, 0, 0.8673871, 0, 0.86544156, 0.0022643805)
-shape = SubResource("CapsuleShape3D_t2650")
+transform = Transform3D(0.9975068, 0, -0.015306876, 0, 1, 0, 0.017603112, 0, 0.8673871, 0, 0.85578275, 0.0022643805)
+shape = SubResource("BoxShape3D_dlfi2")
 
 [node name="RollbackSynchronizer" type="Node" parent="." unique_id=1955909256 node_paths=PackedStringArray("root")]
 script = ExtResource("2_qf1b4")
