@@ -63,7 +63,10 @@ func _rollback_tick(delta, _tick, _is_fresh):
 				$blockbench_export/AnimationPlayer.play("jump")
 			elif weapon == 1 or weapon == 2:
 				$blockbench_export/AnimationPlayer.play("jump with gun")
-			velocity.y = jump_power
+			if is_on_wall():
+				velocity.y = jump_power - 2.3
+			else:
+				velocity.y = jump_power
 			
 	if Input.is_action_pressed("slot1"):
 		weapon = 1
