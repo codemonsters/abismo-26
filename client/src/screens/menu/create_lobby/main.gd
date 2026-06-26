@@ -21,8 +21,8 @@ func _send_create_lobby_request(lobby_name):
 	else:
 		show_error_message("")
 		var message_dict = {
-			"cmd": "create_room",
-			"data": { "name": lobby_name }
+			"cmd": "create_and_join_room",
+			"data": { "room_name": lobby_name }
 		}
 		$"/root/Main/ModalWindowRoot/ServerPopup".ls_send_message(JSON.stringify(message_dict))
 		

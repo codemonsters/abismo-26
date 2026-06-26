@@ -57,9 +57,9 @@ func on_ls_message_received(message: String):
 	var message_dict = JSON.parse_string(message)
 	if message_dict.has("cmd"):
 		var cmd = message_dict["cmd"]
-		if cmd == "logged_in":
+		if cmd == "login":
 			parse_logged_in_message(message_dict)
-		elif cmd == "create_room":
+		elif cmd == "create_and_join_room":
 			parse_lobby_created_message(message_dict)
 		else:
 			print("WARNING: mensaje con comando desconocido ignorado: ", message)
