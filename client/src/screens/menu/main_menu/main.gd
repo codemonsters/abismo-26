@@ -10,13 +10,11 @@ func _on_play_offline_pressed() -> void:
 	intro.next_scene = game
 	emit_signal("change_screen_requested", intro, null)
 
-
 func _on_play_online_pressed() -> void:
 	$"/root/Main/ModalWindowRoot/ServerPopup".ls_connect()
 	var online_menu = Globals.screen_menu_online.instantiate()
 	online_menu.prev_window = self
 	emit_signal("change_window_requested", online_menu, null)
-
 
 func _on_timer_intro_timeout() -> void:
 	var intro = Globals.screen_intro.instantiate()
