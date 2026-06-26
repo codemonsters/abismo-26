@@ -3,7 +3,10 @@
 [ext_resource type="PackedScene" uid="uid://c3k3oh33ei5o5" path="res://entities/objects/diving_helmet/diving_helmet.gltf" id="2_3ogu7"]
 [ext_resource type="Script" uid="uid://ca2u1t1lakiyr" path="res://entities/objects/diving_helmet/diving_helmet.gd" id="2_bq5ye"]
 
-[node name="Escafandra" type="Node3D" unique_id=780757745]
+[sub_resource type="SphereShape3D" id="SphereShape3D_iyrsj"]
+radius = 0.57418114
+
+[node name="Escafandra" type="StaticBody3D" unique_id=172089022]
 transform = Transform3D(1, 0, 0, 0, 0.9396926, -0.34202012, 0, 0.34202012, 0.9396926, 0, 0, 0)
 script = ExtResource("2_bq5ye")
 
@@ -12,3 +15,12 @@ script = ExtResource("2_bq5ye")
 [node name="OmniLight3D" type="OmniLight3D" parent="blockbench_export" unique_id=42277326]
 visible = false
 light_energy = 2.0
+
+[node name="Area3D" type="Area3D" parent="." unique_id=151507539]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=429299389]
+transform = Transform3D(0.8, 0, 0, 0, 0.80000013, -2.9802322e-08, 0, 2.9802322e-08, 0.80000013, 0, 0.40000004, 0)
+shape = SubResource("SphereShape3D_iyrsj")
+
+[connection signal="area_entered" from="Area3D" to="." method="_on_area_3d_area_entered"]
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
