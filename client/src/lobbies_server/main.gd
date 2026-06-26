@@ -7,6 +7,7 @@ class_name LobbiesServer
 signal ls_connection_closed
 signal ls_connected
 signal logged_in(success: bool, details: String)
+signal lobby_created(success: bool, details: String)
 
 var _wsc = WebSocketClient.new()
 var _button_pressed_callback
@@ -58,6 +59,8 @@ func on_ls_message_received(message: String):
 		var cmd = message_dict["cmd"]
 		if cmd == "logged_in":
 			parse_logged_in_message(message_dict)
+		elif cmd == "create_room":
+			parse_lobby_created_message(message_dict)
 		else:
 			print("WARNING: mensaje con comando desconocido ignorado: ", message)
 
@@ -75,3 +78,18 @@ func parse_logged_in_message(message_dict: Dictionary):
 	
 	if details != null:
 		logged_in.emit(success, details)
+
+func parse_lobby_created_message(message_dict: Dictionary):
+	var success = false
+	if message_dict.has("success"):
+		success = message_dict["success"]
+		if success != true: success = false
+
+	var details = null
+	if message_dict.has("data"):
+		var data = message_dict["data"]
+		if data.has("details"):
+			details = data["details"]
+	
+	if details != null:
+		lobby_created.emit(success, details)

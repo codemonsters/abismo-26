@@ -42,7 +42,7 @@ offset_right = 524.0
 offset_bottom = 224.0
 placeholder_text = "Introduce tu nombre de usuario"
 
-[node name="GuestUsernameLabel" type="RichTextLabel" parent="TabContainer/Jugar como invitado" unique_id=349685678]
+[node name="ErrorMessage" type="RichTextLabel" parent="TabContainer/Jugar como invitado" unique_id=349685678]
 layout_mode = 0
 offset_left = 261.0
 offset_top = 234.0
@@ -80,7 +80,7 @@ offset_right = 460.0
 offset_bottom = 112.0
 placeholder_text = "Introduce tu nombre de usuario"
 
-[node name="SignInLabel" type="RichTextLabel" parent="TabContainer/Accede con tu cuenta" unique_id=41363624]
+[node name="ErrorMessage" type="RichTextLabel" parent="TabContainer/Accede con tu cuenta" unique_id=41363624]
 layout_mode = 0
 offset_left = 197.0
 offset_top = 173.0
@@ -110,7 +110,7 @@ offset_right = 460.0
 offset_bottom = 143.0
 placeholder_text = "Introduce tu nombre de usuario"
 
-[node name="SignUpLabel" type="RichTextLabel" parent="TabContainer/Crear cuenta" unique_id=481161643]
+[node name="ErrorMessage" type="RichTextLabel" parent="TabContainer/Crear cuenta" unique_id=481161643]
 layout_mode = 0
 offset_left = 197.0
 offset_top = 204.0

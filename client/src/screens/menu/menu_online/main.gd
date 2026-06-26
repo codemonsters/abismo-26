@@ -4,7 +4,6 @@ signal change_window_requested(window, next_window)
 signal change_screen_requested(scene, next_scene)
 
 var prev_window
-var username 
 
 func _ready() -> void:
 	$"/root/Main/ModalWindowRoot/ServerPopup".logged_in.connect(on_logged_in)
@@ -15,11 +14,10 @@ func after_back_pressed():
 	$"/root/Main/ModalWindowRoot/ServerPopup".ls_disconnect()
 
 func show_error_message(message):
-	$"TabContainer/Jugar como invitado/GuestUsernameLabel".text = message
+	$"TabContainer/Jugar como invitado/ErrorMessage".text = message
 
 func _on_button_join_as_guest_pressed() -> void:
-	username = $"TabContainer/Jugar como invitado/GuestUsername".text
-	_send_guest_login_request(username)
+	_send_guest_login_request($"TabContainer/Jugar como invitado/GuestUsername".text)
 
 func _on_guest_username_text_submitted(new_text: String) -> void:
 	_send_guest_login_request(new_text)
@@ -40,8 +38,8 @@ func _on_guest_username_text_changed(new_text: String) -> void:
 	
 func on_logged_in(success: bool, details: String):
 	if success:
-		var menu_lobby = Globals.screen_menu_lobby.instantiate()
-		#menu_lobby.prev_window = self
-		emit_signal("change_window_requested", menu_lobby, null)
+		var menu_lobby_list = Globals.screen_menu_lobby_list.instantiate()
+		menu_lobby_list.prev_window = self
+		emit_signal("change_window_requested", menu_lobby_list, null)
 	else:
 		show_error_message(details)

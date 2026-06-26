@@ -1,0 +1,34 @@
+[gd_scene format=3 uid="uid://byyxfpgnpj8ao"]
+
+[ext_resource type="Script" uid="uid://d0xrm21jforhg" path="res://screens/menu/lobby_list/main.gd" id="1_6n4dm"]
+[ext_resource type="PackedScene" uid="uid://ddnhy4w13aef5" path="res://screens/menu/shared/menu_header.tscn" id="1_aomy0"]
+[ext_resource type="PackedScene" uid="uid://kvqobh4tlooj" path="res://screens/menu/shared/previous_scene.tscn" id="2_g8qlt"]
+[ext_resource type="PackedScene" uid="uid://cyna4bh0m545" path="res://screens/menu/widgets/MenuContainer.tscn" id="4_wwxyo"]
+
+[node name="Main" type="Node2D" unique_id=1329017359]
+script = ExtResource("1_6n4dm")
+
+[node name="Main" parent="." unique_id=1528509365 instance=ExtResource("1_aomy0")]
+
+[node name="Label" type="Label" parent="." unique_id=506395225]
+offset_left = 441.0
+offset_top = 201.0
+offset_right = 731.0
+offset_bottom = 316.0
+text = "Partida1
+Partida 2
+etc"
+horizontal_alignment = 1
+
+[node name="PreviousScreen" parent="." unique_id=2007004648 instance=ExtResource("2_g8qlt")]
+
+[node name="MenuContainer" parent="." unique_id=1071125758 instance=ExtResource("4_wwxyo")]
+
+[node name="Button" type="Button" parent="." unique_id=2028615038]
+offset_left = 856.0
+offset_top = 480.0
+offset_right = 1068.0
+offset_bottom = 565.0
+text = "Crear partida"
+
+[connection signal="pressed" from="Button" to="." method="_on_create_lobby_button_pressed"]

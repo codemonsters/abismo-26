@@ -1,26 +1,33 @@
 [gd_scene format=3 uid="uid://daqffral6m5rs"]
 
 [ext_resource type="PackedScene" uid="uid://ddnhy4w13aef5" path="res://screens/menu/shared/menu_header.tscn" id="1_43746"]
+[ext_resource type="Script" uid="uid://b6jsr2cvm3cas" path="res://screens/menu/lobby/main.gd" id="1_j8u3w"]
 [ext_resource type="PackedScene" uid="uid://kvqobh4tlooj" path="res://screens/menu/shared/previous_scene.tscn" id="2_234g3"]
+[ext_resource type="PackedScene" uid="uid://cyna4bh0m545" path="res://screens/menu/widgets/MenuContainer.tscn" id="2_cu6eg"]
 
-[node name="Main" type="Node2D"]
+[node name="Main" type="Node2D" unique_id=136509429]
+script = ExtResource("1_j8u3w")
 
-[node name="Button2" type="Button" parent="."]
-offset_left = 747.0
-offset_top = 496.0
-offset_right = 1030.0
-offset_bottom = 581.0
+[node name="MenuContainer" parent="." unique_id=1071125758 instance=ExtResource("2_cu6eg")]
+
+[node name="IniciarPartida" type="Button" parent="." unique_id=1862339577]
+offset_left = 783.0
+offset_top = 482.0
+offset_right = 1066.0
+offset_bottom = 567.0
 text = "Iniciar partida (solo propietario)"
 
-[node name="Main" parent="." instance=ExtResource("1_43746")]
+[node name="Main" parent="." unique_id=806326919 instance=ExtResource("1_43746")]
 
-[node name="Label" type="Label" parent="."]
-offset_left = 469.0
-offset_top = 102.0
-offset_right = 729.0
-offset_bottom = 214.0
+[node name="Label" type="Label" parent="." unique_id=1011196204]
+offset_left = 499.0
+offset_top = 120.0
+offset_right = 759.0
+offset_bottom = 232.0
 text = "Jugador 1
 Jugador 2
 etc"
 
-[node name="PreviousScreen" parent="." instance=ExtResource("2_234g3")]
+[node name="PreviousScreen" parent="." unique_id=556293958 instance=ExtResource("2_234g3")]
+
+[connection signal="pressed" from="IniciarPartida" to="." method="_on_iniciar_partida_pressed"]

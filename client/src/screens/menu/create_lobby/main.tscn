@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://ck64tdyf0iw32"]
+
+[ext_resource type="Script" uid="uid://c8h5g288sytvn" path="res://screens/menu/create_lobby/main.gd" id="1_d0svm"]
+[ext_resource type="PackedScene" uid="uid://cyna4bh0m545" path="res://screens/menu/widgets/MenuContainer.tscn" id="2_8q50w"]
+[ext_resource type="PackedScene" uid="uid://ddnhy4w13aef5" path="res://screens/menu/shared/menu_header.tscn" id="2_o26x1"]
+[ext_resource type="PackedScene" uid="uid://kvqobh4tlooj" path="res://screens/menu/shared/previous_scene.tscn" id="3_8q50w"]
+
+[node name="Main" type="Node2D" unique_id=352957395]
+script = ExtResource("1_d0svm")
+
+[node name="MenuContainer" parent="." unique_id=1071125758 instance=ExtResource("2_8q50w")]
+
+[node name="Main" parent="." unique_id=1856359224 instance=ExtResource("2_o26x1")]
+
+[node name="CreateLobbyButton" type="Button" parent="." unique_id=1297544253]
+offset_left = 468.0
+offset_top = 436.0
+offset_right = 680.0
+offset_bottom = 521.0
+text = "Crear"
+
+[node name="LobbyName" type="LineEdit" parent="." unique_id=1015623852]
+offset_left = 459.0
+offset_top = 128.0
+offset_right = 683.0
+offset_bottom = 188.0
+placeholder_text = "Nombre de partida"
+
+[node name="PreviousScreen" parent="." unique_id=553512320 instance=ExtResource("3_8q50w")]
+
+[node name="ErrorMessage" type="RichTextLabel" parent="." unique_id=211011251]
+offset_left = 462.0
+offset_top = 189.0
+offset_right = 728.0
+offset_bottom = 219.0
+text = "Label nombre de usuario guest"
+
+[connection signal="pressed" from="CreateLobbyButton" to="." method="_on_button_create_lobby_pressed"]
+[connection signal="text_submitted" from="LobbyName" to="." method="_on_lobby_name_text_submitted"]
