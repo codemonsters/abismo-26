@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://b0ivkydudgjvn"]
 
-[ext_resource type="Script" path="res://screens/game/levels/level01/main.gd" id="1_02iye"]
+[ext_resource type="Script" uid="uid://bk8r8mbgkr4v8" path="res://screens/game/levels/level01/main.gd" id="1_02iye"]
 [ext_resource type="PackedScene" uid="uid://djkij1vgg64n4" path="res://screens/game/levels/level01/bunny.gltf" id="1_akj3i"]
 [ext_resource type="Script" uid="uid://bj1fgc23ix6y8" path="res://screens/game/levels/level01/bunny.gd" id="2_mmmg7"]
 [ext_resource type="PackedScene" uid="uid://c0y8x88trwj7e" path="res://entities/misc/strawman/main.tscn" id="4_pbqld"]
@@ -121,15 +121,15 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, -23)
 skeleton = NodePath("../..")
 
 [node name="ice_block7" parent="Blocks" unique_id=900769459 instance=ExtResource("15_syhxd")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 9.6, 0, 2, -104.35)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 15, 0, 2, -107)
 skeleton = NodePath("../..")
 
 [node name="ice_block8" parent="Blocks" unique_id=1938752338 instance=ExtResource("15_syhxd")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 8, 0, 3, -105.15)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 13, 0, 3, -108)
 skeleton = NodePath("../..")
 
 [node name="ice_block9" parent="Blocks" unique_id=1431522293 instance=ExtResource("15_syhxd")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 6.4, 0, 4, -105.95)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 11, 0, 4, -109)
 skeleton = NodePath("../..")
 
 [node name="Step4" parent="Blocks" unique_id=531852670 instance=ExtResource("15_syhxd")]
@@ -160,7 +160,7 @@ transform = Transform3D(1, 0, 0, 0, 3, 0, 0, 0, 1, 0, 3, -74)
 skeleton = NodePath("../..")
 
 [node name="Step11" parent="Blocks" unique_id=1678221872 instance=ExtResource("15_syhxd")]
-transform = Transform3D(1, 0, 0, 0, 5, 0, 0, 0, 19.2, 0, -1, -99.55)
+transform = Transform3D(1, 0, 0, 0, 5, 0, 0, 0, 25, 0, -1, -102)
 skeleton = NodePath("../..")
 
 [node name="Step12" parent="Blocks" unique_id=2105038245 instance=ExtResource("15_syhxd")]
@@ -172,7 +172,7 @@ transform = Transform3D(1, 0, 0, 0, 5, 0, 0, 0, 30, 0, -1, -71)
 skeleton = NodePath("../..")
 
 [node name="blockbench_export" parent="Blocks" unique_id=2100430319 instance=ExtResource("13_373ca")]
-transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 4.5, -107)
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 4.5, -112.5)
 
 [node name="Escafandra" parent="." unique_id=780757745 instance=ExtResource("13_pbqld")]
 transform = Transform3D(1, 0, 0, 0, 0.9396926, -0.34202012, 0, 0.34202012, 0.9396926, 0, 5, -105)
