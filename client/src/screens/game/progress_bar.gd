@@ -9,5 +9,5 @@ func Recibir_daño(Daño : float):
 	if value > 0:
 		value -= Daño
 		if value <= 0:
-			pass #programar muerte
+			pass
 	
