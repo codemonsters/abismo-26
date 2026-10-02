@@ -89,7 +89,7 @@ func _rollback_tick(delta, _tick, _is_fresh):
 	for i in get_slide_collision_count():
 		var collision = get_slide_collision(i)
 		var collider= collision.get_collider()
-		if collider is StaticBody3D:
+		if collider.is_in_group:
 			print ("WE ARE IN THE HOOD KIRKIVERSARY")
 	global_position.x = 0
 	velocity /= NetworkTime.physics_factor
