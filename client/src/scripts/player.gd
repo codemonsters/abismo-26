@@ -2,8 +2,8 @@ extends CharacterBody3D
 signal disparando
 
 
-@export var speed := 5.0
-@export var jump_power := 3.5
+@export var speed := 4.0
+@export var jump_power := 1.5
 @export var input: PlayerInput
 
 # vamos a hacer que pueda tener armas
@@ -64,9 +64,9 @@ func _rollback_tick(delta, _tick, _is_fresh):
 			elif weapon == 1 or weapon == 2:
 				$blockbench_export/AnimationPlayer.play("jump with gun")
 			if is_on_wall():
-				velocity.y = jump_power - 2.3
+				velocity.y = jump_power*0.55
 			else:
-				velocity.y = jump_power
+				velocity.y = jump_power*0.55
 			
 	if Input.is_action_pressed("slot1"):
 		weapon = 1
@@ -86,11 +86,11 @@ func _rollback_tick(delta, _tick, _is_fresh):
 	# FORZAR el eje X a cero para evitar "drifting"
 	velocity.x = 0
 	move_and_slide()
-	for i in get_slide_collision_count():
-		var collision = get_slide_collision(i)
-		var collider= collision.get_collider()
-		if collider.is_in_group:
-			print ("WE ARE IN THE HOOD KIRKIVERSARY")
+	#for i in get_slide_collision_count():
+	#	var collision = get_slide_collision(i)
+	#	var collider= collision.get_collider()
+	#	if collider is StaticBody3D:
+	#		print ("WE ARE IN THE HOOD KIRKIVERSARY")
 	global_position.x = 0
 	velocity /= NetworkTime.physics_factor
 
