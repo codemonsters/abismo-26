@@ -2,20 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ybxyl803qeqc"
-path.s3tc="res://.godot/imported/trampolin_0.png-f948f765a9430a556d61c7e11055deb3.s3tc.ctex"
+uid="uid://dgs8shd2qfoyr"
+path.s3tc="res://.godot/imported/model_0.png-ff87b0ec8ed5b98efa63b102fd528c5a.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 generator_parameters={
-"md5": "891089c6ab11836f26adcdd1260bdaa7"
+"md5": "3e7393c13a719aa5f5df3ce32dd82cec"
 }
 
 [deps]
 
-source_file="res://entities/trampolin/trampolin_0.png"
-dest_files=["res://.godot/imported/trampolin_0.png-f948f765a9430a556d61c7e11055deb3.s3tc.ctex"]
+source_file="res://entities/enemies/morsa/model_0.png"
+dest_files=["res://.godot/imported/model_0.png-ff87b0ec8ed5b98efa63b102fd528c5a.s3tc.ctex"]
 
 [params]
 
