@@ -63,9 +63,9 @@ func _rollback_tick(delta, _tick, _is_fresh):
 			elif weapon == 1 or weapon == 2:
 				$blockbench_export/AnimationPlayer.play("jump with gun")
 			if is_on_wall():
-				velocity.y = jump_power*0.55
+				velocity.y = jump_power
 			else:
-				velocity.y = jump_power*0.55
+				velocity.y = jump_power
 			
 	if Input.is_action_pressed("slot1"):
 		weapon = 1
@@ -90,7 +90,7 @@ func _rollback_tick(delta, _tick, _is_fresh):
 		var collision = get_slide_collision(i)
 		var collider = collision.get_collider()
 		if collider.is_in_group("enemigos"):
-			print("WE ARE IN THE HOOD KIRKIVERSARY")
+			ProgressBarGlobal.recibir_daño(10.2)
 			
 	global_position.x = 0
 	velocity /= NetworkTime.physics_factor
