@@ -1,7 +1,6 @@
 extends CharacterBody3D
 signal disparando
 
-
 @export var speed := 4.0
 @export var jump_power := 1.5
 @export var input: PlayerInput
@@ -86,11 +85,13 @@ func _rollback_tick(delta, _tick, _is_fresh):
 	# FORZAR el eje X a cero para evitar "drifting"
 	velocity.x = 0
 	move_and_slide()
-	#for i in get_slide_collision_count():
-	#	var collision = get_slide_collision(i)
-	#	var collider= collision.get_collider()
-	#	if collider is StaticBody3D:
-	#		print ("WE ARE IN THE HOOD KIRKIVERSARY")
+	
+	for i in get_slide_collision_count():
+		var collision = get_slide_collision(i)
+		var collider = collision.get_collider()
+		if collider.is_in_group("enemigos"):
+			print("WE ARE IN THE HOOD KIRKIVERSARY")
+			
 	global_position.x = 0
 	velocity /= NetworkTime.physics_factor
 
