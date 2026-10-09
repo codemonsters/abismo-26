@@ -1,6 +1,7 @@
 extends CharacterBody3D
 signal disparando
 
+@export var life_percentage := 100
 @export var speed := 4.0
 @export var jump_power := 1.5
 @export var input: PlayerInput
@@ -95,6 +96,10 @@ func _rollback_tick(delta, _tick, _is_fresh):
 	global_position.x = 0
 	velocity /= NetworkTime.physics_factor
 
+
+func apply_damage(damage_percentage):
+	life_percentage -= damage_percentage
+	ProgressBarGlobal.set_percentage(life_percentage)
 	
 	
 	

@@ -6,18 +6,22 @@
 [sub_resource type="BoxShape3D" id="BoxShape3D_ncoh6"]
 size = Vector3(5.5322876, 0.6451111, 1.8000001)
 
-[node name="IceSpikes" type="StaticBody3D" unique_id=75918173]
+[node name="IceSpikes" type="Node3D" unique_id=457137180]
 script = ExtResource("1_yhctp")
 
-[node name="blockbench_export" parent="." unique_id=1417500164 instance=ExtResource("1_obkwf")]
-transform = Transform3D(-0.29789442, -0.020058563, -1.993817, -0.020978926, 0.8007442, -0.04943946, 3.9888368, 0.0027134274, -0.14916232, -2, 0, 0.164)
+[node name="Area3D" type="Area3D" parent="." unique_id=733688248]
 
-[node name="blockbench_export3" parent="." unique_id=1056759387 instance=ExtResource("1_obkwf")]
-transform = Transform3D(0.14720237, 0.016406652, 1.9980248, -0.020978913, 0.6587895, -0.049439475, -3.9972353, -0.0028533696, 0.07383883, -0.12849641, 0, -0.593)
-
-[node name="blockbench_export4" parent="." unique_id=159552898 instance=ExtResource("1_obkwf")]
-transform = Transform3D(0.14720237, 0.01640665, 1.9980248, -0.020978913, 0.6587895, -0.04943947, -3.9972353, -0.0028533696, 0.07383883, 2, 0, -0.593)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=468839243]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=468839243]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, -0.2)
 shape = SubResource("BoxShape3D_ncoh6")
+
+[node name="blockbench_export4" parent="Area3D" unique_id=159552898 instance=ExtResource("1_obkwf")]
+transform = Transform3D(0.14720237, 0.01640665, 1.9980248, -0.020978913, 0.6587895, -0.04943947, -3.9972353, -0.0028533696, 0.07383883, 2, 0, -0.593)
+
+[node name="blockbench_export3" parent="Area3D" unique_id=1056759387 instance=ExtResource("1_obkwf")]
+transform = Transform3D(0.14720237, 0.016406652, 1.9980248, -0.020978913, 0.6587895, -0.049439475, -3.9972353, -0.0028533696, 0.07383883, -0.12849641, 0, -0.593)
+
+[node name="blockbench_export" parent="Area3D" unique_id=1417500164 instance=ExtResource("1_obkwf")]
+transform = Transform3D(-0.29789442, -0.020058563, -1.993817, -0.020978926, 0.8007442, -0.04943946, 3.9888368, 0.0027134274, -0.14916232, -2, 0, 0.164)
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
