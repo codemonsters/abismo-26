@@ -1,9 +1,8 @@
 extends ProgressBar
 
-var vida_inicial: float = 50
-
 func _ready() -> void:
-	value = vida_inicial
-
+	value = 100
+	pass
+ 
 func set_percentage(percentage : float):
-	value = percentage 
+	value = percentage
