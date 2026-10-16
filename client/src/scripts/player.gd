@@ -87,11 +87,11 @@ func _rollback_tick(delta, _tick, _is_fresh):
 	velocity.x = 0
 	move_and_slide()
 	
-	for i in get_slide_collision_count():
-		var collision = get_slide_collision(i)
-		var collider = collision.get_collider()
-		if collider.is_in_group("enemigos"):
-			ProgressBarGlobal.recibir_daño(10.2)
+	#for i in get_slide_collision_count():
+		#var collision = get_slide_collision(i)
+		#	print(get_name())var collider = collision.get_collider()
+		#if collider.is_in_group("enemigos"):
+			#ProgressBarGlobal.recibir_daño(10.2)
 			
 	global_position.x = 0
 	velocity /= NetworkTime.physics_factor
@@ -99,7 +99,4 @@ func _rollback_tick(delta, _tick, _is_fresh):
 
 func apply_damage(damage_percentage):
 	life_percentage -= damage_percentage
-	ProgressBarGlobal.set_percentage(life_percentage)
-	
-	
-	
+	emit_signal("life_percentage_changed", life_percentage)
