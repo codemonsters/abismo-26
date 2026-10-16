@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://bjo1y0qba0yve" path="res://screens/menu/background.tscn" id="1_3gn6r"]
 [ext_resource type="Script" uid="uid://dbqv5dkiup7y2" path="res://screens/menu/main.gd" id="1_rl3l6"]
+[ext_resource type="PackedScene" uid="uid://cyna4bh0m545" path="res://screens/menu/widgets/SubmenuBackground.tscn" id="3_rl3l6"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_3gn6r"]
 sky_top_color = Color(0.16862746, 0.24705882, 0.6745098, 1)
@@ -29,3 +30,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.051545143, 2.442659)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1964627500]
 environment = SubResource("Environment_gcaii")
+
+[node name="SubmenuBackground" parent="." unique_id=1071125758 instance=ExtResource("3_rl3l6")]
+
+[node name="SubmenuStack" type="VBoxContainer" parent="." unique_id=936956418]
+offset_right = 40.0
+offset_bottom = 40.0

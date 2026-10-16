@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://coqbis2skufjh"]
 
 [ext_resource type="PackedScene" uid="uid://ddnhy4w13aef5" path="res://screens/menu/shared/menu_header.tscn" id="1_1v4wi"]
-[ext_resource type="Script" uid="uid://f31t3juccs1h" path="res://screens/menu/menu_online/main.gd" id="1_vs0vh"]
+[ext_resource type="Script" uid="uid://f31t3juccs1h" path="res://screens/menu/submenus/online_main/main.gd" id="1_vs0vh"]
 [ext_resource type="PackedScene" uid="uid://kvqobh4tlooj" path="res://screens/menu/shared/previous_scene.tscn" id="2_27htw"]
-[ext_resource type="PackedScene" uid="uid://cyna4bh0m545" path="res://screens/menu/widgets/MenuContainer.tscn" id="4_sx60e"]
+[ext_resource type="PackedScene" uid="uid://cyna4bh0m545" path="res://screens/menu/widgets/SubmenuBackground.tscn" id="4_sx60e"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sx60e"]
 

@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bjo1y0qba0yve"]
 
-[ext_resource type="Script" uid="uid://wts4ncvtpe7i" path="res://screens/menu/main_menu/animation_player.gd" id="1_a6ule"]
+[ext_resource type="Script" uid="uid://wts4ncvtpe7i" path="res://screens/menu/submenus/main/animation_player.gd" id="1_a6ule"]
 [ext_resource type="Script" uid="uid://5myc1fkcek0o" path="res://screens/menu/background.gd" id="1_rnjn3"]
 [ext_resource type="Texture2D" uid="uid://cwco04t4r33j" path="res://screens/menu/water_noise_texture_2d.tres" id="2_huuvv"]
 [ext_resource type="Texture2D" uid="uid://dfnolupeajxs2" path="res://screens/menu/water_normal_map.jpg" id="3_m6tx3"]
