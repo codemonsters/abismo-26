@@ -38,7 +38,7 @@ La madre pingüina de los jugadores se fue a cazar y volvió un tiempo indetermi
 - Escenario: Oscuro (ves todo oscuro), Cerrado, Tenebroso
 - Boss: Kraken
 - Recompensas:
-  - Arpón: Es dificil de usar porque tienes que regoger el gancho pero hace mucho daño
+  - Arpón: Es dificil de usar porque tienes que recoger el gancho pero hace mucho daño
   - Jetpack: Te da un dash - objeto especial (solo se puede tener uno equipado)
   - Escudo: Te protege del 90% del daño si pulsas *insertar aquí una letra* cuando te impacta el proyectil (parry) - objeto especial
 - Final: Escapas del kraken al derrotarlo

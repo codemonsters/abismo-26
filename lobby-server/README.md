@@ -26,7 +26,7 @@ Desde server/src en una terminal PowerShell:
 
 ## Ejecutar el servidor
 
-``src$ node main.js``
+``lobby-server$ node main.js``
 
 Se puede acceder a él desde la URL: ``ws://127.0.0.1:9090``
 
