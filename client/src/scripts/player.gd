@@ -3,7 +3,7 @@ signal disparando
 
 @export var life_percentage := 100
 @export var speed := 4.0
-@export var jump_power := 1.5
+var jumppower = 10
 @export var input: PlayerInput
 
 # vamos a hacer que pueda tener armas
@@ -33,7 +33,7 @@ func _ready():
 func _rollback_tick(delta, _tick, _is_fresh):
 	# Add the gravity.
 	if not is_on_floor():
-		velocity.y -= gravity * delta
+		velocity.y -= gravity
 
 	var input_dir = input.movement
 	var direction = (transform.basis * Vector3(0, 0, input_dir.z)).normalized()
@@ -64,9 +64,9 @@ func _rollback_tick(delta, _tick, _is_fresh):
 			elif weapon == 1 or weapon == 2:
 				$blockbench_export/AnimationPlayer.play("jump with gun")
 			if is_on_wall():
-				velocity.y = jump_power
+				velocity.y = jumppower
 			else:
-				velocity.y = jump_power
+				velocity.y = jumppower
 			
 	if Input.is_action_pressed("slot1"):
 		weapon = 1
