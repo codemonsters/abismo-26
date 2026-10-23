@@ -2,7 +2,7 @@ extends CharacterBody3D
 signal disparando
 
 @export var life_percentage := 100
-@export var speed := 4.0
+@export var speed := 6.0
 var jumppower = 10
 @export var input: PlayerInput
 
@@ -33,7 +33,7 @@ func _ready():
 func _rollback_tick(delta, _tick, _is_fresh):
 	# Add the gravity.
 	if not is_on_floor():
-		velocity.y -= gravity
+		velocity.y -= gravity * delta
 
 	var input_dir = input.movement
 	var direction = (transform.basis * Vector3(0, 0, input_dir.z)).normalized()
