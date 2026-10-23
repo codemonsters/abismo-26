@@ -1,40 +1,25 @@
 [gd_scene format=3 uid="uid://bj2gl3e5c0q35"]
 
-[node name="Main" type="Node2D"]
+[ext_resource type="PackedScene" path="res://entities/building_blocks/level 2 wall/pared nivel 2.gltf" id="1_qud2t"]
+[ext_resource type="PackedScene" uid="uid://f0nc00780tfd" path="res://entities/building_blocks/ice_block/main.tscn" id="2_mity4"]
 
-[node name="CSGCombiner3D" type="CSGCombiner3D" parent="."]
+[node name="Main" type="Node2D" unique_id=244717489]
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="." unique_id=272892727]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0, 0)
 use_collision = true
 
-[node name="CSGFloor" type="CSGBox3D" parent="CSGCombiner3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25, 0)
-size = Vector3(16, 0.5, 16)
-
-[node name="CSGWall" type="CSGBox3D" parent="CSGCombiner3D"]
+[node name="CSGWall" type="CSGBox3D" parent="CSGCombiner3D" unique_id=1908088237]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 8)
 visible = false
 size = Vector3(16, 2, 1)
 
-[node name="CSGWall2" type="CSGBox3D" parent="CSGCombiner3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -8)
-size = Vector3(16, 2, 1)
+[node name="blockbench_export" parent="." unique_id=863131614 instance=ExtResource("1_qud2t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.46342993, 0, 7.30028)
 
-[node name="CSGWall3" type="CSGBox3D" parent="CSGCombiner3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 1, 0)
-size = Vector3(1, 2, 16)
+[node name="blockbench_export2" parent="." unique_id=893793399 instance=ExtResource("1_qud2t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.016131401, 0, 2.574932)
 
-[node name="CSGWall4" type="CSGBox3D" parent="CSGCombiner3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 1, 0)
-size = Vector3(1, 2, 16)
-
-[node name="CSGCorner" type="CSGCylinder3D" parent="CSGCombiner3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 1, 8)
-
-[node name="CSGCorner2" type="CSGCylinder3D" parent="CSGCombiner3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 1, -8)
-
-[node name="CSGCorner3" type="CSGCylinder3D" parent="CSGCombiner3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 1, -8)
-
-[node name="CSGCorner4" type="CSGCylinder3D" parent="CSGCombiner3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 1, 8)
+[node name="ice_block" parent="." unique_id=447314089 instance=ExtResource("2_mity4")]
+transform = Transform3D(1, 0, 0, 0, 3, 0, 0, 0, 21, 0, -1.5, 0.0010877103)
+skeleton = NodePath("../..")

@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://c2cj4w1ru6ukb"]
+
+[ext_resource type="PackedScene" path="res://entities/building_blocks/level 2 wall/pared nivel 2.gltf" id="1_6qdn3"]
+
+[node name="Node3D" type="Node3D" unique_id=687387489]
+
+[node name="blockbench_export" parent="." unique_id=863131614 instance=ExtResource("1_6qdn3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0.3)
