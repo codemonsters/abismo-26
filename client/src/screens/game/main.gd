@@ -17,6 +17,7 @@ func _ready():
 		levels.append(level_path)
 	$States/LevelLoading.enable()
 	host()
+	
 
 
 func _process(delta):
