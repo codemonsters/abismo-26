@@ -1,7 +1,8 @@
 [gd_scene format=3 uid="uid://bj2gl3e5c0q35"]
 
-[ext_resource type="PackedScene" path="res://entities/building_blocks/level 2 wall/pared nivel 2.gltf" id="1_qud2t"]
+[ext_resource type="PackedScene" uid="uid://doqotxah5n2f0" path="res://entities/building_blocks/level 2 wall/pared nivel 2.gltf" id="1_qud2t"]
 [ext_resource type="PackedScene" uid="uid://f0nc00780tfd" path="res://entities/building_blocks/ice_block/main.tscn" id="2_mity4"]
+[ext_resource type="PackedScene" uid="uid://dqovmx2f7mmyv" path="res://entities/building_blocks/level 2 wall/level 2 wall.tscn" id="3_qpxhi"]
 
 [node name="Main" type="Node2D" unique_id=244717489]
 
@@ -14,12 +15,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 8)
 visible = false
 size = Vector3(16, 2, 1)
 
-[node name="blockbench_export" parent="." unique_id=863131614 instance=ExtResource("1_qud2t")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.46342993, 0, 7.30028)
-
-[node name="blockbench_export2" parent="." unique_id=893793399 instance=ExtResource("1_qud2t")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.016131401, 0, 2.574932)
-
 [node name="ice_block" parent="." unique_id=447314089 instance=ExtResource("2_mity4")]
 transform = Transform3D(1, 0, 0, 0, 3, 0, 0, 0, 21, 0, -1.5, 0.0010877103)
 skeleton = NodePath("../..")
+
+[node name="blockbench_export" parent="." unique_id=863131614 instance=ExtResource("1_qud2t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.12100792, 0.59761477, -2.277052)
+
+[node name="StaticBody3D" parent="." unique_id=861363989 instance=ExtResource("3_qpxhi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.15704012, 0, -6.021093)
