@@ -24,7 +24,7 @@ var gravity = ProjectSettings.get_setting(&"physics/3d/default_gravity") * 2.5
 
 
 func _ready():
-	position = Vector3(0, 5, 0)
+	position = Vector3(0, 7, 0)
 	
 	if input == null:
 		input = $Input
@@ -87,16 +87,11 @@ func _rollback_tick(delta, _tick, _is_fresh):
 	velocity.x = 0
 	move_and_slide()
 	
-	#for i in get_slide_collision_count():
-		#var collision = get_slide_collision(i)
-		#	print(get_name())var collider = collision.get_collider()
-		#if collider.is_in_group("enemigos"):
-			#ProgressBarGlobal.recibir_daño(10.2)
-			
 	global_position.x = 0
 	velocity /= NetworkTime.physics_factor
 
 
 func apply_damage(damage_percentage):
+	#TODO: Comprobar si el pingüino que recibe daño es el local
 	life_percentage -= damage_percentage
-	emit_signal("life_percentage_changed", life_percentage)
+	get_parent().get_node("/root/Main/ScreenRoot/current_screen/Environment/Camera3D/hud_canva/ProgressBar").value = life_percentage
