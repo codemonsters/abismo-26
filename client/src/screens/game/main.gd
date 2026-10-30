@@ -2,6 +2,7 @@ extends Node3D
 
 signal change_screen_requested(scene, next_scene)
 signal level_passed
+var gravity = ProjectSettings.get_setting(&"physics/3d/default_gravity") * 2.5
 
 @onready var camera = $Environment/Camera3D
 var current_level_number = 0
@@ -33,6 +34,8 @@ func _on_level_passed() -> void:
 	for child in $CurrentLevel.get_children():
 		child.queue_free()
 	current_level_number += 1
+	if current_level_number >= 1:
+		gravity = ProjectSettings.get_setting(&"physics/3d/default_gravity") * 1.4
 	var current_level = load(levels[current_level_number])
 	var current_scene = current_level.instantiate()
 	$CurrentLevel.add_child(current_scene)

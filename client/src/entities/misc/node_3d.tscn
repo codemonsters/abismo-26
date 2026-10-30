@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://c2cj4w1ru6ukb"]
 
-[ext_resource type="PackedScene" path="res://entities/building_blocks/level 2 wall/pared nivel 2.gltf" id="1_6qdn3"]
+[ext_resource type="PackedScene" uid="uid://bafg18rfmo112" path="res://main.tscn" id="1_6qdn3"]
 
 [node name="Node3D" type="Node3D" unique_id=687387489]
 

@@ -19,8 +19,6 @@ var weapon = 0
 
 var held_wep_stats: Firearm = null
 
-# Get the gravity from the project settings to be synced with RigidBody nodes.
-var gravity = ProjectSettings.get_setting(&"physics/3d/default_gravity") * 2.5
 
 
 func _ready():
@@ -31,6 +29,9 @@ func _ready():
 		
 
 func _rollback_tick(delta, _tick, _is_fresh):
+	var gravity = get_parent().get_node("/root/Main/ScreenRoot/current_screen").gravity
+	var current_level_number = get_parent().get_node("/root/Main/ScreenRoot/current_screen").current_level_numbe
+	
 	# Add the gravity.
 	if not is_on_floor():
 		velocity.y -= gravity * delta

@@ -9,3 +9,4 @@ func _ready():
 	if not Engine.is_editor_hint():
 		for location in $Locations.get_children():
 			location.visible = false
+	# Get the gravity from the project settings to be synced with RigidBody nodes.
