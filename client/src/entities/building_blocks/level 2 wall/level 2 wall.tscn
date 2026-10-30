@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://dqovmx2f7mmyv"]
+
+[ext_resource type="PackedScene" uid="uid://doqotxah5n2f0" path="res://entities/building_blocks/level 2 wall/pared nivel 2.gltf" id="1_1cpcn"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_mbbnl"]
+size = Vector3(1, 2.6000001, 1)
+
+[node name="StaticBody3D" type="StaticBody3D" unique_id=861363989]
+
+[node name="blockbench_export" parent="." unique_id=863131614 instance=ExtResource("1_1cpcn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4, 0.1)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1432806498]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 1.9560729, -0.30199528)
+shape = SubResource("BoxShape3D_mbbnl")
