@@ -30,45 +30,90 @@ func _ready():
 
 func _rollback_tick(delta, _tick, _is_fresh):
 	var gravity = get_parent().get_node("/root/Main/ScreenRoot/current_screen").gravity
-	var current_level_number = get_parent().get_node("/root/Main/ScreenRoot/current_screen").current_level_numbe
+	var current_level_number = get_parent().get_node("/root/Main/ScreenRoot/current_screen").current_level_number
 	
-	# Add the gravity.
-	if not is_on_floor():
-		velocity.y -= gravity * delta
+	if current_level_number == 0:
+		# Add the gravity.
+		if not is_on_floor():
+			velocity.y -= gravity * delta
 
-	var input_dir = input.movement
-	var direction = (transform.basis * Vector3(0, 0, input_dir.z)).normalized()
-	if direction:
-		velocity.z = direction.z * speed
-		if is_on_floor():
-			if weapon == 0:
-				$blockbench_export/AnimationPlayer.play("walk")
-			elif weapon == 1 or weapon == 2:
-				$blockbench_export/AnimationPlayer.play("walk with gun")
-	else:
-		velocity.z = move_toward(velocity.z, 0, speed)
-		if is_on_floor():
-			if weapon == 0:
-				$blockbench_export/AnimationPlayer.play("stand by")
-			elif weapon == 1 or weapon == 2:
-				$blockbench_export/AnimationPlayer.play("stand by with gun")
-	
-	if velocity.z < 0:
-		$blockbench_export.rotation_degrees.y = 0
-	elif velocity.z > 0:
-		$blockbench_export.rotation_degrees.y = -180
+		var input_dir = input.movement
+		var direction = (transform.basis * Vector3(0, 0, input_dir.z)).normalized()
+		if direction:
+			velocity.z = direction.z * speed
+			if is_on_floor():
+				if weapon == 0:
+					$blockbench_export/AnimationPlayer.play("walk")
+				elif weapon == 1 or weapon == 2:
+					$blockbench_export/AnimationPlayer.play("walk with gun")
+		else:
+			velocity.z = move_toward(velocity.z, 0, speed)
+			if is_on_floor():
+				if weapon == 0:
+					$blockbench_export/AnimationPlayer.play("stand by")
+				elif weapon == 1 or weapon == 2:
+					$blockbench_export/AnimationPlayer.play("stand by with gun")
 		
-	if is_on_floor():
-		if Input.is_action_pressed("up_arrow"):
-			if weapon == 0:
-				$blockbench_export/AnimationPlayer.play("jump")
-			elif weapon == 1 or weapon == 2:
-				$blockbench_export/AnimationPlayer.play("jump with gun")
-			if is_on_wall():
-				velocity.y = jump_power
-			else:
-				velocity.y = jump_power
+		if velocity.z < 0:
+			$blockbench_export.rotation_degrees.y = 0
+		elif velocity.z > 0:
+			$blockbench_export.rotation_degrees.y = -180
 			
+		if is_on_floor():
+			if Input.is_action_pressed("up_arrow"):
+				if weapon == 0:
+					$blockbench_export/AnimationPlayer.play("jump")
+				elif weapon == 1 or weapon == 2:
+					$blockbench_export/AnimationPlayer.play("jump with gun")
+				if is_on_wall():
+					velocity.y = jump_power
+				else:
+					velocity.y = jump_power
+	elif current_level_number >= 1:
+		# Add the gravity.
+		if not is_on_floor():
+			velocity.y -= gravity * delta
+
+		var input_dir = input.movement
+		var direction = (transform.basis * Vector3(0, 0, input_dir.z)).normalized()
+		if direction:
+			velocity.z = direction.z * speed
+			if is_on_floor():
+				if weapon == 0:
+					$blockbench_export/AnimationPlayer.play("swim")
+				elif weapon == 1 or weapon == 2:
+					$blockbench_export/AnimationPlayer.play("swim with gun")
+		else:
+			velocity.z = move_toward(velocity.z, 0, speed)
+			if is_on_floor():
+				if weapon == 0:
+					$blockbench_export/AnimationPlayer.play("stand by water")
+				elif weapon == 1 or weapon == 2:
+					$blockbench_export/AnimationPlayer.play("stand by with gun")
+		
+		if velocity.z < 0:
+			$blockbench_export.rotation_degrees.y = 0
+		elif velocity.z > 0:
+			$blockbench_export.rotation_degrees.y = -180
+		
+		if Input.is_action_pressed("ui_left"):
+			rotate_x(0.05)
+			velocity.x = 0
+		elif Input.is_action_pressed("ui_right"):
+			rotate_x(-0.05)
+			velocity.x = 0
+		
+		if is_on_floor():
+			if Input.is_action_pressed("up_arrow"):
+				if weapon == 0:
+					$blockbench_export/AnimationPlayer.play("jump")
+				elif weapon == 1 or weapon == 2:
+					$blockbench_export/AnimationPlayer.play("jump with gun")
+				if is_on_wall():
+					velocity.y = jump_power
+				else:
+					velocity.y = jump_power
+				
 	if Input.is_action_pressed("slot1"):
 		weapon = 1
 	elif Input.is_action_pressed("slot2"):
