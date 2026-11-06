@@ -30,7 +30,7 @@ func _ready():
 
 func _rollback_tick(delta, _tick, _is_fresh):
 	var gravity = get_parent().get_node("/root/Main/ScreenRoot/current_screen").gravity
-	var current_level_number = get_parent().get_node("/root/Main/ScreenRoot/current_screen").current_level_numbe
+	var current_level_number = get_parent().get_node("/root/Main/ScreenRoot/current_screen").current_level_number
 	
 	# Add the gravity.
 	if not is_on_floor():
