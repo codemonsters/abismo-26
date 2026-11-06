@@ -1,5 +1,7 @@
 extends ProgressBar
-var vida_maxima: float = 0
-func _ready() -> void:
-	value = vida_maxima
-	
+
+#func _ready() -> void:
+	#value=100
+	#
+#func set_percentage(percentage : float):
+	#value = percentage

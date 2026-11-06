@@ -41,13 +41,11 @@ offset = Vector3(20, 4, 0)
 
 [node name="hud_canva" type="CanvasLayer" parent="Environment/Camera3D" unique_id=168931314]
 
-[node name="ProgressBar" type="ProgressBar" parent="Environment/Camera3D/hud_canva" unique_id=1650624225]
-modulate = Color(0.9753992, 0.30838916, 0.14475423, 1)
-offset_left = 26.0
-offset_top = 23.0
-offset_right = 470.0
-offset_bottom = 50.0
-mouse_filter = 2
+[node name="ProgressBar" type="ProgressBar" parent="Environment/Camera3D/hud_canva" unique_id=1841600826]
+offset_left = 24.0
+offset_top = 19.0
+offset_right = 428.0
+offset_bottom = 46.0
 script = ExtResource("3_v7qcr")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="Environment" unique_id=1064223354]
