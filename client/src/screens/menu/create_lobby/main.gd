@@ -1,9 +1,4 @@
-extends Node2D
-
-signal change_window_requested(window, next_window)
-signal change_screen_requested(scene, next_scene)
-
-var prev_window
+extends SubMenu
 
 func _ready() -> void:
 	$"/root/Main/ModalWindowRoot/ServerPopup".lobby_created.connect(on_lobby_created)
@@ -31,8 +26,6 @@ func show_error_message(message):
 
 func on_lobby_created(success: bool, details: String):
 	if success:
-		var menu_lobby = Globals.screen_menu_lobby.instantiate()
-		menu_lobby.prev_window = self
-		emit_signal("change_window_requested", menu_lobby, null)
+		replace(Globals.screen_menu_lobby)
 	else:
 		show_error_message(details)
