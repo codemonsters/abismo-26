@@ -2,20 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://kidcul8t1svw"
-path.s3tc="res://.godot/imported/espantapajaros_0.png-7153ac09600b0854be4ab2f417cc4e72.s3tc.ctex"
+uid="uid://mdd55lpsb1oi"
+path.s3tc="res://.godot/imported/iglu_0.png-facb9e69d4bc2e6328278609b68e20b0.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 generator_parameters={
-"md5": "18165771399e600791f9c237ff33cbab"
+"md5": "95e83b56195cce88f0a7e0d4398fa0b9"
 }
 
 [deps]
 
-source_file="res://screens/game/levels/level01/espantapajaros_0.png"
-dest_files=["res://.godot/imported/espantapajaros_0.png-7153ac09600b0854be4ab2f417cc4e72.s3tc.ctex"]
+source_file="res://entities/misc/iglu/iglu_0.png"
+dest_files=["res://.godot/imported/iglu_0.png-facb9e69d4bc2e6328278609b68e20b0.s3tc.ctex"]
 
 [params]
 

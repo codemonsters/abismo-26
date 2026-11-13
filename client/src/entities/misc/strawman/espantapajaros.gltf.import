@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://tu8wlq5exi4q"
-path="res://.godot/imported/pared nivel 2.gltf-95812867277f331167b546602e545c90.scn"
+uid="uid://bcf6hidhknw30"
+path="res://.godot/imported/espantapajaros.gltf-ac86133e46a2798c5f60cdb17191a15b.scn"
 
 [deps]
 
-source_file="res://entities/misc/pared nivel 2.gltf"
-dest_files=["res://.godot/imported/pared nivel 2.gltf-95812867277f331167b546602e545c90.scn"]
+source_file="res://entities/misc/strawman/espantapajaros.gltf"
+dest_files=["res://.godot/imported/espantapajaros.gltf-ac86133e46a2798c5f60cdb17191a15b.scn"]
 
 [params]
 
@@ -42,4 +42,4 @@ materials/extract_path=""
 _subresources={}
 gltf/naming_version=2
 gltf/embedded_image_handling=1
-gltf/texture_map_mode=1
+gltf/texture_map_mode=0

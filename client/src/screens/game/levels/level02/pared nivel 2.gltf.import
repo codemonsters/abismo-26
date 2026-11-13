@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://do0jcrh8bk7pw"
-path="res://.godot/imported/foca.gltf-c2fab28685f0b48b483e3a412bcefddb.scn"
+uid="uid://tu8wlq5exi4q"
+path="res://.godot/imported/pared nivel 2.gltf-901ba305173bda68c52ce060fe8b2d46.scn"
 
 [deps]
 
-source_file="res://screens/game/levels/level01/foca.gltf"
-dest_files=["res://.godot/imported/foca.gltf-c2fab28685f0b48b483e3a412bcefddb.scn"]
+source_file="res://screens/game/levels/level02/pared nivel 2.gltf"
+dest_files=["res://.godot/imported/pared nivel 2.gltf-901ba305173bda68c52ce060fe8b2d46.scn"]
 
 [params]
 
@@ -42,4 +42,4 @@ materials/extract_path=""
 _subresources={}
 gltf/naming_version=2
 gltf/embedded_image_handling=1
-gltf/texture_map_mode=0
+gltf/texture_map_mode=1

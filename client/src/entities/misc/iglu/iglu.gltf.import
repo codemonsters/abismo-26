@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://bcf6hidhknw30"
-path="res://.godot/imported/espantapajaros.gltf-6ed893b16c0c6fc966a3de10c7426940.scn"
+uid="uid://b5hx2itqholr2"
+path="res://.godot/imported/iglu.gltf-797279de705e190c5f6be88ef4f0a369.scn"
 
 [deps]
 
-source_file="res://screens/game/levels/level01/espantapajaros.gltf"
-dest_files=["res://.godot/imported/espantapajaros.gltf-6ed893b16c0c6fc966a3de10c7426940.scn"]
+source_file="res://entities/misc/iglu/iglu.gltf"
+dest_files=["res://.godot/imported/iglu.gltf-797279de705e190c5f6be88ef4f0a369.scn"]
 
 [params]
 

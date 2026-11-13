@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://djkij1vgg64n4"
-path="res://.godot/imported/bunny.gltf-c03ee8881d820ec58cad37b16dc11ff4.scn"
+uid="uid://do0jcrh8bk7pw"
+path="res://.godot/imported/foca.gltf-a2b742eadefda5a1d51823804bb2c676.scn"
 
 [deps]
 
-source_file="res://screens/game/levels/level01/bunny.gltf"
-dest_files=["res://.godot/imported/bunny.gltf-c03ee8881d820ec58cad37b16dc11ff4.scn"]
+source_file="res://entities/enemies/morsa/foca.gltf"
+dest_files=["res://.godot/imported/foca.gltf-a2b742eadefda5a1d51823804bb2c676.scn"]
 
 [params]
 

@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://4r70u8jatibp"
-path.s3tc="res://.godot/imported/pared nivel 2_0.png-6a94b7152a115bb7149d8c6fe95df5f9.s3tc.ctex"
+uid="uid://dqupm1bywn18v"
+path.s3tc="res://.godot/imported/pared nivel 2_0.png-dea9f4b4804e0c2c2c2c87ac1f3a5e10.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -14,8 +14,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://entities/misc/pared nivel 2_0.png"
-dest_files=["res://.godot/imported/pared nivel 2_0.png-6a94b7152a115bb7149d8c6fe95df5f9.s3tc.ctex"]
+source_file="res://screens/game/levels/level02/pared nivel 2_0.png"
+dest_files=["res://.godot/imported/pared nivel 2_0.png-dea9f4b4804e0c2c2c2c87ac1f3a5e10.s3tc.ctex"]
 
 [params]
 

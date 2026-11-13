@@ -1,18 +1,21 @@
 [gd_scene format=3 uid="uid://b0ivkydudgjvn"]
 
 [ext_resource type="Script" uid="uid://bk8r8mbgkr4v8" path="res://screens/game/levels/level01/main.gd" id="1_02iye"]
-[ext_resource type="PackedScene" uid="uid://djkij1vgg64n4" path="res://screens/game/levels/level01/bunny.gltf" id="1_akj3i"]
-[ext_resource type="Script" uid="uid://bj1fgc23ix6y8" path="res://screens/game/levels/level01/bunny.gd" id="2_mmmg7"]
+[ext_resource type="PackedScene" uid="uid://djkij1vgg64n4" path="res://entities/enemies/bunny/bunny.gltf" id="1_akj3i"]
 [ext_resource type="PackedScene" uid="uid://c0y8x88trwj7e" path="res://entities/misc/strawman/main.tscn" id="4_pbqld"]
 [ext_resource type="PackedScene" uid="uid://c6nkw5ccdfiqo" path="res://entities/obstacles/ice_spikes/ice_spikes.tscn" id="6_dskf4"]
 [ext_resource type="PackedScene" uid="uid://cgnmxe26ewkxv" path="res://screens/game/levels/locations/death.tscn" id="7_8dh2n"]
 [ext_resource type="PackedScene" uid="uid://n6xdc3yo8sby" path="res://screens/game/levels/locations/level_start.tscn" id="7_asklh"]
-[ext_resource type="PackedScene" uid="uid://do0jcrh8bk7pw" path="res://screens/game/levels/level01/foca.gltf" id="11_bldw7"]
+[ext_resource type="PackedScene" uid="uid://do0jcrh8bk7pw" path="res://entities/enemies/morsa/foca.gltf" id="11_bldw7"]
 [ext_resource type="PackedScene" uid="uid://b0maoyrj68a8e" path="res://entities/misc/floor/suelo.tscn" id="13_373ca"]
 [ext_resource type="PackedScene" uid="uid://njsj7xki7cmh" path="res://entities/objects/diving_helmet/main.tscn" id="13_pbqld"]
 [ext_resource type="PackedScene" uid="uid://btvt5awjlmp6k" path="res://entities/misc/iglu/iglu.tscn" id="14_373ca"]
 [ext_resource type="PackedScene" uid="uid://cud3o4yqar2lf" path="res://entities/enemies/bosses/polar_bear/main.tscn" id="14_syhxd"]
 [ext_resource type="PackedScene" uid="uid://f0nc00780tfd" path="res://entities/building_blocks/ice_block/main.tscn" id="15_syhxd"]
+
+[sub_resource type="GDScript" id="GDScript_dskf4"]
+script/source = "extends Node3D
+"
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_mmmg7"]
 sky_top_color = Color(0.00013389975, 0.2577117, 0.78406, 1)
@@ -44,7 +47,7 @@ use_collision = true
 
 [node name="blockbench_export" parent="CSGCombiner3D" unique_id=204921031 instance=ExtResource("1_akj3i")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 36.5, 0, 1)
-script = ExtResource("2_mmmg7")
+script = SubResource("GDScript_dskf4")
 
 [node name="strawman" parent="." unique_id=2014020768 instance=ExtResource("4_pbqld")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -5)
@@ -63,7 +66,7 @@ shadow_blur = 10.0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 10)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Exit" unique_id=1525799951]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.3435917, 0, -13.475882)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.829808, 0, -13.475882)
 shape = SubResource("BoxShape3D_02iye")
 
 [node name="Locations" type="Node" parent="." unique_id=2117597928]
@@ -100,11 +103,19 @@ transform = Transform3D(1.5, 0, 0, 0, 1.659, 0, 0, 0, 1.502, 1, 1.5, -95)
 transform = Transform3D(1, 0, 0, 0, 3, 0, 0, 0, 21, 0, -1.5, 0)
 skeleton = NodePath("../..")
 
+[node name="ice_block10" parent="Blocks" unique_id=447314089 instance=ExtResource("15_syhxd")]
+transform = Transform3D(1, 0, 0, 0, 3, 0, 0, 0, 21, -6.0615726, -1.5, 0)
+skeleton = NodePath("../..")
+
 [node name="ice_block2" parent="Blocks" unique_id=895165894 instance=ExtResource("15_syhxd")]
 transform = Transform3D(1, 0, 0, 0, 3, 0, 0, 0, 38.549606, 0, -1.5, -33)
 skeleton = NodePath("../..")
 
-[node name="ice_block3" parent="Blocks" unique_id=447314089 instance=ExtResource("15_syhxd")]
+[node name="ice_block11" parent="Blocks" unique_id=1586591897 instance=ExtResource("15_syhxd")]
+transform = Transform3D(1, 0, 0, 0, 3, 0, 0, 0, 38.549606, -6.038722, -1.5, -33)
+skeleton = NodePath("../..")
+
+[node name="ice_block3" parent="Blocks" unique_id=838462438 instance=ExtResource("15_syhxd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, -20)
 skeleton = NodePath("../..")
 
@@ -163,12 +174,24 @@ skeleton = NodePath("../..")
 transform = Transform3D(1, 0, 0, 0, 5, 0, 0, 0, 25, 0, -1, -102)
 skeleton = NodePath("../..")
 
+[node name="Step16" parent="Blocks" unique_id=996412002 instance=ExtResource("15_syhxd")]
+transform = Transform3D(1, 0, 0, 0, 5, 0, 0, 0, 25, -6.015095, -1, -102)
+skeleton = NodePath("../..")
+
 [node name="Step12" parent="Blocks" unique_id=2105038245 instance=ExtResource("15_syhxd")]
 transform = Transform3D(1, 0, 0, 0, 3.5, 0, 0, 0, 4.6, 0, -1.75, -88.25)
 skeleton = NodePath("")
 
+[node name="Step15" parent="Blocks" unique_id=988275494 instance=ExtResource("15_syhxd")]
+transform = Transform3D(1, 0, 0, 0, 3.5, 0, 0, 0, 4.6, -6.042674, -1.75, -88.25)
+skeleton = NodePath("")
+
 [node name="Step13" parent="Blocks" unique_id=1905174457 instance=ExtResource("15_syhxd")]
 transform = Transform3D(1, 0, 0, 0, 5, 0, 0, 0, 30, 0, -1, -71)
+skeleton = NodePath("../..")
+
+[node name="Step14" parent="Blocks" unique_id=1347538649 instance=ExtResource("15_syhxd")]
+transform = Transform3D(1, 0, 0, 0, 5, 0, 0, 0, 30, -5.9674788, -1, -71)
 skeleton = NodePath("../..")
 
 [node name="Escafandra" parent="." unique_id=780757745 instance=ExtResource("13_pbqld")]
@@ -211,10 +234,19 @@ transform = Transform3D(2.7, 0, 0, 0, 2.7, 0, 0, 0, 2.7, 0, 0, -4)
 transform = Transform3D(2.7, 0, 0, 0, 2.7, 0, 0, 0, 2.7, 0, 0, -5)
 
 [node name="Suelo11" parent="." unique_id=1380559948 instance=ExtResource("13_373ca")]
-transform = Transform3D(2.7, 0, 0, 0, 2.7, 0, 0, 0, 2.7, 0, 0, -6)
+transform = Transform3D(2.6999998, 0, 0, 0, 2.6999998, 0, 0, 0, 2.6999998, 0, 0, -6)
 
 [node name="Suelo12" parent="." unique_id=88103273 instance=ExtResource("13_373ca")]
 transform = Transform3D(2.7, 0, 0, 0, 2.7, 0, 0, 0, 2.7, 0, 0, -7)
+
+[node name="Suelo17" parent="." unique_id=980288668 instance=ExtResource("13_373ca")]
+transform = Transform3D(2.7, 0, 0, 0, 2.7, 0, 0, 0, 2.7, 0, 0, -8.012476)
+
+[node name="Suelo18" parent="." unique_id=398251310 instance=ExtResource("13_373ca")]
+transform = Transform3D(2.6999311, 0.00016278928, -0.019210659, 5.4201744e-05, 2.6998272, 0.03050151, 0.019211274, -0.030501122, 2.699759, 0, 0, -9.006982)
+
+[node name="Suelo19" parent="." unique_id=738244705 instance=ExtResource("13_373ca")]
+transform = Transform3D(2.7, 0, 0, 0, 2.7, 0, 0, 0, 2.7, 0, 0, -10.000679)
 
 [node name="Suelo13" parent="." unique_id=1642513506 instance=ExtResource("13_373ca")]
 transform = Transform3D(2.7, 0, 0, 0, 2.7, 0, 0, 0, 2.7, 0, 0, 4)
