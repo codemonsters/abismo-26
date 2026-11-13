@@ -6,48 +6,59 @@ const {ServerBaseException, ProtocolException} = require("./modules/exceptions.j
 const {getFirstNonLocalIPAddress} = require("./modules/aux.js");
 const {server} = require("./modules/server.js");
 
+function sendError(ws, cmd, details) {
+    if (ws.readyState === WebSocket.OPEN) {
+        ws.send(JSON.stringify({
+            'cmd': cmd,
+            'success': false,
+            'data': {'details': details}
+        }));
+    }
+}
+
 wss.on('connection', function connection(ws, req) {
+    let peer;
     try {
         peer = server.connect_peer_by_websocket(ws);
         peer.ip_address = req.socket.remoteAddress.replace('::ffff:', '');
         console.log(`Peer connected (id: ${peer.id}, ip addres: ${peer.ip_address})`);
     } catch(ex) {
-        if (ex instanceof ProtocolException) {
-            peer.ws.send(JSON.stringify({
-                'cmd': ex.cmd,
-                'success': false,
-                'data': {'details': ex.message}
-            }));
-        } else if (ex instanceof ServerBaseException) {
-            ws.close(4000, ex.message);
+        if (ex instanceof ServerBaseException) {
             console.log(`Connection refused: ${ex.message}`);
-            return;
+            ws.close(4000, ex.message);
         } else {
-            throw ex;
+            console.error("Unexpected error accepting connection:", ex);
+            ws.close(1011, "Internal server error");
         }
+        return;
     }
-    
+
     ws.on('message', function message(data, isBinary) {
         const message = isBinary ? data : data.toString();
         try {
             server.processRequest(message, peer);
         } catch (ex) {
             if (ex instanceof ProtocolException) {
-                peer.ws.send(JSON.stringify({
-                    'cmd': ex.cmd,
-                    'success': false,
-                    'data': {'details': ex.message}
-                }));
-                console.log(`Error processing "${ex.cmd}" request from ${peer.id}. Reason: ${ex.message}\n`)
+                sendError(ws, ex.cmd, ex.message);
+                console.log(`Error processing "${ex.cmd}" request from ${peer.id}. Reason: ${ex.message}\n`);
+            } else if (ex instanceof ServerBaseException) {
+                sendError(ws, ex.cmd || '', ex.message);
+                console.log(`Error processing request from ${peer.id}. Reason: ${ex.message}\n`);
             } else {
-                throw ex;
+                // Error inesperado (bug del servidor): lo registramos pero no dejamos que tumbe el proceso
+                sendError(ws, '', 'Internal server error');
+                console.error(`Unexpected error processing request from ${peer.id}:`, ex);
             }
         }
     });
-    
+
     ws.on("close", function close(code, data) {
         console.log(`Peer disconnected (id: ${peer.id}, code: ${code}, reason: ${data.toString()})`);
-        server.disconnect_peer(peer);
+        try {
+            server.disconnect_peer(peer);
+        } catch (ex) {
+            console.error(`Unexpected error disconnecting peer ${peer.id}:`, ex);
+        }
     });
 });
 

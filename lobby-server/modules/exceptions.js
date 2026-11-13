@@ -18,4 +18,4 @@ class ProtocolException extends ServerBaseException {
     }
 }
 
-module.exports = { NotImplementedException, ProtocolException, ServerException: ServerBaseException };
+module.exports = { ServerBaseException, NotImplementedException, ProtocolException };

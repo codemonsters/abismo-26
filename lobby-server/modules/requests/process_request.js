@@ -18,6 +18,10 @@ function processRequest(msg, peer, server) {
         if (e instanceof SyntaxError) {
             throw new ProtocolException("Message not in JSON format");
         }
+        throw e;
+    }
+    if (json === null || typeof(json) !== 'object' || Array.isArray(json)) {
+        throw new ProtocolException("Message must be a JSON object");
     }
 
     const cmd = typeof(json['cmd']) === 'string' ? json['cmd'] : '';

@@ -21,7 +21,7 @@ function processLoginRequest(json, peer, server) {
         console.debug("Anonymous login successful for username '" + username + "'");
     } else {
         // Login como usuario registrado
-        throw new NotImplementedException("Currently only guest login is supported"); // TODO: Implementar
+        throw new ProtocolException("Currently only guest login is supported", "login"); // TODO: Implementar
     }
 }
 
