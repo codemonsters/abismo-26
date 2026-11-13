@@ -47,7 +47,7 @@ transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 36.5
 script = ExtResource("2_mmmg7")
 
 [node name="strawman" parent="." unique_id=2014020768 instance=ExtResource("4_pbqld")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -5)
+transform = Transform3D(1, 0, 0, 0, 1, 1.7484555e-07, 0, -1.7484555e-07, 1, -2, 0, -5)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1770054832]
 environment = SubResource("Environment_02iye")
@@ -181,7 +181,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, -75.5)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, -72.54)
 
 [node name="Suelo4" parent="." unique_id=1978159833 instance=ExtResource("13_373ca")]
-transform = Transform3D(2.7, 0, 0, 0, 2.7, 0, 0, 0, 2.7, 0, 1, -20)
+transform = Transform3D(2.7, 0, 0, 0, 2.7, 0, 0, 0, 35.91, 0, 1, -20)
 
 [node name="Suelo" parent="." unique_id=785872303 instance=ExtResource("13_373ca")]
 transform = Transform3D(2.7, 0, 0, 0, 2.7, 0, 0, 0, 2.7, 0, 0, 0)

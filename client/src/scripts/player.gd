@@ -75,32 +75,31 @@ func _rollback_tick(delta, _tick, _is_fresh):
 			velocity.y -= gravity * delta
 
 		var input_dir = input.movement
-		var direction = (transform.basis * Vector3(0, 0, input_dir.z)).normalized()
+		var direction = (transform.basis * Vector3(input_dir.x, 0, 0))
 		if direction:
-			velocity.z = direction.z * speed
-			if is_on_floor():
-				if weapon == 0:
-					$blockbench_export/AnimationPlayer.play("swim")
-				elif weapon == 1 or weapon == 2:
-					$blockbench_export/AnimationPlayer.play("swim with gun")
+			velocity = direction * speed
+			if weapon == 0:
+				$blockbench_export/AnimationPlayer.play("swim")
+			elif weapon == 1 or weapon == 2:
+				$blockbench_export/AnimationPlayer.play("swim with gun")
 		else:
 			velocity.z = move_toward(velocity.z, 0, speed)
-			if is_on_floor():
-				if weapon == 0:
-					$blockbench_export/AnimationPlayer.play("stand by water")
-				elif weapon == 1 or weapon == 2:
-					$blockbench_export/AnimationPlayer.play("stand by with gun")
-		
+			if weapon == 0:
+				$blockbench_export/AnimationPlayer.play("stand by water")
+			elif weapon == 1 or weapon == 2:
+				$blockbench_export/AnimationPlayer.play("stand by with gun")
+	
 		if velocity.z < 0:
 			$blockbench_export.rotation_degrees.y = 0
 		elif velocity.z > 0:
 			$blockbench_export.rotation_degrees.y = -180
 		
 		if Input.is_action_pressed("ui_left"):
-			rotate_x(0.05)
+			input.movement.x += 50
+			print(direction)
 			velocity.x = 0
 		elif Input.is_action_pressed("ui_right"):
-			rotate_x(-0.05)
+			input.movement.x += 50
 			velocity.x = 0
 		
 		if is_on_floor():

@@ -23,7 +23,7 @@ script = ExtResource("1_tksy4")
 jump_power = 8.5
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=851466893]
-transform = Transform3D(0.9975068, 0, -0.015306876, 0, 1, 0, 0.017603112, 0, 0.8673871, 0, 0.14695084, -0.2008118)
+transform = Transform3D(0.9975068, 0, -0.015306876, 0, 1, 0, 0.017603112, 0, 0.8673871, 0, 0.14695084, 0.012107611)
 shape = SubResource("BoxShape3D_dlfi2")
 
 [node name="RollbackSynchronizer" type="Node" parent="." unique_id=1955909256 node_paths=PackedStringArray("root")]
@@ -47,16 +47,19 @@ physics_material_override = SubResource("PhysicsMaterial_p0n4n")
 
 [node name="blockbench_export" parent="." unique_id=321925131 instance=ExtResource("5_p0n4n")]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.67026895, -0.36647993)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.63622147, 0.0097031)
 
 [node name="group3" parent="blockbench_export" index="0" unique_id=507126222]
-transform = Transform3D(-0.60680413, 0.032768384, -0.79417586, -0.0013558622, 0.99910575, 0.04225994, 0.79485047, 0.026720291, -0.606217, 0.11875, 1.2375, 0.1875)
+transform = Transform3D(-1, 1.219987e-16, 1.0673503e-17, 1.2246472e-16, 0.9961947, 0.08715575, 8.271806e-25, 0.08715575, -0.9961947, 0, 1.2625, 0.1875)
 
-[node name="group4" parent="blockbench_export/group3/cabeza2" parent_id_path=PackedInt32Array(321925131, 244648123) index="0" unique_id=586722215]
+[node name="cabeza2" parent="blockbench_export/group3" index="0" unique_id=244648123]
+transform = Transform3D(1, 0, 0, 0, 0.9961947, -0.08715574, 0, 0.08715574, 0.9961947, 0, 0, 0)
+
+[node name="group4" parent="blockbench_export/group3/cabeza2" index="0" unique_id=586722215]
 transform = Transform3D(1, 0, 0, 0, 0.99904823, 0.043619383, 0, -0.043619383, 0.99904823, 0, 0.1875, 0.3125)
 
 [node name="brazo izq" parent="blockbench_export/group3/cuerpo2" parent_id_path=PackedInt32Array(321925131, 1604516764) index="0" unique_id=1562513919]
-transform = Transform3D(0.76604444, 0.5938583, -0.24598415, -0.64278764, 0.7077328, -0.2931525, -1.4901161e-08, 0.38268343, 0.9238795, -0.24375, 0.35, -0.03125)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.99999994, -0.24375, 0.35, -0.03125)
 
 [node name="escopeta" parent="blockbench_export/group3/cuerpo2/brazo izq" index="1" unique_id=1556038213 instance=ExtResource("6_nfp01")]
 transform = Transform3D(-0.97469157, -0.020566033, 0.22260697, 0.21780074, 0.13711159, 0.96631426, -0.05039526, 0.9903423, -0.12916227, -0.16795576, -0.36871493, -0.035791457)
@@ -77,14 +80,11 @@ transform = Transform3D(-0.9878544, -0.0016731401, 0.15537399, 0.1553745, -0.021
 transform = Transform3D(-1.7204129, 2.330135e-08, -0.48244452, -0.38358003, -0.02005753, 2.1634765, -0.004914202, 1.5655898, 0.02771756, -0.06544419, -0.29366368, -0.09198612)
 visible = false
 
-[node name="brazo der" parent="blockbench_export/group3/cuerpo2" parent_id_path=PackedInt32Array(321925131, 1604516764) index="1" unique_id=156626648]
-transform = Transform3D(0.7022743, -0.5933977, 0.39330664, 0.7002053, 0.6755025, -0.23110378, -0.12854317, 0.43769366, 0.88988817, 0.24375, 0.3875, 0)
-
 [node name="group" parent="blockbench_export/group3" index="2" unique_id=777223613]
-transform = Transform3D(0.029627547, -0.8424767, 0.5379172, 0.12268576, 0.5371494, 0.83451694, -0.99200326, 0.041270103, 0.119274326, 0.0875, -1.15, 0.125)
+transform = Transform3D(0.9912834, -0.12868157, 0.028251028, 0.107858926, 0.66953546, -0.73490715, 0.075653955, 0.7315484, 0.67757887, 0.125, -1.125, 0.125)
 
 [node name="group2" parent="blockbench_export/group3" index="3" unique_id=1091450409]
-transform = Transform3D(0.405673, 0.75510734, -0.5150167, 0.0046776524, 0.56174177, 0.8272993, 0.91400623, -0.33802205, 0.22435136, -0.125, -1.125, 0.0625)
+transform = Transform3D(0.9999999, 0, 0, 0, 0.86602527, -0.5, 0, 0.5, 0.86602527, -0.125, -1.125, 0.0625)
 
 [node name="MovingStateMachine" type="Node" parent="." unique_id=1971830133]
 
