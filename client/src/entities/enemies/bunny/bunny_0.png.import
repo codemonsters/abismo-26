@@ -2,20 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bmcp17de0nr8f"
-path.s3tc="res://.godot/imported/pinchos hielo_0.png-c8a159ef2c6b63214f5ab117767b7fb3.s3tc.ctex"
+uid="uid://cfsb3rbxygo3v"
+path.s3tc="res://.godot/imported/bunny_0.png-ef9104c282e8b44c852a33a5d747796a.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 generator_parameters={
-"md5": "926266fc4e3f4030fff9eee80fcacb3d"
+"md5": "1c02c5ab0efa0cfbad9884b6b87b3cf7"
 }
 
 [deps]
 
-source_file="res://screens/game/levels/level01/pinchos hielo_0.png"
-dest_files=["res://.godot/imported/pinchos hielo_0.png-c8a159ef2c6b63214f5ab117767b7fb3.s3tc.ctex"]
+source_file="res://entities/enemies/bunny/bunny_0.png"
+dest_files=["res://.godot/imported/bunny_0.png-ef9104c282e8b44c852a33a5d747796a.s3tc.ctex"]
 
 [params]
 

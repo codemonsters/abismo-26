@@ -2,20 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b1qus4hxglmtr"
-path.s3tc="res://.godot/imported/bunny_0 (2).png-1481bb9e3ca56ccad3ec0cc0f4529da4.s3tc.ctex"
+uid="uid://dv6fhvqr1wisi"
+path.s3tc="res://.godot/imported/espantapajaros_0.png-a40604ece737f562834498b542714385.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 generator_parameters={
-"md5": "1c02c5ab0efa0cfbad9884b6b87b3cf7"
+"md5": "18165771399e600791f9c237ff33cbab"
 }
 
 [deps]
 
-source_file="res://screens/game/levels/level01/bunny_0 (2).png"
-dest_files=["res://.godot/imported/bunny_0 (2).png-1481bb9e3ca56ccad3ec0cc0f4529da4.s3tc.ctex"]
+source_file="res://entities/misc/strawman/espantapajaros_0.png"
+dest_files=["res://.godot/imported/espantapajaros_0.png-a40604ece737f562834498b542714385.s3tc.ctex"]
 
 [params]
 

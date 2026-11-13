@@ -2,20 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bmdy6crrfltqy"
-path.s3tc="res://.godot/imported/penguin_0 (2).png-54a31ed939875ca808af8e4bf5f18279.s3tc.ctex"
+uid="uid://dpvvonpys2t4h"
+path.s3tc="res://.godot/imported/foca_0.png-e88ea4beb88f2ba49af8d9c5f2321bac.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 generator_parameters={
-"md5": "c07250b2c4636120ab2a5a9965843582"
+"md5": "affa9e513a024b9b2eef72b0bf5a7a4f"
 }
 
 [deps]
 
-source_file="res://screens/game/levels/level01/penguin_0 (2).png"
-dest_files=["res://.godot/imported/penguin_0 (2).png-54a31ed939875ca808af8e4bf5f18279.s3tc.ctex"]
+source_file="res://entities/enemies/morsa/foca_0.png"
+dest_files=["res://.godot/imported/foca_0.png-e88ea4beb88f2ba49af8d9c5f2321bac.s3tc.ctex"]
 
 [params]
 
