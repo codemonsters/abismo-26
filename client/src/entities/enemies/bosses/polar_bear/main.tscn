@@ -15,11 +15,11 @@ script = ExtResource("1_i1sb7")
 
 [node name="Area3D" type="Area3D" parent="." unique_id=1605301045]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=93949436]
+[node name="ActiivationShape" type="CollisionShape3D" parent="Area3D" unique_id=93949436]
 shape = SubResource("SphereShape3D_biorp")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1119715844]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.049743652, 0.9107133, -0.061090708)
+[node name="BodyShape" type="CollisionShape3D" parent="Area3D" unique_id=1119715844]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.049743652, 0.9107134, -0.061090708)
 shape = SubResource("BoxShape3D_fp0in")
 
 [node name="blockbench_export" parent="." unique_id=1218659862 instance=ExtResource("1_1ajai")]

@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://b0maoyrj68a8e"]
+
+[ext_resource type="PackedScene" uid="uid://elkrs1c2h76d" path="res://entities/misc/floor/suelo.gltf" id="1_at56g"]
+
+[node name="Suelo" type="Node3D" unique_id=1978159833]
+
+[node name="blockbench_export" parent="." unique_id=1990300476 instance=ExtResource("1_at56g")]

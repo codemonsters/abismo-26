@@ -2,20 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dgs8shd2qfoyr"
-path.s3tc="res://.godot/imported/model_0.png-a81c0c41ae23fb0bf04ae8086ad9168d.s3tc.ctex"
+uid="uid://4r70u8jatibp"
+path.s3tc="res://.godot/imported/pared nivel 2_0.png-6a94b7152a115bb7149d8c6fe95df5f9.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 generator_parameters={
-"md5": "3e7393c13a719aa5f5df3ce32dd82cec"
+"md5": "8d3fb490a586136069b45b6f00d1f57a"
 }
 
 [deps]
 
-source_file="res://entities/morsa/model_0.png"
-dest_files=["res://.godot/imported/model_0.png-a81c0c41ae23fb0bf04ae8086ad9168d.s3tc.ctex"]
+source_file="res://entities/misc/pared nivel 2_0.png"
+dest_files=["res://.godot/imported/pared nivel 2_0.png-6a94b7152a115bb7149d8c6fe95df5f9.s3tc.ctex"]
 
 [params]
 
