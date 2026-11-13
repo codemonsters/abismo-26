@@ -37,7 +37,7 @@ projection = 1
 current = true
 size = 10.0
 script = ExtResource("2_enhf2")
-offset = Vector3(20, 4, 0)
+offset = Vector3(20, 3, 0)
 
 [node name="hud_canva" type="CanvasLayer" parent="Environment/Camera3D" unique_id=168931314]
 

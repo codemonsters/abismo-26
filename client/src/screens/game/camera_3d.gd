@@ -10,7 +10,7 @@ func _physics_process(delta):
 		# Calculamos dónde debería estar la cámara
 		var target_pos = target.global_position + offset
 		target_pos.x = offset.x
-		target_pos.y = 6
+		target_pos.y = target.position.y+6
 		# hace que la camara no se mueva llegado el final del mundo
 		target_pos.z = clamp(target_pos.z, -map_length, 0)
 		rotation_degrees.x = -10

@@ -1,17 +1,32 @@
-extends Node2D
+extends SubMenu
 
-signal change_window_requested(window, next_window)
-signal change_screen_requested(scene, next_scene)
+const DISCONNECT_TIMEOUT := 2.0
 
-var prev_window
+var _leaving := false # true mientras nos desconectamos al pulsar volver
 
 func _ready() -> void:
 	$"/root/Main/ModalWindowRoot/ServerPopup".logged_in.connect(on_logged_in)
 	$"TabContainer/Jugar como invitado/GuestUsername".call_deferred("grab_focus")
 	show_error_message("")
 
-func after_back_pressed():
-	$"/root/Main/ModalWindowRoot/ServerPopup".ls_disconnect()
+# Al volver, primero nos desconectamos del servidor y solo entonces salimos de la pila.
+func pop() -> void:
+	if _leaving:
+		return
+	_leaving = true
+	var server = $"/root/Main/ModalWindowRoot/ServerPopup"
+	server.ls_send_message(JSON.stringify({ "cmd": "disconnect" }))
+	# El mensaje se envía en el siguiente poll() del socket: esperamos un par de
+	# fotogramas para que salga antes de cerrar la conexión.
+	await get_tree().process_frame
+	await get_tree().process_frame
+	# Esperamos a que la conexión se cierre (o DISCONNECT_TIMEOUT como máximo,
+	# por si el servidor no responde). Lo que ocurra antes reanuda la espera.
+	var timer := get_tree().create_timer(DISCONNECT_TIMEOUT)
+	server.ls_connection_closed.connect(timer.timeout.emit, CONNECT_ONE_SHOT)
+	server.ls_disconnect()
+	await timer.timeout
+	super.pop()
 
 func show_error_message(message):
 	$"TabContainer/Jugar como invitado/ErrorMessage".text = message
@@ -23,6 +38,8 @@ func _on_guest_username_text_submitted(new_text: String) -> void:
 	_send_guest_login_request(new_text)
 
 func _send_guest_login_request(username):
+	if _leaving:
+		return
 	if len(username) < 1:
 		show_error_message("Introduce tu nombre de usuario")
 	else:
@@ -37,9 +54,9 @@ func _on_guest_username_text_changed(new_text: String) -> void:
 	show_error_message("")
 	
 func on_logged_in(success: bool, details: String):
+	if _leaving:
+		return
 	if success:
-		var menu_lobby_list = Globals.screen_menu_lobby_list.instantiate()
-		menu_lobby_list.prev_window = self
-		emit_signal("change_window_requested", menu_lobby_list, null)
+		push(Globals.screen_menu_lobby_list)
 	else:
 		show_error_message(details)

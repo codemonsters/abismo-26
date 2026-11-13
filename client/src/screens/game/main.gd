@@ -35,7 +35,7 @@ func _on_level_passed() -> void:
 		child.queue_free()
 	current_level_number += 1
 	if current_level_number >= 1:
-		gravity = ProjectSettings.get_setting(&"physics/3d/default_gravity") * 1.4
+		gravity = ProjectSettings.get_setting(&"physics/3d/default_gravity") * 0.2
 	var current_level = load(levels[current_level_number])
 	var current_scene = current_level.instantiate()
 	$CurrentLevel.add_child(current_scene)

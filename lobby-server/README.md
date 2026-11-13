@@ -1,13 +1,12 @@
 # Backend / Servidor del Juego
 
-Enlaces con ejemplos: 
-
+Enlaces con ejemplos:
 * https://dev.to/codesphere/getting-started-with-web-sockets-in-nodejs-49n0
 * https://ably.com/blog/web-app-websockets-nodejs
 
 ## Preparación del entorno de desarrollo
 
-### Linux y Mac:
+### Linux y Mac
 
 Desde server/src:
 
@@ -15,7 +14,7 @@ Desde server/src:
 2. Inicializar Node y crear el archivo package.json: ``src$ npm init -y``
 3. Instalar las librerías necesarias (ws es una implementación de websocket, nodemon reinicia automáticamente el servidor Node cuando detecta cambios en el código, better-sqlite3 permite trabajar de manera síncrona con bases de datos SQLite3): ``src$ npm install ws nodemon uuid@latest better-sqlite3``
 
-### Windows:
+### Windows
 
 Desde server/src en una terminal PowerShell:
 
