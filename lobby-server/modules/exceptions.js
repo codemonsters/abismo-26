@@ -1,21 +1,5 @@
-class ServerBaseException extends Error {
-    constructor(message) {
-        super(message);
-    }
-}
+// Error "esperado" provocado por una petición incorrecta del cliente. El dispatcher lo captura y
+// responde al cliente con { cmd, success: false, data: { details: message } }
+class ProtocolError extends Error {}
 
-class NotImplementedException extends ServerBaseException {
-    constructor(message) {
-        super(message);
-    }
-}
-
-class ProtocolException extends ServerBaseException {
-    constructor(message, cmd, code) {
-        super(message);
-        this.cmd = cmd || '';
-        this.code = code || 4000;
-    }
-}
-
-module.exports = { ServerBaseException, NotImplementedException, ProtocolException };
+module.exports = { ProtocolError };

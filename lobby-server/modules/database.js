@@ -1,29 +1,14 @@
-const database = new Object();
+// Base de datos para los perfiles de usuarios registrados.
+// TODO: todavía no se usa: el estado del lobby (invitados y habitaciones) vive en memoria (ver lobby.js).
+// Cuando se implemente el login de usuarios registrados, llamar a open() al arrancar y close() al detener el servidor.
+const BetterSqlite3 = require('better-sqlite3');
 
-database.SQLITE_FILENAME = "database.sqlite";
-database.fsModule = require('fs');
-database.BetterSqlite3Module = require('better-sqlite3');
-database.init = function() {
-    // initialize database
-    let create_db_schema;
-    if (this.fsModule.existsSync(this.SQLITE_FILENAME)) {
-        create_db_schema = false;
-    } else {
-        create_db_schema = true;
-    }
+const SQLITE_FILENAME = "database.sqlite";
 
-    this.sqlite = new this.BetterSqlite3Module(this.SQLITE_FILENAME);
-    if (create_db_schema) {
-        console.debug("Creando base de datos...")
-        // creamos las tablas de la base de datos
-        this.sqlite.prepare("CREATE TABLE profiles (player_id INTEGER PRIMARY KEY AUTOINCREMENT, username VARCHAR(20) NOT NULL UNIQUE, email VARCHAR(30) UNIQUE, password VARCHAR(32), last_connection_timestamp DATETIME NOT NULL, account_creation_timestamp DATETIME, account_verified BOOLEAN)").run();
-        this.sqlite.prepare("CREATE TABLE rooms (room_id INTEGER PRIMARY KEY AUTOINCREMENT, name VARCHAR(32) NOT NULL UNIQUE, owner_player_id INTEGER NOT NULL UNIQUE)").run();
-        this.sqlite.prepare("CREATE TABLE rooms_players (room_id INTEGER NOT NULL, player_id INTEGER NOT NULL)").run();
-        console.debug("Base de datos creada");
-    }
-    this.sqlite.prepare("DELETE FROM profiles WHERE email IS NULL").run();
-    this.sqlite.prepare("DELETE FROM rooms_players").run();
-    this.sqlite.prepare("DELETE FROM rooms").run();
+function open(filename = SQLITE_FILENAME) {
+    const db = new BetterSqlite3(filename);
+    db.prepare("CREATE TABLE IF NOT EXISTS profiles (player_id INTEGER PRIMARY KEY AUTOINCREMENT, username VARCHAR(20) NOT NULL UNIQUE, email VARCHAR(30) UNIQUE, password VARCHAR(32), last_connection_timestamp DATETIME NOT NULL, account_creation_timestamp DATETIME, account_verified BOOLEAN)").run();
+    return db;
 }
 
-module.exports = { database }
+module.exports = { open };
