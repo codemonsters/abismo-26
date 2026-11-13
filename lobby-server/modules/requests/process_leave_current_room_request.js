@@ -16,18 +16,7 @@ function processLeaveCurrentRoomRequest(json, peer, server) {
     }
 
     // la habitación ha sido destruida: avisamos al resto de jugadores que estaban en ella
-    for (const username of removed_usernames) {
-        if (username == peer.username) {
-            continue;
-        }
-        const p = server.get_peer_by_username(username);
-        if (p) {
-            p.ws.send(JSON.stringify({
-                'cmd': 'room_destroyed',
-                'data': { 'name': room_name }
-            }));
-        }
-    }
+    server.notify_room_destroyed(room_name, removed_usernames, peer.username);
     console.debug(`"${room_name}" destroyed because "${peer.username}" was the owner and left`);
 }
 

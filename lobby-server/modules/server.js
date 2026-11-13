@@ -27,8 +27,35 @@ server.connect_peer_by_websocket = function(ws) {
 }
 
 server.disconnect_peer = function(peer) {
-    // TODO: Actualizar la base de datos para que el peer salga de la habitación (y la destruya, eche a los jugadores y demás si él es el propietario)
+    // si el peer estaba en una habitación, la abandona (y si era su propietario, la habitación se destruye
+    // y se avisa al resto de jugadores que estuviesen dentro)
+    if (peer.username && this.get_name_of_room_player_is_in(peer.username)) {
+        const {room_name, room_destroyed, removed_usernames} = this.leave_current_room(peer);
+        if (room_destroyed) {
+            this.notify_room_destroyed(room_name, removed_usernames, peer.username);
+            console.debug(`"${room_name}" destroyed because its owner "${peer.username}" disconnected`);
+        } else {
+            console.debug(`"${peer.username}" left the room "${room_name}" (disconnected)`);
+        }
+    }
     this.peers.delete(peer);
+}
+
+// envía el mensaje 'room_destroyed' a todos los usuarios indicados (salvo a excludedUsername) que sigan conectados
+server.notify_room_destroyed = function(roomName, usernames, excludedUsername) {
+    const msg = JSON.stringify({
+        'cmd': 'room_destroyed',
+        'data': { 'name': roomName }
+    });
+    for (const username of usernames) {
+        if (username == excludedUsername) {
+            continue;
+        }
+        const p = this.get_peer_by_username(username);
+        if (p && p.ws.readyState === p.ws.OPEN) {
+            p.ws.send(msg);
+        }
+    }
 }
 
 server._processRequestModule = require("./requests/process_request.js").processRequest;

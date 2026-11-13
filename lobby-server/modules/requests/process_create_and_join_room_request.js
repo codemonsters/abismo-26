@@ -15,10 +15,10 @@ function processCreateAndJoinRoomRequest(json, peer, server) {
         'data': { 'details': 'Room created successfully', 'room_name': roomName}
     }));
     
-    console.debug("Room '" + roomName + "' created successfully");
+    console.log(`Room "${roomName}" created by "${peer.username}"`);
     // enviamos un mensaje a los clientes logeados informando sobre esto
-    for (p in server.peers) {
-        if (p.username && p.username != peer.username) {
+    for (const p of server.peers.keys()) {
+        if (p.username && p.username != peer.username && p.ws.readyState === p.ws.OPEN) {
             p.ws.send(JSON.stringify({
                 'cmd': 'new_room_available',
                 'data' : {
