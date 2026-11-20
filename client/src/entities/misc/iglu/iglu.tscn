@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://btvt5awjlmp6k"]
 
-[ext_resource type="PackedScene" uid="uid://b5hx2itqholr2" path="res://screens/game/levels/level01/iglu.gltf" id="1_eaw1m"]
+[ext_resource type="PackedScene" uid="uid://b5hx2itqholr2" path="res://entities/misc/iglu/iglu.gltf" id="1_eaw1m"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ovq03"]
 size = Vector3(1, 0.46388245, 0.97231483)

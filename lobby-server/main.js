@@ -1,56 +1,45 @@
-const PORT = 9090;
-
 const WebSocket = require('ws');
-const wss = new WebSocket.Server({port: PORT});
-const {ServerBaseException, ProtocolException} = require("./modules/exceptions.js");
-const {getFirstNonLocalIPAddress} = require("./modules/aux.js");
-const {server} = require("./modules/server.js");
+const { Lobby } = require('./modules/lobby.js');
+const { dispatch } = require('./modules/dispatcher.js');
+const { ProtocolError } = require('./modules/exceptions.js');
+const { getFirstNonLocalIPAddress } = require('./modules/aux.js');
 
-wss.on('connection', function connection(ws, req) {
-    try {
-        peer = server.connect_peer_by_websocket(ws);
-        peer.ip_address = req.socket.remoteAddress.replace('::ffff:', '');
-        console.log(`Peer connected (id: ${peer.id}, ip addres: ${peer.ip_address})`);
-    } catch(ex) {
-        if (ex instanceof ProtocolException) {
-            peer.ws.send(JSON.stringify({
-                'cmd': ex.cmd,
-                'success': false,
-                'data': {'details': ex.message}
-            }));
-        } else if (ex instanceof ServerBaseException) {
-            ws.close(4000, ex.message);
-            console.log(`Connection refused: ${ex.message}`);
-            return;
-        } else {
-            throw ex;
-        }
-    }
-    
-    ws.on('message', function message(data, isBinary) {
-        const message = isBinary ? data : data.toString();
+function startServer(port) {
+    const lobby = new Lobby();
+    const wss = new WebSocket.Server({ port });
+
+    wss.on('connection', function connection(ws, req) {
+        let peer;
         try {
-            server.processRequest(message, peer);
+            peer = lobby.addPeer(ws, req.socket.remoteAddress.replace('::ffff:', ''));
         } catch (ex) {
-            if (ex instanceof ProtocolException) {
-                peer.ws.send(JSON.stringify({
-                    'cmd': ex.cmd,
-                    'success': false,
-                    'data': {'details': ex.message}
-                }));
-                console.log(`Error processing "${ex.cmd}" request from ${peer.id}. Reason: ${ex.message}\n`)
-            } else {
-                throw ex;
-            }
+            const known = ex instanceof ProtocolError;
+            console.log(`Connection refused: ${known ? ex.message : ex}`);
+            ws.close(known ? 4000 : 1011, known ? ex.message : 'Internal server error');
+            return;
         }
-    });
-    
-    ws.on("close", function close(code, data) {
-        console.log(`Peer disconnected (id: ${peer.id}, code: ${code}, reason: ${data.toString()})`);
-        server.disconnect_peer(peer);
-    });
-});
+        console.log(`Peer connected (id: ${peer.id}, ip address: ${peer.ipAddress})`);
 
-console.log("Server listening on IP address %s and port %d (ws://%s:%d)", getFirstNonLocalIPAddress(), PORT, getFirstNonLocalIPAddress(), PORT);
+        ws.on('message', (data, isBinary) => dispatch(lobby, peer, isBinary ? data : data.toString()));
 
-// TODO: llamar a db.close() cuando se detiene el servidor
+        ws.on('close', (code, reason) => {
+            console.log(`Peer disconnected (${peer}, code: ${code}, reason: ${reason.toString()})`);
+            try {
+                lobby.removePeer(peer);
+            } catch (ex) {
+                console.error(`Unexpected error disconnecting peer ${peer}:`, ex);
+            }
+        });
+    });
+
+    return { wss, lobby };
+}
+
+if (require.main === module) {
+    const port = Number(process.env.PORT) || 9090;
+    startServer(port);
+    const ip = getFirstNonLocalIPAddress();
+    console.log("Server listening on IP address %s and port %d (ws://%s:%d)", ip, port, ip, port);
+}
+
+module.exports = { startServer };

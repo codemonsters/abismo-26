@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://c0y8x88trwj7e"]
 
-[ext_resource type="PackedScene" uid="uid://bcf6hidhknw30" path="res://screens/game/levels/level01/espantapajaros.gltf" id="1_l5uqq"]
+[ext_resource type="PackedScene" uid="uid://bcf6hidhknw30" path="res://entities/misc/strawman/espantapajaros.gltf" id="1_l5uqq"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_g7l4a"]
 radius = 0.65771484

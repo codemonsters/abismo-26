@@ -25,9 +25,23 @@ Desde server/src en una terminal PowerShell:
 
 ## Ejecutar el servidor
 
-``lobby-server$ node main.js``
+``lobby-server$ npm start`` (o ``node main.js``; el puerto se puede cambiar con la variable de entorno ``PORT``)
 
 Se puede acceder a él desde la URL: ``ws://127.0.0.1:9090``
+
+Para ejecutar el test de humo (arranca el servidor en un puerto libre y recorre todo el protocolo): ``lobby-server$ npm test``
+
+## Organización del código
+
+* ``main.js``: arranca el servidor WebSocket y conecta sus eventos con el lobby y el dispatcher.
+* ``modules/lobby.js``: estado del lobby en memoria (peers y habitaciones) y reglas de negocio (clases ``Lobby`` y ``Room``).
+* ``modules/commands.js``: tabla con los comandos del protocolo. Cada comando recibe ``(lobby, peer, data)`` y devuelve el ``data`` de la respuesta de éxito, o lanza un ``ProtocolError``.
+* ``modules/dispatcher.js``: parsea los mensajes, comprueba que el peer haya hecho login (salvo en ``login``) y envía la respuesta de éxito o de error.
+* ``modules/peer.js``: un cliente conectado (``peer.send(cmd, data)`` envía un mensaje).
+* ``modules/validation.js``, ``modules/exceptions.js``, ``modules/aux.js``: utilidades.
+* ``modules/database.js``: perfiles de usuarios registrados (todavía no se usa).
+
+Para añadir un comando nuevo basta con añadir una entrada en ``modules/commands.js``.
 
 ## Protocolo Comunicaciones entre Clientes y Servidor WebSocket
 
@@ -119,7 +133,6 @@ Inmediatamente después de que un usuario cree una habitación, el servidor envi
 ```json
 {
     "cmd": "new_room_available",
-    "success": false,
     "data": { "name": "room1" }
 }
 ```
@@ -190,12 +203,14 @@ Respuesta OK:
                 {
                     "room_name": "room1",
                     "owner": "matador53",
-                    "number_of_players": 3
+                    "number_of_players": 3,
+                    "players": ["matador53", "player1", "player2"]
                 },
                 {
                     "room_name": "test_room",
                     "owner": "player43",
-                    "number_of_players": 1
+                    "number_of_players": 1,
+                    "players": ["player43"]
                 }
             ]
         }
@@ -210,7 +225,7 @@ Respuesta con error:
 {
     "cmd": "get_rooms",
     "success": false,
-    "data": { "details": "Please login to get the list of rooms" }
+    "data": { "details": "Please login first" }
 }
 ```
 
@@ -242,7 +257,7 @@ Respuesta con error:
 {
     "cmd": "leave_current_room",
     "success": false,
-    "data": { "details": "You are not in a room (nothing to leave)" }
+    "data": { "details": "You are not in a room" }
 }
 ```
 
@@ -277,6 +292,7 @@ Respuesta OK:
     "data": {
         "room_name": "room1",
         "owner": "player43",
+        "number_of_players": 2,
         "players": [
             "matador53",
             "matador54"
@@ -326,7 +342,7 @@ Respuesta con error:
 {
     "cmd": "kick_from_current_room",
     "success": false,
-    "data": { "details": "Only room owner can kick other players" }
+    "data": { "details": "You are not the room owner" }
 }
 ```
 
@@ -368,7 +384,7 @@ Respuesta con error:
 {
     "cmd": "send_message_to_current_room",
     "success": false,
-    "data": { "details": "You are not in a room (nothing to send)" }
+    "data": { "details": "You are not in a room" }
 }
 ```
 
@@ -409,7 +425,7 @@ Respuesta con error:
 {
     "cmd": "start_match",
     "success": false,
-    "data": { "details": "You don't own any room" }
+    "data": { "details": "You are not the room owner" }
 }
 ```
 
@@ -418,6 +434,6 @@ Antes de que el servidor envíe la anterior respuesta, cada uno de los jugadores
 ```json
 {
     "cmd": "match_started",
-    "data": { "host_ip": "192.168.0.1", "host_port": "7000" }
+    "data": { "host_ip": "192.168.0.1", "host_port": 7000 }
 }
 ```
