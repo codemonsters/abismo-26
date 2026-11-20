@@ -84,6 +84,17 @@ func join():
 	# are assumed to be absent, hence starting NetworkTime manually
 	NetworkTime.start()
 
+# Igual que host(), pero sin pasar por la interfaz: escucha en el puerto indicado
+func host_on(port: int):
+	port_input.text = str(port)
+	return await host()
+
+# Igual que join(), pero sin pasar por la interfaz: se conecta a address:port
+func join_to(address: String, port: int):
+	address_input.text = address
+	port_input.text = str(port)
+	return await join()
+
 func _enter_tree():
 	# Hide and show UI as appropriate
 	# These handlers are necessary, since the game could have started via

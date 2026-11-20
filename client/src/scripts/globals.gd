@@ -9,3 +9,7 @@ var screen_menu_lobby_list = preload("res://screens/menu/lobby_list/main.tscn")
 var screen_menu_lobby = preload("res://screens/menu/lobby/main.tscn")
 var screen_menu_main = preload("res://screens/menu/main_menu/main.tscn")
 var screen_menu_online = preload("res://screens/menu/menu_online/main.tscn")
+
+# Estado del modo online
+var username := ""     # nombre con el que hemos hecho login en el servidor de lobbies
+var online_match := {} # {} = partida offline; si no: { "is_host": bool, "host_ip": String, "host_port": int }

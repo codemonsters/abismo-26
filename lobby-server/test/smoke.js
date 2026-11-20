@@ -94,7 +94,10 @@ async function main() {
     // start_match
     assert.equal((await bob.request('start_match')).success, false);
     assert.equal((await alice.request('start_match')).success, true);
-    assert.equal((await alice.next('match_started')).data.host_port, 7000);
+    const matchStarted = (await alice.next('match_started')).data;
+    assert.equal(matchStarted.host_port, 7000);
+    assert.equal(matchStarted.host_username, 'alice');
+    assert.equal(typeof matchStarted.host_ip, 'string');
     await bob.next('match_started');
 
     // el propietario se desconecta: la habitación se destruye
