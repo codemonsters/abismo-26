@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://d350u8evihs1u" path="res://addons/netfox/rollback/rollback-synchronizer.gd" id="2_qf1b4"]
 [ext_resource type="Script" uid="uid://dour8fehaaugp" path="res://addons/netfox/tick-interpolator.gd" id="3_dkpv5"]
 [ext_resource type="Script" uid="uid://dr0wqty80sjn7" path="res://scripts/player-input.gd" id="3_g8e4n"]
-[ext_resource type="PackedScene" uid="uid://bqq2h1njuumkx" path="res://screens/game/player/porfiFunciona.gltf" id="5_p0n4n"]
+[ext_resource type="PackedScene" uid="uid://bxh1wxmearjtg" path="res://screens/game/player/penguin.tscn" id="6_nfp01"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_dlfi2"]
 size = Vector3(1, 1.4661903, 1)
@@ -39,7 +39,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.09071481, 0)
 mass = 1000.0
 physics_material_override = SubResource("PhysicsMaterial_p0n4n")
 
-[node name="blockbench_export" parent="." unique_id=1005161138 instance=ExtResource("5_p0n4n")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.26812363, 0, 0.11980057)
+[node name="blockbench_export" parent="." unique_id=2113411418 instance=ExtResource("6_nfp01")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.49365115, 0, -0.15157557)
 
 [node name="MovingStateMachine" type="Node" parent="." unique_id=1971830133]
