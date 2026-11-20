@@ -1,0 +1,51 @@
+[gd_scene format=3 uid="uid://bxh1wxmearjtg"]
+
+[ext_resource type="PackedScene" uid="uid://bqq2h1njuumkx" path="res://screens/game/player/porfiFunciona.gltf" id="1_bo1dw"]
+[ext_resource type="PackedScene" uid="uid://dbugi7rphu2xo" path="res://screens/game/weapons/bazooka.gltf" id="2_7pejt"]
+[ext_resource type="PackedScene" uid="uid://ckgxeyswbkmp" path="res://screens/game/weapons/gun.gltf" id="3_bl4d5"]
+[ext_resource type="PackedScene" uid="uid://bs4bpspk1wyl2" path="res://screens/game/weapons/harpoon.gltf" id="4_rltpi"]
+[ext_resource type="PackedScene" uid="uid://b6wawfffclfwf" path="res://screens/game/weapons/rubber hammer.gltf" id="5_q10lh"]
+[ext_resource type="PackedScene" uid="uid://bf70cxdx7buiv" path="res://screens/game/weapons/shotgun.gltf" id="6_rltpi"]
+
+[node name="blockbench_export" unique_id=1005161138 instance=ExtResource("1_bo1dw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.11179757)
+
+[node name="group3" parent="." index="0" unique_id=1871024240]
+transform = Transform3D(-0.8848605, 0.06681797, 0.4610392, 0.09398496, 0.9949156, 0.036190722, -0.4562769, 0.07535449, -0.8866414, 0.04974613, 0.34365767, 0.1875)
+
+[node name="group4" parent="group3/cabeza2" parent_id_path=PackedInt32Array(1515399387) index="0" unique_id=1315454355]
+transform = Transform3D(1, 0, 0, 0, 0.99904823, 0.043619383, 0, -0.043619383, 0.99904823, 0, 0.1875, 0.3125)
+
+[node name="escafandra" parent="group3/cabeza2" parent_id_path=PackedInt32Array(1515399387) index="1" unique_id=993015704]
+transform = Transform3D(0.19999999, 0, 0, 0, 0, 0, 0, 0, -0.39999998, 0, -0.125, 0.1875)
+
+[node name="brazo izq" parent="group3/cuerpo2" parent_id_path=PackedInt32Array(760220810) index="1" unique_id=1316544887]
+transform = Transform3D(0.72550005, -0.6687514, 0.16254598, -0.2505413, -0.03666365, 0.9674114, -0.64099824, -0.7425815, -0.19414933, -0.20200641, 0.35, 0.20615768)
+
+[node name="bazooka" parent="group3/cuerpo2/brazo izq" index="1" unique_id=669702359 instance=ExtResource("2_7pejt")]
+transform = Transform3D(-0.95258313, -0.3042693, 0.0022376627, 0.009928778, -0.023731615, 0.999668, -0.30411497, 0.95229083, 0.02562745, -0.12559009, -0.39248055, -0.042389035)
+visible = false
+
+[node name="gun" parent="group3/cuerpo2/brazo izq" index="2" unique_id=1313306733 instance=ExtResource("3_bl4d5")]
+transform = Transform3D(-0.94592077, -0.30373347, 0.11392479, 0.11737321, 0.006943576, 0.99306256, -0.30241743, 0.95273155, 0.029082194, -0.12775719, -0.39743072, -0.039199352)
+
+[node name="harpoon" parent="group3/cuerpo2/brazo izq" index="3" unique_id=934547829 instance=ExtResource("4_rltpi")]
+transform = Transform3D(-0.9415866, -0.31304982, 0.12415085, 0.15048458, -0.061310865, 0.9867085, -0.301277, 0.9477556, 0.10483877, -0.08168697, -0.3972066, -0.09021795)
+visible = false
+
+[node name="rubber_hammer" parent="group3/cuerpo2/brazo izq" index="4" unique_id=1289797187 instance=ExtResource("5_q10lh")]
+transform = Transform3D(-0.9500615, -0.3981995, 0.1862266, 0.151839, -0.077987455, 1.480064, -0.30398893, 1.2055457, 0.15725812, -0.01659143, -0.28965038, -0.13943884)
+visible = false
+
+[node name="shotgun" parent="group3/cuerpo2/brazo izq" index="5" unique_id=1369893014 instance=ExtResource("6_rltpi")]
+transform = Transform3D(-0.9593795, -0.14845034, 0.23990709, 0.25110626, -0.061687782, 0.965992, -0.12860253, 0.986994, 0.09645873, -0.12912786, -0.3020552, -0.052858174)
+visible = false
+
+[node name="brazo der" parent="group3/cuerpo2" parent_id_path=PackedInt32Array(760220810) index="2" unique_id=2007757109]
+transform = Transform3D(0.7022743, -0.5933977, 0.39330664, 0.7002053, 0.6755025, -0.23110378, -0.12854317, 0.43769366, 0.88988817, 0.24375, 0.3875, 0)
+
+[node name="group" parent="group3" index="2" unique_id=905927591]
+transform = Transform3D(0.698376, -0.67667645, 0.2331948, 0.009478034, 0.33452842, 0.94233793, -0.71566826, -0.65589595, 0.2400402, 0.025, -0.36131063, 0.083666876)
+
+[node name="group2" parent="group3" index="3" unique_id=1161417089]
+transform = Transform3D(0.3797873, 0.73746157, -0.5584907, -0.043995857, 0.6174416, 0.7853853, 0.924027, -0.27370808, 0.26694173, -0.1875, -0.33631063, 0.021166874)
