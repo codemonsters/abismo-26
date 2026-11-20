@@ -22,7 +22,11 @@ func _ready() -> void:
 	server.match_start_failed.connect(_on_match_start_failed)
 	server.room_destroyed.connect(_on_room_destroyed)
 	server.rooms_received.connect(_on_rooms_received)
+	# la lista de jugadores se actualiza sola: el servidor avisa con rooms_changed cada vez que alguien
+	# entra, sale o se desconecta, y además refrescamos al volver a mostrar esta pantalla (por ejemplo,
+	# al terminar una partida, durante la cual los avisos se ignoran)
 	server.rooms_changed.connect(_refresh_if_visible)
+	visibility_changed.connect(_refresh_if_visible)
 	$IniciarPartida.disabled = true # hasta saber si somos el propietario
 	show_error_message("")
 	refresh_rooms()
@@ -36,10 +40,6 @@ func refresh_rooms() -> void:
 func _refresh_if_visible() -> void:
 	if is_visible_in_tree():
 		refresh_rooms()
-
-func _on_refresh_button_pressed() -> void:
-	show_error_message("")
-	refresh_rooms()
 
 func _on_rooms_received(rooms: Array) -> void:
 	if not _in_room:
