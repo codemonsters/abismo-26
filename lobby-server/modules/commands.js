@@ -1,7 +1,19 @@
 const { ProtocolError } = require('./exceptions.js');
 const { str } = require('./validation.js');
+const { getFirstNonLocalIPAddress } = require('./aux.js');
 
 const MATCH_HOST_PORT = 7000;
+const LOOPBACK_ADDRESSES = ['127.0.0.1', '::1', 'localhost'];
+
+// IP a la que deben conectarse los demás jugadores para unirse a la partida del peer. Si el peer está
+// en la misma máquina que el servidor de lobbies, su IP vista desde aquí es la de loopback, que no les
+// sirve a los jugadores de otras máquinas: en ese caso se usa la IP de la red local de esta máquina.
+function matchHostIP(peer) {
+    if (LOOPBACK_ADDRESSES.includes(peer.ipAddress)) {
+        return getFirstNonLocalIPAddress() ?? peer.ipAddress;
+    }
+    return peer.ipAddress;
+}
 
 // Comandos que pueden enviar los clientes. Cada comando recibe (lobby, peer, data) y devuelve el
 // objeto 'data' de la respuesta de éxito; para indicar un error basta con lanzar un ProtocolError.
@@ -75,7 +87,11 @@ const commands = {
     start_match: {
         run(lobby, peer) {
             const room = lobby.ownedRoomOf(peer);
-            room.broadcast('match_started', { host_ip: peer.ipAddress, host_port: MATCH_HOST_PORT });
+            room.broadcast('match_started', {
+                host_ip: matchHostIP(peer),
+                host_port: MATCH_HOST_PORT,
+                host_username: room.owner.username
+            });
             return {};
         }
     }

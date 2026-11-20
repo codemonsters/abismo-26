@@ -434,6 +434,8 @@ Antes de que el servidor envíe la anterior respuesta, cada uno de los jugadores
 ```json
 {
     "cmd": "match_started",
-    "data": { "host_ip": "192.168.0.1", "host_port": 7000 }
+    "data": { "host_ip": "192.168.0.1", "host_port": 7000, "host_username": "matador53" }
 }
 ```
+
+``host_username`` es el nombre del propietario de la habitación, que es quien actúa como servidor de la partida: el cliente cuyo nombre coincida debe crear el servidor (escuchando en ``host_port``) y el resto conectarse a ``host_ip:host_port``. Si el propietario está conectado desde la misma máquina que el servidor de lobbies (IP de loopback), ``host_ip`` será la IP de red local de esa máquina.

@@ -17,13 +17,30 @@ func _ready():
 		var level_path = "res://screens/game/levels/level" + number + "/main.tscn"
 		levels.append(level_path)
 	$States/LevelLoading.enable()
-	host()
-	
+	start_network()
+
 
 
 func _process(delta):
 	if Input.is_action_just_pressed("space"):
 		level_passed.emit()
+
+
+# Segundos que espera un cliente online antes de conectarse, para dar tiempo al host a abrir el puerto
+const ONLINE_CLIENT_JOIN_DELAY := 1.0
+
+# Offline (Globals.online_match vacío): hacemos de host local, como siempre.
+# Online: el propietario de la habitación hace de host y el resto se conecta a él.
+func start_network():
+	var online_match: Dictionary = Globals.online_match
+	Globals.online_match = {} # para que una partida offline posterior no herede esta configuración
+	if online_match.is_empty():
+		host()
+	elif online_match.is_host:
+		$"UI/Network Popup/LAN Bootstrapper".host_on(online_match.host_port)
+	else:
+		await get_tree().create_timer(ONLINE_CLIENT_JOIN_DELAY).timeout
+		$"UI/Network Popup/LAN Bootstrapper".join_to(online_match.host_ip, online_match.host_port)
 
 
 func host():

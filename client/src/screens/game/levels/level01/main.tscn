@@ -71,11 +71,14 @@ shape = SubResource("BoxShape3D_02iye")
 
 [node name="Locations" type="Node" parent="." unique_id=2117597928]
 
-[node name="LevelStart" parent="Locations" unique_id=1359960781 instance=ExtResource("7_asklh")]
+[node name="LevelStart" parent="Locations" unique_id=1265635761 instance=ExtResource("7_asklh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, -3.476)
 
 [node name="DeathArea" parent="Locations" unique_id=702394030 instance=ExtResource("7_8dh2n")]
-transform = Transform3D(6, 0, 0, 0, 1, 0, 0, 0, 3, 0, -4.1398044, -11.976)
+transform = Transform3D(6, 0, 0, 0, 6, 0, 0, 0, 6, 0, -6.5417337, -11.976)
+
+[node name="DeathArea2" parent="Locations" unique_id=30469066 instance=ExtResource("7_8dh2n")]
+transform = Transform3D(6, 0, 0, 0, 6, 0, 0, 0, 6, -2.7511787, -4.0379453, -54.05632)
 
 [node name="foca" parent="." unique_id=1229092006 instance=ExtResource("11_bldw7")]
 transform = Transform3D(-1.3255098, 0, 1.2335526e-07, 0, 1.430313, 0, -1.1587974e-07, 0, -1.4110198, 1, 1.25, -63)
@@ -108,7 +111,7 @@ transform = Transform3D(1, 0, 0, 0, 3, 0, 0, 0, 21, -6.0615726, -1.5, 0)
 skeleton = NodePath("../..")
 
 [node name="ice_block2" parent="Blocks" unique_id=895165894 instance=ExtResource("15_syhxd")]
-transform = Transform3D(1, 0, 0, 0, 3, 0, 0, 0, 38.549606, 0, -1.5, -33)
+transform = Transform3D(1, 0, 0, 0, 3, 0, 0, 0, 38.549606, 0, -1.5, -32.887062)
 skeleton = NodePath("../..")
 
 [node name="ice_block11" parent="Blocks" unique_id=1586591897 instance=ExtResource("15_syhxd")]
