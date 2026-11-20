@@ -20,3 +20,5 @@ debug_color = Color(0.9999998, 0.042388327, 0.0062129097, 1)
 [node name="MeshInstance3D" type="MeshInstance3D" parent="CollisionShape3D" unique_id=1065647422]
 mesh = SubResource("BoxMesh_puune")
 skeleton = NodePath("../..")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
