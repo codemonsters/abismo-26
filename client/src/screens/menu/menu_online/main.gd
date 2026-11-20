@@ -3,6 +3,7 @@ extends SubMenu
 const DISCONNECT_TIMEOUT := 2.0
 
 var _leaving := false # true mientras nos desconectamos al pulsar volver
+var _pending_username := "" # nombre enviado en la última petición de login
 
 func _ready() -> void:
 	$"/root/Main/ModalWindowRoot/ServerPopup".logged_in.connect(on_logged_in)
@@ -44,6 +45,7 @@ func _send_guest_login_request(username):
 		show_error_message("Introduce tu nombre de usuario")
 	else:
 		show_error_message("")
+		_pending_username = username
 		var message_dict = {
 			"cmd": "login",
 			"data": { "username": username }
@@ -57,6 +59,7 @@ func on_logged_in(success: bool, details: String):
 	if _leaving:
 		return
 	if success:
+		Globals.username = _pending_username
 		push(Globals.screen_menu_lobby_list)
 	else:
 		show_error_message(details)

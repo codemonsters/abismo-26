@@ -8,6 +8,12 @@ signal ls_connection_closed
 signal ls_connected
 signal logged_in(success: bool, details: String)
 signal lobby_created(success: bool, details: String)
+signal rooms_received(rooms: Array)
+signal room_joined(success: bool, details: String)
+signal room_destroyed(room_name: String)
+signal new_room_available(room_name: String)
+signal match_start_failed(details: String)
+signal match_started(host_ip: String, host_port: int, host_username: String)
 
 var _wsc = WebSocketClient.new()
 var _button_pressed_callback
@@ -36,6 +42,10 @@ func ls_disconnect():
 
 func ls_send_message(message):
 	_wsc.send(message)
+
+# Envía un comando { "cmd": cmd, "data": data } al servidor de lobbies
+func ls_send_command(cmd: String, data: Dictionary = {}):
+	ls_send_message(JSON.stringify({ "cmd": cmd, "data": data }))
 	
 func on_ls_connected():
 	print("lobby server: conectado")
@@ -55,41 +65,59 @@ func on_cancel_pressed():
 	
 func on_ls_message_received(message: String):
 	var message_dict = JSON.parse_string(message)
-	if message_dict.has("cmd"):
-		var cmd = message_dict["cmd"]
-		if cmd == "login":
-			parse_logged_in_message(message_dict)
-		elif cmd == "create_and_join_room":
-			parse_lobby_created_message(message_dict)
-		else:
+	if typeof(message_dict) != TYPE_DICTIONARY or not message_dict.has("cmd"):
+		print("WARNING: mensaje mal formado ignorado: ", message)
+		return
+	var data = message_dict.get("data", {})
+	if typeof(data) != TYPE_DICTIONARY:
+		data = {}
+	match message_dict["cmd"]:
+		"login":
+			var result = _parse_success_details(message_dict)
+			logged_in.emit(result.success, result.details)
+		"create_and_join_room":
+			var result = _parse_success_details(message_dict)
+			lobby_created.emit(result.success, result.details)
+		"join_room":
+			var result = _parse_success_details(message_dict)
+			room_joined.emit(result.success, result.details)
+		"get_rooms":
+			if message_dict.get("success") == true:
+				var rooms = data.get("rooms", [])
+				rooms_received.emit(rooms if typeof(rooms) == TYPE_ARRAY else [])
+		"new_room_available":
+			new_room_available.emit(str(data.get("name", "")))
+		"room_destroyed":
+			room_destroyed.emit(str(data.get("name", "")))
+		"start_match":
+			var result = _parse_success_details(message_dict)
+			if not result.success:
+				match_start_failed.emit(result.details)
+		"match_started":
+			parse_match_started_message(data)
+		"leave_current_room", "player_joined_current_room", "player_kicked_from_current_room", "room_message":
+			pass # de momento no se usan
+		_:
 			print("WARNING: mensaje con comando desconocido ignorado: ", message)
 
-func parse_logged_in_message(message_dict: Dictionary):
-	var success = false
-	if message_dict.has("success"):
-		success = message_dict["success"]
-		if success != true: success = false
+# Devuelve { "success": bool, "details": String } a partir de una respuesta del servidor
+func _parse_success_details(message_dict: Dictionary) -> Dictionary:
+	var details = ""
+	var data = message_dict.get("data", {})
+	if typeof(data) == TYPE_DICTIONARY and data.has("details"):
+		details = str(data["details"])
+	return { "success": message_dict.get("success") == true, "details": details }
 
-	var details = null
-	if message_dict.has("data"):
-		var data = message_dict["data"]
-		if data.has("details"):
-			details = data["details"]
-	
-	if details != null:
-		logged_in.emit(success, details)
-
-func parse_lobby_created_message(message_dict: Dictionary):
-	var success = false
-	if message_dict.has("success"):
-		success = message_dict["success"]
-		if success != true: success = false
-
-	var details = null
-	if message_dict.has("data"):
-		var data = message_dict["data"]
-		if data.has("details"):
-			details = data["details"]
-	
-	if details != null:
-		lobby_created.emit(success, details)
+func parse_match_started_message(data: Dictionary):
+	var host_ip = str(data.get("host_ip", ""))
+	var host_port = int(data.get("host_port", 0))
+	var host_username = str(data.get("host_username", ""))
+	if host_ip == "" or host_port <= 0:
+		print("WARNING: mensaje match_started sin host_ip o host_port: ", data)
+		return
+	Globals.online_match = {
+		"is_host": host_username != "" and host_username == Globals.username,
+		"host_ip": host_ip,
+		"host_port": host_port,
+	}
+	match_started.emit(host_ip, host_port, host_username)

@@ -10,15 +10,18 @@ script = ExtResource("1_6n4dm")
 
 [node name="Main" parent="." unique_id=1528509365 instance=ExtResource("1_aomy0")]
 
-[node name="Label" type="Label" parent="." unique_id=506395225]
+[node name="RoomList" type="ItemList" parent="." unique_id=506395225]
 offset_left = 441.0
-offset_top = 201.0
-offset_right = 731.0
-offset_bottom = 316.0
-text = "Partida1
-Partida 2
-etc"
-horizontal_alignment = 1
+offset_top = 180.0
+offset_right = 781.0
+offset_bottom = 460.0
+
+[node name="ErrorMessage" type="Label" parent="." unique_id=1917364402]
+offset_left = 441.0
+offset_top = 470.0
+offset_right = 781.0
+offset_bottom = 530.0
+autowrap_mode = 3
 
 [node name="PreviousScreen" parent="." unique_id=2007004648 instance=ExtResource("2_g8qlt")]
 
@@ -31,4 +34,21 @@ offset_right = 1068.0
 offset_bottom = 565.0
 text = "Crear partida"
 
+[node name="RefreshButton" type="Button" parent="." unique_id=1288201644]
+offset_left = 856.0
+offset_top = 280.0
+offset_right = 1068.0
+offset_bottom = 365.0
+text = "Actualizar"
+
+[node name="JoinButton" type="Button" parent="." unique_id=667024938]
+offset_left = 856.0
+offset_top = 380.0
+offset_right = 1068.0
+offset_bottom = 465.0
+text = "Unirse"
+
 [connection signal="pressed" from="Button" to="." method="_on_create_lobby_button_pressed"]
+[connection signal="pressed" from="RefreshButton" to="." method="_on_refresh_button_pressed"]
+[connection signal="pressed" from="JoinButton" to="." method="_on_join_button_pressed"]
+[connection signal="item_activated" from="RoomList" to="." method="_on_room_list_item_activated"]
