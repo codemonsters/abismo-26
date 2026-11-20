@@ -53,7 +53,7 @@ class Lobby {
     // si el peer estaba en una habitación la abandona (y si era su propietario, la habitación se destruye)
     removePeer(peer) {
         if (peer.room) {
-            this.leaveRoom(peer);
+            this.leaveRoom(peer, true);
         }
         this.peers.delete(peer);
     }
@@ -129,7 +129,8 @@ class Lobby {
         }
         const room = new Room(name, owner);
         this.rooms.set(name, room);
-        this.joinRoom(owner, name);
+        this._addPlayer(room, owner);
+        this.notifyRoomsChanged();
         return room;
     }
 
@@ -144,14 +145,21 @@ class Lobby {
         if (room.players.size >= MAX_PLAYERS_PER_ROOM) {
             throw new ProtocolError("The room is full");
         }
-        room.players.add(peer);
-        peer.room = room;
-        room.broadcast('player_joined_current_room', { username: peer.username }, peer);
+        this._addPlayer(room, peer);
+        this.notifyRoomsChanged();
         return room;
     }
 
-    // si quien abandona es el propietario, la habitación se destruye y se avisa al resto de jugadores
-    leaveRoom(peer) {
+    _addPlayer(room, peer) {
+        room.players.add(peer);
+        peer.room = room;
+        room.broadcast('player_joined_current_room', { username: peer.username }, peer);
+    }
+
+    // si quien abandona es el propietario, la habitación se destruye y se avisa al resto de jugadores.
+    // 'disconnected' indica que el peer no ha abandonado la habitación voluntariamente sino que se ha
+    // desconectado del servidor (a propósito o por un problema de red)
+    leaveRoom(peer, disconnected = false) {
         const room = this.roomOf(peer);
         const destroyed = room.owner === peer;
         if (destroyed) {
@@ -159,13 +167,22 @@ class Lobby {
             for (const p of room.players) {
                 p.room = null;
             }
-            room.broadcast('room_destroyed', { name: room.name }, peer);
-            console.debug(`Room "${room.name}" destroyed because its owner "${peer}" left`);
+            room.broadcast('room_destroyed', {
+                name: room.name,
+                owner: peer.username,
+                reason: disconnected ? 'owner_disconnected' : 'owner_left'
+            }, peer);
+            console.debug(`Room "${room.name}" destroyed because its owner "${peer}" ${disconnected ? 'disconnected' : 'left'}`);
         } else {
             room.players.delete(peer);
             peer.room = null;
-            console.debug(`"${peer}" left the room "${room.name}"`);
+            room.broadcast('player_left_current_room', {
+                username: peer.username,
+                reason: disconnected ? 'disconnected' : 'left'
+            });
+            console.debug(`"${peer}" ${disconnected ? 'disconnected from' : 'left'} the room "${room.name}"`);
         }
+        this.notifyRoomsChanged(peer);
         return { room, destroyed };
     }
 
@@ -181,7 +198,14 @@ class Lobby {
         room.broadcast('player_kicked_from_current_room', { username }, owner);
         room.players.delete(kicked);
         kicked.room = null;
+        this.notifyRoomsChanged();
         return room;
+    }
+
+    // avisa a todos los peers que hayan hecho login (salvo a 'except') de que la lista de habitaciones o
+    // sus jugadores han cambiado, para que vuelvan a pedirla con get_rooms si la están mostrando
+    notifyRoomsChanged(except) {
+        this.broadcastLoggedIn('rooms_changed', {}, except);
     }
 
     // envía una notificación a todos los peers que hayan hecho login (salvo a 'except')

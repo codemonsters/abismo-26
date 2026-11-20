@@ -64,6 +64,7 @@ async function main() {
     assert.equal(r.success, true);
     assert.equal(r.data.room_name, 'room1');
     assert.deepEqual((await bob.next('new_room_available')).data, { name: 'room1' });
+    await bob.next('rooms_changed');
     assert.deepEqual((await carol.next('new_room_available')).data, { name: 'room1' });
 
     // join_room
@@ -91,6 +92,19 @@ async function main() {
     await bob.next('player_kicked_from_current_room');
     assert.equal((await carol.request('leave_current_room')).success, false);
 
+    // un jugador que no es el propietario sale (o se desconecta): el resto recibe player_left_current_room
+    assert.equal((await carol.request('join_room', { name: 'room1' })).success, true);
+    assert.equal((await carol.request('leave_current_room')).success, true);
+    assert.deepEqual((await bob.next('player_left_current_room')).data, { username: 'carol', reason: 'left' });
+    const dave = await connect(port);
+    assert.equal((await dave.request('login', { username: 'dave' })).success, true);
+    assert.equal((await dave.request('join_room', { name: 'room1' })).success, true);
+    bob.inbox.length = 0;
+    await dave.close();
+    assert.deepEqual((await bob.next('player_left_current_room')).data, { username: 'dave', reason: 'disconnected' });
+    await carol.next('rooms_changed');
+    assert.deepEqual((await bob.request('get_room_details', { room_name: 'room1' })).data.players, ['alice', 'bob']);
+
     // start_match
     assert.equal((await bob.request('start_match')).success, false);
     assert.equal((await alice.request('start_match')).success, true);
@@ -102,12 +116,18 @@ async function main() {
 
     // el propietario se desconecta: la habitación se destruye
     await alice.close();
-    assert.deepEqual((await bob.next('room_destroyed')).data, { name: 'room1' });
+    assert.deepEqual((await bob.next('room_destroyed')).data, { name: 'room1', owner: 'alice', reason: 'owner_disconnected' });
     assert.deepEqual((await bob.request('get_rooms')).data, { rooms: [] });
 
     // el nombre de usuario queda libre tras la desconexión
     const alice2 = await connect(port);
     assert.equal((await alice2.request('login', { username: 'alice' })).success, true);
+
+    // el propietario abandona la habitación voluntariamente
+    assert.equal((await alice2.request('create_and_join_room', { room_name: 'room2' })).success, true);
+    assert.equal((await bob.request('join_room', { name: 'room2' })).success, true);
+    assert.equal((await alice2.request('leave_current_room')).success, true);
+    assert.deepEqual((await bob.next('room_destroyed')).data, { name: 'room2', owner: 'alice', reason: 'owner_left' });
 
     await Promise.all([bob.close(), carol.close(), alice2.close()]);
     wss.close();

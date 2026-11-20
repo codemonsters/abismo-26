@@ -137,6 +137,17 @@ Inmediatamente después de que un usuario cree una habitación, el servidor envi
 }
 ```
 
+### rooms_changed
+
+Cada vez que cambia la lista de habitaciones o los jugadores de alguna de ellas (se crea o destruye una habitación, o un jugador entra, sale, es expulsado o se desconecta), el servidor envía esta notificación a todos los clientes que hayan hecho login, para que vuelvan a pedir la lista con ``get_rooms`` si la están mostrando:
+
+```json
+{
+    "cmd": "rooms_changed",
+    "data": {}
+}
+```
+
 ### join_room
 
 Los clientes que previamente hayan hecho login y que no sean propietarios de una habitación, pueden entrar en otra habitación
@@ -261,14 +272,25 @@ Respuesta con error:
 }
 ```
 
+Si quien abandona la habitación no es su propietario, el resto de jugadores de la habitación recibirán este mensaje:
+
+```json
+{
+    "cmd": "player_left_current_room",
+    "data": { "username": "matador53", "reason": "left" }
+}
+```
+
 Si quien abandona la habitación es su propietario, esta será destruida, echando a todos los jugadores que estén en ella. Además, cada uno de los demás jugadores recibirán el siguiente menaje:
 
 ```json
 {
     "cmd": "room_destroyed",
-    "data": { "name": "room1" }
+    "data": { "name": "room1", "owner": "player43", "reason": "owner_left" }
 }
 ```
+
+Lo mismo ocurre cuando un jugador se desconecta del servidor (cerrando el juego o por un problema de red) estando en una habitación: en ese caso ``reason`` vale ``"disconnected"`` en ``player_left_current_room`` y ``"owner_disconnected"`` en ``room_destroyed``.
 
 ### get_room_details
 

@@ -36,7 +36,10 @@ func start_network():
 	Globals.online_match = {} # para que una partida offline posterior no herede esta configuración
 	if online_match.is_empty():
 		host()
-	elif online_match.is_host:
+		return
+	# si el propietario de la habitación abandona el servidor de lobbies, volvemos al menú online
+	$"/root/Main/ModalWindowRoot/ServerPopup".room_destroyed.connect(_on_online_room_destroyed)
+	if online_match.is_host:
 		$"UI/Network Popup/LAN Bootstrapper".host_on(online_match.host_port)
 	else:
 		await get_tree().create_timer(ONLINE_CLIENT_JOIN_DELAY).timeout
@@ -45,6 +48,22 @@ func start_network():
 
 func host():
 	$"UI/Network Popup/LAN Bootstrapper".host()
+
+
+func _on_online_room_destroyed(_room_name: String, _owner: String, _reason: String) -> void:
+	# el aviso al jugador lo muestra la pantalla del lobby, que también vuelve a la lista de habitaciones
+	leave_online_match()
+
+
+# Cierra la conexión de la partida y vuelve a la pantalla de menú (next_scene)
+func leave_online_match() -> void:
+	var peer = multiplayer.multiplayer_peer
+	if peer != null:
+		peer.close()
+	multiplayer.multiplayer_peer = null
+	NetworkTime.stop()
+	emit_signal("change_screen_requested", next_scene, null)
+	queue_free()
 
 
 func _on_level_passed() -> void:

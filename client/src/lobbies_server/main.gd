@@ -10,7 +10,8 @@ signal logged_in(success: bool, details: String)
 signal lobby_created(success: bool, details: String)
 signal rooms_received(rooms: Array)
 signal room_joined(success: bool, details: String)
-signal room_destroyed(room_name: String)
+signal room_destroyed(room_name: String, owner: String, reason: String)
+signal rooms_changed
 signal new_room_available(room_name: String)
 signal match_start_failed(details: String)
 signal match_started(host_ip: String, host_port: int, host_username: String)
@@ -41,6 +42,9 @@ func ls_disconnect():
 	_wsc.close()
 
 func ls_send_message(message):
+	if _wsc.get_socket().get_ready_state() != WebSocketPeer.STATE_OPEN:
+		print("WARNING: no conectado al servidor de lobbies, mensaje no enviado: ", message)
+		return
 	_wsc.send(message)
 
 # Envía un comando { "cmd": cmd, "data": data } al servidor de lobbies
@@ -62,6 +66,10 @@ func _on_button_pressed() -> void:
 	
 func on_cancel_pressed():
 	self.visible = false
+
+# Muestra un mensaje informativo en la ventana modal (se cierra con el botón Aceptar)
+func show_message(text: String):
+	_show_modal_window(text, "Aceptar", on_cancel_pressed)
 	
 func on_ls_message_received(message: String):
 	var message_dict = JSON.parse_string(message)
@@ -87,15 +95,17 @@ func on_ls_message_received(message: String):
 				rooms_received.emit(rooms if typeof(rooms) == TYPE_ARRAY else [])
 		"new_room_available":
 			new_room_available.emit(str(data.get("name", "")))
+		"rooms_changed":
+			rooms_changed.emit()
 		"room_destroyed":
-			room_destroyed.emit(str(data.get("name", "")))
+			room_destroyed.emit(str(data.get("name", "")), str(data.get("owner", "")), str(data.get("reason", "")))
 		"start_match":
 			var result = _parse_success_details(message_dict)
 			if not result.success:
 				match_start_failed.emit(result.details)
 		"match_started":
 			parse_match_started_message(data)
-		"leave_current_room", "player_joined_current_room", "player_kicked_from_current_room", "room_message":
+		"leave_current_room", "player_joined_current_room", "player_left_current_room", "player_kicked_from_current_room", "room_message":
 			pass # de momento no se usan
 		_:
 			print("WARNING: mensaje con comando desconocido ignorado: ", message)

@@ -1,16 +1,22 @@
 extends SubMenu
+## Menú principal del juego online: lista de habitaciones creadas, unirse a una o crear una nueva.
+
+const RoomListUtils = preload("res://screens/menu/shared/room_list_utils.gd")
 
 var _joining := false # true mientras esperamos la respuesta a un join_room
 
+# Se guarda al entrar en el árbol: esta pantalla puede recibir señales del servidor estando fuera del
+# árbol (durante la partida), y desde fuera del árbol no se pueden usar rutas absolutas.
+@onready var _server_node: Node = $"/root/Main/ModalWindowRoot/ServerPopup"
+
 func _server() -> Node:
-	return $"/root/Main/ModalWindowRoot/ServerPopup"
+	return _server_node
 
 func _ready() -> void:
 	var server = _server()
 	server.rooms_received.connect(_on_rooms_received)
 	server.room_joined.connect(_on_room_joined)
-	server.new_room_available.connect(func(_room_name): _refresh_if_visible())
-	server.room_destroyed.connect(func(_room_name): _refresh_if_visible())
+	server.rooms_changed.connect(_refresh_if_visible)
 	# al volver a esta pantalla (por ejemplo, tras salir de una habitación) refrescamos la lista
 	visibility_changed.connect(_refresh_if_visible)
 	show_error_message("")
@@ -27,15 +33,7 @@ func _refresh_if_visible() -> void:
 		refresh_rooms()
 
 func _on_rooms_received(rooms: Array) -> void:
-	var room_list: ItemList = $RoomList
-	room_list.clear()
-	for room in rooms:
-		if typeof(room) != TYPE_DICTIONARY or not room.has("room_name"):
-			continue
-		var room_name := str(room["room_name"])
-		var players := int(room.get("number_of_players", 0))
-		var index := room_list.add_item("%s (%d %s)" % [room_name, players, "jugador" if players == 1 else "jugadores"])
-		room_list.set_item_metadata(index, room_name)
+	RoomListUtils.fill_room_list($RoomList, rooms)
 
 func _on_create_lobby_button_pressed() -> void:
 	push(Globals.screen_menu_create_lobby)
@@ -45,21 +43,21 @@ func _on_refresh_button_pressed() -> void:
 	refresh_rooms()
 
 func _on_join_button_pressed() -> void:
-	var selected: PackedInt32Array = $RoomList.get_selected_items()
-	if selected.is_empty():
+	var room_name := RoomListUtils.get_selected_room_name($RoomList)
+	if room_name == "":
 		show_error_message("Selecciona una partida")
 		return
-	_join(selected[0])
+	_join(room_name)
 
 func _on_room_list_item_activated(index: int) -> void:
-	_join(index)
+	_join(str($RoomList.get_item_metadata(index)))
 
-func _join(index: int) -> void:
+func _join(room_name: String) -> void:
 	if _joining:
 		return
 	_joining = true
 	show_error_message("")
-	_server().ls_send_command("join_room", { "name": $RoomList.get_item_metadata(index) })
+	_server().ls_send_command("join_room", { "name": room_name })
 
 func _on_room_joined(success: bool, details: String) -> void:
 	if not _joining:
