@@ -52,7 +52,7 @@ func _rollback_tick(delta, _tick, _is_fresh):
 				if weapon == 0:
 					$blockbench_export/AnimationPlayer.play("stand by")
 				elif weapon == 1 or weapon == 2:
-					$blockbench_export/AnimationPlayer.play("stand by with gun")
+					$blockbench_export/AnimationPlayer.play("stand by")
 		
 		if velocity.z < 0:
 			$blockbench_export.rotation_degrees.y = 0
@@ -89,7 +89,7 @@ func _rollback_tick(delta, _tick, _is_fresh):
 				if weapon == 0:
 					$blockbench_export/AnimationPlayer.play("stand by water")
 				elif weapon == 1 or weapon == 2:
-					$blockbench_export/AnimationPlayer.play("stand by with gun")
+					$blockbench_export/AnimationPlayer.play("stand by")
 		
 		if velocity.z < 0:
 			$blockbench_export.rotation_degrees.y = 0

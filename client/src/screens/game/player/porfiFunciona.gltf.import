@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://bul8wd474laty"
-path="res://.godot/imported/model_todo_culpa_de_telmo3.gltf-4dd6d9b3c6eb53a853f5191bb6ecd87c.scn"
+uid="uid://bqq2h1njuumkx"
+path="res://.godot/imported/porfiFunciona.gltf-ec656b9f8640fee98481361db9778a32.scn"
 
 [deps]
 
-source_file="res://screens/game/player/model_todo_culpa_de_telmo3.gltf"
-dest_files=["res://.godot/imported/model_todo_culpa_de_telmo3.gltf-4dd6d9b3c6eb53a853f5191bb6ecd87c.scn"]
+source_file="res://screens/game/player/porfiFunciona.gltf"
+dest_files=["res://.godot/imported/porfiFunciona.gltf-ec656b9f8640fee98481361db9778a32.scn"]
 
 [params]
 
@@ -42,4 +42,4 @@ materials/extract_path=""
 _subresources={}
 gltf/naming_version=2
 gltf/embedded_image_handling=1
-gltf/texture_map_mode=0
+gltf/texture_map_mode=1

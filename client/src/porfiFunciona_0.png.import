@@ -2,20 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dmr56c8ahnso"
-path.s3tc="res://.godot/imported/penguin_0.png-c7ca7ed57988ef74e0849cc1d93f7768.s3tc.ctex"
+uid="uid://db2rsm78u15w4"
+path.s3tc="res://.godot/imported/porfiFunciona_0.png-d2ca1a6234b492887b78aa1d4b7436d3.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 generator_parameters={
-"md5": "96a6ae4a0a6fb166b63582f9afb08c90"
+"md5": "c8513740ee4b07b7a2621f29f5fa7ffd"
 }
 
 [deps]
 
-source_file="res://screens/game/player/penguin_0.png"
-dest_files=["res://.godot/imported/penguin_0.png-c7ca7ed57988ef74e0849cc1d93f7768.s3tc.ctex"]
+source_file="res://porfiFunciona_0.png"
+dest_files=["res://.godot/imported/porfiFunciona_0.png-d2ca1a6234b492887b78aa1d4b7436d3.s3tc.ctex"]
 
 [params]
 

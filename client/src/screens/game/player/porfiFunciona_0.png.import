@@ -2,20 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ba5ea3ob1qcf5"
-path.s3tc="res://.godot/imported/model_todo_culpa_de_telmo3_0.png-bcd00ceb7a1afe9e666891871d2744c7.s3tc.ctex"
+uid="uid://bccim3kpha507"
+path.s3tc="res://.godot/imported/porfiFunciona_0.png-76e03e0492e5cf1a3c34b84772b3d902.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 generator_parameters={
-"md5": "c07250b2c4636120ab2a5a9965843582"
+"md5": "c8513740ee4b07b7a2621f29f5fa7ffd"
 }
 
 [deps]
 
-source_file="res://screens/game/player/model_todo_culpa_de_telmo3_0.png"
-dest_files=["res://.godot/imported/model_todo_culpa_de_telmo3_0.png-bcd00ceb7a1afe9e666891871d2744c7.s3tc.ctex"]
+source_file="res://screens/game/player/porfiFunciona_0.png"
+dest_files=["res://.godot/imported/porfiFunciona_0.png-76e03e0492e5cf1a3c34b84772b3d902.s3tc.ctex"]
 
 [params]
 
