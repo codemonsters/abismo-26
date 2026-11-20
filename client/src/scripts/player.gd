@@ -75,9 +75,10 @@ func _rollback_tick(delta, _tick, _is_fresh):
 			velocity.y -= gravity * delta
 
 		var input_dir = input.movement
-		var direction = (transform.basis * Vector3(input_dir.x, 0, 0))
-		if direction:
-			velocity = direction * speed
+		var direction = (transform.basis * Vector3($blockbench_export.rotation_degrees.x, input_dir.y, input_dir.z)).normalized()
+		if Input.is_action_pressed("ui_up"):
+			velocity.y = ($blockbench_export.rotation_degrees.x - $blockbench_export.rotation_degrees.x / 360.0) * speed * 0.02
+			print(velocity.y)
 			if weapon == 0:
 				$blockbench_export/AnimationPlayer.play("swim")
 			elif weapon == 1 or weapon == 2:
@@ -89,29 +90,21 @@ func _rollback_tick(delta, _tick, _is_fresh):
 			elif weapon == 1 or weapon == 2:
 				$blockbench_export/AnimationPlayer.play("stand by with gun")
 	
-		if velocity.z < 0:
-			$blockbench_export.rotation_degrees.y = 0
-		elif velocity.z > 0:
-			$blockbench_export.rotation_degrees.y = -180
+		if Input.is_action_pressed("ui_right"):
+			$blockbench_export.rotation_degrees.x += -5
+		elif Input.is_action_pressed("ui_left"):
+			$blockbench_export.rotation_degrees.x += +5
 		
-		if Input.is_action_pressed("ui_left"):
-			input.movement.x += 50
-			print(direction)
-			velocity.x = 0
-		elif Input.is_action_pressed("ui_right"):
-			input.movement.x += 50
-			velocity.x = 0
-		
-		if is_on_floor():
-			if Input.is_action_pressed("up_arrow"):
-				if weapon == 0:
-					$blockbench_export/AnimationPlayer.play("jump")
-				elif weapon == 1 or weapon == 2:
-					$blockbench_export/AnimationPlayer.play("jump with gun")
-				if is_on_wall():
-					velocity.y = jump_power
-				else:
-					velocity.y = jump_power
+		#if is_on_floor():
+			#if Input.is_action_pressed("up_arrow"):
+				#if weapon == 0:
+					#$blockbench_export/AnimationPlayer.play("jump")
+				#elif weapon == 1 or weapon == 2:
+					#$blockbench_export/AnimationPlayer.play("jump with gun")
+				#if is_on_wall():
+					#velocity.y = jump_power
+				#else:
+					#velocity.y = jump_power
 				
 	if Input.is_action_pressed("slot1"):
 		weapon = 1
