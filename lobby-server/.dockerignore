@@ -1,0 +1,9 @@
+node_modules
+database.sqlite
+test
+scripts
+.vscode
+README.md
+Dockerfile
+.dockerignore
+logs

@@ -29,7 +29,203 @@ Desde server/src en una terminal PowerShell:
 
 Se puede acceder a él desde la URL: ``ws://127.0.0.1:9090``
 
-Para ejecutar el test de humo (arranca el servidor en un puerto libre y recorre todo el protocolo): ``lobby-server$ npm test``
+## Despliegue con Docker Compose en un servidor Arch Linux
+
+El servidor de lobbies se puede ejecutar como un contenedor Docker gestionado con Docker Compose. En nuestro caso se ejecuta en el NAS de la red local (``192.168.0.11``), y los clientes se conectan a ``ws://192.168.0.11:9090``, que es el valor por defecto de ``websocket_url`` en ``client/src/lobbies_server/main.gd``. Para desarrollar en local se puede cambiar a ``ws://127.0.0.1:9090`` desde el inspector de Godot.
+
+Archivos que intervienen:
+
+* ``Dockerfile``: construye la imagen con Node.js 24 e instala solo las dependencias de producción (``npm ci --omit=dev``). Copia ``main.js`` y ``modules/`` y arranca con ``node main.js`` en el puerto ``9090``, sin privilegios (usuario ``node``).
+* ``.dockerignore``: evita que ``node_modules``, ``database.sqlite``, los tests y los scripts entren en la imagen.
+* ``scripts/github.sh`` y ``scripts/deploy.sh``: actualizan el código desde GitHub y vuelven a desplegar el contenedor (ver más abajo).
+
+### 1. Preparar el servidor Arch Linux (una sola vez)
+
+Instalar Docker, el plugin de Compose y Git:
+
+```sh
+sudo pacman -Syu docker docker-compose docker-buildx git
+```
+
+Arrancar Docker y hacer que se inicie con el sistema:
+
+```sh
+sudo systemctl enable --now docker.service
+```
+
+Opcionalmente, para usar ``docker`` sin ``sudo``, añadir el usuario al grupo ``docker`` y volver a iniciar sesión. Ten en cuenta que pertenecer a este grupo equivale a tener permisos de root.
+
+```sh
+sudo usermod -aG docker $USER
+```
+
+Comprobar que todo funciona:
+
+```sh
+docker version
+docker compose version
+```
+
+### 2. Descargar el código
+
+En la carpeta donde está el ``docker-compose.yaml`` del servidor (si no existe, crea una carpeta para él, por ejemplo ``~/docker``), clonar el repositorio:
+
+```sh
+cd ~/docker            # carpeta del docker-compose.yaml
+git clone <url-del-repo> abismo-26
+```
+
+Los scripts de despliegue suponen esta estructura:
+
+```
+~/docker/
+├── docker-compose.yaml
+└── abismo-26/
+    └── lobby-server/
+```
+
+### 3. Añadir el servicio al docker-compose.yaml
+
+Añadir dentro de ``services:``. Si el archivo es nuevo, empieza con la línea ``services:``.
+
+```yaml
+  abismo-lobby:
+    build: ./abismo-26/lobby-server
+    container_name: abismo-lobby
+    restart: unless-stopped
+    environment:
+      - PORT=9090
+      - LOG_MAX_SIZE=5m      # tamaño máximo de cada archivo de log
+      - LOG_MAX_FILES=5      # archivos antiguos que se conservan
+    ports:
+      - "9090:9090"
+    volumes:
+      - ./logs/abismo-lobby:/app/logs
+    logging:                 # limita también el log interno de Docker (docker compose logs)
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "3"
+```
+
+Antes de arrancarlo por primera vez, crear la carpeta de logs con permisos para el usuario del contenedor (``node``, UID 1000):
+
+```sh
+mkdir -p logs/abismo-lobby
+sudo chown 1000:1000 logs/abismo-lobby
+```
+
+Si la carpeta no existe, Docker la crea como ``root`` y el servidor no puede escribir en ella. En ese caso arranca igualmente, pero sin archivo de log, y muestra el aviso ``Could not set up log file`` en ``docker compose logs``.
+
+* ``restart: unless-stopped`` hace que el contenedor se vuelva a arrancar solo si se cae o si se reinicia el servidor (siempre que ``docker.service`` esté habilitado).
+* Para usar otro puerto, cambiar ``PORT`` y la parte derecha de ``ports``. Para publicarlo en otro puerto del host basta con cambiar la parte izquierda, por ejemplo ``"9191:9090"``.
+* **No debe ponerse detrás de un proxy inverso (Traefik, Nginx, Caddy...)**: el servidor usa la IP de origen de cada conexión para enviar ``host_ip`` en ``match_started``, y con un proxy todos los clientes tendrían la IP del proxy. Publicando el puerto directamente, Docker conserva la IP real de los clientes de la red local.
+* El volumen ``./logs/abismo-lobby`` deja el archivo de log en el host (ver [Logs](#logs)). La base de datos SQLite todavía no se usa (ver ``modules/database.js``). Cuando se use, habrá que añadir otro volumen para que ``database.sqlite`` no se pierda al recrear el contenedor.
+
+### 4. Arrancar el servidor
+
+```sh
+cd ~/docker
+docker compose up -d --build abismo-lobby
+```
+
+Comprobar que está en marcha:
+
+```sh
+docker compose ps abismo-lobby
+docker compose logs -f abismo-lobby     # Ctrl+C para salir
+```
+
+En el log debe aparecer ``Server listening on IP address ... and port 9090``. La IP de esa línea es la interna del contenedor (172.x.x.x); es normal.
+
+### 5. Firewall
+
+Docker abre por su cuenta los puertos publicados en sus reglas de iptables/nftables, pero si el servidor tiene un firewall activo hay que permitir el puerto 9090 desde la red local:
+
+* ufw: ``sudo ufw allow from 192.168.0.0/24 to any port 9090 proto tcp``
+* firewalld: ``sudo firewall-cmd --permanent --add-port=9090/tcp && sudo firewall-cmd --reload``
+
+### 6. Probar la conexión
+
+Desde otro equipo de la red local:
+
+```sh
+npx wscat -c ws://192.168.0.11:9090
+> {"cmd":"login","data":{"username":"test"}}
+< {"cmd":"login","success":true,"data":{"details":"Anonymous login successful"}}
+```
+
+En ``docker compose logs abismo-lobby`` la línea ``Peer connected`` debe mostrar la IP real del equipo (``192.168.0.x``). Si muestra una IP ``172.x.x.x``, hay un proxy de por medio o el puerto no está publicado como se indica arriba, y ``host_ip`` llegará mal a los clientes.
+
+### 7. Actualizar a una nueva versión
+
+Desde la carpeta del ``docker-compose.yaml``:
+
+```sh
+./abismo-26/lobby-server/scripts/github.sh --pull   # descarga los cambios de GitHub
+./abismo-26/lobby-server/scripts/deploy.sh          # reconstruye la imagen y recrea el contenedor
+```
+
+* ``github.sh --pull`` hace ``git fetch`` y ``git pull --ff-only`` en la rama actual y muestra los commits descargados. Si hay cambios locales sin commitear, se detiene sin tocar nada. ``github.sh --help`` muestra la ayuda.
+* ``deploy.sh`` construye la imagen nueva (si el build falla, el contenedor anterior sigue funcionando), detiene el contenedor, lo vuelve a crear, borra las imágenes antiguas y muestra el estado y las últimas líneas del log. Si el ``docker-compose.yaml`` está en otra carpeta o el servicio tiene otro nombre: ``COMPOSE_DIR=/ruta/al/compose SERVICE=otro-nombre ./abismo-26/lobby-server/scripts/deploy.sh``.
+
+### Logs
+
+Dentro del contenedor el servidor escribe su log en ``/app/logs/lobby-server.log``. Con el volumen anterior, en el NAS se encuentra en ``logs/abismo-lobby/lobby-server.log``, junto al ``docker-compose.yaml``, y no se pierde al recrear el contenedor:
+
+```sh
+tail -f logs/abismo-lobby/lobby-server.log            # seguir el log en directo
+grep ERROR logs/abismo-lobby/lobby-server.log*        # buscar errores, incluidos los archivos rotados
+```
+
+Cada línea lleva la fecha y hora en UTC y el nivel (``INFO``, ``DEBUG``, ``WARN`` o ``ERROR``):
+
+```
+2026-11-27T18:25:17.613Z [INFO] Peer connected (id: 437ee50d-..., ip address: 192.168.0.23)
+2026-11-27T18:25:17.615Z [DEBUG] [matador53] login
+```
+
+**Límite de tamaño.** Cuando ``lobby-server.log`` va a superar ``LOG_MAX_SIZE``, se rota: pasa a llamarse ``lobby-server.log.1``, el ``.1`` pasa a ``.2``, y así sucesivamente. El que supera ``LOG_MAX_FILES`` se borra. Con los valores por defecto (``5m`` y ``5``), el log ocupa como mucho unos 30 MB (6 archivos de 5 MB).
+
+| Variable | Por defecto | Descripción |
+| --- | --- | --- |
+| ``LOG_FILE`` | ``/app/logs/lobby-server.log`` en Docker; sin definir fuera de Docker | Ruta del archivo de log. Si no está definida, el log solo sale por consola. |
+| ``LOG_MAX_SIZE`` | ``5m`` | Tamaño máximo de cada archivo: en bytes o con sufijo ``k``, ``m`` o ``g`` (``512k``, ``10m``). |
+| ``LOG_MAX_FILES`` | ``5`` | Número de archivos rotados que se conservan. Con ``0`` no se guardan copias: el archivo se vacía al llegar al límite. |
+
+Para cambiar los límites, editar las variables en el ``docker-compose.yaml`` y recrear el contenedor (``deploy.sh`` o ``docker compose up -d abismo-lobby``).
+
+Las mismas variables sirven también fuera de Docker, por ejemplo: ``LOG_FILE=logs/lobby-server.log npm start``.
+
+El log también sigue saliendo por consola, así que se puede ver con ``docker compose logs``. Docker guarda esa copia aparte, y la sección ``logging`` del compose la limita a 3 archivos de 10 MB.
+
+### Comandos útiles
+
+| Acción | Comando |
+| --- | --- |
+| Ver el log en directo | ``tail -f logs/abismo-lobby/lobby-server.log`` o ``docker compose logs -f abismo-lobby`` |
+| Reiniciar | ``docker compose restart abismo-lobby`` |
+| Detener | ``docker compose stop abismo-lobby`` |
+| Arrancar | ``docker compose start abismo-lobby`` |
+| Eliminar el contenedor | ``docker compose rm -sf abismo-lobby`` |
+| Abrir una shell dentro | ``docker compose exec abismo-lobby sh`` |
+
+### Problemas habituales
+
+* **``Cannot connect to the Docker daemon``**: Docker no está arrancado (``sudo systemctl start docker``) o el usuario no está en el grupo ``docker`` (usar ``sudo`` o volver a iniciar sesión tras el ``usermod``).
+* **``unknown shorthand flag: 'd'`` o ``docker: 'compose' is not a docker command``**: falta el paquete ``docker-compose``.
+* **``Bind for 0.0.0.0:9090 failed: port is already allocated``**: otro proceso usa el puerto 9090 (``sudo ss -ltnp | grep 9090``). Hay que pararlo o publicar el servicio en otro puerto.
+* **Los clientes no conectan**: comprobar que el contenedor está ``running``, que el firewall permite el puerto y que ``websocket_url`` del cliente apunta a la IP del servidor.
+
+## Tests
+
+Los tests usan el runner integrado de Node (``node:test``), así que no necesitan dependencias adicionales.
+
+* ``lobby-server$ npm test``: ejecuta los tests unitarios y después el test de humo.
+* ``lobby-server$ npm run test:unit``: solo los tests unitarios (``test/unit/*.test.js``). Hay un fichero por módulo; ``test/unit/helpers.js`` incluye un ``FakeWs`` que guarda los mensajes enviados a cada peer, para comprobar respuestas y notificaciones sin abrir conexiones reales. ``server.test.js`` sí arranca un servidor real en un puerto libre para probar ``main.js``.
+* ``lobby-server$ npm run test:smoke``: test de humo (``test/smoke.js``), que arranca el servidor en un puerto libre y recorre todo el protocolo con varios clientes WebSocket.
+
+Al añadir un comando nuevo a ``modules/commands.js``, añadir también sus tests en ``test/unit/commands.test.js`` (el test que comprueba la lista de comandos fallará hasta hacerlo).
 
 ## Organización del código
 
@@ -39,6 +235,7 @@ Para ejecutar el test de humo (arranca el servidor en un puerto libre y recorre 
 * ``modules/dispatcher.js``: parsea los mensajes, comprueba que el peer haya hecho login (salvo en ``login``) y envía la respuesta de éxito o de error.
 * ``modules/peer.js``: un cliente conectado (``peer.send(cmd, data)`` envía un mensaje).
 * ``modules/validation.js``, ``modules/exceptions.js``, ``modules/aux.js``: utilidades.
+* ``modules/logger.js``: copia la salida de ``console`` en un archivo de log que rota por tamaño (se activa con ``LOG_FILE``, ver [Logs](#logs)).
 * ``modules/database.js``: perfiles de usuarios registrados (todavía no se usa).
 
 Para añadir un comando nuevo basta con añadir una entrada en ``modules/commands.js``.
@@ -57,6 +254,8 @@ Para comunicarse, los clientes y el servidor intercambian mensajes en formato js
 ### login
 
 Tras iniciar la conexión del WebSocket, el cliente debe identificarse con el comando "login"
+
+Los nombres de usuario no distinguen mayúsculas y minúsculas: si ``Matador53`` está conectado, nadie puede entrar como ``matador53``. El servidor guarda el nombre tal y como se escribió en el login y es el que reciben los demás jugadores.
 
 Solicitud anónima de ejemplo:
 
@@ -98,6 +297,8 @@ Respuesta con error:
 ### create_and_join_room
 
 Cada cliente identificado pueden crear como máximo una habitación. Tras crearla, el propietario entrará automáticamente en ella.
+
+Los nombres de habitación no distinguen mayúsculas y minúsculas: si existe ``Room1`` no se puede crear ``room1``, y ``join_room`` o ``get_room_details`` con ``ROOM1`` se refieren a ``Room1``. El servidor guarda el nombre tal y como lo escribió quien creó la habitación, y es el que aparece en todas las respuestas y notificaciones.
 
 Solicitud de ejemplo:
 
@@ -337,7 +538,7 @@ Respuesta con error:
 
 ### kick_from_current_room
 
-El propietario de una habitación puede echar a un jugador de ella.
+El propietario de una habitación puede echar a un jugador de ella. El nombre no distingue mayúsculas y minúsculas; en las notificaciones se usa el nombre con el que el jugador hizo login.
 
 Solicitud de ejemplo:
 

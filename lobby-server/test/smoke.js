@@ -56,6 +56,8 @@ async function main() {
     assert.deepEqual(r, { cmd: 'login', success: true, data: { details: 'Anonymous login successful' } });
     r = await bob.request('login', { username: 'alice' });
     assert.equal(r.data.details, 'Username already taken');
+    r = await bob.request('login', { username: 'ALICE' });
+    assert.equal(r.data.details, 'Username already taken');
     assert.equal((await bob.request('login', { username: 'bob' })).success, true);
     assert.equal((await carol.request('login', { username: 'carol' })).success, true);
 
@@ -67,8 +69,11 @@ async function main() {
     await bob.next('rooms_changed');
     assert.deepEqual((await carol.next('new_room_available')).data, { name: 'room1' });
 
-    // join_room
-    assert.equal((await bob.request('join_room', { name: 'room1' })).success, true);
+    r = await bob.request('create_and_join_room', { room_name: 'ROOM1' });
+    assert.equal(r.data.details, 'Room name already taken');
+
+    // join_room (el nombre no distingue mayúsculas y minúsculas)
+    assert.equal((await bob.request('join_room', { name: 'Room1' })).success, true);
     assert.deepEqual((await alice.next('player_joined_current_room')).data, { username: 'bob' });
     assert.equal((await carol.request('join_room', { name: 'room1' })).success, true);
     await alice.next('player_joined_current_room');
