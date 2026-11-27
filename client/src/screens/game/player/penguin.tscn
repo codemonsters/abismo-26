@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://bxh1wxmearjtg"]
+[gd_scene format=3 uid="uid://beg2ivkfdi2nk"]
 
 [ext_resource type="PackedScene" uid="uid://bqq2h1njuumkx" path="res://screens/game/player/porfiFunciona.gltf" id="1_bo1dw"]
 [ext_resource type="PackedScene" uid="uid://dbugi7rphu2xo" path="res://screens/game/weapons/bazooka.gltf" id="2_7pejt"]
@@ -10,17 +10,20 @@
 [node name="blockbench_export" unique_id=1005161138 instance=ExtResource("1_bo1dw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.11179757)
 
-[node name="group3" parent="." index="0" unique_id=1871024240]
-transform = Transform3D(-0.8848605, 0.06681797, 0.4610392, 0.09398496, 0.9949156, 0.036190722, -0.4562769, 0.07535449, -0.8866414, 0.04974613, 0.34365767, 0.1875)
+[node name="group3" parent="." index="0" unique_id=1028000687]
+transform = Transform3D(-1, 1.219987e-16, 1.0673503e-17, 1.2246472e-16, 0.9961947, 0.08715575, 8.271806e-25, 0.08715575, -0.9961947, 0.1875, 0.325, 0.0625)
 
-[node name="group4" parent="group3/cabeza2" parent_id_path=PackedInt32Array(1515399387) index="0" unique_id=1315454355]
+[node name="cabeza2" parent="group3" index="0" unique_id=961220550]
+transform = Transform3D(1, 0, 0, 0, 0.9961947, -0.08715574, 0, 0.08715574, 0.9961947, -0.0625, 0.7886894, -0.041333124)
+
+[node name="group4" parent="group3/cabeza2" index="0" unique_id=725495288]
 transform = Transform3D(1, 0, 0, 0, 0.99904823, 0.043619383, 0, -0.043619383, 0.99904823, 0, 0.1875, 0.3125)
 
-[node name="escafandra" parent="group3/cabeza2" parent_id_path=PackedInt32Array(1515399387) index="1" unique_id=993015704]
-transform = Transform3D(0.19999999, 0, 0, 0, 0, 0, 0, 0, -0.39999998, 0, -0.125, 0.1875)
+[node name="escafandra" parent="group3/cabeza2" index="1" unique_id=276854784]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, -0.125, 0.1875)
 
-[node name="brazo izq" parent="group3/cuerpo2" parent_id_path=PackedInt32Array(760220810) index="1" unique_id=1316544887]
-transform = Transform3D(0.72550005, -0.6687514, 0.16254598, -0.2505413, -0.03666365, 0.9674114, -0.64099824, -0.7425815, -0.19414933, -0.20200641, 0.35, 0.20615768)
+[node name="brazo izq" parent="group3/cuerpo2" parent_id_path=PackedInt32Array(353486516) index="1" unique_id=752847458]
+transform = Transform3D(1, 0, 0, 0, 0.99999994, 0, 0, 0, 1, -0.24375, 0.35, -0.03125)
 
 [node name="bazooka" parent="group3/cuerpo2/brazo izq" index="1" unique_id=669702359 instance=ExtResource("2_7pejt")]
 transform = Transform3D(-0.95258313, -0.3042693, 0.0022376627, 0.009928778, -0.023731615, 0.999668, -0.30411497, 0.95229083, 0.02562745, -0.12559009, -0.39248055, -0.042389035)
@@ -41,11 +44,11 @@ visible = false
 transform = Transform3D(-0.9593795, -0.14845034, 0.23990709, 0.25110626, -0.061687782, 0.965992, -0.12860253, 0.986994, 0.09645873, -0.12912786, -0.3020552, -0.052858174)
 visible = false
 
-[node name="brazo der" parent="group3/cuerpo2" parent_id_path=PackedInt32Array(760220810) index="2" unique_id=2007757109]
-transform = Transform3D(0.7022743, -0.5933977, 0.39330664, 0.7002053, 0.6755025, -0.23110378, -0.12854317, 0.43769366, 0.88988817, 0.24375, 0.3875, 0)
+[node name="brazo der" parent="group3/cuerpo2" parent_id_path=PackedInt32Array(353486516) index="2" unique_id=371298319]
+transform = Transform3D(0.99904823, -0.043619383, 0, 0.043619383, 0.99904823, 0, 0, 0, 1, 0.24375, 0.3875, 0)
 
-[node name="group" parent="group3" index="2" unique_id=905927591]
-transform = Transform3D(0.698376, -0.67667645, 0.2331948, 0.009478034, 0.33452842, 0.94233793, -0.71566826, -0.65589595, 0.2400402, 0.025, -0.36131063, 0.083666876)
+[node name="group" parent="group3" index="2" unique_id=1025124305]
+transform = Transform3D(0.651298, -0.59683233, 0.46861714, 0.089050345, 0.67340714, 0.73388875, -0.7535787, -0.43624976, 0.49173686, 0.0625, -0.36131063, 0.083666876)
 
-[node name="group2" parent="group3" index="3" unique_id=1161417089]
-transform = Transform3D(0.3797873, 0.73746157, -0.5584907, -0.043995857, 0.6174416, 0.7853853, 0.924027, -0.27370808, 0.26694173, -0.1875, -0.33631063, 0.021166874)
+[node name="group2" parent="group3" index="3" unique_id=900872621]
+transform = Transform3D(0.64144045, 0.6392422, -0.4241739, -0.14701778, 0.6450826, 0.749836, 0.75295407, -0.41861403, 0.5077621, -0.1875, -0.33631063, 0.021166874)
