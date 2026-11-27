@@ -29,6 +29,146 @@ Desde server/src en una terminal PowerShell:
 
 Se puede acceder a él desde la URL: ``ws://127.0.0.1:9090``
 
+## Despliegue con Docker Compose en un servidor Arch Linux
+
+El servidor de lobbies se puede ejecutar como un contenedor Docker gestionado con Docker Compose. En nuestro caso se ejecuta en el NAS de la red local (``192.168.0.11``), y los clientes se conectan a ``ws://192.168.0.11:9090``, que es el valor por defecto de ``websocket_url`` en ``client/src/lobbies_server/main.gd``. Para desarrollar en local se puede cambiar a ``ws://127.0.0.1:9090`` desde el inspector de Godot.
+
+Archivos que intervienen:
+
+* ``Dockerfile``: construye la imagen con Node.js 24 e instala solo las dependencias de producción (``npm ci --omit=dev``). Copia ``main.js`` y ``modules/`` y arranca con ``node main.js`` en el puerto ``9090``, sin privilegios (usuario ``node``).
+* ``.dockerignore``: evita que ``node_modules``, ``database.sqlite``, los tests y los scripts entren en la imagen.
+* ``scripts/github.sh`` y ``scripts/deploy.sh``: actualizan el código desde GitHub y vuelven a desplegar el contenedor (ver más abajo).
+
+### 1. Preparar el servidor Arch Linux (una sola vez)
+
+Instalar Docker, el plugin de Compose y Git:
+
+```sh
+sudo pacman -Syu docker docker-compose docker-buildx git
+```
+
+Arrancar Docker y hacer que se inicie con el sistema:
+
+```sh
+sudo systemctl enable --now docker.service
+```
+
+Opcionalmente, para usar ``docker`` sin ``sudo``, añadir el usuario al grupo ``docker`` y volver a iniciar sesión. Ten en cuenta que pertenecer a este grupo equivale a tener permisos de root.
+
+```sh
+sudo usermod -aG docker $USER
+```
+
+Comprobar que todo funciona:
+
+```sh
+docker version
+docker compose version
+```
+
+### 2. Descargar el código
+
+En la carpeta donde está el ``docker-compose.yaml`` del servidor (si no existe, crea una carpeta para él, por ejemplo ``~/docker``), clonar el repositorio:
+
+```sh
+cd ~/docker            # carpeta del docker-compose.yaml
+git clone <url-del-repo> abismo-26
+```
+
+Los scripts de despliegue suponen esta estructura:
+
+```
+~/docker/
+├── docker-compose.yaml
+└── abismo-26/
+    └── lobby-server/
+```
+
+### 3. Añadir el servicio al docker-compose.yaml
+
+Añadir dentro de ``services:``. Si el archivo es nuevo, empieza con la línea ``services:``.
+
+```yaml
+  abismo-lobby:
+    build: ./abismo-26/lobby-server
+    container_name: abismo-lobby
+    restart: unless-stopped
+    environment:
+      - PORT=9090
+    ports:
+      - "9090:9090"
+```
+
+* ``restart: unless-stopped`` hace que el contenedor se vuelva a arrancar solo si se cae o si se reinicia el servidor (siempre que ``docker.service`` esté habilitado).
+* Para usar otro puerto, cambiar ``PORT`` y la parte derecha de ``ports``. Para publicarlo en otro puerto del host basta con cambiar la parte izquierda, por ejemplo ``"9191:9090"``.
+* **No debe ponerse detrás de un proxy inverso (Traefik, Nginx, Caddy...)**: el servidor usa la IP de origen de cada conexión para enviar ``host_ip`` en ``match_started``, y con un proxy todos los clientes tendrían la IP del proxy. Publicando el puerto directamente, Docker conserva la IP real de los clientes de la red local.
+* Todavía no hace falta ningún volumen, porque la base de datos SQLite no se usa (ver ``modules/database.js``). Cuando se use, habrá que añadir un volumen para que ``database.sqlite`` no se pierda al recrear el contenedor.
+
+### 4. Arrancar el servidor
+
+```sh
+cd ~/docker
+docker compose up -d --build abismo-lobby
+```
+
+Comprobar que está en marcha:
+
+```sh
+docker compose ps abismo-lobby
+docker compose logs -f abismo-lobby     # Ctrl+C para salir
+```
+
+En el log debe aparecer ``Server listening on IP address ... and port 9090``. La IP de esa línea es la interna del contenedor (172.x.x.x); es normal.
+
+### 5. Firewall
+
+Docker abre por su cuenta los puertos publicados en sus reglas de iptables/nftables, pero si el servidor tiene un firewall activo hay que permitir el puerto 9090 desde la red local:
+
+* ufw: ``sudo ufw allow from 192.168.0.0/24 to any port 9090 proto tcp``
+* firewalld: ``sudo firewall-cmd --permanent --add-port=9090/tcp && sudo firewall-cmd --reload``
+
+### 6. Probar la conexión
+
+Desde otro equipo de la red local:
+
+```sh
+npx wscat -c ws://192.168.0.11:9090
+> {"cmd":"login","data":{"username":"test"}}
+< {"cmd":"login","success":true,"data":{"details":"Anonymous login successful"}}
+```
+
+En ``docker compose logs abismo-lobby`` la línea ``Peer connected`` debe mostrar la IP real del equipo (``192.168.0.x``). Si muestra una IP ``172.x.x.x``, hay un proxy de por medio o el puerto no está publicado como se indica arriba, y ``host_ip`` llegará mal a los clientes.
+
+### 7. Actualizar a una nueva versión
+
+Desde la carpeta del ``docker-compose.yaml``:
+
+```sh
+./abismo-26/lobby-server/scripts/github.sh --pull   # descarga los cambios de GitHub
+./abismo-26/lobby-server/scripts/deploy.sh          # reconstruye la imagen y recrea el contenedor
+```
+
+* ``github.sh --pull`` hace ``git fetch`` y ``git pull --ff-only`` en la rama actual y muestra los commits descargados. Si hay cambios locales sin commitear, se detiene sin tocar nada. ``github.sh --help`` muestra la ayuda.
+* ``deploy.sh`` construye la imagen nueva (si el build falla, el contenedor anterior sigue funcionando), detiene el contenedor, lo vuelve a crear, borra las imágenes antiguas y muestra el estado y las últimas líneas del log. Si el ``docker-compose.yaml`` está en otra carpeta o el servicio tiene otro nombre: ``COMPOSE_DIR=/ruta/al/compose SERVICE=otro-nombre ./abismo-26/lobby-server/scripts/deploy.sh``.
+
+### Comandos útiles
+
+| Acción | Comando |
+| --- | --- |
+| Ver el log en directo | ``docker compose logs -f abismo-lobby`` |
+| Reiniciar | ``docker compose restart abismo-lobby`` |
+| Detener | ``docker compose stop abismo-lobby`` |
+| Arrancar | ``docker compose start abismo-lobby`` |
+| Eliminar el contenedor | ``docker compose rm -sf abismo-lobby`` |
+| Abrir una shell dentro | ``docker compose exec abismo-lobby sh`` |
+
+### Problemas habituales
+
+* **``Cannot connect to the Docker daemon``**: Docker no está arrancado (``sudo systemctl start docker``) o el usuario no está en el grupo ``docker`` (usar ``sudo`` o volver a iniciar sesión tras el ``usermod``).
+* **``unknown shorthand flag: 'd'`` o ``docker: 'compose' is not a docker command``**: falta el paquete ``docker-compose``.
+* **``Bind for 0.0.0.0:9090 failed: port is already allocated``**: otro proceso usa el puerto 9090 (``sudo ss -ltnp | grep 9090``). Hay que pararlo o publicar el servicio en otro puerto.
+* **Los clientes no conectan**: comprobar que el contenedor está ``running``, que el firewall permite el puerto y que ``websocket_url`` del cliente apunta a la IP del servidor.
+
 ## Tests
 
 Los tests usan el runner integrado de Node (``node:test``), así que no necesitan dependencias adicionales.

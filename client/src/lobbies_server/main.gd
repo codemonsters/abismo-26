@@ -2,7 +2,7 @@ extends Node
 
 class_name LobbiesServer
 
-@export var websocket_url = "ws://127.0.0.1:9090"
+@export var websocket_url = "ws://192.168.0.11:9090"
 
 signal ls_connection_closed
 signal ls_connected
