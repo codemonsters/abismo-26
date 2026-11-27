@@ -35,7 +35,12 @@ compose() {
     docker compose --project-directory "$COMPOSE_DIR" -f "$COMPOSE_FILE" "$@"
 }
 
-if ! compose config --services | grep -qx "$SERVICE"; then
+if ! SERVICES="$(compose config --services)"; then
+    echo "Error: $COMPOSE_FILE no es válido (ver el mensaje de docker compose de arriba)." >&2
+    echo "Corrígelo y compruébalo con: docker compose config --quiet" >&2
+    exit 1
+fi
+if ! grep -qx "$SERVICE" <<<"$SERVICES"; then
     echo "Error: el servicio '$SERVICE' no está definido en $COMPOSE_FILE" >&2
     exit 1
 fi
