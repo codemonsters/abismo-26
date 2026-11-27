@@ -52,7 +52,7 @@ func _rollback_tick(delta, _tick, _is_fresh):
 				if weapon == 0:
 					$blockbench_export/AnimationPlayer.play("stand by")
 				elif weapon == 1 or weapon == 2:
-					$blockbench_export/AnimationPlayer.play("stand by")
+					$blockbench_export/AnimationPlayer.play("stand by with gun")
 		
 		if velocity.z < 0:
 			$blockbench_export.rotation_degrees.y = 0
@@ -60,6 +60,7 @@ func _rollback_tick(delta, _tick, _is_fresh):
 			$blockbench_export.rotation_degrees.y = -180
 			
 		if is_on_floor():
+			
 			if Input.is_action_pressed("up_arrow"):
 				if weapon == 0:
 					$blockbench_export/AnimationPlayer.play("jump")
@@ -73,46 +74,40 @@ func _rollback_tick(delta, _tick, _is_fresh):
 		# Add the gravity.
 		if not is_on_floor():
 			velocity.y -= gravity * delta
-
+			print(sin(abs($blockbench_export.global_rotation_degrees.x) + 90))
 		var input_dir = input.movement
-		var direction = (transform.basis * Vector3(0, 0, input_dir.z)).normalized()
-		if direction:
-			velocity.z = direction.z * speed
-			if is_on_floor():
-				if weapon == 0:
-					$blockbench_export/AnimationPlayer.play("swim")
-				elif weapon == 1 or weapon == 2:
-					$blockbench_export/AnimationPlayer.play("swim with gun")
+		var direction = (transform.basis * Vector3($blockbench_export.global_rotation_degrees.x, input_dir.y, input_dir.z)).normalized()
+		if Input.is_action_pressed("ui_up"):
+			if velocity.y < 10 and velocity.y > -10:
+				velocity.y += sin(abs($blockbench_export.rotation_degrees.x) + 90) * speed * 1
+#			velocity.x = cos($blockbench_export.rotation_degrees.x + 90) * speed * 3
+#			print(velocity.x)
+			if weapon == 0:
+				$blockbench_export/AnimationPlayer.play("swim")
+			elif weapon == 1 or weapon == 2:
+				$blockbench_export/AnimationPlayer.play("swim with gun")
 		else:
 			velocity.z = move_toward(velocity.z, 0, speed)
-			if is_on_floor():
-				if weapon == 0:
-					$blockbench_export/AnimationPlayer.play("stand by water")
-				elif weapon == 1 or weapon == 2:
-					$blockbench_export/AnimationPlayer.play("stand by")
+			if weapon == 0:
+				$blockbench_export/AnimationPlayer.play("stand by water")
+			elif weapon == 1 or weapon == 2:
+				$blockbench_export/AnimationPlayer.play("stand by with gun")
+	
+		if Input.is_action_pressed("ui_right"):
+			$blockbench_export.rotation_degrees.x += -5
+		elif Input.is_action_pressed("ui_left"):
+			$blockbench_export.rotation_degrees.x += +5
 		
-		if velocity.z < 0:
-			$blockbench_export.rotation_degrees.y = 0
-		elif velocity.z > 0:
-			$blockbench_export.rotation_degrees.y = -180
-		
-		if Input.is_action_pressed("ui_left"):
-			rotate_x(0.05)
-			velocity.x = 0
-		elif Input.is_action_pressed("ui_right"):
-			rotate_x(-0.05)
-			velocity.x = 0
-		
-		if is_on_floor():
-			if Input.is_action_pressed("up_arrow"):
-				if weapon == 0:
-					$blockbench_export/AnimationPlayer.play("jump")
-				elif weapon == 1 or weapon == 2:
-					$blockbench_export/AnimationPlayer.play("jump with gun")
-				if is_on_wall():
-					velocity.y = jump_power
-				else:
-					velocity.y = jump_power
+		#if is_on_floor():
+			#if Input.is_action_pressed("up_arrow"):
+				#if weapon == 0:
+					#$blockbench_export/AnimationPlayer.play("jump")
+				#elif weapon == 1 or weapon == 2:
+					#$blockbench_export/AnimationPlayer.play("jump with gun")
+				#if is_on_wall():
+					#velocity.y = jump_power
+				#else:
+					#velocity.y = jump_power
 				
 	if Input.is_action_pressed("slot1"):
 		weapon = 1
@@ -129,8 +124,9 @@ func _rollback_tick(delta, _tick, _is_fresh):
 	# multiplying velocity by NetworkTime.physics_factor compensates for it
 	velocity *= NetworkTime.physics_factor
 	
-	# FORZAR el eje X a cero para evitar "drifting"
-	velocity.x = 0
+	# reducir velocidad en el eje X para evitar "drifting"
+
+	velocity.x = velocity.x * 0.95
 	move_and_slide()
 	
 	global_position.x = 0
