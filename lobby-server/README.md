@@ -100,7 +100,7 @@ Añadir dentro de ``services:``. Si el archivo es nuevo, empieza con la línea `
     ports:
       - "9090:9090"
     volumes:
-      - ./logs/abismo-lobby:/app/logs
+      - ./abismo-server/lobby-server/logs:/app/logs
     logging:                 # limita también el log interno de Docker (docker compose logs)
       driver: json-file
       options:
@@ -108,11 +108,11 @@ Añadir dentro de ``services:``. Si el archivo es nuevo, empieza con la línea `
         max-file: "3"
 ```
 
-Antes de arrancarlo por primera vez, crear la carpeta de logs con permisos para el usuario del contenedor (``node``, UID 1000):
+Antes de arrancarlo por primera vez, crear la carpeta de logs con permisos adecuados para el usuario del contenedor (cambiar USER y GROUP por los valores adecuados para el servidor):
 
 ```sh
-mkdir -p logs/abismo-lobby
-sudo chown 1000:1000 logs/abismo-lobby
+mkdir -p abismo-26/lobby-server/logs
+sudo chown USER:GROUP abismo-26/lobby-server/logs
 ```
 
 Si la carpeta no existe, Docker la crea como ``root`` y el servidor no puede escribir en ella. En ese caso arranca igualmente, pero sin archivo de log, y muestra el aviso ``Could not set up log file`` en ``docker compose logs``.
