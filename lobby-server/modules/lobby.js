@@ -1,7 +1,7 @@
 const { v4: uuidv4 } = require('uuid');
 const { Peer } = require('./peer.js');
 const { ProtocolError } = require('./exceptions.js');
-const { RESERVED_USERNAMES, isValidName } = require('./validation.js');
+const { RESERVED_USERNAMES, isValidName, nameKey, sameUsername } = require('./validation.js');
 
 const MAX_PEERS = 100;
 const MAX_ROOMS = 25;
@@ -38,7 +38,7 @@ class Room {
 class Lobby {
     constructor() {
         this.peers = new Set();
-        this.rooms = new Map();     // nombre -> Room
+        this.rooms = new Map();     // nameKey(nombre) -> Room (los nombres no distinguen mayúsculas y minúsculas)
     }
 
     addPeer(ws, ipAddress) {
@@ -58,9 +58,10 @@ class Lobby {
         this.peers.delete(peer);
     }
 
+    // sin distinguir mayúsculas y minúsculas
     getPeerByUsername(username) {
         for (const p of this.peers) {
-            if (p.username === username) {
+            if (sameUsername(p.username, username)) {
                 return p;
             }
         }
@@ -86,8 +87,9 @@ class Lobby {
         peer.username = username;
     }
 
+    // sin distinguir mayúsculas y minúsculas
     getRoom(name) {
-        const room = this.rooms.get(name);
+        const room = this.rooms.get(nameKey(name));
         if (!room) {
             throw new ProtocolError("Room not found");
         }
@@ -121,14 +123,14 @@ class Lobby {
         if (owner.room) {
             throw new ProtocolError("You are already in a room");
         }
-        if (this.rooms.has(name)) {
+        if (this.rooms.has(nameKey(name))) {
             throw new ProtocolError("Room name already taken");
         }
         if (this.rooms.size >= MAX_ROOMS) {
             throw new ProtocolError("Maximum number of rooms reached");
         }
         const room = new Room(name, owner);
-        this.rooms.set(name, room);
+        this.rooms.set(nameKey(name), room);
         this._addPlayer(room, owner);
         this.notifyRoomsChanged();
         return room;
@@ -163,7 +165,7 @@ class Lobby {
         const room = this.roomOf(peer);
         const destroyed = room.owner === peer;
         if (destroyed) {
-            this.rooms.delete(room.name);
+            this.rooms.delete(nameKey(room.name));
             for (const p of room.players) {
                 p.room = null;
             }
@@ -186,20 +188,21 @@ class Lobby {
         return { room, destroyed };
     }
 
+    // el nombre del jugador a expulsar no distingue mayúsculas y minúsculas
     kick(owner, username) {
         const room = this.ownedRoomOf(owner);
-        if (username === owner.username) {
+        if (sameUsername(username, owner.username)) {
             throw new ProtocolError("You cannot kick yourself (leave the room instead)");
         }
-        const kicked = [...room.players].find(p => p.username === username);
+        const kicked = [...room.players].find(p => sameUsername(p.username, username));
         if (!kicked) {
             throw new ProtocolError(`Username ${username} is not in room ${room.name}`);
         }
-        room.broadcast('player_kicked_from_current_room', { username }, owner);
+        room.broadcast('player_kicked_from_current_room', { username: kicked.username }, owner);
         room.players.delete(kicked);
         kicked.room = null;
         this.notifyRoomsChanged();
-        return room;
+        return { room, kicked };
     }
 
     // avisa a todos los peers que hayan hecho login (salvo a 'except') de que la lista de habitaciones o

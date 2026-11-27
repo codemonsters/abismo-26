@@ -29,7 +29,15 @@ Desde server/src en una terminal PowerShell:
 
 Se puede acceder a él desde la URL: ``ws://127.0.0.1:9090``
 
-Para ejecutar el test de humo (arranca el servidor en un puerto libre y recorre todo el protocolo): ``lobby-server$ npm test``
+## Tests
+
+Los tests usan el runner integrado de Node (``node:test``), así que no necesitan dependencias adicionales.
+
+* ``lobby-server$ npm test``: ejecuta los tests unitarios y después el test de humo.
+* ``lobby-server$ npm run test:unit``: solo los tests unitarios (``test/unit/*.test.js``). Hay un fichero por módulo; ``test/unit/helpers.js`` incluye un ``FakeWs`` que guarda los mensajes enviados a cada peer, para comprobar respuestas y notificaciones sin abrir conexiones reales. ``server.test.js`` sí arranca un servidor real en un puerto libre para probar ``main.js``.
+* ``lobby-server$ npm run test:smoke``: test de humo (``test/smoke.js``), que arranca el servidor en un puerto libre y recorre todo el protocolo con varios clientes WebSocket.
+
+Al añadir un comando nuevo a ``modules/commands.js``, añadir también sus tests en ``test/unit/commands.test.js`` (el test que comprueba la lista de comandos fallará hasta hacerlo).
 
 ## Organización del código
 
@@ -57,6 +65,8 @@ Para comunicarse, los clientes y el servidor intercambian mensajes en formato js
 ### login
 
 Tras iniciar la conexión del WebSocket, el cliente debe identificarse con el comando "login"
+
+Los nombres de usuario no distinguen mayúsculas y minúsculas: si ``Matador53`` está conectado, nadie puede entrar como ``matador53``. El servidor guarda el nombre tal y como se escribió en el login y es el que reciben los demás jugadores.
 
 Solicitud anónima de ejemplo:
 
@@ -98,6 +108,8 @@ Respuesta con error:
 ### create_and_join_room
 
 Cada cliente identificado pueden crear como máximo una habitación. Tras crearla, el propietario entrará automáticamente en ella.
+
+Los nombres de habitación no distinguen mayúsculas y minúsculas: si existe ``Room1`` no se puede crear ``room1``, y ``join_room`` o ``get_room_details`` con ``ROOM1`` se refieren a ``Room1``. El servidor guarda el nombre tal y como lo escribió quien creó la habitación, y es el que aparece en todas las respuestas y notificaciones.
 
 Solicitud de ejemplo:
 
@@ -337,7 +349,7 @@ Respuesta con error:
 
 ### kick_from_current_room
 
-El propietario de una habitación puede echar a un jugador de ella.
+El propietario de una habitación puede echar a un jugador de ella. El nombre no distingue mayúsculas y minúsculas; en las notificaciones se usa el nombre con el que el jugador hizo login.
 
 Solicitud de ejemplo:
 

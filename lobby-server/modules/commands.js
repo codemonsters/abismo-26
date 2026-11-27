@@ -67,9 +67,8 @@ const commands = {
 
     kick_from_current_room: {
         run(lobby, peer, data) {
-            const username = str(data.username);
-            const room = lobby.kick(peer, username);
-            return { details: `Username "${username}" was kicked from room "${room.name}"` };
+            const { room, kicked } = lobby.kick(peer, str(data.username));
+            return { details: `Username "${kicked.username}" was kicked from room "${room.name}"` };
         }
     },
 
