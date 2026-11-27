@@ -3,13 +3,17 @@
 [ext_resource type="PackedScene" uid="uid://b5hx2itqholr2" path="res://entities/misc/iglu/iglu.gltf" id="1_eaw1m"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ovq03"]
-size = Vector3(1, 0.46388245, 0.97231483)
+size = Vector3(1.2584648, 0.35431004, 1.0988052)
 
 [node name="Iglu" type="StaticBody3D" unique_id=1677074868]
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="." unique_id=585137631]
-transform = Transform3D(6.994896, 0, -0.32022858, 0, 9.849, 0, 0.26727033, 0, 8.380884, -0.010438053, 2.2831595, -0.5083934)
+transform = Transform3D(6.994896, 0, -0.32022858, 0, 9.849, 0, 0.26727033, 0, 8.380884, -0.015768895, 1.9969815, -0.025292814)
 shape = SubResource("BoxShape3D_ovq03")
 
 [node name="blockbench_export" parent="." unique_id=1895039962 instance=ExtResource("1_eaw1m")]
-transform = Transform3D(6.38688, 0, -1.6397311e-06, 0, 9.005173, 0, 2.3116436e-06, 0, 7.8110476, -0.013343811, 2.3841858e-07, 0.01701641)
+transform = Transform3D(7.556208, 0, -2.714522e-06, 0, 8.3, 0, 2.7348658e-06, 0, 7.4999995, -0.013343811, 2.3841858e-07, 0.01701641)
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="." unique_id=611281382]
+transform = Transform3D(3.9859169, 0, -0.48116082, 0, 7.916, 0, 0.33536214, 0, 5.718794, -0.010566235, 0.39605665, -1.8152115)
+shape = SubResource("BoxShape3D_ovq03")

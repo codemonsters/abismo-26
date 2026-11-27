@@ -17,7 +17,7 @@ script = ExtResource("1_tksy4")
 jump_power = 8.5
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=851466893]
-transform = Transform3D(0.9975068, 0, -0.015306876, 0, 1, 0, 0.017603112, 0, 0.8673871, 0, 0.77399707, -0.0018357635)
+transform = Transform3D(0.9975068, 0, -0.015306876, 0, 1, 0, 0.017603112, 0, 0.8673871, 0, 0.73, -0.062256694)
 shape = SubResource("BoxShape3D_dlfi2")
 
 [node name="RollbackSynchronizer" type="Node" parent="." unique_id=1955909256 node_paths=PackedStringArray("root")]
@@ -40,6 +40,6 @@ mass = 1000.0
 physics_material_override = SubResource("PhysicsMaterial_p0n4n")
 
 [node name="blockbench_export" parent="." unique_id=2113411418 instance=ExtResource("6_nfp01")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.49365115, 0, -0.15157557)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.29883218, 0, -0.029194236)
 
 [node name="MovingStateMachine" type="Node" parent="." unique_id=1971830133]

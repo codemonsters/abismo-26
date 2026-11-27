@@ -264,4 +264,3 @@ transform = Transform3D(2.7, 0, 0, 0, 2.7, 0, 0, 0, 2.7, 0, 0, 6)
 transform = Transform3D(2.7, 0, 0, 0, 2.7, 0, 0, 0, 2.7, 0, 0, 6)
 
 [connection signal="body_entered" from="Exit" to="." method="_on_exit_body_entered"]
-[connection signal="body_entered" from="Locations/DeathArea" to="Locations/DeathArea" method="_on_body_entered"]

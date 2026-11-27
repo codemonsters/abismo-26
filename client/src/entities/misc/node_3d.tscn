@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://d1oq0qeyltojo"]
+
+[ext_resource type="PackedScene" uid="uid://bafg18rfmo112" path="res://main.tscn" id="1_6qdn3"]
+
+[node name="Node3D" type="Node3D" unique_id=687387489]
+
+[node name="blockbench_export" parent="." unique_id=863131614 instance=ExtResource("1_6qdn3")]
+position = Vector2(0, 0.5)

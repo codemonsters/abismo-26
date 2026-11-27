@@ -140,6 +140,5 @@ func _rollback_tick(delta, _tick, _is_fresh):
 func apply_damage(damage_percentage, vector):
 	#TODO: Comprobar si el pingüino que recibe daño es el local
 	life_percentage -= damage_percentage
-	if vector != 0:
-		velocity = vector
+	velocity = vector
 	get_parent().get_node("/root/Main/ScreenRoot/current_screen/Environment/Camera3D/hud_canva/ProgressBar").value = life_percentage
