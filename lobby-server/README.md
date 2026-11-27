@@ -95,14 +95,32 @@ Añadir dentro de ``services:``. Si el archivo es nuevo, empieza con la línea `
     restart: unless-stopped
     environment:
       - PORT=9090
+      - LOG_MAX_SIZE=5m      # tamaño máximo de cada archivo de log
+      - LOG_MAX_FILES=5      # archivos antiguos que se conservan
     ports:
       - "9090:9090"
+    volumes:
+      - ./logs/abismo-lobby:/app/logs
+    logging:                 # limita también el log interno de Docker (docker compose logs)
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "3"
 ```
+
+Antes de arrancarlo por primera vez, crear la carpeta de logs con permisos para el usuario del contenedor (``node``, UID 1000):
+
+```sh
+mkdir -p logs/abismo-lobby
+sudo chown 1000:1000 logs/abismo-lobby
+```
+
+Si la carpeta no existe, Docker la crea como ``root`` y el servidor no puede escribir en ella. En ese caso arranca igualmente, pero sin archivo de log, y muestra el aviso ``Could not set up log file`` en ``docker compose logs``.
 
 * ``restart: unless-stopped`` hace que el contenedor se vuelva a arrancar solo si se cae o si se reinicia el servidor (siempre que ``docker.service`` esté habilitado).
 * Para usar otro puerto, cambiar ``PORT`` y la parte derecha de ``ports``. Para publicarlo en otro puerto del host basta con cambiar la parte izquierda, por ejemplo ``"9191:9090"``.
 * **No debe ponerse detrás de un proxy inverso (Traefik, Nginx, Caddy...)**: el servidor usa la IP de origen de cada conexión para enviar ``host_ip`` en ``match_started``, y con un proxy todos los clientes tendrían la IP del proxy. Publicando el puerto directamente, Docker conserva la IP real de los clientes de la red local.
-* Todavía no hace falta ningún volumen, porque la base de datos SQLite no se usa (ver ``modules/database.js``). Cuando se use, habrá que añadir un volumen para que ``database.sqlite`` no se pierda al recrear el contenedor.
+* El volumen ``./logs/abismo-lobby`` deja el archivo de log en el host (ver [Logs](#logs)). La base de datos SQLite todavía no se usa (ver ``modules/database.js``). Cuando se use, habrá que añadir otro volumen para que ``database.sqlite`` no se pierda al recrear el contenedor.
 
 ### 4. Arrancar el servidor
 
@@ -151,11 +169,41 @@ Desde la carpeta del ``docker-compose.yaml``:
 * ``github.sh --pull`` hace ``git fetch`` y ``git pull --ff-only`` en la rama actual y muestra los commits descargados. Si hay cambios locales sin commitear, se detiene sin tocar nada. ``github.sh --help`` muestra la ayuda.
 * ``deploy.sh`` construye la imagen nueva (si el build falla, el contenedor anterior sigue funcionando), detiene el contenedor, lo vuelve a crear, borra las imágenes antiguas y muestra el estado y las últimas líneas del log. Si el ``docker-compose.yaml`` está en otra carpeta o el servicio tiene otro nombre: ``COMPOSE_DIR=/ruta/al/compose SERVICE=otro-nombre ./abismo-26/lobby-server/scripts/deploy.sh``.
 
+### Logs
+
+Dentro del contenedor el servidor escribe su log en ``/app/logs/lobby-server.log``. Con el volumen anterior, en el NAS se encuentra en ``logs/abismo-lobby/lobby-server.log``, junto al ``docker-compose.yaml``, y no se pierde al recrear el contenedor:
+
+```sh
+tail -f logs/abismo-lobby/lobby-server.log            # seguir el log en directo
+grep ERROR logs/abismo-lobby/lobby-server.log*        # buscar errores, incluidos los archivos rotados
+```
+
+Cada línea lleva la fecha y hora en UTC y el nivel (``INFO``, ``DEBUG``, ``WARN`` o ``ERROR``):
+
+```
+2026-11-27T18:25:17.613Z [INFO] Peer connected (id: 437ee50d-..., ip address: 192.168.0.23)
+2026-11-27T18:25:17.615Z [DEBUG] [matador53] login
+```
+
+**Límite de tamaño.** Cuando ``lobby-server.log`` va a superar ``LOG_MAX_SIZE``, se rota: pasa a llamarse ``lobby-server.log.1``, el ``.1`` pasa a ``.2``, y así sucesivamente. El que supera ``LOG_MAX_FILES`` se borra. Con los valores por defecto (``5m`` y ``5``), el log ocupa como mucho unos 30 MB (6 archivos de 5 MB).
+
+| Variable | Por defecto | Descripción |
+| --- | --- | --- |
+| ``LOG_FILE`` | ``/app/logs/lobby-server.log`` en Docker; sin definir fuera de Docker | Ruta del archivo de log. Si no está definida, el log solo sale por consola. |
+| ``LOG_MAX_SIZE`` | ``5m`` | Tamaño máximo de cada archivo: en bytes o con sufijo ``k``, ``m`` o ``g`` (``512k``, ``10m``). |
+| ``LOG_MAX_FILES`` | ``5`` | Número de archivos rotados que se conservan. Con ``0`` no se guardan copias: el archivo se vacía al llegar al límite. |
+
+Para cambiar los límites, editar las variables en el ``docker-compose.yaml`` y recrear el contenedor (``deploy.sh`` o ``docker compose up -d abismo-lobby``).
+
+Las mismas variables sirven también fuera de Docker, por ejemplo: ``LOG_FILE=logs/lobby-server.log npm start``.
+
+El log también sigue saliendo por consola, así que se puede ver con ``docker compose logs``. Docker guarda esa copia aparte, y la sección ``logging`` del compose la limita a 3 archivos de 10 MB.
+
 ### Comandos útiles
 
 | Acción | Comando |
 | --- | --- |
-| Ver el log en directo | ``docker compose logs -f abismo-lobby`` |
+| Ver el log en directo | ``tail -f logs/abismo-lobby/lobby-server.log`` o ``docker compose logs -f abismo-lobby`` |
 | Reiniciar | ``docker compose restart abismo-lobby`` |
 | Detener | ``docker compose stop abismo-lobby`` |
 | Arrancar | ``docker compose start abismo-lobby`` |
@@ -187,6 +235,7 @@ Al añadir un comando nuevo a ``modules/commands.js``, añadir también sus test
 * ``modules/dispatcher.js``: parsea los mensajes, comprueba que el peer haya hecho login (salvo en ``login``) y envía la respuesta de éxito o de error.
 * ``modules/peer.js``: un cliente conectado (``peer.send(cmd, data)`` envía un mensaje).
 * ``modules/validation.js``, ``modules/exceptions.js``, ``modules/aux.js``: utilidades.
+* ``modules/logger.js``: copia la salida de ``console`` en un archivo de log que rota por tamaño (se activa con ``LOG_FILE``, ver [Logs](#logs)).
 * ``modules/database.js``: perfiles de usuarios registrados (todavía no se usa).
 
 Para añadir un comando nuevo basta con añadir una entrada en ``modules/commands.js``.
