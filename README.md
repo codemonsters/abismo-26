@@ -6,6 +6,10 @@ El repositorio está compuesto por dos proyectos:
 - [Cliente](client): Juego hecho con Godot. Usa Rapier para las físicas deterministas y Netfox para la predicción y el rollback.
 - [Lobby Server](lobby-server): Hecho con Node.js. Se comunica con los clientes a través de WebSocket y almacena la información en una base de datos SQLite.
 
+## Guía de diseño
+
+Todos los modelos 3D y el diseño de los niveles deben cumplir esta [guía de diseño](DESIGN_GUIDE.md).
+
 ## Argumento Idea Provisional
 
 0. Presentacion de la historia: 
